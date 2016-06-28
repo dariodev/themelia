@@ -1,0 +1,82 @@
+.wp-customizer .customize-control-kirki .description {
+    display: block;
+    font-style: italic;
+    line-height: 18px;
+    margin-bottom: 5px;
+    font-weight: 400;
+    font-size: 1em;
+}
+.wp-customizer #customize-control-background_image_size.customize-control-kirki-radio-buttonset .buttonset .switch-label {
+    border-right: none;
+    float: left;
+    margin-bottom: 1px;
+    margin-right: 1px;
+}
+
+.wp-customizer .customize-control-kirki-radio label {
+    line-height: 20px;
+    display: block;
+    margin-left: 24px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+	margin-bottom: 0;
+}
+
+.wp-customizer .customize-control-kirki-radio input,
+.wp-customizer .customize-control-kirki-checkbox input {
+    margin-right: 4px;
+    margin-left: -24px;
+}
+
+.wp-customizer .customize-control-kirki-color .wp-picker-container a.wp-color-result {
+	padding-left: 50%;
+	background-color: #000 !important;
+}
+
+.wp-customizer .customize-control-kirki-color .wp-picker-container a.wp-color-result:after {
+	background: #F7F7F7;
+	color: #555;
+}
+
+.wp-customizer .customize-control-kirki-color .wp-picker-container a.wp-color-result:hover:after {
+	background: #F7F7F7;
+	color: #23282d;
+}
+
+.wp-customizer .customize-control-kirki-color .wp-picker-container a.wp-color-result span {
+    width: 50%;
+}
+
+.wp-customizer .customize-control-kirki-code .CodeMirror {
+    -webkit-transition: all 250ms ease-in-out;
+    -moz-transition: all 250ms ease-in-out;
+    -ms-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    opacity: 1;
+    z-index: 9998;
+    width: 100%;
+}
+.customize-control-kirki label {
+    cursor: text;
+}
+
+body .kirki-customizer-loading-wrapper {
+	background-image: none !important;
+}
+
+.multicolor-single-color-wrapper a.wp-color-result {
+	position: relative;
+}
+.multicolor-single-color-wrapper a.wp-color-result:before {
+	content: "";
+	background: #eee;
+	height: 100%;
+	width: 1px;
+	position: absolute;
+	z-index: 10;
+}
