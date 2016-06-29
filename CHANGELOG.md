@@ -1,7 +1,7 @@
 # Change Log
 
-All notable changes to this theme will be documented in this file.
-This changelog adheres to [Semantic Versioning](http://semver.org/).
+All notable changes to Themelia will be documented in this file.
+This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
 ## [1.0.2] - 2016-06-28
 
