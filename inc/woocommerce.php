@@ -71,18 +71,18 @@ function themelia_woocommerce_classes( $classes ) {
 		<?php do_action( 'themelia_before_content'); ?>
 
 	<?php }
-    
-    /** 
-     * Add WooCommerce ending wrappers
-     * @since 1.3.22
-     */
-    add_action('woocommerce_after_main_content', 'themelia_woocommerce_end', 10);
-    function themelia_woocommerce_end() 
-    {
-    ?>
+	
+	/** 
+	 * Add WooCommerce ending wrappers
+	 * @since 1.3.22
+	 */
+	add_action('woocommerce_after_main_content', 'themelia_woocommerce_end', 10);
+	function themelia_woocommerce_end() 
+	{
+	?>
 
-          <?php do_action( 'themelia_after_content'); ?>
-          
+		  <?php do_action( 'themelia_after_content'); ?>
+		  
 	</main>
 
 <?php

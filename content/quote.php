@@ -1,6 +1,6 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
-    <?php
+	<?php
 		$css_class = ' zero-comments';
 		$number    = (int) get_comments_number( get_the_ID() );
 		
@@ -19,7 +19,7 @@
 
 		<footer class="entry-footer">
 			<?php hybrid_post_format_link(); ?>
-            <span class="post-by"><?php echo esc_html_x( 'posted by', 'post author', 'themelia' ) ?></span>
+			<span class="post-by"><?php echo esc_html_x( 'posted by', 'post author', 'themelia' ) ?></span>
 			<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 			<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 			<?php edit_post_link(); ?><br />

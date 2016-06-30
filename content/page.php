@@ -14,22 +14,22 @@
 		<footer class="entry-footer">
 			<?php edit_post_link(); ?>
 		</footer><!-- .entry-footer -->
-        
+		
 	<?php elseif ( is_search() ) : // If viewing a search results page. ?>
-    
+	
 		<header class="entry-header">
-        
+		
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-            
+			
 			<?php get_the_image(); ?>
-            <?php themelia_post_thumbnail(); ?>
-            
+			<?php themelia_post_thumbnail(); ?>
+			
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
-    
+	
 	<?php else : // If not viewing a single page. ?>
 
 		<?php get_the_image(); ?>

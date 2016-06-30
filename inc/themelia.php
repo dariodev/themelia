@@ -386,38 +386,38 @@ function hybrid_attr_sidebarcustom( $attr, $context ) {
  */
 function link_to_menu_editor( $args )
 {
-    if ( ! current_user_can( 'manage_options' ) )
-    {
-        return;
-    }
+	if ( ! current_user_can( 'manage_options' ) )
+	{
+		return;
+	}
 
-    // see wp-includes/nav-menu-template.php for available arguments
-    extract( $args );
+	// see wp-includes/nav-menu-template.php for available arguments
+	extract( $args );
 
-    $link = $link_before
-        . '<a href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a>'
-        . $link_after;
+	$link = $link_before
+		. '<a href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a>'
+		. $link_after;
 
-    // We have a list
-    if ( FALSE !== stripos( $items_wrap, '<ul' )
-        or FALSE !== stripos( $items_wrap, '<ol' )
-    )
-    {
-        $link = "<li>$link</li>";
-    }
+	// We have a list
+	if ( FALSE !== stripos( $items_wrap, '<ul' )
+		or FALSE !== stripos( $items_wrap, '<ol' )
+	)
+	{
+		$link = "<li>$link</li>";
+	}
 
-    $output = sprintf( $items_wrap, $menu_id, $menu_class, $link );
-    if ( ! empty ( $container ) )
-    {
-        $output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
-    }
+	$output = sprintf( $items_wrap, $menu_id, $menu_class, $link );
+	if ( ! empty ( $container ) )
+	{
+		$output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
+	}
 
-    if ( $echo )
-    {
-        echo $output;
-    }
+	if ( $echo )
+	{
+		echo $output;
+	}
 
-    return $output;
+	return $output;
 }
  
 
@@ -482,17 +482,17 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 	function themelia_construct_site_title()
 	{
 		 ?>
-            
-            <!-- Site title and logo -->
+			
+			<!-- Site title and logo -->
 			<div class="site-title-wrap clearfix">
 				
 				<?php themelia_build_logo(); ?>
-                
-                <div class="titles-wrap branding-item">
+				
+				<div class="titles-wrap branding-item">
 					<?php hybrid_site_title(); ?>
-                    <?php hybrid_site_description(); ?>
-                </div>
-                
+					<?php hybrid_site_description(); ?>
+				</div>
+				
 			</div>
 		<?php // endif;
 	}
