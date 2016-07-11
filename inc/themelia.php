@@ -230,10 +230,6 @@ function themelia_enqueue_styles() {
 	// Load Unsemantic CSS framework.
 	wp_enqueue_style( 'themelia-unsemantic' );
 
-	// Load gallery style if 'cleaner-gallery' is active.
-	if ( current_theme_supports( 'cleaner-gallery' ) )
-		wp_enqueue_style( 'hybrid-gallery' );
-
 	// Load parent theme stylesheet if child theme is active.
 	if ( is_child_theme() )
 		wp_enqueue_style( 'themelia-parent' );
