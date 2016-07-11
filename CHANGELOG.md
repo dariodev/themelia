@@ -8,6 +8,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 ### Fixed
 
 * Fixed typos in recent changes in the description text in README and style.css
+* Escaping home_url in searchform.php
 
 ### Changed
 
@@ -15,7 +16,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 * File version for enqueued scripts
 * Changed prefix for some functions and filters to suit theme name
 * Changed $handle parameter in the enqueue style.css to suit the theme name
-* Change $handle parameter in `wp_add_inline_style()`, in accordance with the style.css enqueue
+* Changed $handle parameter in `wp_add_inline_style()`, in accordance with the style.css enqueue
 * Code cleanup and formatting for better readability
 
 ## [1.0.1] - 2016-06-14
