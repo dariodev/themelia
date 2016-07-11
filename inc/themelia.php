@@ -223,10 +223,10 @@ function themelia_register_styles() {
  * @return void
  */
 function themelia_enqueue_styles() {
-	
+
 	// Load Ionicons.
 	wp_enqueue_style( 'themelia-ionicons' );
-	
+
 	// Load Unsemantic CSS framework.
 	wp_enqueue_style( 'themelia-unsemantic' );
 
@@ -234,9 +234,9 @@ function themelia_enqueue_styles() {
 	if ( is_child_theme() )
 		wp_enqueue_style( 'themelia-parent' );
 
-	// Load active theme hybrid.
+	// Load theme stylesheet.
 	wp_enqueue_style( 'themelia-style' );
-	
+
 }
 
 
