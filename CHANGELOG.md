@@ -9,7 +9,8 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 
 * Fixed typos in recent changes in the description text in README and style.css
 * Escaping home_url in searchform.php
-* Escaping urls, code cleanup and other minor code improvements
+* Escaping urls and code cleanup in author-header.php and author-box.php
+* General code cleanup and other minor improvements
 
 ### Changed
 
