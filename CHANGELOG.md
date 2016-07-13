@@ -9,6 +9,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 
 * Fixed typos in recent changes in the description text in README and style.css
 * Escaping home_url in searchform.php
+* Escaping urls, code cleanup and other minor code improvements
 
 ### Changed
 
@@ -18,6 +19,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 * Changed $handle parameter in the enqueue style.css to suit the theme name
 * Changed $handle parameter in `wp_add_inline_style()`, in accordance with the style.css enqueue
 * Code cleanup and formatting for better readability
+* Removed support for Cleaner Gallery
 
 ## [1.0.1] - 2016-06-14
 
