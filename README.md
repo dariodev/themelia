@@ -1,8 +1,8 @@
 ﻿# Themelia
 Author: dariodev  
 Requires at least: WordPress 4.4  
-Tested up to: WordPress 4.6-beta2  
-Version: 1.0.2  
+Tested up to: WordPress 4.6-RC1  
+Version: 1.0.3  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
