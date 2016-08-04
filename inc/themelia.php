@@ -328,12 +328,7 @@ function themelia_tiny_mce_before_init( $settings ) {
 	return $settings;
 }
 
-/**
- * @dariodev
- *
- */
- 
- 
+
  /**
  * Sidebar attributes.
  *
