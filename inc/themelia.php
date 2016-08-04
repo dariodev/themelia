@@ -34,10 +34,10 @@ add_filter( 'hybrid_site_description', 'themelia_get_site_description');
 add_filter( 'wp_get_attachment_image_attributes', 'themelia_post_thumbnail_sizes_attr', 10 , 3 );
 
 #Changing excerpt more
-add_filter('excerpt_more', 'themelia_new_excerpt_more');
+add_filter('excerpt_more', 'themelia_excerpt_more');
 
 #Read More Button For Excerpt
-add_filter( 'the_excerpt', 'themeprefix_excerpt_read_more_link' );
+add_filter( 'the_excerpt', 'themelia_excerpt_read_more_link' );
 
 # Disable default Breadcrumbs for bbPress plugin.
 add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
@@ -51,6 +51,7 @@ add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
  * @return void
  */
 function themelia_register_image_sizes() {
+
 	// Sets the 'post-thumbnail' size.
 	set_post_thumbnail_size( 150, 150, true );
 }
@@ -63,6 +64,7 @@ function themelia_register_image_sizes() {
  * @return void
  */
 function themelia_register_menus() {
+
 	register_nav_menu( 'primary',    esc_html_x( 'Primary Menu', 'nav menu location', 'themelia' ) );
 	register_nav_menu( 'mobile',     esc_html_x( 'Mobile  Menu', 'nav menu location', 'themelia' ) );
 	register_nav_menu( 'subsidiary', esc_html_x( 'Footer  Menu', 'nav menu location', 'themelia' ) );
@@ -106,8 +108,7 @@ function themelia_register_sidebars() {
 			'description' => esc_html__( 'A sidebar located in the upper footer of the site. Optimized for one wide widget (and multiples thereof).', 'themelia' )
 		)
 	);
-	
-	
+
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-1',
@@ -115,6 +116,7 @@ function themelia_register_sidebars() {
 			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
+
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-2',
@@ -122,6 +124,7 @@ function themelia_register_sidebars() {
 			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
+
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-3',
@@ -129,6 +132,7 @@ function themelia_register_sidebars() {
 			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
+
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-4',
@@ -139,10 +143,12 @@ function themelia_register_sidebars() {
 }
 
 if ( class_exists( 'WooCommerce' ) || class_exists( 'Easy_Digital_Downloads' ) ) {
+
 	add_action( 'widgets_init', 'themelia_register_special_sidebar', 5 );
 }
 
 function themelia_register_special_sidebar() {
+
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'special',
@@ -153,6 +159,7 @@ function themelia_register_special_sidebar() {
 }
 	  
 function themelia_primary_sidebar() {
+
 	if ( class_exists( 'WooCommerce' ) || class_exists( 'Easy_Digital_Downloads' ) ) {
 		if ( is_singular( 'product' ) || is_post_type_archive( 'product' ) || is_singular( 'download' ) || is_post_type_archive( 'download' ) ) {
 			return 'special';
@@ -202,6 +209,7 @@ function themelia_enqueue_scripts() {
  * @global object  $wp_styles
  */
 function themelia_register_styles() {
+
 	global $wp_styles;
 
 	$suffix = hybrid_get_min_suffix();
@@ -213,6 +221,9 @@ function themelia_register_styles() {
 	
 	wp_register_style( 'themelia-parent',   hybrid_get_parent_stylesheet_uri() );
 	wp_register_style( 'themelia-style',    get_stylesheet_uri() );
+	
+	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
+	wp_register_style( 'themelia-locale', get_locale_stylesheet_uri() );
 }
 
 
@@ -365,12 +376,15 @@ function themelia_attr_sidebarcustom( $attr, $context ) {
 
 
 function themelia_attr_content( $attr ) {
+
 	if ( '1c' == hybrid_get_theme_layout() ) :
 		$attr['class'] .= ' grid-100';
 	endif;
+
 	if ( '2c-l' == hybrid_get_theme_layout() ) :
 		$attr['class'] .= ' grid-70 tablet-grid-66';
 	endif;
+
 	if ( '2c-r' == hybrid_get_theme_layout() ) :
 		$attr['class'] .= ' grid-70 tablet-grid-66 push-30 tablet-push-33';
 	endif;
@@ -379,9 +393,11 @@ function themelia_attr_content( $attr ) {
 }
 
 function themelia_attr_sidebar( $attr ) {
+
 	if ( '2c-r' == hybrid_get_theme_layout() ) :
 		$attr['class'] .= ' pull-70 tablet-pull-66';
 	endif;
+
 	$attr['class'] .= ' grid-30 tablet-grid-33';
 	
 	return $attr;
@@ -537,6 +553,7 @@ function themelia_get_site_description() {
  * @return string A source size value for use in a post thumbnail 'sizes' attribute.
  */
 function themelia_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
+
 	if ( 'post-thumbnail' === $size ) {
 		is_active_sidebar( 'primary' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
 		! is_active_sidebar( 'primary' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
@@ -557,6 +574,7 @@ if ( ! function_exists( 'themelia_post_thumbnail' ) ) :
  * @since Themelia 1.0.0
  */
 function themelia_post_thumbnail() {
+
 	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 		return;
 	}
@@ -579,13 +597,24 @@ function themelia_post_thumbnail() {
 endif;
 
 
-function themelia_new_excerpt_more($more) {
+/**
+ * Filter the string displayed after a trimmed excerpt
+ *
+ * @since Themelia 1.0.0
+ */
+function themelia_excerpt_more($more) {
+
 	return '&hellip;';
 }
 
 
-//Read More Button For Excerpt
-function themeprefix_excerpt_read_more_link( $output ) {
+/**
+ * Read More Button For Excerpt
+ *
+ * @since Themelia 1.0.0
+ */
+function themelia_excerpt_read_more_link( $output ) {
+
 	global $post;
 	return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="entry-more-link"><span>' . esc_attr_x( 'Read More', 'excerpt', 'themelia' ) . '</span></a>';
 }
@@ -618,5 +647,6 @@ function themelia_has_gravatar( $email_address ) {
  * @since  Themelia 1.0.0
  */
 function themelia_bbp_no_breadcrumb ($param) {
+
 	return true;
 }
