@@ -24,6 +24,7 @@ add_filter( 'tiny_mce_before_init', 'themelia_tiny_mce_before_init' );
 # Add custom attributes
 add_filter( 'hybrid_attr_content', 'themelia_attr_content' );
 add_filter( 'hybrid_attr_sidebar', 'themelia_attr_sidebar' );
+add_filter( 'hybrid_attr_sidebarcustom', 'themelia_attr_sidebarcustom', 5, 2 );
 
 # Custom filtering for Site Title & Description
 add_filter( 'hybrid_site_title', 'themelia_get_site_title');
@@ -342,8 +343,8 @@ function themelia_tiny_mce_before_init( $settings ) {
  * @param  string  $context
  * @return array
  */
-add_filter( 'hybrid_attr_sidebarcustom', 'hybrid_attr_sidebarcustom', 5, 2 );
-function hybrid_attr_sidebarcustom( $attr, $context ) {
+
+function themelia_attr_sidebarcustom( $attr, $context ) {
 
 	$attr['class'] = 'sidebar';
 	$attr['role']  = 'complementary';
@@ -357,7 +358,7 @@ function hybrid_attr_sidebarcustom( $attr, $context ) {
 
 		if ( $sidebar_name ) {
 			// Translators: The %s is the sidebar name. This is used for the 'aria-label' attribute.
-			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Sidebar', 'sidebar aria label', 'hybrid-core' ), $sidebar_name ) );
+			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Sidebar', 'sidebar aria label', 'themelia' ), $sidebar_name ) );
 		}
 	}
 
@@ -366,56 +367,7 @@ function hybrid_attr_sidebarcustom( $attr, $context ) {
 
 	return $attr;
 }
- 
-/**
- * Menu fallback. 
- *
- * @param  array $args
- * @return string
- * @since Themelia 1.0.0
- */
-/**
- * Menu fallback. Link to the menu editor if that is useful.
- *
- * @param  array $args
- * @return string
- */
-function link_to_menu_editor( $args )
-{
-	if ( ! current_user_can( 'manage_options' ) )
-	{
-		return;
-	}
 
-	// see wp-includes/nav-menu-template.php for available arguments
-	extract( $args );
-
-	$link = $link_before
-		. '<a href="' .admin_url( 'nav-menus.php' ) . '">' . $before . 'Add a menu' . $after . '</a>'
-		. $link_after;
-
-	// We have a list
-	if ( FALSE !== stripos( $items_wrap, '<ul' )
-		or FALSE !== stripos( $items_wrap, '<ol' )
-	)
-	{
-		$link = "<li>$link</li>";
-	}
-
-	$output = sprintf( $items_wrap, $menu_id, $menu_class, $link );
-	if ( ! empty ( $container ) )
-	{
-		$output  = "<$container class='$container_class' id='$container_id'>$output</$container>";
-	}
-
-	if ( $echo )
-	{
-		echo $output;
-	}
-
-	return $output;
-}
- 
 
 function themelia_attr_content( $attr ) {
 	if ( '1c' == hybrid_get_theme_layout() ) :
