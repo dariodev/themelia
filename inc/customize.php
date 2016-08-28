@@ -319,7 +319,7 @@ function themelia_customizer_styles_cache() {
 	}
 
 	// Add the CSS inline.
-	// Please note that you must first enqueue the actual 'my-style' stylesheet.
+	// Please note that you must first enqueue the actual 'themelia-style' stylesheet.
 	// See http://codex.wordpress.org/Function_Reference/wp_add_inline_style#Examples
 	wp_add_inline_style( 'themelia-style', $data );
 
@@ -329,45 +329,8 @@ add_action( 'wp_enqueue_scripts', 'themelia_customizer_styles_cache', 1002 );
 /**
  * Reset the cache when saving the customizer
  */
-add_action( 'customize_save_after', 'my_reset_style_cache_on_customizer_save' );
-function my_reset_style_cache_on_customizer_save() {
+add_action( 'customize_save_after', 'themelia_reset_style_cache_on_customizer_save' );
+function themelia_reset_style_cache_on_customizer_save() {
 	remove_theme_mod( 'themelia_customizer_styles' );
-}
-
-/**
- * TO DO:
- * Set custom font stacks.
- * 
- */
-//return apply_filters( 'kirki/fonts/standard_fonts', $standard_fonts );
-//add_action('kirki/fonts/standard_fonts', 'get_new_fonts');
-function get_new_fonts() {
-	$i18n = Kirki_l10n::get_strings();
-	$standard_fonts = array(
-		'serif' => array(
-			'label' => $i18n['serif'],
-			'stack' => 'Georgia,Times,"Times New Roman",serif',
-		),
-		'sans-serif' => array(
-			'label'  => $i18n['sans-serif'],
-			'stack'  => 'Helvetica,Arial,sans-serif',
-		),
-		'monospace' => array(
-			'label' => $i18n['monospace'],
-			'stack' => 'Monaco,"Lucida Sans Typewriter","Lucida Typewriter","Courier New",Courier,monospace',
-		),
-	);
-	return $standard_fonts;
-}
-	
-/**
- * TO DO:
- * Set your own array of Google fonts
- * 
- */
-//add_action('kirki/fonts/google_fonts_path', 'my_fonts_array');
-function my_fonts_array() {
-	$path_new = wp_normalize_path( dirname( __FILE__ ) ) . '/myfonts_2.php';
-	return $path_new;
 }
 		
