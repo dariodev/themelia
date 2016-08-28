@@ -3,6 +3,21 @@
 All notable changes to Themelia will be documented in this file.
 This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+## [1.0.4] - 2016-08-29
+
+### Fixed
+
+* Function prefix in customize.php
+* Code cleanup
+
+### Changed
+
+* Added filters for custom attributes / container id and class - in themelia.php
+
+### Removed
+
+* Unused functions removed from customize.php
+
 ## [1.0.3] - 2016-08-04
 
 ### Fixed
