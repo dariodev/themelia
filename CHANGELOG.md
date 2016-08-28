@@ -13,6 +13,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 ### Changed
 
 * Added filters for custom attributes / container id and class - in themelia.php
+* Containers attributes through hybrid_attr() function - in header.php
 
 ### Removed
 
