@@ -2631,7 +2631,7 @@ span.logo_helper {
 	}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1025px) {
 
 	.header-inline .site-title-wrap {
 		position: absolute;
@@ -2674,7 +2674,7 @@ span.logo_helper {
 	}
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1024px) {
 
 	.header-inline .site-title-wrap {
 		float: left;
