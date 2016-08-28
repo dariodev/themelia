@@ -7,7 +7,7 @@
 
 <body <?php hybrid_attr( 'body' ); ?>>
 
-	<div id="container">
+	<div <?php hybrid_attr( 'container' ); ?>>
 
 		<div class="skip-link">
 			<a href="#content" class="screen-reader-text"><?php esc_html_e( 'Skip to content', 'themelia' ); ?></a>
@@ -16,8 +16,8 @@
 		<header <?php hybrid_attr( 'header' ); ?>>
 			
 			<div <?php hybrid_attr( 'branding' ); ?>> 
-				<div id="access" class="site-access grid-container">
-					<div class="grid-100 relative">
+				<div <?php hybrid_attr( 'access' ); ?>>
+                    <div <?php hybrid_attr( 'access-inner' ); ?>>
 
 						<?php themelia_construct_site_title(); ?>
 
@@ -29,9 +29,11 @@
 
 		</header><!-- #header -->
 
-		<div id="main" class="main">
-			<div class="grid-container">
+		<div <?php hybrid_attr( 'main' ); ?>>
+			<div <?php hybrid_attr( 'grid-container' ); ?>>
 			
 			<?php if ( true == get_theme_mod( 'display_breadcrumbs', true ) ) : ?>
-				<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+
+					<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+
 			<?php endif; ?>
