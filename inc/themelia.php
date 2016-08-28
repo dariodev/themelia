@@ -25,6 +25,10 @@ add_filter( 'tiny_mce_before_init', 'themelia_tiny_mce_before_init' );
 add_filter( 'hybrid_attr_content', 'themelia_attr_content' );
 add_filter( 'hybrid_attr_sidebar', 'themelia_attr_sidebar' );
 add_filter( 'hybrid_attr_sidebarcustom', 'themelia_attr_sidebarcustom', 5, 2 );
+add_filter( 'hybrid_attr_container', 'themelia_attr_container', 5 );
+add_filter( 'hybrid_attr_access', 'themelia_attr_access', 5 );
+add_filter( 'hybrid_attr_access-inner', 'themelia_attr_access_inner', 5 );
+add_filter( 'hybrid_attr_main', 'themelia_attr_main', 5 );
 
 # Custom filtering for Site Title & Description
 add_filter( 'hybrid_site_title', 'themelia_get_site_title');
@@ -340,7 +344,7 @@ function themelia_tiny_mce_before_init( $settings ) {
 }
 
 
- /**
+/**
  * Sidebar attributes.
  *
  * @since  Themelia 1.0.0
@@ -349,7 +353,6 @@ function themelia_tiny_mce_before_init( $settings ) {
  * @param  string  $context
  * @return array
  */
-
 function themelia_attr_sidebarcustom( $attr, $context ) {
 
 	$attr['class'] = 'sidebar';
@@ -374,7 +377,15 @@ function themelia_attr_sidebarcustom( $attr, $context ) {
 	return $attr;
 }
 
-
+/**
+ * Custom attributes / build layout.
+ *
+ * @since  Themelia 1.0.0
+ * @access public
+ * @param  array   $attr
+ * @param  string  $context
+ * @return array
+ */
 function themelia_attr_content( $attr ) {
 
 	if ( '1c' == hybrid_get_theme_layout() ) :
@@ -392,6 +403,7 @@ function themelia_attr_content( $attr ) {
 	return $attr;
 }
 
+
 function themelia_attr_sidebar( $attr ) {
 
 	if ( '2c-r' == hybrid_get_theme_layout() ) :
@@ -400,6 +412,49 @@ function themelia_attr_sidebar( $attr ) {
 
 	$attr['class'] .= ' grid-30 tablet-grid-33';
 	
+	return $attr;
+}
+
+/**
+ * Custom filters / Containers attributes.
+ *
+ * @since  Themelia 1.0.4
+ * @access public
+ * @param  array   $attr
+ * @return array
+ */
+function themelia_attr_container( $attr ) {
+
+	$attr['id']       = 'container';
+	$attr['class']    = 'container';
+
+	return $attr;
+}
+
+function themelia_attr_access( $attr ) {
+
+	$attr['id']       = 'access';
+	$attr['class']    = 'site-access';
+	$attr['class']   .= ' grid-container';
+
+	return $attr;
+}
+
+function themelia_attr_access_inner( $attr ) {
+
+	$attr['id']       = 'access-inner';
+	$attr['class']    = 'access-inner';
+	$attr['class']   .= ' grid-100';
+	$attr['class']   .= ' relative';
+
+	return $attr;
+}
+
+function themelia_attr_main( $attr ) {
+
+	$attr['id']       = 'main';
+	$attr['class']    = 'main';
+
 	return $attr;
 }
 
