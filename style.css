@@ -4084,6 +4084,7 @@ li.ping .comment-meta .comment-permalink {
 	float: left;
 	font-size: 1em;
 	margin-bottom: 10px;
+	margin-right: 10px;
 }
 		
 .comment-form input:not([type="submit"]),

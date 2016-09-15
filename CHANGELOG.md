@@ -10,6 +10,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 * Fix Windows Phone scale issue in unsemantic.css
 * Fix the issue with media queries and browser zoom using the exact same values for both min-width and max-width in unsemantic.css
 * Fix main nav dropdowns for Stacked-Centered header layout (class .header-s-c)
+* Minor style.css tweak (label margin)
 
 ## [1.0.5] - 2016-09-15
 
