@@ -3,6 +3,14 @@
 All notable changes to Themelia will be documented in this file.
 This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+## [1.0.6] - 2016-09-15
+
+### Fixed
+
+* Fix Windows Phone scale issue in unsemantic.css
+* Fix the issue with media queries and browser zoom using the exact same values for both min-width and max-width in unsemantic.css
+* Fix main nav dropdowns for Stacked-Centered header layout (class .header-s-c)
+
 ## [1.0.5] - 2016-09-15
 
 ### Fixed

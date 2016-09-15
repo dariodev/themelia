@@ -1,8 +1,8 @@
 ﻿# Themelia
 Author: dariodev  
 Requires at least: WordPress 4.4  
-Tested up to: WordPress 4.6  
-Version: 1.0.5  
+Tested up to: WordPress 4.6.1  
+Version: 1.0.6  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
@@ -112,7 +112,7 @@ License: GNU GPL, Version 2 (or later)
 Source: http://themehybrid.com/hybrid-core  
 
 **Kirki Toolkit** v2.3.6, Copyright (c) 2016, Aristeides Stathopoulos  
-Licenses: MIT/GPL2 
+Licenses: MIT/GPL2  
 Source: http://kirki.org/
 
 **Ionicons** icon font v2.0.1, Copyright (c) 2016, Drifty   
