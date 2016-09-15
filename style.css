@@ -14,10 +14,15 @@
  * Themelia is distributed under the terms of the GNU GPL
 
  * Themelia is based on Hybrid Core http://themehybrid.com/hybrid-core, Hybrid Core Copyright (c) 2008 - 2015, Justin Tadlock
-
- * DO NOT ADD YOUR CSS TO THIS FILE - IT WILL BE LOST
- * To add your own CSS, use a child theme or use Custom CSS Editor section in the customizer
  */
+ 
+/*---------------------------------------------------------------------------------------------
+ * DO NOT ADD YOUR CSS TO THIS FILE - It will be lost when the theme is next updated.
+ * You can then overwrite specific style rules in your child theme's `style.css` file.
+ *
+ * This file is only loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file. 
+ * Otherwise, the `style.min.css` file is loaded.
+--------------------------------------------------------------------------------------------- */
  
 /*---------------------------------------------------------
  Contents
