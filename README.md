@@ -2,7 +2,7 @@
 Author: dariodev  
 Requires at least: WordPress 4.4  
 Tested up to: WordPress 4.6  
-Version: 1.0.4  
+Version: 1.0.5  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
@@ -111,7 +111,7 @@ GNU General Public License for more details.
 License: GNU GPL, Version 2 (or later)  
 Source: http://themehybrid.com/hybrid-core  
 
-**Kirki Toolkit** v2.3.2, Copyright (c) 2016, Aristeides Stathopoulos  
+**Kirki Toolkit** v2.3.6, Copyright (c) 2016, Aristeides Stathopoulos  
 Licenses: MIT/GPL2 
 Source: http://kirki.org/
 
@@ -135,6 +135,12 @@ License: [WTFPL](http://sam.zoy.org/wtfpl/)
 Licenses: MIT/GPL2  
 
 ### Note
+
+**Kirki Toolkit modification (original version is 2.3.6)**  
+- Removed CodeMirror to reduce the size  
+- Changed text-domain, from 'kirki' into 'themelia'  
+- Removed enqueuing empty kirki-styles-. Changed $handle parameter in `wp_add_inline_style()`, added inline 'themelia-style'. The change is in the following file "class-kirki-styles-frontend.php".  
+This bundled and modified version of Kirki library can easily and safely be overriden by oficial Kirki plugin. If you need CodeMirror it is safe to activate official version of Kirki plugin. If you activate Kirki plugin, bundled library will not load.
 
 All jQuery plugins are minified and merged into one file (*jquery.plugins.js*) and enqueued in the theme. Full source versions are also bundled in theme package.
 

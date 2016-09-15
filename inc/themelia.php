@@ -513,53 +513,43 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 endif;
 
 
-/**
- * Custom Paging Navigation.
- *
- * @package Themelia
- */
-if ( ! function_exists( 'themelia_paging_nav' ) ) :
+if ( ! function_exists( 'themelia_paging_nav' ) ) {
+	/**
+	 * Display navigation to next/previous set of posts when applicable.
+	 *
+	 * @package Themelia
+	 */
 	function themelia_paging_nav() {
-		// Don't print empty markup if there's only one page.
-		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-			return;
-		}
 
-		$paged        = get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1;
-		$pagenum_link = html_entity_decode( get_pagenum_link() );
-		$query_args   = array();
-		$url_parts    = explode( '?', $pagenum_link );
-
-		if ( isset( $url_parts[1] ) ) {
-			wp_parse_str( $url_parts[1], $query_args );
-		}
-
-		$pagenum_link = remove_query_arg( array_keys( $query_args ), $pagenum_link );
-		$pagenum_link = trailingslashit( $pagenum_link ) . '%_%';
-
-		$format  = $GLOBALS['wp_rewrite']->using_index_permalinks() && ! strpos( $pagenum_link, 'index.php' ) ? 'index.php/' : '';
-		$format .= $GLOBALS['wp_rewrite']->using_permalinks() ? user_trailingslashit( 'page/%#%', 'paged' ) : '?paged=%#%';
-
-		// Set up paginated links.
-		$links = paginate_links( array(
-			'base'     => $pagenum_link,
-			'format'   => $format,
-			'total'    => $GLOBALS['wp_query']->max_num_pages,
-			'current'  => $paged,
-			'type'     => 'list',
-			'mid_size' => apply_filters( 'themelia_pagination_mid_size', 2 ),
-			'add_args' => array_map( 'urlencode', $query_args ),
-			'prev_text' => __( '&larr; Previous', 'themelia' ),
-			'next_text' => __( 'Next &rarr;', 'themelia' ),
-		) );
-
-		if ( $links ) :
-
-			echo '<div class="pagination">' . $links . '</div>'; 
-
-		endif;
+		$args = array(
+			'mid_size'  => apply_filters( 'themelia_pagination_mid_size', 2 ),
+			'prev_text' => _x( '&larr; Previous', 'posts navigation', 'themelia' ),
+			'next_text' => _x( 'Next &rarr;',     'posts navigation', 'themelia' )
+			);
+		
+		the_posts_pagination( $args );
 	}
-endif;
+}
+
+
+if ( ! function_exists( 'themelia_post_nav' ) ) {
+	/**
+	 * Display navigation to next/previous post when applicable.
+	 */
+	function themelia_post_nav() {
+
+		$args = array(
+			'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'themelia' ) . '</span> ' .
+				'<span class="screen-reader-text">' . __( 'Next post:', 'themelia' ) . '</span> ' .
+				'<span class="post-title">%title</span>',
+			'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'themelia' ) . '</span> ' .
+				'<span class="screen-reader-text">' . __( 'Previous post:', 'themelia' ) . '</span> ' .
+				'<span class="post-title">%title</span>',
+		);
+
+		the_post_navigation( $args );
+	}
+}
 
 
 /**
@@ -671,7 +661,7 @@ function themelia_excerpt_more($more) {
 function themelia_excerpt_read_more_link( $output ) {
 
 	global $post;
-	return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="entry-more-link"><span>' . esc_attr_x( 'Read More', 'excerpt', 'themelia' ) . '</span></a>';
+	return $output . ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="entry-more-link"><span>' . esc_attr_x( 'Read More', 'excerpt', 'themelia' ) . '</span></a>';
 }
 
 

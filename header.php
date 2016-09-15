@@ -23,7 +23,7 @@
 
 						<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
 					
-					</div><!-- .grid-100 -->
+					</div><!-- .access-inner -->
 				</div><!-- #access -->
 			</div><!-- #branding -->    
 
@@ -31,9 +31,5 @@
 
 		<div <?php hybrid_attr( 'main' ); ?>>
 			<div <?php hybrid_attr( 'grid-container' ); ?>>
-			
-			<?php if ( true == get_theme_mod( 'display_breadcrumbs', true ) ) : ?>
 
-					<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
-
-			<?php endif; ?>
+				<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>

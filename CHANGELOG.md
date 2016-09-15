@@ -3,6 +3,26 @@
 All notable changes to Themelia will be documented in this file.
 This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+## [1.0.5] - 2016-09-15
+
+### Fixed
+
+* Escaping `get_permalink()` in content/*.php files
+* Fix style for showing stacked and centered nav menu
+* CSS tweak for forms (input, textarea width)
+* CSS tweak for Print styles (@media print)
+
+### Changed
+
+* Removed custom pagination. The function `themelia_paging_nav(`) is now a wrapper for the core `the_posts_pagination()` function.
+* Navigation to next/previous post is wrapped in `themelia_post_nav(`) function.
+
+### Updated
+
+* Kirki library updated to version 2.3.6
+* Removed custom panels from Customizer
+* Added theme support for the core Custom Background function
+
 ## [1.0.4] - 2016-08-29
 
 ### Fixed
@@ -13,7 +33,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 ### Changed
 
 * Added filters for custom attributes / container id and class - in themelia.php
-* Containers attributes through hybrid_attr() function - in header.php
+* Containers attributes through `hybrid_attr()` function - in header.php
 * Changed CSS media query - mobile menu appears at 1024px
 
 ### Removed
@@ -32,7 +52,7 @@ This changelog adheres to [Semantic Versioning](http://semver.org/). Version for
 ### Fixed
 
 * Fixed typos in recent changes in the description text in README and style.css
-* Escaping home_url in searchform.php
+* Escaping `home_url()` in searchform.php
 * Escaping urls and code cleanup in author-header.php and author-box.php
 * General code cleanup and other minor improvements
 

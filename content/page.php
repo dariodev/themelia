@@ -19,7 +19,7 @@
 	
 		<header class="entry-header">
 		
-			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
+			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 			
 			<?php get_the_image(); ?>
 			<?php themelia_post_thumbnail(); ?>
@@ -35,7 +35,7 @@
 		<?php get_the_image(); ?>
 
 		<header class="entry-header">
-			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
+			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>

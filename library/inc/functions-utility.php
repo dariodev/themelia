@@ -55,6 +55,23 @@ function hybrid_add_post_type_support() {
 }
 
 /**
+ * This is a wrapper function for core WP's `get_theme_mod()` function.  Core doesn't
+ * provide a filter hook for the default value (useful for child themes).  The purpose
+ * of this function is to provide that additional filter hook.  To filter the final
+ * theme mod, use the core `theme_mod_{$name}` filter hook.
+ *
+ * @since  3.1.0
+ * @access public
+ * @param  string  $name
+ * @param  mixed   $default
+ * @return mixed
+ */
+function hybrid_get_theme_mod( $name, $default = false ) {
+
+	return get_theme_mod( $name, apply_filters( "hybrid_theme_mod_{$name}_default", $default ) );
+}
+
+/**
  * Function for setting the content width of a theme.  This does not check if a content width has been set; it
  * simply overwrites whatever the content width is.
  *
@@ -184,7 +201,9 @@ function hybrid_get_menu_name( $location ) {
 
 	$locations = get_nav_menu_locations();
 
-	return isset( $locations[ $location ] ) ? wp_get_nav_menu_object( $locations[ $location ] )->name : '';
+	$menu = isset( $locations[ $location ] ) ? wp_get_nav_menu_object( $locations[ $location ] ) : '';
+
+	return $menu ? $menu->name : '';
 }
 
 /**
@@ -195,7 +214,47 @@ function hybrid_get_menu_name( $location ) {
  * @return string
  */
 function hybrid_get_min_suffix() {
-	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+	return hybrid_is_script_debug() ? '' : '.min';
+}
+
+/**
+ * Conditional check to determine if we are in script debug mode.  This is generally used
+ * to decide whether to load development versions of scripts/styles.
+ *
+ * @since  3.1.0
+ * @access public
+ * @return bool
+ */
+function hybrid_is_script_debug() {
+
+	return apply_filters( 'hybrid_is_script_debug', defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
+}
+
+/**
+ * Replaces `%1$s` and `%2$s` with the template and stylesheet directory paths.
+ *
+ * @since  3.1.0
+ * @access public
+ * @param  string  $value
+ * @return string
+ */
+function hybrid_sprintf_theme_dir( $value ) {
+
+	return sprintf( $value, get_template_directory(), get_stylesheet_directory() );
+}
+
+/**
+ * Replaces `%1$s` and `%2$s` with the template and stylesheet directory URIs.
+ *
+ * @since  3.1.0
+ * @access public
+ * @param  string  $value
+ * @return string
+ */
+function hybrid_sprintf_theme_uri( $value ) {
+
+	return sprintf( $value, get_template_directory_uri(), get_stylesheet_directory_uri() );
 }
 
 /**

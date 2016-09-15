@@ -1,6 +1,6 @@
 <?php 
 	// Get how many widgets to show
-	$widgets = get_theme_mod( 'get_footer_widgets', 0 );
+	$widgets = get_theme_mod( 'themelia_footer_widgets', 0 );
 	
 	if ( !empty( $widgets ) && 0 !== $widgets ) : 
 	

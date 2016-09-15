@@ -33,21 +33,6 @@ if ( ! class_exists( 'Kirki_Controls_Code_Control' ) ) {
 		public $type = 'kirki-code';
 
 		/**
-		 * Refresh the parameters passed to the JavaScript via JSON.
-		 *
-		 * @access public
-		 */
-		public function to_json() {
-			if ( ! isset( $this->choices['language'] ) ) {
-				$this->choices['language'] = 'css';
-			}
-			if ( ! isset( $this->choices['theme'] ) ) {
-				$this->choices['theme'] = 'monokai';
-			}
-			parent::to_json();
-		}
-
-		/**
 		 * Enqueue control related scripts/styles.
 		 *
 		 * @access public
@@ -103,7 +88,7 @@ if ( ! class_exists( 'Kirki_Controls_Code_Control' ) ) {
 					<span class="description customize-control-description">{{{ data.description }}}</span>
 				<# } #>
 				<a href="#" class="button edit button-primary">{{ data.choices.label }}</a>
-				<textarea class="kirki-codemirror-editor collapsed">{{{ data.value }}}</textarea>
+				<textarea {{{ data.inputAttrs }}} class="kirki-codemirror-editor collapsed">{{{ data.value }}}</textarea>
 				<a href="#" class="close">
 					<span class="dashicons dashicons-no"></span>
 					<span class="screen-reader-text">{{ data.l10n['close-editor'] }}</span>

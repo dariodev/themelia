@@ -162,6 +162,19 @@ function hybrid_get_default_layout() {
 }
 
 /**
+ * Checks if the current layout matches the layout to check against.
+ *
+ * @since  3.1.0
+ * @access public
+ * @param  string  $layout
+ * @return bool
+ */
+function hybrid_is_layout( $layout ) {
+
+	return $layout === hybrid_get_theme_layout();
+}
+
+/**
  * Gets a post layout.
  *
  * @since  3.0.0
@@ -288,7 +301,7 @@ function hybrid_filter_layout( $theme_layout ) {
 	elseif ( is_author() )
 		$layout = hybrid_get_user_layout( get_queried_object_id() );
 
-	return !empty( $layout ) && 'default' !== $layout ? $layout : $theme_layout;
+	return !empty( $layout ) && hybrid_layout_exists( $layout ) && 'default' !== $layout ? $layout : $theme_layout;
 }
 
 /**

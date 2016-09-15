@@ -23,21 +23,32 @@
  * @author     Dario Devcic <dario@relishpress.com>
  * @copyright  Copyright (c) 2016, Dario Devcic
  * @link       http://relishpress.com/themes/themelia
+ * @credits    Based on Hybrid Base theme Copyright (c) 2013 - 2016, Justin Tadlock
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 // Get the template directory and make sure it has a trailing slash.
-$hybrid_base_dir = trailingslashit( get_template_directory() );
+$themelia_base_dir = trailingslashit( get_template_directory() );
 
-// Load the Hybrid Core framework and theme files.
-require_once( $hybrid_base_dir . 'library/hybrid.php' );
-require_once( $hybrid_base_dir . 'inc/themelia.php'	  );
-
-// Launch the Hybrid Core framework.
+// Load the Hybrid Core framework and launch it.
+require_once( $themelia_base_dir . 'library/hybrid.php' );
 new Hybrid();
+
+// Load theme-specific files.
+require_once( $themelia_base_dir . 'inc/custom-background.php' );
+
+// No need to include embeded Kirki toolkit if Kirki plugin is installed.
+if ( !class_exists( 'Kirki' ) ) {
+	// Include Kirki
+	include_once( dirname( __FILE__ ) . '/inc/kirki/kirki.php' );
+}
+
+// Include Kirki Configuration
+require_once( dirname( __FILE__ ) . '/inc/kirki-conf.php' );
 
 // Do theme setup on the 'after_setup_theme' hook.
 add_action( 'after_setup_theme', 'themelia_theme_setup', 5 );
+
 
 /**
  * Theme setup function. This function adds support for theme features and defines the default theme
@@ -49,12 +60,15 @@ add_action( 'after_setup_theme', 'themelia_theme_setup', 5 );
  */
 function themelia_theme_setup() {
 	
+	// Load Themelia functions.
+	require_once( trailingslashit( get_template_directory() ) . 'inc/themelia.php' );
+	
 	// Load customizer.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 
 	// Load WooCommerce compatibility.
 	if ( class_exists( 'WooCommerce' ) ) {
-		require get_template_directory() . '/inc/woocommerce.php';
+		require trailingslashit( get_template_directory() ) . '/inc/woocommerce.php';
 	}
 
 	// Theme layouts.
@@ -77,8 +91,8 @@ function themelia_theme_setup() {
 		'post-formats',
 		array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' )
 	);
-	
-	// Custom logo
+
+	// Setup the WordPress core custom logo feature.
 	add_theme_support( 'custom-logo', array(
 		'height'      => 160,
 		'width'       => 600,

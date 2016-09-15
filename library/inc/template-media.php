@@ -160,24 +160,21 @@ function hybrid_get_image_size_links() {
 	$sizes[] = 'full';
 
 	// Loop through each of the image sizes.
-	foreach ( $sizes as $size  ) {
+	foreach ( $sizes as $size ) {
 
 		// Get the image source, width, height, and whether it's intermediate.
 		$image = wp_get_attachment_image_src( get_the_ID(), $size );
-		
-
 
 		// Add the link to the array if there's an image and if $is_intermediate (4th array value) is true or full size.
 		if ( ! empty( $image ) && ( true === $image[3] || 'full' == $size ) ) {
 
 			// Translators: Media dimensions - 1 is width and 2 is height.
 			$label = sprintf( esc_html__( '%1$s &#215; %2$s', 'hybrid-core' ), number_format_i18n( absint( $image[1] ) ), number_format_i18n( absint( $image[2] ) ) );
-			
-			$imgurl = esc_url($image[0]);
 
-			$links[] = sprintf( '<a href="%1$s" class="image-size-link">%2$s</a>',
-			$imgurl,
-			$label
+			$links[] = sprintf(
+				'<a href="%s" class="image-size-link">%s</a>',
+				esc_url( $image[0] ),
+				$label
 			);
 		}
 	}

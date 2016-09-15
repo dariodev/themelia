@@ -21,6 +21,7 @@ if ( ! class_exists( 'Kirki_Init' ) ) {
 		 * The class constructor.
 		 */
 		public function __construct() {
+			$this->set_url();
 			add_action( 'after_setup_theme', array( $this, 'set_url' ) );
 			add_action( 'customize_update_user_meta', array( $this, 'update_user_meta' ), 10, 2 );
 			add_action( 'wp_loaded', array( $this, 'add_to_customizer' ), 1 );
@@ -185,7 +186,7 @@ if ( ! class_exists( 'Kirki_Init' ) ) {
 		 *
 		 * @return array 	('variable-name' => value)
 		 */
-		public function get_variables() {
+		public static function get_variables() {
 
 			$variables = array();
 
