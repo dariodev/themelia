@@ -14,18 +14,18 @@
 		</div><!-- .skip-link -->
 
 		<header <?php hybrid_attr( 'header' ); ?>>
-			
-			<div <?php hybrid_attr( 'branding' ); ?>> 
+
+			<div <?php hybrid_attr( 'branding' ); ?>>
 				<div <?php hybrid_attr( 'access' ); ?>>
                     <div <?php hybrid_attr( 'access-inner' ); ?>>
 
 						<?php themelia_construct_site_title(); ?>
 
 						<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
-					
+
 					</div><!-- .access-inner -->
 				</div><!-- #access -->
-			</div><!-- #branding -->    
+			</div><!-- #branding -->
 
 		</header><!-- #header -->
 

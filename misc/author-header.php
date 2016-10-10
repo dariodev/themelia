@@ -11,7 +11,7 @@ $author_url_stripped = preg_replace('#^https?://#', '', rtrim($author_url,'/'));
 	<h1 <?php hybrid_attr( 'archive-title' ); ?>><?php esc_html_e( 'Author: ', 'themelia' ); ?> <?php the_archive_title(); ?></h1>
 
 	<?php if ( $desc = get_the_archive_description() ) : // Check for description. ?>
-	
+
 		<?php if( themelia_has_gravatar( $author_email )) : ?>
 			<div class="author-avatar clr" rel="author">
 				<?php echo $author_avatar; ?>

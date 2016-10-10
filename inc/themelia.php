@@ -161,7 +161,7 @@ function themelia_register_special_sidebar() {
 		)
 	);
 }
-	  
+
 function themelia_primary_sidebar() {
 
 	if ( class_exists( 'WooCommerce' ) || class_exists( 'Easy_Digital_Downloads' ) ) {
@@ -193,7 +193,7 @@ function themelia_enqueue_scripts() {
 	// Load the html5 shiv.
 	wp_enqueue_script( 'themelia-html5', get_template_directory_uri() . '/js/html5{$suffix}.js', array(), '3.7.3' );
 	wp_script_add_data( 'themelia-html5', 'conditional', 'lt IE 9' );
-	
+
 	wp_localize_script(
 		'themelia',
 		'themelia_i18n',
@@ -201,7 +201,7 @@ function themelia_enqueue_scripts() {
 			'search_toggle' => esc_html__( 'Expand Search Form', 'themelia' )
 		)
 	);
-	
+
 }
 
 
@@ -222,10 +222,10 @@ function themelia_register_styles() {
 	// Register styles for use by themes.
 	wp_register_style( 'themelia-unsemantic', $theme_css . "unsemantic{$suffix}.css", array(), null, 'all' );
 	wp_register_style( 'themelia-ionicons', $theme_css . "ionicons{$suffix}.css", array(), null, 'all' );
-	
+
 	wp_register_style( 'themelia-parent',   hybrid_get_parent_stylesheet_uri() );
 	wp_register_style( 'themelia-style',    get_stylesheet_uri() );
-	
+
 	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
 	wp_register_style( 'themelia-locale', get_locale_stylesheet_uri() );
 }
@@ -411,7 +411,7 @@ function themelia_attr_sidebar( $attr ) {
 	endif;
 
 	$attr['class'] .= ' grid-30 tablet-grid-33';
-	
+
 	return $attr;
 }
 
@@ -466,19 +466,19 @@ if ( ! function_exists( 'themelia_build_logo' ) ) :
 	 * @since Themelia 1.0.0
 	 */
 	function themelia_build_logo() {
-		
+
 		// Get our logo URL if we're using the custom logo
 		$logo_url = ( function_exists( 'the_custom_logo' ) && get_theme_mod( 'custom_logo' ) ) ? wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ) : false;
-		
+
 		// Get our logo from the custom logo
 		$logo = $logo_url[0];
-		
+
 		// If we don't have a logo, return
 		if ( empty( $logo ) )
 			return;
-		
+
 		// Print our HTML
-		printf( 
+		printf(
 			'<span class="logo_helper"></span><a href="%1$s" title="%2$s" rel="home"><img class="logo-image branding-item" src="%3$s" alt="%2$s" title="%2$s" /></a>',
 			apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) ),
 			apply_filters( 'themelia_logo_title', esc_attr( get_bloginfo( 'name', 'display' ) ) ),
@@ -496,17 +496,17 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 	function themelia_construct_site_title()
 	{
 		 ?>
-			
+
 			<!-- Site title and logo -->
 			<div class="site-title-wrap clearfix">
-				
+
 				<?php themelia_build_logo(); ?>
-				
+
 				<div class="titles-wrap branding-item">
 					<?php hybrid_site_title(); ?>
 					<?php hybrid_site_description(); ?>
 				</div>
-				
+
 			</div>
 		<?php // endif;
 	}
@@ -526,7 +526,7 @@ if ( ! function_exists( 'themelia_paging_nav' ) ) {
 			'prev_text' => _x( '&larr; Previous', 'posts navigation', 'themelia' ),
 			'next_text' => _x( 'Next &rarr;',     'posts navigation', 'themelia' )
 			);
-		
+
 		the_posts_pagination( $args );
 	}
 }
@@ -567,7 +567,7 @@ function themelia_get_site_title() {
 		else :
 			$title = sprintf( '<p %s><a href="%s" rel="home">%s</a></p>', hybrid_get_attr( 'site-title' ), esc_url( home_url() ), $title );
 		endif;
-		
+
 	return $title;
 }
 
@@ -579,11 +579,11 @@ function themelia_get_site_title() {
  * @return string
  */
 function themelia_get_site_description() {
-	
+
 	if ( $desc = get_bloginfo( 'description' ) )
 		$desc = sprintf( '<p %s>%s</p>', hybrid_get_attr( 'site-description' ), $desc );
-		
-	echo $desc;		
+
+	echo $desc;
 }
 
 /**

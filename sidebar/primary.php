@@ -1,14 +1,14 @@
 <?php if ( '1c' !== hybrid_get_theme_layout() ) : // If not a one-column layout. ?>
 
 	<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
-    
+
 		<div class="sidebar-inner">
 			<?php if ( is_active_sidebar( 'primary' ) ) : // If the sidebar has widgets. ?>
-    
+
                 <?php dynamic_sidebar( 'primary' ); // Displays the primary sidebar. ?>
-    
+
             <?php else : // If the sidebar has no widgets. ?>
-    
+
                 <?php the_widget(
                     'WP_Widget_Text',
                     array(
@@ -24,9 +24,9 @@
                         'after_title'   => '</h3>'
                     )
                 ); ?>
-    
+
             <?php endif; // End widgets check. ?>
-            
+
 		</div>
 	</aside><!-- #sidebar-primary -->
 

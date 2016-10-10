@@ -3,7 +3,7 @@
 	<?php
 		$css_class = ' zero-comments';
 		$number    = (int) get_comments_number( get_the_ID() );
-		
+
 		if ( 1 === $number )
 			$css_class = ' one-comment';
 		elseif ( 1 < $number )

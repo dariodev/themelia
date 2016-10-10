@@ -3,7 +3,7 @@
 	<?php
 		$css_class = ' zero-comments';
 		$number    = (int) get_comments_number( get_the_ID() );
-		
+
 		if ( 1 === $number )
 			$css_class = ' one-comment';
 		elseif ( 1 < $number )
@@ -36,7 +36,7 @@
 			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => '<span>,</span> ',  'text' => esc_html__( 'Posted in: %s', 'themelia' ) ) ); ?>
 			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => '<span>,</span> ', 'text' => esc_html__( 'Tagged: %s', 'themelia' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->
-		
+
 		<?php get_template_part( 'misc/author-box' ); ?>
 
 	<?php else : // If not viewing a single post. ?>

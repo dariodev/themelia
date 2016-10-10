@@ -1,10 +1,10 @@
 <?php	
-/** 
+/**
  * WooCommerce support
  */
 add_theme_support( 'woocommerce' );
 
-/** 
+/**
  * Remove default WooCommerce wrappers
  * @since 1.0
  */
@@ -42,13 +42,13 @@ function themelia_woocommerce_classes( $classes ) {
 	if ( true === $cute ) {
 		$classes[] = 'woocommerce-columns-' . loop_columns();
 	}
-	
+
 	if ( is_active_sidebar( 'woocommerce' )  ) {
 		$classes[] = 'woocommerce-columns-3';
 	} else {
 		$classes[] = 'woocommerce-columns-4';
 	}
-	
+
 
 	// If our main sidebar doesn't contain widgets, adjust the layout to be full-width.
 	if ( ! is_active_sidebar( 'woocommerce' ) ) {
@@ -58,12 +58,12 @@ function themelia_woocommerce_classes( $classes ) {
 	return $classes;
 }
 
-	/** 
+	/**
 	 * Add WooCommerce starting wrappers
 	 * @since 1.3.22
 	 */
 	add_action('woocommerce_before_main_content', 'themelia_woocommerce_start', 10);
-	function themelia_woocommerce_start() 
+	function themelia_woocommerce_start()
 	{ ?>
 
 	<main <?php hybrid_attr( 'content' ); ?>>
@@ -71,18 +71,18 @@ function themelia_woocommerce_classes( $classes ) {
 		<?php do_action( 'themelia_before_content'); ?>
 
 	<?php }
-	
-	/** 
+
+	/**
 	 * Add WooCommerce ending wrappers
 	 * @since 1.3.22
 	 */
 	add_action('woocommerce_after_main_content', 'themelia_woocommerce_end', 10);
-	function themelia_woocommerce_end() 
+	function themelia_woocommerce_end()
 	{
 	?>
 
 		  <?php do_action( 'themelia_after_content'); ?>
-		  
+
 	</main>
 
 <?php

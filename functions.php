@@ -59,10 +59,10 @@ add_action( 'after_setup_theme', 'themelia_theme_setup', 5 );
  * @return void
  */
 function themelia_theme_setup() {
-	
+
 	// Load Themelia functions.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/themelia.php' );
-	
+
 	// Load customizer.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/customize.php' );
 

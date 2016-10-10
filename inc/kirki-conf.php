@@ -1,14 +1,14 @@
 <?php
 if ( class_exists( 'Kirki' ) ) {
-	
+
 	Kirki::add_config( 'themelia_config', array(
 		'capability'    => 'edit_theme_options',
 		'option_type'   => 'theme_mod',
 		'disable_output' => false,
 	) );
-	
+
 	Kirki_Fonts_Google::$force_load_all_variants = true;
-	
+
 	/****
 	 * -> START Site Identity
 	 *    Section: title_tagline
@@ -23,7 +23,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'priority'    => 2,
 		'transport'   => 'auto',
 	) );
-	
+
 	Kirki::add_field( 'themelia_config', array(
 		'type'        => 'toggle',
 		'settings'    => 'themelia_site_description',
@@ -34,7 +34,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'priority'    => 4,
 		'transport'   => 'auto',
 	) );
-	
+
 	/* - END Site Identity
 	 **/
 
@@ -82,14 +82,14 @@ if ( class_exists( 'Kirki' ) ) {
 		),
 		'transport' => 'auto',
 	) );
-	
+
 	/* - END Layout
 	 **/
 
 
 	/*
 	 * -> SECTION Site Title & Header (themelia_header_settings)
-	 *            
+	 *
 	 */
 	Kirki::add_section( 'themelia_header_settings', array(
 		'title'          => esc_attr__( 'Site Title &amp; Header', 'themelia' ),
@@ -102,7 +102,7 @@ if ( class_exists( 'Kirki' ) ) {
 		* -> START Site Title & Header
 		* Section: themelia_header_settings
 		*/
-				
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'select',
 			'settings'    => 'themelia_header_layout',
@@ -246,7 +246,7 @@ if ( class_exists( 'Kirki' ) ) {
 
 	/*
 	 * -> SECTION Main Navigation (themelia_menu_typography)
-	 *            
+	 *
 	 */
 	Kirki::add_section( 'themelia_menu_typography', array(
 		'title'          => esc_attr__( 'Main Navigation', 'themelia' ),
@@ -300,7 +300,7 @@ if ( class_exists( 'Kirki' ) ) {
 
 	/*
 	 * -> SECTION Main Navigation Colors (themelia_menu_colors)
-	 *            
+	 *
 	 */
 	Kirki::add_section( 'themelia_menu_colors', array(
 		'title'          => __( 'Main Navigation Colors', 'themelia' ),
@@ -312,7 +312,7 @@ if ( class_exists( 'Kirki' ) ) {
 	   /*
 		* -> START Main Navigation Colors
 		*/
-		
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'multicolor',
 			'settings'    => 'nav_link_color',
@@ -376,7 +376,7 @@ if ( class_exists( 'Kirki' ) ) {
 				  'property' => 'background',
 				),
 			),
-		) );	
+		) );
 
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'multicolor',
@@ -493,14 +493,14 @@ if ( class_exists( 'Kirki' ) ) {
 		) );
 		/* - END Main Navigation Colors
 		 **/
- 
+
 
    /*
 	* -> SECTION Base Typography
-	*            
+	*
 	*/
 	Kirki::add_section( 'themelia_base_typography', array(
-		'title'          => __( 'Body Text and Links', 'themelia' ), 
+		'title'          => __( 'Body Text and Links', 'themelia' ),
 		'priority'       => 25,
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -573,7 +573,7 @@ if ( class_exists( 'Kirki' ) ) {
 
    /*
 	* -> SECTION Modular Scale
-	*            
+	*
 	*/
 	Kirki::add_section( 'themelia_modular_scale', array(
 		'title'          => __( 'Text Size - Modular Scale', 'themelia' ),
@@ -649,7 +649,7 @@ if ( class_exists( 'Kirki' ) ) {
 				'perfect-fourth' => esc_attr__( '[1.333] - Perfect Fourth ', 'themelia' ),
 			),
 		) );
-		
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'number',
 			'settings'    => 'base_typography_small',
@@ -685,10 +685,10 @@ if ( class_exists( 'Kirki' ) ) {
 
    /*
 	* -> SECTION Headings & Entry Titles
-	*            
+	*
 	*/
 	Kirki::add_section( 'themelia_headings_typography', array(
-		'title'          => esc_attr__( 'Headings &amp; Entry Titles', 'themelia' ), 
+		'title'          => esc_attr__( 'Headings &amp; Entry Titles', 'themelia' ),
 		'priority'       => 25,
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -927,7 +927,7 @@ if ( class_exists( 'Kirki' ) ) {
 
    /*
 	* -> SECTION Links & secondary
-	*            
+	*
 	*/
 	Kirki::add_section( 'themelia_secondary_typography', array(
 		'title'          => __( 'Breadcrumbs & Secondary Text', 'themelia' ),
@@ -1037,7 +1037,7 @@ if ( class_exists( 'Kirki' ) ) {
    /*
 	* -> SECTION Colors
 	*    Add into the default WP section - Colors (along with bacgeound color)
-	*            
+	*
 	*/
 
 	   /*
