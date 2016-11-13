@@ -18,8 +18,8 @@
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
-				<?php if ( comments_open() && 0 < $number ) : '<span class="sep">' . _ex( ' | ', 'By Line separator', 'themelia' ) . '</span>'; endif ?>
-				<?php comments_popup_link( ( '' ), '<span>' . number_format_i18n( 1 ) . '</span>' . __( ' Comment', 'themelia' ), '<span>%</span>' .  __( ' Comments', 'themelia' ), 'comments-link' . $css_class, '' ); ?>
+				<?php if ( comments_open() && 0 < $number ) : '<span class="sep">' . _ex( ' | ', 'By Line separator', 'themelia' ) . '</span>'; ?>
+				<?php comments_popup_link( ( '' ), '<span>' . number_format_i18n( 1 ) . '</span>' . __( ' Comment', 'themelia' ), '<span>%</span>' .  __( ' Comments', 'themelia' ), 'comments-link' . $css_class, '' ); endif ?>
 				<?php edit_post_link(); ?>
 			</div><!-- .entry-byline -->
 
@@ -49,8 +49,8 @@
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
-				<?php if ( comments_open() && 0 < $number ) : '<span class="sep">' . _ex( ' | ', 'By Line separator', 'themelia' ) . '</span>'; endif ?>
-				<?php comments_popup_link( ( '' ), '<span>' . number_format_i18n( 1 ) . '</span>' . __( ' Comment', 'themelia' ), '<span>%</span>' .  __( ' Comments', 'themelia' ), 'comments-link' . $css_class, '' ); ?>
+				<?php if ( comments_open() && 0 < $number ) : '<span class="sep">' . _ex( ' | ', 'By Line separator', 'themelia' ) . '</span>'; ?>
+				<?php comments_popup_link( ( '' ), '<span>' . number_format_i18n( 1 ) . '</span>' . __( ' Comment', 'themelia' ), '<span>%</span>' .  __( ' Comments', 'themelia' ), 'comments-link' . $css_class, '' ); endif ?>
 				<?php edit_post_link(); ?>
 			</div><!-- .entry-byline -->
 

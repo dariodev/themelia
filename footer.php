@@ -1,5 +1,5 @@
-			<?php hybrid_get_sidebar( themelia_primary_sidebar('primary') ); // Calls themelia_primary_sidebar() function and loads the sidebar/*.php template. ?>
-
+					<?php hybrid_get_sidebar( themelia_primary_sidebar('primary') ); // Calls themelia_primary_sidebar() function and loads the sidebar/*.php template. ?>
+				</div><!-- .inner .main-inner -->
 			</div><!-- .grid-container -->
 		</div><!-- #main -->
 

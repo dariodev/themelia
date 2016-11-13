@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes( 'html' ); ?>>
+<html <?php language_attributes( 'html' ); ?> class="no-js">
 
 <head <?php hybrid_attr( 'head' ); ?>>
 <?php wp_head(); // Hook required for scripts, styles, and other <head> items. ?>
@@ -9,9 +9,7 @@
 
 	<div <?php hybrid_attr( 'container' ); ?>>
 
-		<div class="skip-link">
-			<a href="#content" class="screen-reader-text"><?php esc_html_e( 'Skip to content', 'themelia' ); ?></a>
-		</div><!-- .skip-link -->
+		<a href="#content" class="skip-link screen-reader-text focusable"><?php esc_html_e( 'Skip to content', 'themelia' ); ?></a><!-- .skip-link -->
 
 		<header <?php hybrid_attr( 'header' ); ?>>
 
@@ -31,5 +29,5 @@
 
 		<div <?php hybrid_attr( 'main' ); ?>>
 			<div <?php hybrid_attr( 'grid-container' ); ?>>
-
-				<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+				<div class="inner main-inner">
+					<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>

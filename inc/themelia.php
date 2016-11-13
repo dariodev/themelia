@@ -1,4 +1,7 @@
 <?php
+# Detect javascript.
+add_action( 'wp_head', 'themelia_javascript_detection', 0 );
+
 # Register Theme styles.
 add_action( 'wp_enqueue_scripts', 'themelia_register_styles', 0 );
 
@@ -26,6 +29,7 @@ add_filter( 'hybrid_attr_content', 'themelia_attr_content' );
 add_filter( 'hybrid_attr_sidebar', 'themelia_attr_sidebar' );
 add_filter( 'hybrid_attr_sidebarcustom', 'themelia_attr_sidebarcustom', 5, 2 );
 add_filter( 'hybrid_attr_container', 'themelia_attr_container', 5 );
+add_filter( 'hybrid_attr_branding', 'themelia_attr_branding', 5 );
 add_filter( 'hybrid_attr_access', 'themelia_attr_access', 5 );
 add_filter( 'hybrid_attr_access-inner', 'themelia_attr_access_inner', 5 );
 add_filter( 'hybrid_attr_main', 'themelia_attr_main', 5 );
@@ -46,6 +50,16 @@ add_filter( 'the_excerpt', 'themelia_excerpt_read_more_link' );
 # Disable default Breadcrumbs for bbPress plugin.
 add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
 
+/**
+ * Javascript detection.
+ *
+ * @since  Themelia 1.0.0
+ * @access public
+ * @return void
+ */
+function themelia_javascript_detection() {
+	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
+}
 
 /**
  * Registers custom image sizes for the theme.
@@ -60,6 +74,7 @@ function themelia_register_image_sizes() {
 	set_post_thumbnail_size( 150, 150, true );
 }
 
+
 /**
  * Registers nav menu locations.
  *
@@ -69,10 +84,10 @@ function themelia_register_image_sizes() {
  */
 function themelia_register_menus() {
 
-	register_nav_menu( 'primary',    esc_html_x( 'Primary Menu', 'nav menu location', 'themelia' ) );
-	register_nav_menu( 'mobile',     esc_html_x( 'Mobile  Menu', 'nav menu location', 'themelia' ) );
-	register_nav_menu( 'subsidiary', esc_html_x( 'Footer  Menu', 'nav menu location', 'themelia' ) );
+	register_nav_menu( 'primary',    esc_html_x( 'Primary', 'nav menu location', 'themelia' ) );
+	register_nav_menu( 'subsidiary', esc_html_x( 'Footer', 'nav menu location', 'themelia' ) );
 }
+
 
 /**
  * Registers layouts.
@@ -87,6 +102,7 @@ function themelia_register_layouts() {
 	hybrid_register_layout( '2c-l', array( 'label' => esc_html__( '2 Columns: Content / Sidebar', 'themelia' ), 'image' => '%s/images/layouts/2c-l.png' ) );
 	hybrid_register_layout( '2c-r', array( 'label' => esc_html__( '2 Columns: Sidebar / Content', 'themelia' ), 'image' => '%s/images/layouts/2c-r.png' ) );
 }
+
 
 /**
  * Registers sidebars.
@@ -187,8 +203,11 @@ function themelia_enqueue_scripts() {
 
 	$suffix = hybrid_get_min_suffix();
 
-	wp_enqueue_script( 'hoverIntent' );
-	wp_enqueue_script( 'plugins', trailingslashit( get_template_directory_uri() ) . "js/jquery.plugins{$suffix}.js", array( 'jquery' ),'1.0.1', true );
+	//wp_enqueue_script( 'hoverIntent' );
+	wp_enqueue_script( 'imagesloaded', trailingslashit( get_template_directory_uri() ) . "js/imagesloaded.pkgd{$suffix}.js", array( 'jquery' ),'1.0.1', true );
+	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ),'1.0.1', true );
+	wp_enqueue_script( 'smartmenus', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus{$suffix}.js", array( 'jquery' ), '1.0.1', true );
+	wp_enqueue_script( 'smartmenus-keyboard', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus.keyboard{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	wp_enqueue_script( 'themelia', trailingslashit( get_template_directory_uri() ) . "js/themelia{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	// Load the html5 shiv.
 	wp_enqueue_script( 'themelia-html5', get_template_directory_uri() . '/js/html5{$suffix}.js', array(), '3.7.3' );
@@ -222,7 +241,6 @@ function themelia_register_styles() {
 	// Register styles for use by themes.
 	wp_register_style( 'themelia-unsemantic', $theme_css . "unsemantic{$suffix}.css", array(), null, 'all' );
 	wp_register_style( 'themelia-ionicons', $theme_css . "ionicons{$suffix}.css", array(), null, 'all' );
-
 	wp_register_style( 'themelia-parent',   hybrid_get_parent_stylesheet_uri() );
 	wp_register_style( 'themelia-style',    get_stylesheet_uri() );
 
@@ -282,6 +300,7 @@ function themelia_get_editor_styles() {
 	return $editor_styles;
 }
 
+
 /**
  * Returns the active theme editor stylesheet URI.
  *
@@ -305,6 +324,7 @@ function themelia_get_editor_stylesheet_uri() {
 	return $style_uri;
 }
 
+
 /**
  * Returns the parent theme editor stylesheet URI.
  *
@@ -327,6 +347,7 @@ function themelia_get_parent_editor_stylesheet_uri() {
 
 	return $style_uri;
 }
+
 
 /**
  * Adds the <body> class to the visual editor.
@@ -377,6 +398,7 @@ function themelia_attr_sidebarcustom( $attr, $context ) {
 	return $attr;
 }
 
+
 /**
  * Custom attributes / build layout.
  *
@@ -403,7 +425,6 @@ function themelia_attr_content( $attr ) {
 	return $attr;
 }
 
-
 function themelia_attr_sidebar( $attr ) {
 
 	if ( '2c-r' == hybrid_get_theme_layout() ) :
@@ -414,6 +435,7 @@ function themelia_attr_sidebar( $attr ) {
 
 	return $attr;
 }
+
 
 /**
  * Custom filters / Containers attributes.
@@ -431,11 +453,19 @@ function themelia_attr_container( $attr ) {
 	return $attr;
 }
 
+function themelia_attr_branding( $attr ) {
+
+	$attr['id']       = 'branding';
+	$attr['class']   .= ' grid-container';
+
+	return $attr;
+}
+
 function themelia_attr_access( $attr ) {
 
 	$attr['id']       = 'access';
 	$attr['class']    = 'site-access';
-	$attr['class']   .= ' grid-container';
+	$attr['class']   .= ' grid-100';
 
 	return $attr;
 }
@@ -444,7 +474,6 @@ function themelia_attr_access_inner( $attr ) {
 
 	$attr['id']       = 'access-inner';
 	$attr['class']    = 'access-inner';
-	$attr['class']   .= ' grid-100';
 	$attr['class']   .= ' relative';
 
 	return $attr;
@@ -479,8 +508,7 @@ if ( ! function_exists( 'themelia_build_logo' ) ) :
 
 		// Print our HTML
 		printf(
-			'<span class="logo_helper"></span><a href="%1$s" title="%2$s" rel="home"><img class="logo-image branding-item" src="%3$s" alt="%2$s" title="%2$s" /></a>',
-			apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) ),
+			'<div class="logo-wrap flex-center"><img class="logo-image branding-item" src="%2$s" alt="%1$s" title="%1$s" /></div>',
 			apply_filters( 'themelia_logo_title', esc_attr( get_bloginfo( 'name', 'display' ) ) ),
 			apply_filters( 'themelia_logo', esc_url( $logo ) )
 		);
@@ -498,16 +526,24 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 		 ?>
 
 			<!-- Site title and logo -->
-			<div class="site-title-wrap clearfix">
+
+		<?php
+        printf(
+            '<a href="%1$s" title="%2$s" class="site-title-wrap clearfix">',
+            apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) ),
+            apply_filters( 'themelia_href_title', esc_attr( get_bloginfo( 'name', 'display' ) ) )
+        );
+        ?>
 
 				<?php themelia_build_logo(); ?>
 
-				<div class="titles-wrap branding-item">
-					<?php hybrid_site_title(); ?>
-					<?php hybrid_site_description(); ?>
+				<div class="branding-item-wrap flex-center">
+					<div class="titles-wrap branding-item">
+						<?php hybrid_site_title(); ?>
+						<?php hybrid_site_description(); ?>
+					</div>
 				</div>
-
-			</div>
+			</a>
 		<?php // endif;
 	}
 endif;
@@ -563,13 +599,14 @@ function themelia_get_site_title() {
 
 	if ( $title = get_bloginfo( 'name' ) )
 		if ( is_front_page() && is_home() ) :
-			$title = sprintf( '<h1 %s><a href="%s" rel="home">%s</a></h1>', hybrid_get_attr( 'site-title' ), esc_url( home_url() ), $title );
+			$title = sprintf( '<h1 %s>%s</h1>', hybrid_get_attr( 'site-title' ), $title );
 		else :
-			$title = sprintf( '<p %s><a href="%s" rel="home">%s</a></p>', hybrid_get_attr( 'site-title' ), esc_url( home_url() ), $title );
+			$title = sprintf( '<p %s>%s</p>', hybrid_get_attr( 'site-title' ), $title );
 		endif;
 
 	return $title;
 }
+
 
 /**
  * Returns the site description wrapped in an `<p>` tag.
@@ -585,6 +622,7 @@ function themelia_get_site_description() {
 
 	echo $desc;
 }
+
 
 /**
  * Add custom image sizes attribute to enhance responsive image functionality

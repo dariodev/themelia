@@ -81,9 +81,9 @@ if ( ! class_exists( 'Kirki_Enqueue' ) ) {
 			}
 
 			// If we have tooltips, enqueue the tooltips script.
-			if ( $has_tooltips ) {
+			/* TODO: if ( $has_tooltips ) { */
 				wp_enqueue_script( 'kirki-tooltip', trailingslashit( Kirki::$url ) . 'assets/js/tooltip.js', array( 'jquery', 'customize-controls', 'jquery-ui-tooltip' ) );
-			}
+			/* TODO: } */
 
 			// Enqueue the reset script.
 			wp_enqueue_script( 'kirki-reset', trailingslashit( Kirki::$url ) . 'assets/js/reset.js', array( 'jquery', 'kirki-set-setting-value' ) );
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kirki_Enqueue' ) ) {
 			wp_register_script( 'jquery-ui-spinner', trailingslashit( Kirki::$url ) . 'assets/js/vendor/jquery-ui-spinner', array( 'jquery', 'jquery-ui-core', 'jquery-ui-button' ) );
 
 			// Register codemirror.
-			// wp_register_script( 'codemirror', trailingslashit( Kirki::$url ) . 'assets/js/vendor/codemirror/lib/codemirror.js', array( 'jquery' ) );
+			wp_register_script( 'codemirror', trailingslashit( Kirki::$url ) . 'assets/js/vendor/codemirror/lib/codemirror.js', array( 'jquery' ) );
 
 			// Register selectize.
 			wp_register_script( 'selectize', trailingslashit( Kirki::$url ) . 'assets/js/vendor/selectize.js', array( 'jquery' ) );
@@ -113,8 +113,7 @@ if ( ! class_exists( 'Kirki_Enqueue' ) ) {
 			$scripts = array(
 				// Add controls scripts.
 				'checkbox'        => array( 'jquery', 'customize-base' ),
-				//'code'            => array( 'jquery', 'customize-base', 'codemirror' ),
-				//  'code'            => array( 'jquery', 'customize-base' ),
+				'code'            => array( 'jquery', 'customize-base', 'codemirror' ),
 				'color'           => array( 'jquery', 'customize-base', 'wp-color-picker-alpha' ),
 				'color-palette'   => array( 'jquery', 'customize-base', 'jquery-ui-button' ),
 				'dashicons'       => array( 'jquery', 'customize-base' ),

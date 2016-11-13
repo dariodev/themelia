@@ -1,8 +1,8 @@
-<?php 
+<?php
 	// Get how many widgets to show
 	$widgets = get_theme_mod( 'themelia_footer_widgets', 0 );
 
-	if ( !empty( $widgets ) && 0 !== $widgets ) :
+	if ( $widgets > 0 ) :
 
 		// Set up the widget width
 		$widget_width = '';

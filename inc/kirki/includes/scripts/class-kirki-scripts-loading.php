@@ -81,6 +81,9 @@ if ( ! class_exists( 'Kirki_Scripts_Loading' ) ) {
 					opacity: 0;
 					-webkit-transition: opacity 0.5s;
 					transition: opacity 0.5s;
+					background-image: url("<?php echo esc_url_raw( Kirki::$url ); ?>/assets/images/kirki-logo.svg");
+					background-repeat: no-repeat;
+					background-position: center center;
 				}
 				body.wp-customizer-unloading .kirki-customizer-loading-wrapper {
 					display: block;

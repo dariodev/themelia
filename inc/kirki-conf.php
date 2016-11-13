@@ -49,7 +49,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'label'       => esc_attr__( 'Site width', 'themelia' ),
 		'description' => 'Maximum width of main wrapper.',
 		'section'     => 'layout',
-		'default'     => 1344,
+		'default'     => 1200,
 		'choices'     => array(
 			'min'  => '640',
 			'max'  => '2200',
@@ -109,16 +109,15 @@ if ( class_exists( 'Kirki' ) ) {
 			'label'       => __( 'Header Layout', 'themelia' ),
 			'description' => __( 'Select layout for header elements (branding and main navigation).', 'themelia' ),
 			'section'     => 'themelia_header_settings',
-			'default'     => 'header-i-l-mr',
+			'default'     => 'header-inline-title-menu',
 			'priority'    => 25,
 			'multiple'    => 1,
 			'choices'     => array(
-				'header-s-l' => esc_attr__( 'Stack: Left aligned', 'themelia' ),
-				'header-s-r' => esc_attr__( 'Stack: Right aligned', 'themelia' ),
-				'header-s-c' => esc_attr__( 'Stack: Centered', 'themelia' ),
-				'header-i-l-mr' => esc_attr__( 'Inline: Logo (left) - Menu (right)', 'themelia' ),
-				'header-i-l-ml' => esc_attr__( 'Inline: Logo (left) - Menu (left)', 'themelia' ),
-				'header-i-m-lr' => esc_attr__( 'Inline: Menu (left) - Logo (right)', 'themelia' ),
+				'header-inline-title-menu'	=> esc_attr__( 'Inline: Title - Menu (Default)', 'themelia' ),
+				'header-inline-menu-title'	=> esc_attr__( 'Inline: Menu - Title', 'themelia' ),
+				'header-stack-left'			=> esc_attr__( 'Stack: Left aligned', 'themelia' ),
+				'header-stack-right'		=> esc_attr__( 'Stack: Right aligned', 'themelia' ),
+				'header-stack-center'		=> esc_attr__( 'Stack: Centered', 'themelia' ),
 			),
 		) );
 
@@ -203,17 +202,17 @@ if ( class_exists( 'Kirki' ) ) {
 			'js_vars' => array(
 				array(
 				  'choice'   => 'link',
-				  'element'  => '.site-title a, .site-title a:visited',
+				  'element'  => '.site-title-wrap .site-title, .site-title-wrap:visited .site-title',
 				  'property' => 'color',
 				),
 				array(
 				  'choice'   => 'hover',
-				  'element'  => '.site-title a:hover',
+				  'element'  => '.site-title-wrap:hover .site-title',
 				  'property' => 'color',
 				),
 				array(
 				  'choice'   => 'active',
-				  'element'  => '.site-title a:active',
+				  'element'  => '.site-title-wrap:active .site-title',
 				  'property' => 'color',
 				),
 			),
@@ -229,6 +228,7 @@ if ( class_exists( 'Kirki' ) ) {
 				'variant'        => 'regular',
 				'font-size'      => '0.889em',
 				'letter-spacing' => '0',
+				'line-height'    => '1.2',
 				'color'          => '#383f49',
 			),
 			'priority'  => 25,
@@ -338,7 +338,7 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 				array(
 				  'choice'   => 'hover',
-				  'element'  => '#menu-primary .menu-items a:hover, #menu-primary .menu-items .sfHover > a',
+				  'element'  => '#menu-primary .menu-items a:hover, #menu-primary .menu-items li a.sfHover',
 				  'property' => 'color',
 				),
 				array(
@@ -404,7 +404,7 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 				array(
 				  'choice'   => 'hover',
-				  'element'  => '#menu-primary .menu-items .sub-menu a:hover, #menu-primary .menu-items .sub-menu .sfHover > a',
+				  'element'  => '#menu-primary .menu-items .sub-menu a:hover, #menu-primary .menu-items .sub-menu li a.sfHover',
 				  'property' => 'color',
 				),
 				array(
@@ -518,8 +518,8 @@ if ( class_exists( 'Kirki' ) ) {
 			'default'     => array(
 				'font-family'    => 'Roboto',
 				'variant'        => 'regular',
-				//'font-size'      => '18px',
-				'line-height'    => '1.45',
+				//'font-size'      => '19px',
+				'line-height'    => '1.55',
 				'letter-spacing' => '0',
 				'subsets'        => array( 'latin' ),
 				'color'          => '#333333',
@@ -592,7 +592,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'label'       => esc_attr__( 'Large screens', 'themelia' ),
 			'description' => esc_attr__( 'Base font size in pixels for large screens (Desktops and most of the Laptops).', 'themelia' ),
 			'section'     => 'themelia_modular_scale',
-			'default'     => 18,
+			'default'     => 19,
 			'priority'    => 25,
 			'choices'     => array(
 				'min'  => 15,
@@ -624,7 +624,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'label'       => esc_attr__( 'Mediums screens', 'themelia' ),
 			'description' => esc_attr__( 'Base font size in pixels for Mediums screens (Tablets and other medium size devices).', 'themelia' ),
 			'section'     => 'themelia_modular_scale',
-			'default'     => 17,
+			'default'     => 18,
 			'priority'    => 25,
 			'choices'     => array(
 				'min'  => 14,
@@ -941,26 +941,6 @@ if ( class_exists( 'Kirki' ) ) {
 		*/
 
 		Kirki::add_field( 'themelia_config', array(
-			'type'        => 'typography',
-			'settings'    => 'secondary_font',
-			'label'       => esc_attr__( 'Secondary Text', 'themelia' ),
-			'description' => esc_attr__( 'Entry meta, date, time, Read More link.', 'themelia' ),
-			'section'     => 'themelia_secondary_typography',
-			'default'     => array(
-				'font-size'      => '0.833em',
-				'text-transform' => 'none',
-			),
-			'priority'  => 25,
-			'alpha'     => true,
-			'transport' => 'auto',
-			'output'    => array(
-				array(
-					'element' => '.entry-footer.font-secondary, .entry-more-link, .entry-byline',
-				),
-			),
-		) );
-
-		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'toggle',
 			'settings'    => 'display_breadcrumbs',
 			'label'       => __( 'Display Breadcrumbs', 'themelia' ),
@@ -985,6 +965,26 @@ if ( class_exists( 'Kirki' ) ) {
 			'output'    => array(
 				array(
 					'element' => '#main .breadcrumb-trail',
+				),
+			),
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'        => 'typography',
+			'settings'    => 'secondary_font',
+			'label'       => esc_attr__( 'Secondary Text', 'themelia' ),
+			'description' => esc_attr__( 'Entry meta, date, time, Read More link.', 'themelia' ),
+			'section'     => 'themelia_secondary_typography',
+			'default'     => array(
+				'font-size'      => '0.833em',
+				'text-transform' => 'none',
+			),
+			'priority'  => 25,
+			'alpha'     => true,
+			'transport' => 'auto',
+			'output'    => array(
+				array(
+					'element' => '.entry-footer.font-secondary, .entry-more-link, .entry-byline',
 				),
 			),
 		) );
@@ -1084,7 +1084,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'type'        => 'color',
 			'settings'    => 'meta_separator_primary',
 		  //'label'       => esc_attr__( 'Separators', 'themelia' ),
-			'description' => esc_attr__( 'Meta elements - primary.', 'themelia' ),
+			'description' => esc_attr__( 'Author box top border.', 'themelia' ),
 			'section'     => 'colors',
 			'priority'    => 20,
 			'default'     => 'rgba(39, 55, 64, 0.45)',
@@ -1102,7 +1102,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'type'        => 'color',
 			'settings'    => 'meta_separator_secondary',
 		  //'label'       => esc_attr__( 'Separators', 'themelia' ),
-			'description' => esc_attr__( 'Meta elements - secondary.', 'themelia' ),
+			'description' => esc_attr__( 'Posts navigation and Reply title top color.', 'themelia' ),
 			'section'     => 'colors',
 			'priority'    => 20,
 			'default'     => 'rgba(39, 55, 64, 0.45)',

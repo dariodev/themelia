@@ -3,28 +3,26 @@ jQuery( document ).ready( function() {
 	/*
 	 * Adding style on some elements.
 	 */
-	jQuery('.header-i-l-mr #menu-primary').css('paddingLeft', jQuery('.branding-item').outerWidth() + 30);
-	jQuery('.header-i-l-ml #menu-primary').css('paddingLeft', jQuery('.branding-item').outerWidth() + 30);
-	jQuery('.header-i-m-lr #menu-primary').css('paddingRight', jQuery('.branding-item').outerWidth() + 30);	
-	jQuery('.site-header').css('minHeight', jQuery('.branding-item').outerHeight() );
-	jQuery('.site-title-wrap').css('minHeight', jQuery('.branding-item').outerHeight() );
-	/*
-	 * Recalculating height on window resize.
-	 */
-	jQuery(window).resize(function(){    
-        jQuery('.site-header').css('minHeight', jQuery('.branding-item').outerHeight() );
-		jQuery('.site-title-wrap').css('minHeight', jQuery('.branding-item').outerHeight() );
+	jQuery('.site-title-wrap').imagesLoaded( function() {
+		jQuery('.main-menu-btn').css('top', jQuery('.site-title-wrap').outerHeight() / 2 );
+	});
+	/* Recalculating height on window resize. */
+	jQuery(window).resize(function(){
+		jQuery('.main-menu-btn').css('top', jQuery('.site-title-wrap').outerHeight() / 2 );
 	});
 
-	// responsive videos
+	/*
+	 * Initialize fitVids for make videos responsive.
+	 */
+
 	jQuery("#main").fitVids();
 
 	/*
-	 * Theme fonts handler.  This is so that child themes can make sure to style for future changes.  If 
-	 * they add styles for `.font-primary`, `.font-secondary`, and `.font-headlines`, users will always 
+	 * Theme fonts handler.  This is so that child themes can make sure to style for future changes.  If
+	 * they add styles for `.font-primary`, `.font-secondary`, and `.font-headlines`, users will always
 	 * get the correct styles, even if the parent theme adds extra items.
 	 *
-	 * Child theme should still incorporate the normal selectors in their `style.css`. This is just for 
+	 * Child theme should still incorporate the normal selectors in their `style.css`. This is just for
 	 * additional future-proofing.
 	 */
 
@@ -51,7 +49,7 @@ jQuery( document ).ready( function() {
 	jQuery( '.widget-widget_rss .widget-title img' ).wrap( '<span class="screen-reader-text" />' );
 
 	/*
-	 * Adds classes to the `<label>` element based on the type of form element the label belongs 
+	 * Adds classes to the `<label>` element based on the type of form element the label belongs
 	 * to. This allows theme devs to style specifically for certain labels (think, icons).
 	 */
 
@@ -99,7 +97,7 @@ jQuery( document ).ready( function() {
 	);
 
 	/*
-	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually 
+	 * Handles situations in which CSS `:contain()` would be extremely useful. Since that doesn't actually
 	 * exist or is not supported by browsers, we have the following.
 	 */
 
@@ -108,7 +106,7 @@ jQuery( document ).ready( function() {
 
 	/*
 	 * Adds the `.has-cite-only` if the last `<p>` in the `<blockquote>` only has the `<cite>` element.
-	 * Adds the `.is-last-child` class to the previous `<p>`.  This is so that we can style correctly 
+	 * Adds the `.is-last-child` class to the previous `<p>`.  This is so that we can style correctly
 	 * for blockquotes in English, in which only the last paragraph should have a closing quote.
 	 */
 	jQuery( 'blockquote p:has( cite )' ).filter(
@@ -130,91 +128,26 @@ jQuery( document ).ready( function() {
 	/* Fix Webkit focus bug. */
 	jQuery( '#content' ).attr( 'tabindex', '-1' );
 
-	/* Menu focus. */
-	jQuery( '.menu li a' ).on( 'focus blur', 
-		function() {
-			jQuery( this ).parents().toggleClass( 'focus' );
-		}
-	);
 
-	/*
-	 * Menu and search form toggles.
-	 */
 
-	jQuery( '.menu-toggle button' ).click(
-		function() {
-			jQuery( this ).parents( '.menu' ).children( '.wrap' ).fadeToggle();
-			jQuery( this ).toggleClass( 'active' );
-		}
-	);
-
-	jQuery( window ).resize(
-		function() {
-			var width = jQuery( window ).width();
-
-			if ( 800 <= width ) {
-				jQuery( '#menu-primary .search-form .label-search' ).hide();
-				jQuery( '.menu-toggle' ).removeClass( 'active' )
-			} else {
-				jQuery( '#menu-primary .search-form .label-search' ).show();
-				jQuery( '.menu > .wrap:visible' ).parent().children( '.menu-toggle' ).addClass( 'active' );
-			}
-		}
-	);
-
-	jQuery( '#menu-primary .search-form' ).prepend( '<button class="search-toggle" type="button"><span class="screen-reader-text">' + themelia_i18n.search_toggle + '</span></button>' );
-
-	jQuery( '#menu-primary .search-toggle' ).click(
-		function( event ) {
-			event.stopPropagation();
-		}
-	);
-
-	jQuery( '#menu-primary .label-search' ).hide();
-
-	jQuery( '#menu-primary .search-toggle' ).click(
-		function() {
-			jQuery( '#menu-primary .label-search' ).animate( {width: 'toggle'} );
-		}
-	);
-
-	/* Toggles audio/video info when using the [audio] or [video] shortcode. */
-	jQuery( '.media-info-toggle' ).click(
-		function() {
-			jQuery( this ).parent().children( '.audio-info, .video-info' ).slideToggle( 'slow' );
-			jQuery( this ).toggleClass( 'active' );
-		}
-	);
-
-	/* Toggles audio/video info when using the [audio] or [video] shortcode. */
-	jQuery('#menu-primary-items').slicknav({
-		allowParentLinks: true,
-		duplicate: true,
-		closedSymbol: '<i></i>',
-		openedSymbol: '<i></i>',
-		appendTo: '#menu-primary',
-		label: '',
-	 // menuButton: '#menuButton',
-	 // menuButtonPosition: '#access'
+	jQuery('#menu-primary-items').smartmenus({
+		mainMenuSubOffsetX: 1,
+		subMenusSubOffsetX: 10,
+		subMenusSubOffsetY: 0,
+		subMenusMaxWidth: '16em',
+		subIndicatorsPos: 'append',
+		subIndicatorsText: '',
 	});
+	jQuery('#menu-primary-items').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
-	// Superfish Menu
-    jQuery(".js-superfish").superfish({
-        hoverClass: 'sfHover',
-        pathLevels: 1,
-        delay: 500,
-        animation: {
-            //height: 'show'
-            opacity: 'show'
-        },
-        animationOut: {
-            opacity: 'hide'
-        },
-        speed: 100,
-        speedOut: 100,
-        cssArrows: true,
-        autoArrows: false,
-        disableHI: false
-    });
+
+	jQuery(".hamburger").on("click", function(e) {
+		jQuery(this).toggleClass("is-not-active is-active");
+		// Do something else, like open/close menu
+		jQuery("#menu-primary-items").toggleClass("menu-is-active");
+		jQuery(this).attr('aria-expanded', function (i, attr) {
+		    return attr == 'true' ? 'false' : 'true'
+		});
+	});
 
 } );

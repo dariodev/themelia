@@ -1,7 +1,5 @@
 @import url( 'ionicons.css' );
 
-@import url( '../style.css' );
-
 /* Styles specific to the editor. */
 html {
     font-size: 100%
@@ -16,7 +14,7 @@ body#tinymce {
 }
 
 body#tinymce {
-    font-family: Roboto, "Noto Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: Roboto, "Noto Sans", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
     max-width: 1280px
 }
 

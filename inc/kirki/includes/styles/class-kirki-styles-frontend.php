@@ -112,10 +112,11 @@ if ( ! class_exists( 'Kirki_Styles_Frontend' ) ) {
 						 * Mod for Themelia theme by dariodev
 						 *
 						 */
+						// [-] Removed
 						//wp_enqueue_style( 'kirki-styles-' . $config_id, trailingslashit( Kirki::$url ) . 'assets/css/kirki-styles.css', null, null );
 						//wp_add_inline_style( 'kirki-styles-' . $config_id, $styles );
 						
-						// Modified by dariodev
+						// [+] Added
 						wp_add_inline_style( 'themelia-style', $styles );
 					}
 				}
