@@ -12,6 +12,7 @@ v1.0.7 - 2016-11-12
 
 ### Changed
 
+-	Added accessibility-ready tag
 -	Added SmartMenus jQuery Plugin for the primary desktop and mobile menu
 -	Removed Superfish menu
 -	Removed SlivkNav menu
