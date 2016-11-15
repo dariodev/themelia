@@ -537,7 +537,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 menu,
 nav,
 section,
@@ -1000,21 +999,38 @@ blockquote.alignright {
 
 .pull-right,
 .pull-left {
+	color: #222;
+	border-top: solid 4px #222;
 	font-size: 1.4rem;
 	font-weight: 600;
 	line-height: 1.4;
-	width: 32%;
+	padding: 2% 0 0 0;
+	position: relative;
 }
 
 .pull-left {
 	float: left;
-	margin: 0 5% 2% 0;
+	margin-top: 1%;
+	margin-bottom: 3%;
 }
 
 .pull-right {
-	float: right;
-	margin: 0 0 2% 5%;
-	text-align: right;
+	margin-top: 1%;
+	margin-bottom: 3%;
+}
+
+@media (min-width: 768px) {
+	.pull-left {
+		float: left;
+		margin: 1% 5% 3% 0;
+		width: 34%;
+	}
+
+	.pull-right {
+		float: right;
+		margin: 1% 0 3% 5%;
+		width: 34%;
+	}
 }
 
 /* === Acronyms and abbreviations === */
@@ -1505,7 +1521,8 @@ input[type="submit"],
 	background: #535A64;
 	border: none;
 	border-radius: 2px;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset, 0 2px 4px 0 rgba(0, 0, 0, 0.18);
+	/*box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset, 0 2px 4px 0 rgba(0, 0, 0, 0.18);*/
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset, 0 2px 4px 0 rgba(0,0,0,.14),0 3px 2px -2px rgba(0,0,0,.12),0 1px 5px 0 rgba(0,0,0,.1);
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
@@ -1525,10 +1542,58 @@ input[type="submit"],
 }
 
 .btn-primary,
+a.btn-primary,
 button.btn-primary,
 button[primary],
 input.primary[type="submit"] {
-	background: #2196F3;
+	background: #535A64;
+
+}
+
+.btn-secondary,
+a.btn-secondary,
+button.btn-secondary,
+button[secondary],
+input.secondary[type="submit"] {
+	color: #17150D;
+	background-color: #EEEBE6;
+}
+
+.btn-success,
+button.btn-success,
+button[success],
+input.success[type="submit"] {
+	background: #7BB26E;
+}
+
+.btn-warning,
+button.btn-warning,
+button[warning],
+input.success[type="warning"] {
+	background: #EFA721;
+}
+
+.btn-danger,
+button.btn-danger,
+button[danger],
+input.success[type="danger"] {
+	background: #B10302;
+}
+
+.btn-info,
+button.btn-info,
+button[info],
+input.success[type="info"] {
+	background: #4BB1CA;
+}
+
+.btn-link,
+button.btn-link,
+button[link],
+input.success[type="link"] {
+	background: transparent;
+	box-shadow: none;
+	color: #535A64;
 }
 
 .btn:hover,
@@ -1540,7 +1605,7 @@ input[type="submit"]:hover,
 #main .sidebar .edd_checkout a:hover,
 #main .edd_go_to_checkout.button:hover,
 #main .edd-add-to-cart.button:hover {
-	box-shadow: 0 0 0 150px rgba(0, 0, 0, 0.25) inset, 0 3px 6px 0 rgba(0, 0, 0, 0.18);
+	box-shadow: 0 0 0 150px rgba(0, 0, 0, 0.15) inset, 0 3px 6px 0 rgba(0, 0, 0, 0.18),0 2px 4px -1px rgba(0,0,0,.2);
 	color: #fff;
 	text-decoration: none;
 }
@@ -1556,10 +1621,78 @@ input[type="submit"]:focus,
 #main .edd-add-to-cart.focus {
 	border: none;
 	border-radius: 2px;
-	box-shadow: 0 0 0 150px rgba(0, 0, 0, 0.18) inset, 0 8px 17px 0 rgba(0, 0, 0, 0.22);
+	box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
 	color: #fff;
 	outline: none;
 }
+
+.btn:active,
+button:active,
+.submit:active,
+input[type="submit"]:active,
+#content input[type="submit"]:active,
+.gform_button:active,
+#main .sidebar .edd_checkout a:active,
+#main .edd_go_to_checkout.button:active,
+#main .edd-add-to-cart.active {
+	border: none;
+	border-radius: 2px;
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+	color: #fff;
+	outline: none;
+}
+
+.btn-secondary:hover,
+button.btn-secondary:hover,
+button[secondary]:hover,
+input.secondary[type="submit"]:hover {
+	color: #121212;
+}
+
+.btn-secondary:focus,
+button.btn-secondary:focus,
+button[secondary]:focus,
+input.secondary[type="submit"]:focus {
+	color: #121212;
+}
+
+.btn-secondary:active,
+button.btn-secondary:active,
+button[secondary]:active,
+input.secondary[type="submit"]:active {
+	color: #121212;
+}
+
+.btn-link:hover,
+button.btn-link:hover,
+button[link]:hover,
+input.success[type="link"]:hover {
+	background: transparent;
+	box-shadow: none;
+	color: #000;
+	text-decoration: underline;
+}
+
+.btn-link:active,
+button.btn-link:active,
+button[link]:active,
+input.success[type="link"]:active {
+	background: transparent;
+	box-shadow: none;
+	color: #000;
+	text-decoration: underline;
+}
+
+.btn-link:focus,
+button.btn-link:focus,
+button[link]:focus,
+input.success[type="link"]:focus {
+	background: transparent;
+	box-shadow: none;
+	color: #000;
+	outline: 1px dotted #535A64;
+}
+
 
 .btn::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -2274,8 +2407,6 @@ figcaption span
 	flex-direction: column;
 }
 
-
-
 .header-stacked .access-inner {
 	display: block;
 }
@@ -2352,8 +2483,6 @@ figcaption span
 .header-inline .site-title-wrap {
 	margin-right: 60px;
 }
-
-
 
 .header-inline .site-title-wrap {
 	display: -webkit-flex;
@@ -2444,7 +2573,6 @@ figcaption span
 	margin-right: 0;
 }
 
-
 .header-stack-right #site-title {
 	text-align: right;
 	margin-left: 8px;
@@ -2504,55 +2632,50 @@ figcaption span
    You need this once per page no matter how many menu trees or different themes you use.
 -------------------------------------------------------------------------------------------*/
 
-.sm{position:relative;z-index:9999;}
-.sm,.sm ul,.sm li{display:block;list-style:none;margin:0;padding:0;line-height:normal;direction:ltr;text-align:left;-webkit-tap-highlight-color:rgba(0,0,0,0);}
-.sm-rtl,.sm-rtl ul,.sm-rtl li{direction:rtl;text-align:right;}
-.sm>li>h1,.sm>li>h2,.sm>li>h3,.sm>li>h4,.sm>li>h5,.sm>li>h6{margin:0;padding:0;}
+.sm { position:relative; z-index:9999; }
+.sm,.sm ul,.sm li { display:block ;list-style:none; margin:0; padding:0; line-height:normal; direction:ltr; text-align:left; -webkit-tap-highlight-color:rgba(0,0,0,0);}
+.sm-rtl,.sm-rtl ul,.sm-rtl li { direction:rtl; text-align:right; }
+.sm>li>h1,.sm>li>h2,.sm>li>h3,.sm>li>h4,.sm>li>h5,.sm>li>h6 { margin:0; padding:0; }
 
 .sm ul {
 	display: none;
 }
-.sm li,.sm a{position:relative;}
-.sm a{display:block;}
-.sm a.disabled{cursor:not-allowed;}
-.sm:after{content:"\00a0";display:block;height:0;font:0px/0 serif;clear:both;visibility:hidden;overflow:hidden;}
+.sm li,.sm a { position:relative; }
+.sm a { display:block; }
+.sm a.disabled { cursor:not-allowed; }
+.sm:after { content:"\00a0"; display:block; height:0; font:0px/0 serif; clear:both; visibility:hidden; overflow:hidden; }
 
-  .sm-simple a, .sm-simple a:hover, .sm-simple a:focus, .sm-simple a:active, .sm-simple a.highlighted {
-    color: #121212;
+.sm-simple a, .sm-simple a:hover, .sm-simple a:focus, .sm-simple a:active, .sm-simple a.highlighted {
+	color: #121212;
 	width: 100%
-  }
+}
 
-  .sm-simple a {
-    padding: 10px 0;
-  }
+.sm-simple a {
+	padding: 10px 0;
+}
 
-  .no-js .sm .menu-item-has-children:hover > ul {
+.no-js .sm .menu-item-has-children:hover > ul {
 	  display: block;
-  }
+}
 
-
-
-   .sm-simple > li {
+.sm-simple > li {
 	position:relative
-  }
+}
 
+.sm-simple a span.sub-arrow {
+	padding-left: 0;
+	padding-right: 0;
+	top: 0;
+	right: 0;
+	width: 46px;
+	background: transparent;
+	position: absolute;
+	text-align: center;
+	display: block;
+	height: 100%;
+}
 
-  .sm-simple a span.sub-arrow {
-		padding-left: 0;
-		padding-right: 0;
-		top: 0;
-		right: 0;
-		width: 46px;
-		background: transparent;
-		position: absolute;
-		text-align: center;
-		background: yellow;
-		display: block;
-		height: 100%;
-  }
-
-
-   .sm-simple a span.sub-arrow:after {
+.sm-simple a span.sub-arrow:after {
 	content: "\f3d0";
 	font-family: "ionicons";
 	font-size: 12px;
@@ -2566,8 +2689,37 @@ figcaption span
 	width: 12px;
 	display: block;
 	line-height: 8px;
-  }
+}
 
+.sm-simple a.highlighted span.sub-arrow:after {
+	content: "\f2d7";
+}
+
+.sm-simple > li > .sub-menu {
+	font-size: 90%;
+	font-weight: normal;
+}
+
+
+@media only screen and (max-width: 1024px) {
+	.sm-simple a span.sub-arrow {
+		background-color: rgba(128,128,128,.007);
+		border: 1px solid rgba(128,128,128,.45);
+	}
+
+	.sm-simple a.highlighted span.sub-arrow {
+		background-color: rgba(128,128,128,.07);
+		border: 1px solid rgba(128,128,128,.7);
+	}
+
+	#access #menu-primary .menu-items li a {
+		margin-bottom: 2px;
+	}
+
+	#access #menu-primary .menu-items .sub-menu li a:hover {
+		background: none;
+	}
+}
 
 @media only screen and (min-width: 1025px) {
 
@@ -2575,6 +2727,10 @@ figcaption span
 		top: 0 !important;
 		left: 100% !important;
 		min-width: 12em;
+	}
+
+	.sm-simple a.highlighted span.sub-arrow:after {
+		content: "\f3d0";
 	}
 
 	.header-inline-menu-title .site-title-wrap {
@@ -2630,7 +2786,6 @@ figcaption span
 	}
 
 }
-
 
 @media (min-width: 1025px) {
 	  /* Switch to desktop layout
@@ -3169,10 +3324,6 @@ figcaption span
 /* ==========================================================================
    10. Posts
    ========================================================================== */
-
-.sticky {
-
-}
 
 .archive-header {
 	padding-bottom: .5rem;
@@ -3826,10 +3977,6 @@ figcaption span
 	padding: 15px 0 0;
 }
 
-.widget {
-	/*overflow: hidden;*/
-}
-
 .widget p {
 	margin-bottom: 1rem;
 }
@@ -4104,14 +4251,13 @@ li.ping .comment-meta .comment-permalink {
 	width: 100%;
 }
 
-#respond {}
-
 #reply-title {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	padding-top: .5em;
 	border-top: 4px solid rgba(39, 55, 64, 0.55);
 }
+
 #reply-title .wrap {
 	display: block;
 }
