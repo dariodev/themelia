@@ -3,6 +3,17 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+v1.0.9 - 2016-12-13
+-------------------
+
+### Fixed
+
+-	Added correct version of Ionicons
+
+### Updated
+
+-	SmartMenus jQuery Plugin updated to v1.0.1 which fixes several bugs
+
 v1.0.8 - 2016-12-13
 -------------------
 
