@@ -3,6 +3,18 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+v1.0.8 - 2016-12-13
+-------------------
+
+### Fixed
+
+-	Style fixes
+-	Removed unused scripts
+
+### Updated
+
+-	Ionicons update to version 3.0.0-alpha.3
+
 v1.0.7 - 2016-11-12
 -------------------
 

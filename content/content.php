@@ -4,17 +4,20 @@
 		$css_class = ' zero-comments';
 		$number    = (int) get_comments_number( get_the_ID() );
 
-		if ( 1 === $number )
+		if ( 1 === $number ) {
 			$css_class = ' one-comment';
-		elseif ( 1 < $number )
-		$css_class = ' multiple-comments';
+		} elseif ( 1 < $number ) {
+			$css_class = ' multiple-comments';
+		}
+		
+
 	?>
 
 	<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
 
 		<header class="entry-header">
 
-			<div class="entry-byline">
+			<div class="entry-byline small">
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
@@ -44,9 +47,17 @@
 	<?php else : // If not viewing a single post. ?>
 
 		<header class="entry-header">
-
-			<div class="entry-byline">
-				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+        
+			<div class="entry-byline small">
+            
+				<?php 
+				if ( is_sticky() ) { 
+					echo '<div class="label label-large outline">' . esc_html_x( 'Featured Post', 'By Line', 'themelia' ) . '</div>';
+				} else { ?>
+					<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+                    <?php 
+				}
+				?>
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 				<?php if ( comments_open() && 0 < $number ) : '<span class="sep">' . _ex( ' | ', 'By Line separator', 'themelia' ) . '</span>'; ?>

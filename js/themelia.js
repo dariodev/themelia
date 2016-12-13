@@ -6,6 +6,7 @@ jQuery( document ).ready( function() {
 	jQuery('.site-title-wrap').imagesLoaded( function() {
 		jQuery('.main-menu-btn').css('top', jQuery('.site-title-wrap').outerHeight() / 2 );
 	});
+
 	/* Recalculating height on window resize. */
 	jQuery(window).resize(function(){
 		jQuery('.main-menu-btn').css('top', jQuery('.site-title-wrap').outerHeight() / 2 );
@@ -118,7 +119,6 @@ jQuery( document ).ready( function() {
 		}
 	);
 
-
 	/* Add class to links with an image. */
 	jQuery( 'a' ).has( 'img' ).addClass( 'img-hyperlink' );
 
@@ -128,8 +128,6 @@ jQuery( document ).ready( function() {
 	/* Fix Webkit focus bug. */
 	jQuery( '#content' ).attr( 'tabindex', '-1' );
 
-
-
 	jQuery('#menu-primary-items').smartmenus({
 		mainMenuSubOffsetX: 1,
 		subMenusSubOffsetX: 10,
@@ -138,12 +136,13 @@ jQuery( document ).ready( function() {
 		subIndicatorsPos: 'append',
 		subIndicatorsText: '',
 	});
-	jQuery('#menu-primary-items').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
+	jQuery('#menu-primary-items').smartmenus('keyboardSetHotkey', '123', 'shiftKey');
 
 	jQuery(".hamburger").on("click", function(e) {
 		jQuery(this).toggleClass("is-not-active is-active");
 		// Do something else, like open/close menu
+		jQuery("#header").toggleClass("primary-menu-is-active");
 		jQuery("#menu-primary-items").toggleClass("menu-is-active");
 		jQuery(this).attr('aria-expanded', function (i, attr) {
 		    return attr == 'true' ? 'false' : 'true'

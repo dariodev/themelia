@@ -2,9 +2,9 @@ Themelia
 ========
 
 Author: dariodev
-Requires at least: WordPress 4.4
-Tested up to: WordPress 4.7 Beta 3
-Version: 1.0.6
+Requires at least: WordPress 4.5
+Tested up to: WordPress 4.7
+Version: 1.0.8
 License: [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) or later
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
 
@@ -85,8 +85,8 @@ This panel is used for managing Navigation Menus for content you have already pu
 
 **Locations:**
 
--	**Primary** is for the Main site navigation, it's unavailable on mobile devices.
--	**Footer** location is placed in the right footer. You can use it as a regular menu or as a Social Links menu. If you add custom links to your social networks, the menu items will be presented with coresponding icon (isons are provided by Ionicons icon font). Textual part of the link will be visually hidden, but still available for screen readers.
+-	**Primary** Placed in the top header. For the Main site navigation.
+-	**Footer - (social menu)** Placed in the right footer. You can use it as a regular menu or as a Social Links menu. If you add custom links to your social networks, the menu items will be presented with coresponding icon (isons are provided by Ionicons icon font). Textual part of the link will be visually hidden, but still available for screen readers.
 
 ### Widgets
 
@@ -133,10 +133,10 @@ GNU General Public License for more details.
 [**HybridCore**](http://themehybrid.com/hybrid-core) v3.1.0, Copyright (c) 2008 - 2016, Justin Tadlock
 License: GNU GPL, Version 2 (or later)
 
-[**Kirki Toolkit**](http://kirki.org/) v2.3.6, Copyright (c) 2016, Aristeides Stathopoulos
+[**Kirki Toolkit**](http://kirki.org/) v2.3.7, Copyright (c) 2016, Aristeides Stathopoulos
 Licenses: MIT/GPL2
 
-[**Ionicons**](http://ionicons.com/) icon font v2.0.1, Copyright (c) 2016, Drifty
+[**Ionicons**](http://ionicons.com/) icon font v3.0.0-alpha.3, Copyright (c) 2016, Drifty
 License: MIT
 
 **Unsemantic CSS Framework**, Created by Nathan Smith
@@ -151,7 +151,7 @@ License: [WTFPL](http://sam.zoy.org/wtfpl/)
 **HTML5 Shiv** v3.7.0, Copyright 2014 Alexander Farkas
 Licenses: MIT/GPL2
 
-All jQuery plugins are minified. Full source versions are also bundled in theme package. Full source versions will be loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file. Otherwise, the `style.min.css` file is loaded.
+All jQuery plugins are minified. Full source versions are also bundled in theme package. Full source versions will be loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file. Otherwise, the `*.min.css` file is loaded.
 
 **Images used in screenshot.png**
 

@@ -51,7 +51,7 @@ wp.customize.controlConstructor['kirki-multicolor'] = wp.customize.Control.exten
 			// Move colorpicker to the 'iris-target' container div
 			irisInput  = control.container.find( '.wp-picker-container .wp-picker-input-wrap' ),
 			irisPicker = control.container.find( '.wp-picker-container .wp-picker-holder' );
-			jQuery( irisInput[0] ).detach().appendTo( target[0] );
+			//jQuery( irisInput[0] ).detach().appendTo( target[0] );
 			jQuery( irisPicker[0] ).detach().appendTo( target[0] );
 
 			i++;

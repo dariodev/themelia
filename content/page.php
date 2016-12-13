@@ -3,6 +3,7 @@
 	<?php if ( is_page() ) : // If viewing a single page. ?>
 
 		<header class="entry-header">
+        	<?php themelia_post_thumbnail(); ?>
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 		</header><!-- .entry-header -->
 
@@ -21,7 +22,6 @@
 
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . esc_url( get_permalink() ) . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
 
-			<?php get_the_image(); ?>
 			<?php themelia_post_thumbnail(); ?>
 
 		</header><!-- .entry-header -->

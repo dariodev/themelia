@@ -6,7 +6,7 @@ add_action( 'wp_head', 'themelia_javascript_detection', 0 );
 add_action( 'wp_enqueue_scripts', 'themelia_register_styles', 0 );
 
 # Register custom image sizes.
-//add_action( 'init', 'themelia_register_image_sizes', 5 );
+add_action( 'init', 'themelia_register_image_sizes', 5 );
 
 # Register custom menus.
 add_action( 'init', 'themelia_register_menus', 5 );
@@ -71,7 +71,8 @@ function themelia_javascript_detection() {
 function themelia_register_image_sizes() {
 
 	// Sets the 'post-thumbnail' size.
-	set_post_thumbnail_size( 150, 150, true );
+	// set_post_thumbnail_size( 150, 150, true );
+	add_image_size( 'hero-image', 1280 );
 }
 
 
@@ -192,6 +193,73 @@ function themelia_primary_sidebar() {
 }
 
 
+
+
+/**
+ * Returns the font args for the theme's Google Fonts call.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return array
+ */
+function themelia_get_locale_font_args() {
+
+	$fonts  = themelia_get_locale_fonts();
+	$locale = strtolower( get_locale() );
+	$args   = isset( $fonts[ $locale ] ) ? $fonts[ $locale ] : $fonts['default'];
+
+	return apply_filters( "themelia_{$locale}_font_args", $args );
+}
+
+/**
+ * Returns an array of locale-specific font arguments
+ *
+ * @since  1.0.0
+ * @access public
+ * @return array
+ */
+function themelia_get_locale_fonts() {
+
+	$fonts = array(
+		'default' => array( 'family' => themelia_get_font_families(), 'subset' => themelia_get_font_subsets() ),
+	);
+	
+	if ( !class_exists( 'Kirki' ) ) {
+		// Return only if Kirki library is not included
+		return apply_filters( 'themelia_get_locale_fonts', $fonts );
+	}
+}
+
+/**
+ * Returns an array of the font families to load from Google Fonts.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return array
+ */
+function themelia_get_font_families() {
+
+	return array(
+		'roboto'	=> 'Roboto:300,400,400i,500,600,700,700i',
+		'work-sans'	=> 'Work+Sans:200,300,400,500,600,700'
+	);
+}
+
+/**
+ * Returns an array of the font subsets to include.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return void
+ */
+function themelia_get_font_subsets() {
+
+	return array( 'latin' );
+}
+
+
+
+
 /**
  * Enqueues scripts.
  *
@@ -237,6 +305,9 @@ function themelia_register_styles() {
 
 	$suffix = hybrid_get_min_suffix();
 	$theme_css = trailingslashit( get_template_directory_uri() ) . 'css/';
+	
+	// Register fonts.
+	hybrid_register_font( 'themelia', themelia_get_locale_font_args() );
 
 	// Register styles for use by themes.
 	wp_register_style( 'themelia-unsemantic', $theme_css . "unsemantic{$suffix}.css", array(), null, 'all' );
@@ -257,6 +328,9 @@ function themelia_register_styles() {
  * @return void
  */
 function themelia_enqueue_styles() {
+	
+	// Load fonts.
+	hybrid_enqueue_font( 'themelia' );
 
 	// Load Ionicons.
 	wp_enqueue_style( 'themelia-ionicons' );
@@ -508,7 +582,7 @@ if ( ! function_exists( 'themelia_build_logo' ) ) :
 
 		// Print our HTML
 		printf(
-			'<div class="logo-wrap flex-center"><img class="logo-image branding-item" src="%2$s" alt="%1$s" title="%1$s" /></div>',
+			'<div class="logo-wrap flex-center"><img class="logo-image branding-item" src="%2$s" alt="%1$s" /></div>',
 			apply_filters( 'themelia_logo_title', esc_attr( get_bloginfo( 'name', 'display' ) ) ),
 			apply_filters( 'themelia_logo', esc_url( $logo ) )
 		);
@@ -529,9 +603,8 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 
 		<?php
         printf(
-            '<a href="%1$s" title="%2$s" class="site-title-wrap clearfix">',
-            apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) ),
-            apply_filters( 'themelia_href_title', esc_attr( get_bloginfo( 'name', 'display' ) ) )
+            '<a href="%1$s" class="site-title-wrap clearfix">',
+            apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) )
         );
         ?>
 
@@ -638,8 +711,7 @@ function themelia_get_site_description() {
 function themelia_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 
 	if ( 'post-thumbnail' === $size ) {
-		is_active_sidebar( 'primary' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
-		! is_active_sidebar( 'primary' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, 1200px';
+		is_active_sidebar( 'primary' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, (max-width: 1620px) 90vw, 1200px';
 	}
 	return $attr;
 }

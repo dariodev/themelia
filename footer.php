@@ -13,7 +13,7 @@
 
 		<footer <?php hybrid_attr( 'footer' ); ?>>
 
-			<div class="grid-container">
+			<div class="grid-container site-footer-inner">
 				<div class="grid-50 tablet-grid-50">
                     <p class="credit">
                         <?php printf(

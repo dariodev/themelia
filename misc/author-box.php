@@ -12,16 +12,15 @@ if ( $author_description = get_the_author_meta( 'description' ) ) : ?>
 
 	<aside id="author-box" class="author-info clr">
 		<?php if( themelia_has_gravatar( $author_email )) { ?>
-			<a href="<?php echo $author_posts_link; ?>" class="author-avatar clr" rel="author">
+			<a href="<?php echo $author_posts_link; ?>" title="<?php esc_html_e( 'All posts by', 'themelia' ); ?> <?php echo $author; ?>" class="author-avatar clr" rel="author">
 				<?php echo $author_avatar; ?>
 			</a><!-- .author-avatar -->
 		<?php } ?>
 
-		<h4 class="author-heading"><span><?php esc_html_e( 'Written by', 'themelia' ); ?></span> <?php echo $author; ?></h4>
+		<h4 class="author-heading"><?php esc_html_e( 'Written by', 'themelia' ); ?> <a href="<?php echo $author_posts_link; ?>" title="<?php esc_html_e( 'All posts by', 'themelia' ); ?> <?php echo $author; ?>"><?php echo $author; ?></a></h4>
 		<div class="author-bio clr">
 			<div class="author-description">
 				<?php echo wpautop ( $author_description ); ?>
-				<a href="<?php echo $author_posts_link; ?>" title="<?php esc_html_e( 'View all author posts', 'themelia' ); ?>"><?php esc_html_e( 'View all author posts', 'themelia' ); ?></a>
 			</div><!-- .author-description -->
 		</div><!-- .author-info-inner -->
 	</aside><!-- #author-bio -->

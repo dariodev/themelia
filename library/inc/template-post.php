@@ -115,6 +115,8 @@ function hybrid_post_format_link() {
  * Generates a link to the current post format's archive.  If the post doesn't have a post format, the link
  * will go to the post permalink.
  *
+ * Added span by @dariodev
+ *
  * @since  2.0.0
  * @access public
  * @return string
@@ -124,7 +126,7 @@ function hybrid_get_post_format_link() {
 	$format = get_post_format();
 	$url    = $format ? get_post_format_link( $format ) : get_permalink();
 
-	return sprintf( '<a href="%s" class="post-format-link">%s</a>', esc_url( $url ), get_post_format_string( $format ) );
+	return sprintf( '<a title="%s" href="%s" class="post-format-link"><span>%s</span></a>', get_post_format_string( $format ), esc_url( $url ), get_post_format_string( $format ) );
 }
 
 /**

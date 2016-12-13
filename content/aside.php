@@ -16,7 +16,7 @@
 
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 
-			<div class="entry-byline">
+			<div class="entry-byline small">
 				<?php hybrid_post_format_link(); ?>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
@@ -40,6 +40,15 @@
 		<?php get_template_part( 'misc/author-box' ); ?>
 
 	<?php else : // If not viewing a single post. ?>
+
+		<header class="entry-header">
+
+			<div class="entry-byline small">
+				<?php hybrid_post_format_link(); ?>
+				<?php edit_post_link(); ?>
+			</div><!-- .entry-byline -->
+
+		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>

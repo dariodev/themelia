@@ -29,5 +29,5 @@
 
 		<div <?php hybrid_attr( 'main' ); ?>>
 			<div <?php hybrid_attr( 'grid-container' ); ?>>
-				<div class="inner main-inner">
+				<div class="grid-100 grid-parent main-inner">
 					<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>

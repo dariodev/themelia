@@ -18,7 +18,7 @@
 
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 
-			<div class="entry-byline">
+			<div class="entry-byline small">
 				<span class="image-sizes"><?php printf( esc_html__( 'Sizes: %s', 'themelia' ), hybrid_get_image_size_links() ); ?></span>
 			</div><!-- .entry-byline -->
 
