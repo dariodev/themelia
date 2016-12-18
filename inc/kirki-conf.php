@@ -128,7 +128,7 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 			),
 		) );
-		
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'toggle',
 			'settings'    => 'themelia_site_title',
@@ -199,7 +199,7 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 			),
 		) );
-		
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'toggle',
 			'settings'    => 'themelia_site_description',
@@ -210,7 +210,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'priority'    => 25,
 			'transport'   => 'auto',
 		) );
-		
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'color',
 			'settings'    => 'site_description_color',
@@ -617,7 +617,7 @@ if ( class_exists( 'Kirki' ) ) {
 				'perfect-fourth' => esc_attr__( '[1.333] - Perfect Fourth ', 'themelia' ),
 			),
 		) );
-		
+
 		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'text',
 			'settings'    => 'base_typography_large',
@@ -1096,7 +1096,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport'   => 'auto',
 			'output'      => array(
 				array(
-				  'element'  => '#reply-title',
+				  'element'  => '#comments-number',
 				  'property' => 'border-top-color',
 				),
 				array(

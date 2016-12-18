@@ -26,8 +26,3 @@
 			</div><!-- #branding -->
 
 		</header><!-- #header -->
-
-		<div <?php hybrid_attr( 'main' ); ?>>
-			<div <?php hybrid_attr( 'grid-container' ); ?>>
-				<div class="grid-100 grid-parent main-inner">
-					<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>

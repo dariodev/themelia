@@ -41,14 +41,19 @@ add_filter( 'hybrid_site_description', 'themelia_get_site_description');
 # Add custom image sizes attribute to enhance responsive image functionality for post thumbnails
 add_filter( 'wp_get_attachment_image_attributes', 'themelia_post_thumbnail_sizes_attr', 10 , 3 );
 
-#Changing excerpt more
+# Changing excerpt more
 add_filter('excerpt_more', 'themelia_excerpt_more');
 
-#Read More Button For Excerpt
+# Read More Button For Excerpt
 add_filter( 'the_excerpt', 'themelia_excerpt_read_more_link' );
 
 # Disable default Breadcrumbs for bbPress plugin.
 add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
+
+# Filters the archive title.
+remove_filter( 'get_the_archive_title', 'hybrid_archive_title_filter',   5  );
+add_filter(    'get_the_archive_title', 'themelia_archive_title_filter', 5  );
+
 
 /**
  * Javascript detection.
@@ -192,7 +197,84 @@ function themelia_primary_sidebar() {
 	}
 }
 
+/**
+ * Filters `get_the_archve_title` to add better archive titles than core.
+ *
+ * @since  Themelia 1.0.0
+ * @access public
+ * @param  string  $title
+ * @return string
+ */
+function themelia_archive_title_filter( $title ) {
 
+	if ( is_home() && ! is_front_page() )
+		$title = get_post_field( 'post_title', get_queried_object_id() );
+
+	elseif ( is_category() )
+		$title = single_cat_title( '', false );
+
+	elseif ( is_tag() )
+		$title = single_tag_title( '', false );
+
+	elseif ( is_tax( 'post_format' ) )
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = _x( 'Asides', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = _x( 'Galleries', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = _x( 'Images', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = _x( 'Videos', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = _x( 'Quotes', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = _x( 'Links', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = _x( 'Statuses', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = _x( 'Audio', 'post format archive title' );
+			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = _x( 'Chats', 'post format archive title' );
+			}
+
+	elseif ( is_tax() )
+		$title = single_term_title( '', false );
+
+	elseif ( is_author() )
+		$title = hybrid_get_single_author_title();
+
+	elseif ( is_search() )
+		$title = hybrid_get_search_title();
+
+	elseif ( is_post_type_archive() )
+		$title = post_type_archive_title( '', false );
+
+	elseif ( get_query_var( 'minute' ) && get_query_var( 'hour' ) )
+		$title = hybrid_get_single_minute_hour_title();
+
+	elseif ( get_query_var( 'minute' ) )
+		$title = hybrid_get_single_minute_title();
+
+	elseif ( get_query_var( 'hour' ) )
+		$title = hybrid_get_single_hour_title();
+
+	elseif ( is_day() )
+		$title = hybrid_get_single_day_title();
+
+	elseif ( get_query_var( 'w' ) )
+		$title = hybrid_get_single_week_title();
+
+	elseif ( is_month() )
+		$title = single_month_title( ' ', false );
+
+	elseif ( is_year() )
+		$title = hybrid_get_single_year_title();
+
+	elseif ( is_archive() )
+		$title = hybrid_get_single_archive_title();
+
+	return apply_filters( 'hybrid_archive_title', $title );
+}
 
 
 /**
@@ -223,7 +305,7 @@ function themelia_get_locale_fonts() {
 	$fonts = array(
 		'default' => array( 'family' => themelia_get_font_families(), 'subset' => themelia_get_font_subsets() ),
 	);
-	
+
 	if ( !class_exists( 'Kirki' ) ) {
 		// Return only if Kirki library is not included
 		return apply_filters( 'themelia_get_locale_fonts', $fonts );
@@ -305,7 +387,7 @@ function themelia_register_styles() {
 
 	$suffix = hybrid_get_min_suffix();
 	$theme_css = trailingslashit( get_template_directory_uri() ) . 'css/';
-	
+
 	// Register fonts.
 	hybrid_register_font( 'themelia', themelia_get_locale_font_args() );
 
@@ -328,7 +410,7 @@ function themelia_register_styles() {
  * @return void
  */
 function themelia_enqueue_styles() {
-	
+
 	// Load fonts.
 	hybrid_enqueue_font( 'themelia' );
 
