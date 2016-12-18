@@ -153,10 +153,9 @@ Licenses: MIT/GPL2
 
 All jQuery plugins are minified. Full source versions are also bundled in theme package. Full source versions will be loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file. Otherwise, the `*.min.css` file is loaded.
 
-**Images used in screenshot.png**
+**Image used in screenshot.png**
 
--	Featured photo by [Samuel Zeller](https://unsplash.com/samuelzeller), licensed under [Creative Commons Zero](http://creativecommons.org/publicdomain/zero/1.0/)
--	Sidebar photo by [Nick Karvounis](https://unsplash.com/nickkarvounis), licensed under [Creative Commons Zero](http://creativecommons.org/publicdomain/zero/1.0/)
+-	Featured image by [Redd Angelo](https://unsplash.com/@reddangelo16?photo=eY7ETwocMyU), licensed under [Creative Commons Zero](http://creativecommons.org/publicdomain/zero/1.0/)
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
 
