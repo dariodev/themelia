@@ -51,8 +51,7 @@ add_filter( 'the_excerpt', 'themelia_excerpt_read_more_link' );
 add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
 
 # Filters the archive title.
-remove_filter( 'get_the_archive_title', 'hybrid_archive_title_filter',   5  );
-add_filter(    'get_the_archive_title', 'themelia_archive_title_filter', 5  );
+add_filter( 'get_the_archive_title', 'themelia_archive_title_filter', 5  );
 
 
 /**
@@ -66,6 +65,7 @@ function themelia_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 
+
 /**
  * Registers custom image sizes for the theme.
  *
@@ -75,8 +75,6 @@ function themelia_javascript_detection() {
  */
 function themelia_register_image_sizes() {
 
-	// Sets the 'post-thumbnail' size.
-	// set_post_thumbnail_size( 150, 150, true );
 	add_image_size( 'hero-image', 1280 );
 }
 
@@ -197,6 +195,7 @@ function themelia_primary_sidebar() {
 	}
 }
 
+
 /**
  * Filters `get_the_archve_title` to add better archive titles than core.
  *
@@ -207,73 +206,28 @@ function themelia_primary_sidebar() {
  */
 function themelia_archive_title_filter( $title ) {
 
-	if ( is_home() && ! is_front_page() )
-		$title = get_post_field( 'post_title', get_queried_object_id() );
+	if ( is_tax( 'post_format' ) )
+		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+			$title = _x( 'Asides', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+			$title = _x( 'Galleries', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+			$title = _x( 'Images', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+			$title = _x( 'Videos', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+			$title = _x( 'Quotes', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+			$title = _x( 'Links', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+			$title = _x( 'Statuses', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+			$title = _x( 'Audio', 'post format archive title' );
+		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+			$title = _x( 'Chats', 'post format archive title' );
+		}
 
-	elseif ( is_category() )
-		$title = single_cat_title( '', false );
-
-	elseif ( is_tag() )
-		$title = single_tag_title( '', false );
-
-	elseif ( is_tax( 'post_format' ) )
-			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-				$title = _x( 'Asides', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-				$title = _x( 'Galleries', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-				$title = _x( 'Images', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-				$title = _x( 'Videos', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-				$title = _x( 'Quotes', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-				$title = _x( 'Links', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-				$title = _x( 'Statuses', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-				$title = _x( 'Audio', 'post format archive title' );
-			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-				$title = _x( 'Chats', 'post format archive title' );
-			}
-
-	elseif ( is_tax() )
-		$title = single_term_title( '', false );
-
-	elseif ( is_author() )
-		$title = hybrid_get_single_author_title();
-
-	elseif ( is_search() )
-		$title = hybrid_get_search_title();
-
-	elseif ( is_post_type_archive() )
-		$title = post_type_archive_title( '', false );
-
-	elseif ( get_query_var( 'minute' ) && get_query_var( 'hour' ) )
-		$title = hybrid_get_single_minute_hour_title();
-
-	elseif ( get_query_var( 'minute' ) )
-		$title = hybrid_get_single_minute_title();
-
-	elseif ( get_query_var( 'hour' ) )
-		$title = hybrid_get_single_hour_title();
-
-	elseif ( is_day() )
-		$title = hybrid_get_single_day_title();
-
-	elseif ( get_query_var( 'w' ) )
-		$title = hybrid_get_single_week_title();
-
-	elseif ( is_month() )
-		$title = single_month_title( ' ', false );
-
-	elseif ( is_year() )
-		$title = hybrid_get_single_year_title();
-
-	elseif ( is_archive() )
-		$title = hybrid_get_single_archive_title();
-
-	return apply_filters( 'hybrid_archive_title', $title );
+		return apply_filters( 'hybrid_archive_title', $title );
 }
 
 
@@ -292,6 +246,7 @@ function themelia_get_locale_font_args() {
 
 	return apply_filters( "themelia_{$locale}_font_args", $args );
 }
+
 
 /**
  * Returns an array of locale-specific font arguments
@@ -312,6 +267,7 @@ function themelia_get_locale_fonts() {
 	}
 }
 
+
 /**
  * Returns an array of the font families to load from Google Fonts.
  *
@@ -327,6 +283,7 @@ function themelia_get_font_families() {
 	);
 }
 
+
 /**
  * Returns an array of the font subsets to include.
  *
@@ -338,8 +295,6 @@ function themelia_get_font_subsets() {
 
 	return array( 'latin' );
 }
-
-
 
 
 /**
@@ -358,6 +313,7 @@ function themelia_enqueue_scripts() {
 	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ),'1.0.1', true );
 	wp_enqueue_script( 'smartmenus', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	wp_enqueue_script( 'smartmenus-keyboard', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus.keyboard{$suffix}.js", array( 'jquery' ), '1.0.1', true );
+	wp_enqueue_script( 'material', trailingslashit( get_template_directory_uri() ) . "js/material{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	wp_enqueue_script( 'themelia', trailingslashit( get_template_directory_uri() ) . "js/themelia{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	// Load the html5 shiv.
 	wp_enqueue_script( 'themelia-html5', get_template_directory_uri() . '/js/html5{$suffix}.js', array(), '3.7.3' );
@@ -426,7 +382,6 @@ function themelia_enqueue_styles() {
 
 	// Load theme stylesheet.
 	wp_enqueue_style( 'themelia-style' );
-
 }
 
 
@@ -819,14 +774,28 @@ function themelia_post_thumbnail() {
 	if ( is_singular() ) :
 	?>
 
-	<div class="post-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</div><!-- .post-thumbnail -->
+	<figure class="post-thumbnail wp-caption">
+		<?php
+			$thumbnail_id = get_post_thumbnail_id();
+			$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+		 ?>
+		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
+		<?php
+			$get_caption = get_post($thumbnail_id)->post_excerpt;
+			if( !empty($get_caption) ) {
+				echo '<figcaption class="wp-caption-text">' . $get_caption . '</figcaption>';
+			}
+		?>
+	</figure><!-- .post-thumbnail -->
 
 	<?php else : ?>
 
 	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
-		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => the_title_attribute( 'echo=0' ) ) ); ?>
+		<?php
+			$thumbnail_id = get_post_thumbnail_id();
+			$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+		 ?>
+		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
 	</a>
 
 	<?php endif; // End is_singular()

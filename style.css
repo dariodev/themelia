@@ -1,7 +1,7 @@
 /**
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
- * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. Built on the rock-solid Hybrid Core theme framework.
+ * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
  * Version:     1.0.10
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
@@ -664,6 +664,182 @@ a:active {
 	color: #2b8cc4;
 }
 
+/* ==========================================================================
+   # Typography
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Work Sans", Roboto, Oxygen-Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, "Helvetica Neue", sans-serif;;
+	font-weight: 700;
+}
+
+.site-title-wrap {
+	text-decoration: none;
+}
+
+.site-title {
+	color: #22222A;
+	font-family: inherit;
+	font-size: 1.75em;
+	font-weight: 600;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.site-description {
+	color: #6f767a;
+	font-size: .824em;
+	font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: .025em;
+	margin: 0;
+}
+
+p,
+figure { margin: 0 0 1.3em; }
+
+h1 { margin-top: 0; }
+
+/* Modular Scale
+   ========================================================================== */
+
+/**
+ * Typographic system with modular scale
+ * Find more info here http://alistapart.com/article/more-meaningful-typography
+ *
+ * Modular Scale calculator
+ * http://type-scale.com/
+ */
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	margin: 1.414em 0 .5em;
+}
+
+/**
+ * Mobile first
+ *
+/* Scale 1.125 - Major Second
+   ================================ */
+h1 { font-size: 1.602em; }
+h2 { font-size: 1.424em; }
+h3 { font-size: 1.266em; }
+h4 { font-size: 1.125em; }
+h5 { font-size: 1em;     }
+h6 { font-size: 1em;     }
+
+.big, .lead,
+blockquote {  font-size: 1.266em; }
+
+.big, .lead {  font-weight: 500; line-height: 1.45 }
+
+sub, sup, small, .small,
+blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
+
+.smaller, .breadcrumbs { font-size: 0.79em; }
+
+@media (min-width: 600px) and (max-width: 1199px) { /* Medium screens - Tablets */
+
+	body {
+		font-size: 1.125em; /* This means 18px */
+	}
+
+	.site-title {
+		font-size: 1.75em;
+	}
+
+	.site-description {
+		font-size: .824em;
+	}
+
+	/* Scale 1.200 - Minor Third
+	   ================================ */
+	h1 { font-size: 2.074em; }
+	h2 { font-size: 1.728em; }
+	h3 { font-size: 1.44em;  }
+	h4 { font-size: 1.2em;   }
+	h5 { font-size: 1em;     }
+	h6 { font-size: 1em;     }
+
+	.big, .lead,
+	blockquote {  font-size: 1.2em; }
+
+	sub, sup, small, .small,
+	blockquote cite { font-size: 0.833em; }
+
+	.smaller,
+	.wp-caption .wp-caption-text,
+	.breadcrumbs { font-size: 0.75em; }
+}
+
+@media (min-width: 1200px) and (max-width: 1799px) { /* large screens */
+
+	body {
+		font-size: 1.125em; /* This means 18px */
+	}
+
+	.site-title {
+		font-size: 1.789em;
+	}
+
+	.site-description {
+		font-size: 0.789em;
+	}
+
+	/* Scale 1.250 - Major Third
+	   ================================ */
+	h1 { font-size: 2.441em; }
+	h2 { font-size: 1.953em; }
+	h3 { font-size: 1.563em; }
+	h4 { font-size: 1.25em;  }
+	h5 { font-size: 1em;     }
+	h6 { font-size: 1em;     }
+
+	.big, .lead,
+	blockquote {  font-size: 1.25em; }
+
+	sub, sup, small, .small,
+	blockquote cite { font-size: 0.889em; }
+
+	.smaller, .breadcrumbs  { font-size: 0.75em; }
+
+	.wp-caption .wp-caption-text { font-size: 0.833em; }
+}
+
+@media (min-width: 1800px) { /* min-width 1800px, xlarge screens */
+
+	body {
+		font-size: 1.188em; /* This means 19px */
+	}
+
+	.site-title {
+		font-size: 1.789em;
+	}
+
+	.site-description {
+		font-size: .789em;
+	}
+
+	/* Scale 1.333 - Perfect Fourth
+	   ================================ */
+	h1 { font-size: 3.157em; }
+	h2 { font-size: 2.369em; }
+	h3 { font-size: 1.777em; }
+	h4 { font-size: 1.333em; }
+	h5 { font-size: 1em;     }
+	h6 { font-size: 1em;     }
+
+	.big, .lead,
+	blockquote {  font-size: 1.333em; }
+
+	sub, sup, small, .small,
+	blockquote cite { font-size: 0.889em; }
+
+	.smaller { font-size: 0.75em; }
+
+	.wp-caption .wp-caption-text, .breadcrumbs { font-size: 0.833em; }
+}
+
 
 /* ==========================================================================
    # Header
@@ -966,6 +1142,15 @@ a:active {
 	color: #000;
 }
 
+.sm-simple .sub-menu a:hover,
+.sm-simple .sub-menu li a.highlighted {
+    color: #b10e1e;
+}
+
+.sm-simple .sub-menu a:active {
+    color: #ba321d;
+}
+
 .sm-simple ul a {
 	font-size: 16px;
 	font-weight: normal;
@@ -1138,13 +1323,13 @@ a:active {
 	}
 
 	.sm-simple > li > a:before {
-		background: #2B8CC4;
-		bottom: 0;
+		background: #B10E1E;
 		content: '';
 		display: block;
 		height: 3px;
 		left: 0;
 		right: 0;
+		bottom: 0;
 		position: absolute;
 		transition: transform .3s ease;
 		transform: scaleX(0);
@@ -1154,13 +1339,14 @@ a:active {
 	.sm-simple > li > a.highlighted:before,
 	.sm-simple > li.current_page_item > a:before,
 	.sm-simple > li.current_page_parent > a:before {
+		background: #ba321d;
 		transform: scaleX(1);
 	}
 
 	.no-js .sm ul ul {
-		top: 0 !important;
-		left: 100% !important;
 		min-width: 12em;
+		left: 100% !important;
+		top: 0 !important;
 	}
 
 	.sm-simple a.highlighted span.sub-arrow:after {
@@ -1168,8 +1354,8 @@ a:active {
 	}
 
 	.site-title-wrap {
-		position: relative;
 		float: left;
+		position: relative;
 	}
 
 	.header-inline-menu-title .site-title-wrap {
@@ -1219,15 +1405,16 @@ a:active {
 		white-space: normal;
 	}
 
-	.sm-simple .sm-nowrap > li > a, .sm-simple .sm-nowrap > li > :not(ul) a {
+	.sm-simple .sm-nowrap > li > a,
+	.sm-simple .sm-nowrap > li > :not(ul) a {
 		white-space: nowrap;
 	}
 	/* ...end basic style */
 
 	.sm-simple a {
-		width: auto;
 		padding-top: 0.5em;
 		padding-bottom: 0.5em;
+		width: auto;
 	}
 
 	.sm-simple ul li a {
@@ -1235,7 +1422,7 @@ a:active {
 	}
 
 	.header-s-l .sm-simple li:first-child a,
-		.header-i-m-lr  .sm-simple li:first-child a {
+	.header-i-m-lr  .sm-simple li:first-child a {
 		padding-left: 0;
 	}
 
@@ -1302,10 +1489,10 @@ a:active {
 
 	.sm-simple span.scroll-up,
 	.sm-simple span.scroll-down {
-		position: absolute;
 		display: none;
-		visibility: hidden;
+		position: absolute;
 		overflow: hidden;
+		visibility: hidden;
 		background: white;
 		height: 20px;
 	}
@@ -1401,21 +1588,21 @@ a:active {
 
 /* hamburger icon */
 .hamburger {
-	padding: 8px 6px;
-	display: inline-block;
+	background-color: transparent;
+	border: 0;
+	color: inherit;
 	cursor: pointer;
+	display: inline-block;
+	font: inherit;
+	margin: 0;
+	overflow: visible;
+	padding: 8px 6px;
+	text-transform: none;
 	transition-property: opacity, -webkit-filter;
 	transition-property: opacity, filter;
 	transition-property: opacity, filter, -webkit-filter;
 	transition-duration: 0.15s;
 	transition-timing-function: linear;
-	font: inherit;
-	color: inherit;
-	text-transform: none;
-	background-color: transparent;
-	border: 0;
-	margin: 0;
-	overflow: visible;
 }
 
 .hamburger.is-not-active:focus {
@@ -1423,23 +1610,23 @@ a:active {
 }
 
 .hamburger-box {
-	width: 100%;
-	height: 24px;
 	display: inline-block;
 	position: relative;
+	height: 24px;
+	width: 100%;
 }
 
 .hamburger-inner {
 	display: block;
-	top: 50%;
 	margin-top: -2px;
+	top: 50%;
 }
 
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-	width: 100%;
-	height: 3px;
 	background-color: #000;
 	border-radius: 4px;
+	height: 3px;
+	width: 100%;
 	position: absolute;
 	transition-property: -webkit-transform;
 	transition-property: transform;
@@ -1653,6 +1840,7 @@ a:active {
 
 
 .breadcrumb-trail {
+	color: #6d7377;
 	padding-left: 10px;
 	padding-right: 10px;
 	padding-top: 1rem;
@@ -1665,7 +1853,6 @@ a:active {
 }
 
 .breadcrumb-trail ul {
-	font-size: 0.889em;
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -1676,7 +1863,7 @@ a:active {
 }
 
 .breadcrumb-trail .trail-end {
-	opacity: 0.75;
+	color: inherit;
 }
 
 .breadcrumb-trail li:after {
@@ -1707,193 +1894,11 @@ a:active {
 	opacity: 1;
 }
 
-.breadcrumb-trail {
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
 @media (min-width: 1200px) {
 	.breadcrumb-trail {
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-}
-
-
-/* ==========================================================================
-   # Typography
-   ========================================================================== */
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: "Work Sans", Roboto, Oxygen-Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, "Helvetica Neue", sans-serif;;
-	font-weight: 700;
-}
-
-.site-title-wrap {
-	text-decoration: none;
-}
-
-.site-title {
-	color: #22222A;
-	font-family: inherit;
-	font-size: 1.75em;
-	font-weight: 600;
-	line-height: 1.2;
-	margin: 0;
-}
-
-.site-description {
-	color: #6f767a;
-	font-size: .824em;
-	font-weight: 400;
-	line-height: 1.2;
-	letter-spacing: .025em;
-	margin: 0;
-}
-
-p,
-figure { margin: 0 0 1.3em; }
-
-h1 { margin-top: 0; }
-
-/* Modular Scale
-   ========================================================================== */
-
-/**
- * Typographic system with modular scale
- * Find more info here http://alistapart.com/article/more-meaningful-typography
- *
- * Modular Scale calculator
- * http://type-scale.com/
- */
-
-h1, h2, h3, h4, h5, h6 {
-	line-height: 1.2;
-	margin: 1.414em 0 .5em;
-}
-
-/**
- * Mobile first
- *
-/* Scale 1.125 - Major Second
-   ================================ */
-h1 { font-size: 1.602em; }
-h2 { font-size: 1.424em; }
-h3 { font-size: 1.266em; }
-h4 { font-size: 1.125em; }
-h5 { font-size: 1em;     }
-h6 { font-size: 1em;     }
-
-.big, .lead,
-blockquote {  font-size: 1.266em; }
-
-.big, .lead {  font-weight: 500; line-height: 1.45 }
-
-sub, sup, small, .small,
-blockquote cite, .wp-caption .wp-caption-text,
-.font-secondary { font-size: 0.889em; }
-
-.smaller { font-size: 0.79em; }
-
-@media (min-width: 600px) and (max-width: 1199px) { /* Medium screens - Tablets */
-
-	body {
-		font-size: 1.063em; /* This means 17px */
-	}
-
-	.site-title {
-		font-size: 1.75em;
-	}
-
-	.site-description {
-		font-size: .824em;
-	}
-
-	/* Scale 1.200 - Minor Third
-	   ================================ */
-	h1 { font-size: 2.074em; }
-	h2 { font-size: 1.728em; }
-	h3 { font-size: 1.44em;  }
-	h4 { font-size: 1.2em;   }
-	h5 { font-size: 1em;     }
-	h6 { font-size: 1em;     }
-
-	.big, .lead,
-	blockquote {  font-size: 1.2em; }
-
-	sub, sup, small, .small,
-	blockquote cite, .font-secondary { font-size: 0.833em; }
-
-	.smaller,
-	.wp-caption .wp-caption-text { font-size: 0.75em; }
-}
-
-@media (min-width: 1200px) and (max-width: 1799px) { /* large screens */
-
-	body {
-		font-size: 1.125em; /* This means 18px */
-	}
-
-	.site-title {
-		font-size: 1.789em;
-	}
-
-	.site-description {
-		font-size: 0.789em;
-	}
-
-	/* Scale 1.250 - Major Third
-	   ================================ */
-	h1 { font-size: 2.441em; }
-	h2 { font-size: 1.953em; }
-	h3 { font-size: 1.563em; }
-	h4 { font-size: 1.25em;  }
-	h5 { font-size: 1em;     }
-	h6 { font-size: 1em;     }
-
-	.big, .lead,
-	blockquote {  font-size: 1.25em; }
-
-	sub, sup, small, .small,
-	blockquote cite, .font-secondary { font-size: 0.889em; }
-
-	.smaller  { font-size: 0.75em; }
-
-	.wp-caption .wp-caption-text { font-size: 0.833em; }
-}
-
-@media (min-width: 1800px) { /* min-width 1800px, xlarge screens */
-
-	body {
-		font-size: 1.188em; /* This means 19px */
-	}
-
-	.site-title {
-		font-size: 1.789em;
-	}
-
-	.site-description {
-		font-size: .789em;
-	}
-
-	/* Scale 1.333 - Perfect Fourth
-	   ================================ */
-	h1 { font-size: 3.157em; }
-	h2 { font-size: 2.369em; }
-	h3 { font-size: 1.777em; }
-	h4 { font-size: 1.333em; }
-	h5 { font-size: 1em;     }
-	h6 { font-size: 1em;     }
-
-	.big, .lead,
-	blockquote {  font-size: 1.333em; }
-
-	sub, sup, small, .small,
-	blockquote cite, .font-secondary { font-size: 0.889em; }
-
-	.smaller { font-size: 0.75em; }
-
-	.wp-caption .wp-caption-text { font-size: 0.833em; }
 }
 
 
@@ -2865,6 +2870,7 @@ button,
 .submit,
 input[type="submit"],
 #content input[type="submit"],
+.infinite-scroll #infinite-handle button,
 .gform_button,
 .sidebar-primary .edd_checkout a,
 #main .edd_go_to_checkout.button,
@@ -2885,7 +2891,7 @@ input[type="submit"],
 	line-height: 45px;
 	margin: 0;
 	outline: none;
-	padding: 1px 1.25rem 0;
+	padding: 1px 1.25em 0;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -2921,7 +2927,8 @@ input.primary[type="submit"] {
 a.btn-secondary,
 button.btn-secondary,
 button[secondary],
-input.secondary[type="submit"] {
+input.secondary[type="submit"],
+.infinite-scroll #infinite-handle span button {
 	color: #000;
 	background-color: #E8E8E8;
 }
@@ -2976,11 +2983,12 @@ button:hover,
 .submit:hover,
 input[type="submit"]:hover,
 #content input[type="submit"]:hover,
+.infinite-scroll #infinite-handle span button:hover,
 .gform_button:hover,
 .sidebar-primary .edd_checkout a:hover,
 #main .edd_go_to_checkout.button:hover,
 #main .edd-add-to-cart.button:hover {
-	box-shadow: 0 0 0 150px rgba(255, 255, 255, 0.05) inset, 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+	box-shadow: 0 0 0 150px rgba(255, 255, 255, 0.05) inset, 0 2px 3px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
 	color: #fff;
 	text-decoration: none;
 }
@@ -2990,6 +2998,7 @@ button:focus,
 .submit:focus,
 input[type="submit"]:focus,
 #content input[type="submit"]:focus,
+.infinite-scroll #infinite-handle span button:focus,
 .gform_button:focus,
 .sidebar-primary .edd_checkout a:focus,
 #main .edd_go_to_checkout.button:focus,
@@ -3004,6 +3013,7 @@ button:active,
 .submit:active,
 input[type="submit"]:active,
 #content input[type="submit"]:active,
+.infinite-scroll #infinite-handle span button:active,
 .gform_button:active,
 .sidebar-primary .edd_checkout a:active,
 #main .edd_go_to_checkout.button:active,
@@ -3015,6 +3025,7 @@ input[type="submit"]:active,
 
 .btn-secondary:hover,
 button.btn-secondary:hover,
+.infinite-scroll #infinite-handle span button:hover,
 button[secondary]:hover,
 input.secondary[type="submit"]:hover {
 	color: #121212;
@@ -3654,23 +3665,26 @@ img.emoji {
 /* === Captions === */
 
 .wp-caption {
-	position: relative;
 	max-width: 100% !important;
+	position: relative;
 }
 
 .figcaption,
 .wp-caption-text {
+	color: #6d7377;
 	line-height: 1.35;
 	margin: .4rem 0;
+	max-width: 500px;
 }
 
-figcaption span
+figcaption span,
 .wp-caption-text span {
 	clear: both;
-	color: #999;
 	display: block;
-	font-size: 91%;
+	font-size: 90%;
 	line-height: 1.8;
+	letter-spacing: 0.05em;
+	opacity: .75;
 	text-transform: uppercase;
 }
 
@@ -3909,17 +3923,35 @@ figcaption span
 	padding-top: 1.5rem;
 }
 
-@media (min-width: 900px) and (max-width: 1200px) {
+@media (min-width: 600px) and (max-width: 900px) {
+
+	.grid-container {
+		max-width: 95% !important;
+	}
+
+	.sidebar-primary .widget {
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+}
+
+@media (min-width: 900px) and (max-width: 1299px) {
+
+	.grid-container {
+		max-width: 95% !important;
+	}
 
 	.layout-2c-l .sidebar-inner {
-		padding-left: 5%;
+		padding-left: 8%;
 	}
 	.layout-2c-r .sidebar-inner {
-		padding-right: 5%;
+		padding-right: 8%;
 	}
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1300px) {
 
 	.layout-2c-l .sidebar-inner {
 		padding-left: 10%;
@@ -3946,10 +3978,19 @@ figcaption span
 
 /* === Post Header === */
 
-.entry-title,
 .archive-title {
 	margin-top: 0;
-	margin-bottom: 0.737em;
+	margin-bottom: 0.333em;
+}
+
+.entry-title {
+	margin-top: 0;
+	margin-bottom: 0.55em;
+}
+
+.singular .entry-title {
+	margin-top: 0;
+	margin-bottom: 0.55em;
 }
 
 .entry-title a {
@@ -4105,21 +4146,12 @@ figcaption span
 	padding-bottom: .5rem;
 }
 
-.layout-1c .entry-content p,
-.layout-1c .entry-content h1,
-.layout-1c .entry-content h2,
-.layout-1c .entry-content h3,
-.layout-1c .entry-content h4,
-.layout-1c .entry-content h5,
-.layout-1c .entry-content h6,
-.layout-1c .entry-content ul,
-.layout-1c .entry-content blockquote,
-.layout-1c .entry-content hr,
+.layout-1c .entry-title,
+.layout-1c .entry-content,
 .layout-1c .entry-footer,
-.layout-1c .entry .author-info,
+.layout-1c #author-box,
 .layout-1c #comments-template,
-.layout-1c .entry-header .entry-title,
-.layout-1c .entry-header .entry-byline {
+.layout-1c .post-navigation  {
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 900px;
@@ -4159,14 +4191,15 @@ figcaption span
 
 .author-avatar {
 	float: left;
-	margin-bottom: 1.5em;
+	margin-bottom: .5em;
+	width: 75px;
+	padding-right: 15px;
 }
 
 .author-avatar img {
-	border: 0.5em solid #f5f5f5;
-	border: 0.5em solid rgba(0,0,0,0.055);
+	border: 0.4em solid #f5f5f5;
+	border: 0.4em solid rgba(0,0,0,0.055);
 	border-radius: 50%;
-	display: block;
 	float: left;
 }
 
@@ -4186,11 +4219,26 @@ figcaption span
 	text-decoration: underline;
 }
 
-.author-avatar + h4,
-.author-avatar + h4 + .author-bio,
-.author-avatar + .archive-description {
-	clear: right;
-	margin-left: 150px;
+@media (min-width: 600px) {
+
+	.author-avatar {
+		margin-bottom: 1.5em;
+		width: 140px;
+	}
+
+	.author-avatar img {
+		border: 0.5em solid #f5f5f5;
+		border: 0.5em solid rgba(0,0,0,0.055);
+		width: 120px;
+		height: auto;
+	}
+
+	.author-avatar + h4,
+	.author-avatar + h4 + .author-bio,
+	.author-avatar + .archive-description {
+		clear: right;
+		margin-left: 150px;
+	}
 }
 
 .author-description {
@@ -4217,14 +4265,6 @@ figcaption span
 .entry-terms a,
 .entry-terms span {
 	font-weight:normal;
-}
-
-.entry-terms a {
-
-}
-
-.entry-terms a:hover {
-
 }
 
 .post-navigation {
@@ -4613,6 +4653,47 @@ figcaption span
 	opacity: .85
 }
 
+/* JetPack
+   ========================================================================== */
+
+.entry-content .sharedaddy .sd-title,
+.entry-content #jp-relatedposts h3.jp-relatedposts-headline {
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+    font-size: .899em;
+}
+
+/* Hides navigation links and site footer when infinite scroll is active */
+.infinite-scroll .navigation.pagination {
+    display: none;
+}
+
+.infinite-scroll #infinite-handle span {
+    background: transparent;
+    padding: 0;
+}
+
+.infinite-scroll #infinite-handle span button,
+.infinite-scroll #infinite-handle span button:hover,
+.infinite-scroll #infinite-handle span button:focus {
+	color: #000;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 45px;
+	padding: 1px 1.25em 0;
+}
+
+#content #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
+    font-size: 0.899em;
+	font-weight: 500;
+    line-height: 1.5;
+}
+
+#content #jp-relatedposts .jp-relatedposts-items p {
+    font-size: 0.899em;
+    line-height: 1.5;
+}
+
 /* bbPress Plugin
    ========================================================================== */
 
@@ -4773,10 +4854,13 @@ figcaption span
 
 .sidebar .widget,
 .footer-widgets .widget {
-	display: inline-block;
 	width: 100%;
 	margin-bottom: 2.5rem;
 	vertical-align: top;
+}
+
+.footer-widgets .widget {
+	display: inline-block;
 }
 
 .widget_rss a.rsswidget {
@@ -5312,24 +5396,25 @@ li.ping .comment-meta .comment-permalink {
 }
 
 .transition-all {
-	-webkit-transition: all .2s ease-out;
-	-moz-transition: all .2s ease-out;
-	-o-transition: all .2s ease-out;
-	transition: all .2s ease-out;
+	-webkit-transition: all .15s ease-out;
+	-moz-transition: all .15s ease-out;
+	-o-transition: all .15s ease-out;
+	transition: all .15s ease-out;
 }
 
-.transition-color {
-	-webkit-transition: color .2s ease-out;
-	-moz-transition: color .2s ease-out;
-	-o-transition: color .2s ease-out;
-	transition: color .2s ease-out;
+.transition-color,
+a {
+	-webkit-transition: color .1s ease;
+	-moz-transition: color .1s ease;
+	-o-transition: color .1s ease;
+	transition: color .1s ease;
 }
 
 .transition-bg {
-	-webkit-transition: background .2s ease-out;
-	-moz-transition: background .2s ease-out;
-	-o-transition: background .2s ease-out;
-	transition: background .2s ease-out;
+	-webkit-transition: background .15s ease-out;
+	-moz-transition: background .15s ease-out;
+	-o-transition: background .15s ease-out;
+	transition: background .15s ease-out;
 }
 
 .fluid-width-video-wrapper {

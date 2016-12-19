@@ -17,7 +17,7 @@
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer">
+		<footer class="entry-footer small">
 			<?php hybrid_post_format_link(); ?>
 			<span class="post-by"><?php echo esc_html_x( 'posted by', 'post author', 'themelia' ) ?></span>
 			<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
@@ -43,7 +43,7 @@
 			<?php edit_post_link(); ?>
 		</div><!-- .entry-byline -->
 
-		<footer class="entry-footer">
+		<footer class="entry-footer small">
 			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => '<span>,</span> ',  'text' => esc_html__( 'Posted in: %s', 'themelia' ) ) ); ?>
 			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => '<span>,</span> ', 'text' => esc_html__( 'Tagged: %s', 'themelia' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->

@@ -9,7 +9,7 @@
 		} elseif ( 1 < $number ) {
 			$css_class = ' multiple-comments';
 		}
-		
+
 
 	?>
 
@@ -37,7 +37,7 @@
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer">
+		<footer class="entry-footer small">
 			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => '<span>,</span> ',  'text' => esc_html__( 'Posted in: %s', 'themelia' ) ) ); ?>
 			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => '<span>,</span> ', 'text' => esc_html__( 'Tagged: %s', 'themelia' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->
@@ -47,15 +47,15 @@
 	<?php else : // If not viewing a single post. ?>
 
 		<header class="entry-header">
-        
+
 			<div class="entry-byline small">
-            
-				<?php 
-				if ( is_sticky() ) { 
+
+				<?php
+				if ( is_sticky() ) {
 					echo '<div class="label label-large outline">' . esc_html_x( 'Featured Post', 'By Line', 'themelia' ) . '</div>';
 				} else { ?>
 					<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-                    <?php 
+                    <?php
 				}
 				?>
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>

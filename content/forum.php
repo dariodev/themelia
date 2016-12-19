@@ -12,7 +12,7 @@
 
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer small">
 
 		<?php edit_post_link(); ?>
 

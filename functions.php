@@ -95,6 +95,16 @@ function themelia_theme_setup() {
 		'width'       => 600,
 		'flex-width'  => true,
 	));
+	
+	add_theme_support(
+		'infinite-scroll', 
+		array(
+			'container'	=> 'content',
+			'type'		=> 'click',
+			'wrapper'	=> false,
+			'footer'	=> false,
+			'render'	=> 'themelia_jetpack_infinite_scroll_render',
+	));
 
 	// Editor styles.
 	add_editor_style( themelia_get_editor_styles() );
@@ -102,4 +112,13 @@ function themelia_theme_setup() {
 	// Handle content width for embeds and images.
 	// Note: this is the largest size based on the theme's various layouts.
 	hybrid_set_content_width( 1280 );
+}
+
+
+function themelia_jetpack_infinite_scroll_render() {
+
+	while ( have_posts() ) {
+		the_post();
+		hybrid_get_content_template();
+	}
 }

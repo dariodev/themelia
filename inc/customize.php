@@ -138,10 +138,10 @@ function themelia_customizer_styles() {
 	/* Get values */
 
 	// Modular Scale
-	$major_second 	= "h1{font-size:1.602em}h2{font-size:1.424em}.big,.lead,blockquote,h3{font-size:1.266em}h4{font-size:1.125em}h5,h6{font-size:1em}.font-secondary,blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.79em}";
-	$minor_third 	= "h1{font-size:2.074em}h2{font-size:1.728em}h3{font-size:1.44em}.big,.lead,blockquote,h4{font-size:1.2em}h5,h6{font-size:1em}.font-secondary,blockquote cite,small,.small,sup{font-size:.833em}.smaller{font-size:.75em}";
-	$major_third 	= "h1{font-size:2.441em}h2{font-size:1.953em}h3{font-size:1.563em}.big,.lead,blockquote,h4{font-size:1.25em}h5,h6{font-size:1em}.font-secondary,blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.75em}";
-	$perfect_fourth = "h1{font-size:3.157em}h2{font-size:2.369em}h3{font-size:1.777em}.big,.lead,blockquote,h4{font-size:1.333em}h5,h6{font-size:1em}.font-secondary,blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.75em}";
+	$major_second 	= "h1{font-size:1.602em}h2{font-size:1.424em}.big,.lead,blockquote,h3{font-size:1.266em}h4{font-size:1.125em}h5,h6{font-size:1em}blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.79em}";
+	$minor_third 	= "h1{font-size:2.074em}h2{font-size:1.728em}h3{font-size:1.44em}.big,.lead,blockquote,h4{font-size:1.2em}h5,h6{font-size:1em}blockquote cite,small,.small,sup{font-size:.833em}.smaller{font-size:.75em}";
+	$major_third 	= "h1{font-size:2.441em}h2{font-size:1.953em}h3{font-size:1.563em}.big,.lead,blockquote,h4{font-size:1.25em}h5,h6{font-size:1em}blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.75em}";
+	$perfect_fourth = "h1{font-size:3.157em}h2{font-size:2.369em}h3{font-size:1.777em}.big,.lead,blockquote,h4{font-size:1.333em}h5,h6{font-size:1em}blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.75em}";
 
 	$modular_scale_mobile  		= get_theme_mod( 'modular_scale_mobile',	  'major-second' );
 	$modular_scale_tablet  		= get_theme_mod( 'modular_scale_tablet',	  'minor-third' );
@@ -152,7 +152,7 @@ function themelia_customizer_styles() {
 	if ( $modular_scale_mobile		== 'minor-third'    ) $scale_mobile  = $minor_third;
 	if ( $modular_scale_mobile 		== 'major-third'    ) $scale_mobile  = $major_third;
 	if ( $modular_scale_mobile  	== 'perfect-fourth' ) $scale_mobile  = $perfect_fourth;
-	
+
 	if ( $modular_scale_tablet 		== 'major-second'   ) $scale_tablet  	 = ' @media (min-width: 600px)  and (max-width: 1199px) { ' . $major_second .   ' } ';
 	if ( $modular_scale_tablet 		== 'minor-third'    ) $scale_tablet  	 = ' @media (min-width: 600px)  and (max-width: 1199px) { ' . $minor_third .    ' } ';
 	if ( $modular_scale_tablet  	== 'major-third'    ) $scale_tablet 	 = ' @media (min-width: 600px)  and (max-width: 1199px) { ' . $major_third .    ' } ';
@@ -172,7 +172,7 @@ function themelia_customizer_styles() {
 	$base_typography_tablet      = get_theme_mod( 'base_typography_medium', '1.063em' );
 	$base_typography_desktop     = get_theme_mod( 'base_typography_large',  '1.125em' );
 	$base_typography_desktop_big = get_theme_mod( 'base_typography_xl',     '1.188em' );
-	
+
 	// Content Width
 	$content_width = get_theme_mod( 'themelia_content_width' );
 
@@ -187,10 +187,10 @@ function themelia_customizer_styles() {
 
 	// Site Header Border
 	$site_header_separator = get_theme_mod( 'site_header_separator' );
-	
+
 	// Site Title
 	$site_title = get_theme_mod( 'site_title_font' );
-	
+
 	// Site Description
 	$site_description = get_theme_mod( 'site_description_font' );
 	$site_description_color = get_theme_mod( 'site_description_color' );
@@ -229,7 +229,6 @@ function themelia_customizer_styles() {
 
 	$entry_title_page = get_theme_mod( 'entry_title_page' );
 
-
 	/* Custom Style Output */
 
 	$custom_style_out  = '';
@@ -243,24 +242,24 @@ function themelia_customizer_styles() {
 	$custom_style_out .= $scale_tablet;
 	$custom_style_out .= $scale_desktop;
 	$custom_style_out .= $scale_desktop_big;
-	
+
 	$custom_style_out .= '.grid-container: ' . $content_width;
 
 	$custom_style_out .= 'a { color: ' . $body_link['link'] . '; } a:active { color: ' . $body_link['active'] . '; } a:visited { color: ' . $body_link['visited'] . '; } a:hover { color: ' . $body_link['hover'] . '; }  ';
 
-	$custom_style_out .= '.breadcrumb-trail { color: ' . $secondary_text['text'] . '; }';
+	$custom_style_out .= '.breadcrumb-trail, .secondary-text, .wp-caption-text { color: ' . $secondary_text['text'] . '; }';
 	$custom_style_out .= '.breadcrumb-trail a, .breadcrumb-trail a:visited, .entry-more-link, .entry-more-link:visited, .social-navigation a, .social-navigation a:visited { color: ' . $secondary_text['link'] . '; } .breadcrumb-trail a:hover, .entry-more-link:hover, .social-navigation a:hover { color: ' . $secondary_text['hover'] . '; } .breadcrumb-trail a:active, .entry-more-link:active, .social-navigation a:active { color: ' . $secondary_text['active'] . '; } ';
 
 	$custom_style_out .= '.site-header { background-color: ' . $site_header_bg . '; }';
 	$custom_style_out .= '.site-header:after { background-color: ' . $site_header_separator . '; }';
-	
+
 	$custom_style_out .= '.site-title-wrap .site-title, .site-title-wrap:visited .site-title { color: ' . $site_title_link_color['link'] . '; } .site-title-wrap:hover .site-title { color: ' . $site_title_link_color['hover'] . '; } .site-title-wrap:active .site-title { color: ' . $site_title_link_color['active'] . '; } ';
 	$custom_style_out .= '.site-description { color: ' . $site_description_color . '; }';
-	
+
 	$custom_style_out .= '.sm-simple a, .sm-simple a:visited { color: ' . $link_colors['link'] . '; } .sm-simple a:hover { color: ' . $link_colors['hover'] . '; } .sm-simple a:active { color: ' . $link_colors['active'] . '; } .sm-simple a.highlighted { color: ' . $link_colors['active'] . '; } ';
 	$custom_style_out .= '.sm-simple > li > a:before { background: ' . $nav_link_highlight['hover'] . '; } ';
 	$custom_style_out .= '.sm-simple > li.current-menu-item > a:before, .sm-simple .sub-menu li.current-menu-ancestor > a:before { background: ' . $nav_link_highlight['current'] . '; } ';
-	$custom_style_out .= '.sm-simple .sub-menu a, .sm-simple .sub-menu a:visited { color: ' . $link_sub_colors['link'] . '; } .sm-simple .sub-menu a:hover, .sm-simple .sub-menu li a.highlighted  { color: ' . $link_sub_colors['hover'] . '; } #menu-primary .menu-items .sub-menu a:active { color: ' . $link_sub_colors['active'] . '; } ';
+	$custom_style_out .= '.sm-simple .sub-menu a, .sm-simple .sub-menu a:visited { color: ' . $link_sub_colors['link'] . '; } .sm-simple .sub-menu a:hover, .sm-simple .sub-menu li a.highlighted  { color: ' . $link_sub_colors['hover'] . '; } .sm-simple .sub-menu a:active { color: ' . $link_sub_colors['active'] . '; } ';
 	$custom_style_out .= '.sm-simple .sub-menu li a { background-color: ' . $link_sub_bg_colors['link'] . '; } #menu-primary .menu-items .sub-menu li a:hover, .sm-simple .sub-menu li a.highlighted  { background-color: ' . $link_sub_bg_colors['hover'] . '; } #menu-primary .menu-items .sub-menu li a:active { background-color: ' . $link_sub_bg_colors['active'] . '; } ';
 	$custom_style_out .= '.sm-simple .sub-menu { border-color: ' . $link_sub_borders['outline'] . '; }';
 	$custom_style_out .= '.sm-simple .sub-menu ul { border-top-color: ' . $link_sub_borders['outline'] . '; }';
@@ -281,7 +280,6 @@ function themelia_customizer_styles() {
 
 	return $custom_style_out;
 }
-
 
 /**
  * Cache the customizer styles.
@@ -317,7 +315,6 @@ function themelia_customizer_styles_cache() {
 	// See http://codex.wordpress.org/Function_Reference/wp_add_inline_style#Examples
 	wp_add_inline_style( 'themelia-style', $data );
 }
-
 
 /**
  * Reset the cache when saving the customizer.

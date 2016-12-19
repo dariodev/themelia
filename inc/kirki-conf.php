@@ -359,8 +359,8 @@ if ( class_exists( 'Kirki' ) ) {
 				'current' => esc_attr__( 'Current', 'themelia' ),
 			),
 			'default'     => array(
-				'hover'   => '#005ea5',
-				'current' => '#005ea5',
+				'hover'   => '#B10E1E',
+				'current' => '#ba321d',
 			),
 			'transport' => 'postMessage',
 			'js_vars'   => array(
@@ -622,9 +622,9 @@ if ( class_exists( 'Kirki' ) ) {
 			'type'        => 'text',
 			'settings'    => 'base_typography_large',
 			'label'       => esc_attr__( 'Large screens', 'themelia' ),
-			'description' => esc_attr__( 'Base font size for desktops and laptops (1200px <> 1800px).', 'themelia' ),
+			'description' => esc_attr__( 'Base font size for desktops, laptops and some tablets in horizontal mode (1200px <> 1800px).', 'themelia' ),
 			'section'     => 'themelia_modular_scale',
-			'default'     => '1.125em',
+			'default'     => '1.188em',
 			'priority'    => 25
 		) );
 
@@ -651,7 +651,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'label'       => esc_attr__( 'Mediums screens', 'themelia' ),
 			'description' => esc_attr__( 'Base font size for Tablets and other medium size devices (600px <> 1200px).', 'themelia' ),
 			'section'     => 'themelia_modular_scale',
-			'default'     => '1.063em',
+			'default'     => '1.125em',
 			'priority'    => 25
 		) );
 
@@ -989,10 +989,10 @@ if ( class_exists( 'Kirki' ) ) {
 				'active'  => esc_attr__( 'Active', 'themelia' ),
 			),
 			'default'     => array(
-				'text'    => '#6f767a',
-				'link'    => '#22222a',
-				'hover'   => '#22222a',
-				'active'  => '#22222a',
+				'text'    => '#6d7377',
+				'link'    => '#141414',
+				'hover'   => 'rgba(0,0,0,0.7)',
+				'active'  => 'rgba(0,0,0,0.7)',
 			),
 			'transport'   => 'postMessage',
 			'js_vars'     => array(

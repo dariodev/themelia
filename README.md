@@ -69,7 +69,7 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
 ### Background
 
 -	**Background Color** - Pick body background color.
--	- **Background Image** - Upload/Select body background image.
+-	**Background Image** - Upload/Select body background image.
 
 ### Secondary Colors
 
@@ -107,6 +107,21 @@ Installation
 4.	Navigate to Appearance > Customize in your admin panel and customize to taste.
 
 For more information about Themelia please go to [RelishPress website](https://relishpress.com/).
+
+Notes for developers
+--------------------
+
+**Kirki Toolkit modification (original version is 2.3.7)**
+
+-	Removed CodeMirror to reduce the size
+-	Changed text-domain, from 'kirki' into 'themelia'
+-	Removed enqueuing empty kirki-styles-. Changed $handle parameter in `wp_add_inline_style()`, added inline 'themelia-style'. The change is in the file "class-kirki-styles-frontend.php".
+-	If you need CodeMirror it is safe to install and activate the official version of Kirki plugin. If you activate Kirki plugin, bundled library will not load.
+
+**Unsemantic CSS Framework**
+
+-	Media queries breakpoints slightly modifed
+-	Grid container width and grid paddings modified
 
 Copyright and License
 ---------------------
@@ -154,13 +169,3 @@ All jQuery plugins are minified. Full source versions are also bundled in theme 
 -	Featured image by [Redd Angelo](https://unsplash.com/@reddangelo16?photo=eY7ETwocMyU), licensed under [Creative Commons Zero](http://creativecommons.org/publicdomain/zero/1.0/)
 
 All other resources and theme elements are licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
-
-Notes
------
-
-**Kirki Toolkit modification (original version is 2.3.7)**
-
--	Removed CodeMirror to reduce the size
--	Changed text-domain, from 'kirki' into 'themelia'
--	Removed enqueuing empty kirki-styles-. Changed $handle parameter in `wp_add_inline_style()`, added inline 'themelia-style'. The change is in the file "class-kirki-styles-frontend.php".
--	If you need CodeMirror it is safe to install and activate the official version of Kirki plugin. If you activate Kirki plugin, bundled library will not load.
