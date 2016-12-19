@@ -3,8 +3,13 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.0.10 - 2016-12-15
+v1.0.10 - 2016-12-19
 --------------------
+
+### New
+
+-	Added support for the JetPack infinite scroll.
+-	New screenshot.png
 
 ### Changed
 
@@ -13,8 +18,7 @@ v1.0.10 - 2016-12-15
 
 ### Updated
 
--	CSS optimization
--	Small change of post-byline in content templates
+-	Lots of cosmetic changes in various files.
 
 v1.0.9 - 2016-12-13
 -------------------
@@ -22,6 +26,10 @@ v1.0.9 - 2016-12-13
 ### Fixed
 
 -	Added correct version of Ionicons
+
+### Changed
+
+-	Added sanitize.css in place of normalize.css
 
 ### Updated
 
