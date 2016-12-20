@@ -922,7 +922,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	width: 100%;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 1200px) {
 
 	.access-inner {
 		-webkit-flex-direction: row;
@@ -5047,13 +5047,13 @@ ol.comment-list ol.children li {
 		margin-left: 2.5rem;
 	}
 }
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
 
 	ol.comment-list ol.children {
 		margin-left: 2rem;
 	}
 }
-@media only screen and (min-width: 520px) and (max-width: 769px) {
+@media only screen and (min-width: 520px) and (max-width: 768px) {
 
 	ol.comment-list ol.children {
 		margin-left: 1.2rem;
