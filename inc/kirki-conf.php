@@ -505,6 +505,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'theme_supports' => '', // Rarely needed.
 	) );
 
+
 	   /*
 		* -> START Base Typography
 		*/
