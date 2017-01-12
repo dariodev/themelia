@@ -20,7 +20,6 @@
 						<?php themelia_construct_site_title(); ?>
 
 						<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
-
 					</div><!-- .access-inner -->
 				</div><!-- #access -->
 			</div><!-- #branding -->
