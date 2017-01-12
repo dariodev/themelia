@@ -647,29 +647,26 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 	 *
 	 * @since Themelia 1.0.0
 	 */
-	function themelia_construct_site_title()
-	{
+	function themelia_construct_site_title() {
 		 ?>
-
 			<!-- Site title and logo -->
-
 		<?php
-        printf(
-            '<a href="%1$s" class="site-title-wrap clearfix">',
-            apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) )
-        );
-        ?>
+		printf(
+			'<a href="%1$s" class="site-title-wrap clearfix">',
+			apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) )
+		);
 
-				<?php themelia_build_logo(); ?>
+		themelia_build_logo();
+		?>
 
-				<div class="branding-item-wrap flex-center">
-					<div class="titles-wrap branding-item">
-						<?php hybrid_site_title(); ?>
-						<?php hybrid_site_description(); ?>
-					</div>
-				</div>
-			</a>
-		<?php // endif;
+		<div class="branding-item-wrap flex-center">
+			<div class="titles-wrap branding-item">
+				<?php hybrid_site_title(); ?>
+				<?php hybrid_site_description(); ?>
+			</div>
+		</div>
+	</a>
+	<?php // endif;
 	}
 endif;
 
