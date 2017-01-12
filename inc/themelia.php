@@ -62,6 +62,7 @@ add_filter( 'get_the_archive_title', 'themelia_archive_title_filter', 5  );
  * @return void
  */
 function themelia_javascript_detection() {
+
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 }
 
@@ -306,7 +307,7 @@ function themelia_get_font_families() {
  *
  * @since  1.0.0
  * @access public
- * @return void
+ * @return array
  */
 function themelia_get_font_subsets() {
 
@@ -842,8 +843,9 @@ function themelia_excerpt_read_more_link( $output ) {
 /**
  * Checks to see if the specified email address has a Gravatar image.
  *
- * @param	$email_address	The email of the address of the user to check
- * @return			          Whether or not the user has a gravatar
+ * @param  $email_address	The email of the address of the user to check
+ *         Whether or not the user has a gravatar
+ * @return bool
  * @since  Themelia 1.0.0
  */
 function themelia_has_gravatar( $email_address ) {
