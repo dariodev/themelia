@@ -107,7 +107,7 @@ function themelia_body_class_filter( $classes ) {
 	$inline_header = array('header-inline-title-menu', 'header-inline-menu-title');
 	$stacked_header = array('header-stack-left', 'header-stack-right', 'header-stack-center');
 
-	$selected_header = get_theme_mod( 'themelia_header_layout' );
+	$selected_header = get_theme_mod( 'site_header_layout' );
 
 	if (in_array($selected_header, $stacked_header)) {
 		$classes[] = "header-stacked";
@@ -117,13 +117,13 @@ function themelia_body_class_filter( $classes ) {
 
 	if ( get_theme_mod( 'custom_logo' ) != '' ) { $classes[] = 'custom-logo'; }
 
-	$classes[] = get_theme_mod( 'themelia_header_layout', 'header-inline-title-menu' );
+	$classes[] = get_theme_mod( 'site_header_layout', 'header-inline-title-menu' );
 
 	// Site Title.
-	$classes[] = get_theme_mod( 'themelia_site_title', true ) ? 'title-is-visible' : 'title-is-unvisible';
+	$classes[] = get_theme_mod( 'site_title', true ) ? 'title-is-visible' : 'title-is-unvisible';
 
 	// Site Description.
-	$classes[] = get_theme_mod( 'themelia_site_description', true ) ? 'description-is-visible' : 'description-is-unvisible';
+	$classes[] = get_theme_mod( 'site_description', true ) ? 'description-is-visible' : 'description-is-unvisible';
 
 	return array_map( 'esc_attr', $classes );
 }
@@ -173,110 +173,25 @@ function themelia_customizer_styles() {
 	$base_typography_desktop     = get_theme_mod( 'base_typography_large',  '1.125em' );
 	$base_typography_desktop_big = get_theme_mod( 'base_typography_xl',     '1.188em' );
 
-	// Content Width
-	$content_width = get_theme_mod( 'themelia_content_width' );
-
-	// Link
-	$body_link = get_theme_mod( 'body_link' );
-
-	// Secondary Text
-	$secondary_text = get_theme_mod( 'secondary_font_link' );
-
-	// Site Header Background
-	$site_header_bg = get_theme_mod( 'site_header_background' );
-
-	// Site Header Border
-	$site_header_separator = get_theme_mod( 'site_header_separator' );
-
-	// Site Title
-	$site_title = get_theme_mod( 'site_title_font' );
-
-	// Site Description
-	$site_description = get_theme_mod( 'site_description_font' );
-	$site_description_color = get_theme_mod( 'site_description_color' );
-
-	// Site Title Link
-	$site_title_link_color = get_theme_mod( 'site_title_link_color' );
-
-	// Top Level Links
-	$link_colors = get_theme_mod( 'nav_link_color' );
-
-	// Top Level Links - Highlight Border
-	$nav_link_highlight = get_theme_mod( 'nav_link_highlight' );
-
-	// Drop Down Links
-	$link_sub_colors = get_theme_mod( 'nav_sub_link_color' );
-
-	// Drop Down Links BG
-	$link_sub_bg_colors = get_theme_mod( 'nav_sub_link_bg' );
-
-	// Drop Down Links Borders
-	$link_sub_borders = get_theme_mod( 'link_sub_borders' );
-
-	// Entry Title Link
-	$entry_title_link_colors = get_theme_mod( 'entry_title_link' );
-
-	$entry_title_link_2 = get_theme_mod( 'entry_title_link_2' );
-
-	$content_h1 = get_theme_mod( 'themelia_headings_h1' );
-	$content_h2 = get_theme_mod( 'themelia_headings_h2' );
-	$content_h3 = get_theme_mod( 'themelia_headings_h3' );
-	$content_h4 = get_theme_mod( 'themelia_headings_h4' );
-	$content_h5 = get_theme_mod( 'themelia_headings_h5' );
-	$content_h6 = get_theme_mod( 'themelia_headings_h6' );
-
-	$entry_title_single = get_theme_mod( 'entry_title_singular' );
-
-	$entry_title_page = get_theme_mod( 'entry_title_page' );
+	// Site Width
+	$default_site_width = '1340px';
+	$site_width = get_theme_mod( 'site_width', $default_site_width );
 
 	/* Custom Style Output */
 
 	$custom_style_out  = '';
 
 	$custom_style_out .= 'body { font-size: ' . $base_typography_mobile . ';}';
-	$custom_style_out .= ' @media (min-width: 600px) and (max-width: 1199px) { body { font-size: ' . $base_typography_tablet . '; }} ';
-	$custom_style_out .= ' @media (min-width: 1200px) and (max-width: 1799px) { body { font-size: ' . $base_typography_desktop . '; }} ';
-	$custom_style_out .= ' @media (min-width: 1800px) { body { font-size: ' . $base_typography_desktop_big . '; }} ';
+	$custom_style_out .= ' @media (min-width: 600px) and (max-width: 1199px) { body {font-size: ' . $base_typography_tablet . '}} ';
+	$custom_style_out .= ' @media (min-width: 1200px) and (max-width: 1799px) { body {font-size: ' . $base_typography_desktop . '}} ';
+	$custom_style_out .= ' @media (min-width: 1800px) { body {font-size: ' . $base_typography_desktop_big . '}} ';
 
 	$custom_style_out .= $scale_mobile;
 	$custom_style_out .= $scale_tablet;
 	$custom_style_out .= $scale_desktop;
 	$custom_style_out .= $scale_desktop_big;
 
-	$custom_style_out .= '.grid-container: ' . $content_width;
-
-	$custom_style_out .= 'a { color: ' . $body_link['link'] . '; } a:active { color: ' . $body_link['active'] . '; } a:visited { color: ' . $body_link['visited'] . '; } a:hover { color: ' . $body_link['hover'] . '; }  ';
-
-	$custom_style_out .= '.breadcrumb-trail, .secondary-text, .wp-caption-text { color: ' . $secondary_text['text'] . '; }';
-	$custom_style_out .= '.breadcrumb-trail a, .breadcrumb-trail a:visited, .entry-more-link, .entry-more-link:visited, .social-navigation a, .social-navigation a:visited { color: ' . $secondary_text['link'] . '; } .breadcrumb-trail a:hover, .entry-more-link:hover, .social-navigation a:hover { color: ' . $secondary_text['hover'] . '; } .breadcrumb-trail a:active, .entry-more-link:active, .social-navigation a:active { color: ' . $secondary_text['active'] . '; } ';
-
-	$custom_style_out .= '.site-header { background-color: ' . $site_header_bg . '; }';
-	$custom_style_out .= '.site-header:after { background-color: ' . $site_header_separator . '; }';
-
-	$custom_style_out .= '.site-title-wrap .site-title, .site-title-wrap:visited .site-title { color: ' . $site_title_link_color['link'] . '; } .site-title-wrap:hover .site-title { color: ' . $site_title_link_color['hover'] . '; } .site-title-wrap:active .site-title { color: ' . $site_title_link_color['active'] . '; } ';
-	$custom_style_out .= '.site-description { color: ' . $site_description_color . '; }';
-
-	$custom_style_out .= '.sm-simple a, .sm-simple a:visited { color: ' . $link_colors['link'] . '; } .sm-simple a:hover { color: ' . $link_colors['hover'] . '; } .sm-simple a:active { color: ' . $link_colors['active'] . '; } .sm-simple a.highlighted { color: ' . $link_colors['active'] . '; } ';
-	$custom_style_out .= '.sm-simple > li > a:before { background: ' . $nav_link_highlight['hover'] . '; } ';
-	$custom_style_out .= '.sm-simple > li.current-menu-item > a:before, .sm-simple .sub-menu li.current-menu-ancestor > a:before { background: ' . $nav_link_highlight['current'] . '; } ';
-	$custom_style_out .= '.sm-simple .sub-menu a, .sm-simple .sub-menu a:visited { color: ' . $link_sub_colors['link'] . '; } .sm-simple .sub-menu a:hover, .sm-simple .sub-menu li a.highlighted  { color: ' . $link_sub_colors['hover'] . '; } .sm-simple .sub-menu a:active { color: ' . $link_sub_colors['active'] . '; } ';
-	$custom_style_out .= '.sm-simple .sub-menu li a { background-color: ' . $link_sub_bg_colors['link'] . '; } #menu-primary .menu-items .sub-menu li a:hover, .sm-simple .sub-menu li a.highlighted  { background-color: ' . $link_sub_bg_colors['hover'] . '; } #menu-primary .menu-items .sub-menu li a:active { background-color: ' . $link_sub_bg_colors['active'] . '; } ';
-	$custom_style_out .= '.sm-simple .sub-menu { border-color: ' . $link_sub_borders['outline'] . '; }';
-	$custom_style_out .= '.sm-simple .sub-menu ul { border-top-color: ' . $link_sub_borders['outline'] . '; }';
-	$custom_style_out .= '.sm-simple .sub-menu li { border-color: ' . $link_sub_borders['separator'] . '; }';
-
-	$custom_style_out .= 'h1 { color: ' . $content_h1['color'] . '; letter-spacing: ' . $content_h1['letter-spacing'] . '; text-transform: ' . $content_h1['text-transform'] . '; } ';
-	$custom_style_out .= 'h2 { color: ' . $content_h2['color'] . '; letter-spacing: ' . $content_h2['letter-spacing'] . '; text-transform: ' . $content_h2['text-transform'] . '; } ';
-	$custom_style_out .= 'h3 { color: ' . $content_h3['color'] . '; letter-spacing: ' . $content_h3['letter-spacing'] . '; text-transform: ' . $content_h3['text-transform'] . '; } ';
-	$custom_style_out .= 'h4 { color: ' . $content_h4['color'] . '; letter-spacing: ' . $content_h4['letter-spacing'] . '; text-transform: ' . $content_h4['text-transform'] . '; } ';
-	$custom_style_out .= 'h5 { color: ' . $content_h5['color'] . '; letter-spacing: ' . $content_h5['letter-spacing'] . '; text-transform: ' . $content_h5['text-transform'] . '; } ';
-	$custom_style_out .= 'h6 { color: ' . $content_h6['color'] . '; letter-spacing: ' . $content_h6['letter-spacing'] . '; text-transform: ' . $content_h6['text-transform'] . '; } ';
-
-	$custom_style_out .= '.entry-title a { color: ' . $entry_title_link_colors['link'] . '; } .entry-title a:visited { color: ' . $entry_title_link_colors['visited'] . '; } .entry-title a:hover { color: ' . $entry_title_link_colors['hover'] . '; } .entry-title a:active { color: ' . $entry_title_link_colors['active'] . '; } ';
-	$custom_style_out .= '.entry-title a { letter-spacing: ' . $entry_title_link_2['letter-spacing'] . '; text-transform: ' . $entry_title_link_2['text-transform'] . '; } ';
-
-	$custom_style_out .= '.singular .entry-title { color: ' . $entry_title_single['color'] . '; letter-spacing: ' . $entry_title_single['letter-spacing'] . '; text-transform: ' . $entry_title_single['text-transform'] . '; }  ';
-	$custom_style_out .= '.singular-page .entry-title { color: ' . $entry_title_page['color'] . '; letter-spacing: ' . $entry_title_page['letter-spacing'] . '; text-transform: ' . $entry_title_page['text-transform'] . '; } ';
+	$custom_style_out .= '.grid-container {max-width: ' . $site_width . 'px}';
 
 	return $custom_style_out;
 }

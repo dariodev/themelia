@@ -166,10 +166,27 @@ function themelia_register_sidebars() {
 	);
 }
 
+
 if ( class_exists( 'WooCommerce' ) || class_exists( 'Easy_Digital_Downloads' ) ) {
 
 	add_action( 'widgets_init', 'themelia_register_special_sidebar', 5 );
 }
+
+
+
+add_theme_support('starter-content',array(
+	'widgets' => array(
+		'primary' => array(
+			'primary' => array(
+				'text', array(
+					'title' => '', // Blank title
+					'text'  => '<a class="btn btn-primary" href="/contact/">Contact Us</a>'
+				)
+			)
+		)
+	)
+));
+
 
 function themelia_register_special_sidebar() {
 
@@ -197,7 +214,7 @@ function themelia_primary_sidebar() {
 
 
 /**
- * Filters `get_the_archve_title` to add better archive titles than core.
+ * Filters `get_the_archve_title` to add better archive titles than core or even Hybrid Core ;)
  *
  * @since  Themelia 1.0.0
  * @access public
@@ -308,12 +325,10 @@ function themelia_enqueue_scripts() {
 
 	$suffix = hybrid_get_min_suffix();
 
-	//wp_enqueue_script( 'hoverIntent' );
-	wp_enqueue_script( 'imagesloaded', trailingslashit( get_template_directory_uri() ) . "js/imagesloaded.pkgd{$suffix}.js", array( 'jquery' ),'1.0.1', true );
+	wp_enqueue_script( 'imagesloaded' );
 	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ),'1.0.1', true );
 	wp_enqueue_script( 'smartmenus', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	wp_enqueue_script( 'smartmenus-keyboard', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus.keyboard{$suffix}.js", array( 'jquery' ), '1.0.1', true );
-	wp_enqueue_script( 'material', trailingslashit( get_template_directory_uri() ) . "js/material{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	wp_enqueue_script( 'themelia', trailingslashit( get_template_directory_uri() ) . "js/themelia{$suffix}.js", array( 'jquery' ), '1.0.1', true );
 	// Load the html5 shiv.
 	wp_enqueue_script( 'themelia-html5', get_template_directory_uri() . '/js/html5{$suffix}.js', array(), '3.7.3' );
@@ -748,7 +763,8 @@ function themelia_get_site_description() {
 function themelia_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 
 	if ( 'post-thumbnail' === $size ) {
-		is_active_sidebar( 'primary' ) && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, (max-width: 1620px) 90vw, 1200px';
+		 ('2c-l' || '2c-r') == hybrid_get_theme_layout() && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
+		 '1c' == hybrid_get_theme_layout() && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, (max-width: 1620px) 90vw, 1200px';
 	}
 	return $attr;
 }
@@ -855,4 +871,20 @@ function themelia_has_gravatar( $email_address ) {
 function themelia_bbp_no_breadcrumb ($param) {
 
 	return true;
+}
+
+
+/**
+ * Checks if a widget exists.  Pass in the widget class name.  This function is useful for
+ * checking if the widget exists before directly calling `the_widget()` within a template.
+ *
+ * @since  Themelia 1.0.0
+ * @access public
+ * @param  string  $widget
+ * @return bool
+ */
+function themelia_widget_exists( $widget ) {
+	global $wp_widget_factory;
+
+	return isset( $wp_widget_factory->widgets[ $widget ] );
 }

@@ -3,12 +3,30 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.0.11 - 2016-12-20
+v1.0.12 - 2017-01-06
 --------------------
 
-### Fix
+### Fixed
 
--	Fixed media query for mobile menu in style.css.
+-	Search form field bug in IE.
+
+v1.0.11 - 2017-01-04
+--------------------
+
+### Fixed
+
+-	Enqueuing imagesloaded.js bundled with WordPress core.
+-	Pointer/filler content removed from sidebars and widgets.
+-	All text strings are translatable - menu/primary.php.
+
+### Changed
+
+-	Theme modification names are changed to be more unified (kirki-conf.php).
+-	Changed the way custom style is outputed (change in themelia_customizer_styles() function in inc/customize.php).
+
+### Updated
+
+-	Minor style tweaks.
 
 v1.0.10 - 2016-12-19
 --------------------

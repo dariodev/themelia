@@ -4,7 +4,7 @@
  * ~ Wassily Kandinsky (Concerning the Spiritual in Art, 1977)
  *
  * Based on Hybrid Base theme Copyright (c) 2013 - 2016, Justin Tadlock
- * 
+ *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
  * General Public License as published by the Free Software Foundation; either version 2 of the License,
  * or (at your option) any later version.
@@ -95,9 +95,9 @@ function themelia_theme_setup() {
 		'width'       => 600,
 		'flex-width'  => true,
 	));
-	
+
 	add_theme_support(
-		'infinite-scroll', 
+		'infinite-scroll',
 		array(
 			'container'	=> 'content',
 			'type'		=> 'click',
@@ -114,11 +114,12 @@ function themelia_theme_setup() {
 	hybrid_set_content_width( 1280 );
 }
 
+if( ! function_exists('themelia_jetpack_infinite_scroll_render') ) {
+	function themelia_jetpack_infinite_scroll_render() {
 
-function themelia_jetpack_infinite_scroll_render() {
-
-	while ( have_posts() ) {
-		the_post();
-		hybrid_get_content_template();
+		while ( have_posts() ) {
+			the_post();
+			hybrid_get_content_template();
+		}
 	}
 }
