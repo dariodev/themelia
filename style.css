@@ -1716,15 +1716,30 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 /* ====== Subsidiary Menu ====== */
 
 #menu-subsidiary ul {
-	float: right;
-	display: inline-block;
-	margin: -5px 0 15px;
+	display: block;
+	margin: 5px 0 25px;
+	padding: 0;
 }
 
 #menu-subsidiary li {
-	float: left;
+	display: inline-block;
 	list-style: none;
-	margin-left: 15px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+@media (min-width: 900px) {
+
+	#menu-subsidiary ul {
+		float: right;
+		display: inline-block;
+		margin: -5px 0 15px;
+	}
+
+	#menu-subsidiary li {
+		float: left;
+		margin-left: 15px;
+	}
 }
 
 .social-navigation li a {
@@ -2651,7 +2666,7 @@ select {
 	line-height: normal;
 	margin-bottom: 0;
 	outline: none;
-	padding: 0.55em 0.8em 0.55em;
+	padding: 0.65em 0.8em 0.65em;
 }
 input[type="number"] { padding-left: 5px; padding-right: 5px;}
 
@@ -2880,7 +2895,7 @@ input[type="submit"],
 	font-weight: 500;
 	height: 45px;
 	letter-spacing: .075em;
-	line-height: 45px;
+	line-height: normal;
 	margin: 0;
 	outline: none;
 	padding: 1px 1.25em 0;
@@ -4543,7 +4558,7 @@ figcaption span,
 	box-shadow: none !important;
 	color: #222;
 	height: 100%;
-	line-height: 45px;
+	line-height: normal;
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
@@ -4595,6 +4610,10 @@ figcaption span,
 
 	.inside-footer-widgets .grid-50 {
 		flex: 0 0 50%;
+	}
+
+	.site-footer-inner {
+		text-align: center;
 	}
 }
 
