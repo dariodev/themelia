@@ -1,11 +1,12 @@
 <?php get_header(); // Loads the header.php template. ?>
 
 <div <?php hybrid_attr( 'main' ); ?>>
-    <div <?php hybrid_attr( 'grid-container' ); ?>>
-        <div class="grid-100 grid-parent main-inner">
-            <?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+	<div <?php hybrid_attr( 'grid-container' ); ?>>
+		<div class="grid-100 grid-parent main-inner">
 
-            <main <?php hybrid_attr( 'content' ); ?>>
+			<?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+
+			<main <?php hybrid_attr( 'content' ); ?>>
 
 				<?php locate_template( array( 'misc/author-header.php' ), true ); // Loads the misc/archive-header.php template. ?>
 
@@ -30,6 +31,7 @@
 			</main><!-- #content -->
 
 			<?php hybrid_get_sidebar( themelia_primary_sidebar('primary') ); // Calls themelia_primary_sidebar() function and loads the sidebar/*.php template. ?>
+
 		</div><!-- .inner .main-inner -->
 	</div><!-- .grid-container -->
 </div><!-- #main -->
