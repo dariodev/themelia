@@ -12,16 +12,15 @@
 		<a href="#content" class="skip-link screen-reader-text focusable"><?php esc_html_e( 'Skip to content', 'themelia' ); ?></a><!-- .skip-link -->
 
 		<header <?php hybrid_attr( 'header' ); ?>>
-
 			<div <?php hybrid_attr( 'branding' ); ?>>
 				<div <?php hybrid_attr( 'access' ); ?>>
-                    <div <?php hybrid_attr( 'access-inner' ); ?>>
+					<div <?php hybrid_attr( 'access-inner' ); ?>>
 
 						<?php themelia_construct_site_title(); ?>
 
 						<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
+
 					</div><!-- .access-inner -->
 				</div><!-- #access -->
 			</div><!-- #branding -->
-
 		</header><!-- #header -->
