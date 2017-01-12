@@ -135,8 +135,6 @@ function themelia_body_class_filter( $classes ) {
  */
 function themelia_customizer_styles() {
 
-	/* Get values */
-
 	// Modular Scale
 	$major_second 	= "h1{font-size:1.602em}h2{font-size:1.424em}.big,.lead,blockquote,h3{font-size:1.266em}h4{font-size:1.125em}h5,h6{font-size:1em}blockquote cite,small,.small,sup{font-size:.889em}.smaller{font-size:.79em}";
 	$minor_third 	= "h1{font-size:2.074em}h2{font-size:1.728em}h3{font-size:1.44em}.big,.lead,blockquote,h4{font-size:1.2em}h5,h6{font-size:1em}blockquote cite,small,.small,sup{font-size:.833em}.smaller{font-size:.75em}";
