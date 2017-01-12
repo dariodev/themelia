@@ -7,8 +7,8 @@
 
 				<?php dynamic_sidebar( 'subsidiary' ); // Displays the subsidiary sidebar. ?>
 
-        	</div>
-        </div>
+			</div>
+		</div>
 
 	</aside><!-- #sidebar-subsidiary -->
 
