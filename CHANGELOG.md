@@ -9,6 +9,7 @@ v1.0.12 - 2017-01-06
 ### Fixed
 
 -	Search form field bug in IE.
+-	Style and Customizer settings for current and hover menu links
 
 v1.0.11 - 2017-01-04
 --------------------
