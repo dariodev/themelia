@@ -1320,7 +1320,6 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	}
 
 	.sm-simple > li > a:before {
-		background: #B10E1E;
 		content: '';
 		display: block;
 		height: 3px;
@@ -1333,10 +1332,15 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	}
 
 	.sm-simple > li > a:hover:before,
-	.sm-simple > li > a.highlighted:before,
+	.sm-simple > li > a.highlighted:before {
+		background: #ba321d;
+		transform: scaleX(1);
+	}
+
+	.sm-simple > li.current-menu-item > a:before,
 	.sm-simple > li.current_page_item > a:before,
 	.sm-simple > li.current_page_parent > a:before {
-		background: #ba321d;
+		background: #b10e1e;
 		transform: scaleX(1);
 	}
 
