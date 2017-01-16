@@ -866,7 +866,8 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .header-stack-left .site-title-wrap {
-    margin-right: 0;
+	margin-left: 0;
+    margin-right: auto;
 }
 
 .header-stack-left .menu-primary {
@@ -875,12 +876,13 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .header-stack-right .site-title-wrap {
-    margin-left: 0;
+    margin-left: auto;
 	margin-right: 0;
 }
 
 .header-stack-right .titles-wrap {
-	margin-right: 20px;
+	margin-left: auto;
+	margin-right: 0;
 	text-align: right;
 }
 
@@ -1578,7 +1580,8 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	background-color: rgba(128,128,128,.085);
 }
 
-.header-inline-menu-title .menu-primary .main-menu-btn {
+.header-inline-menu-title .menu-primary .main-menu-btn,
+.header-stack-right .menu-primary .main-menu-btn {
 	left: 0;
 	right: auto;
 }

@@ -3,13 +3,14 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.0.12 - 2017-01-06
+v1.0.12 - 2017-01-16
 --------------------
 
 ### Fixed
 
 -	Search form field bug in IE.
--	Style and Customizer settings for current and hover menu links
+-	Style and Customizer settings for current and hover menu links.
+-	Fixed stacked layout for the main menu.
 
 v1.0.11 - 2017-01-04
 --------------------
