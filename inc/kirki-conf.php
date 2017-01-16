@@ -337,12 +337,12 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 				array(
 				  'choice'   => 'hover',
-				  'element'  => '.sm-simple a:hover',
+				  'element'  => '.sm-simple a:hover, .sm-simple > li > a.highlighted',
 				  'property' => 'color',
 				),
 				array(
 				  'choice'   => 'active',
-				  'element'  => '.sm-simple a:active',
+				  'element'  => '.sm-simple a:active, .sm-simple > li > a.highlighted:active',
 				  'property' => 'color',
 				),
 			),
@@ -366,12 +366,12 @@ if ( class_exists( 'Kirki' ) ) {
 			'output'   => array(
 				array(
 				  'choice'   => 'hover',
-				  'element'  => '.sm-simple > li > a:before',
+				  'element'  => '.sm-simple > li > a:hover:before,.sm-simple > li > a.highlighted:before',
 				  'property' => 'background',
 				),
 				array(
-				  'choice'   => 'active',
-				  'element'  => '.sm-simple > li.current-menu-item > a:before, .sm-simple .sub-menu li.current-menu-ancestor > a:before',
+				  'choice'   => 'current',
+				  'element'  => '.sm-simple > li.current-menu-item > a:before,.sm-simple > li.current_page_item > a:before,.sm-simple > li.current_page_parent > a:before',
 				  'property' => 'background',
 				),
 			),
@@ -408,7 +408,7 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 				array(
 				  'choice'   => 'active',
-				  'element'  => '.sm-simple .sub-menu a:active',
+				  'element'  => '.sm-simple .sub-menu a:active, .sm-simple .sub-menu li a.highlighted:active',
 				  'property' => 'color',
 				),
 			),
