@@ -11,6 +11,7 @@ v1.0.12 - 2017-01-16
 -	Search form field bug in IE.
 -	Style and Customizer settings for current and hover menu links.
 -	Fixed stacked layout for the main menu.
+-	Fixed broken footer layout when social menu is not present.
 
 v1.0.11 - 2017-01-04
 --------------------
