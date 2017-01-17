@@ -92,7 +92,7 @@ function themelia_theme_setup() {
 	// Setup the WordPress core custom logo feature.
 	add_theme_support( 'custom-logo', array(
 		'height'      => 160,
-		'width'       => 600,
+		'width'       => 160,
 		'flex-width'  => true,
 	));
 
