@@ -1011,7 +1011,6 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	justify-content: center;
 	-webkit-flex-direction: column;
 	flex-direction: column;
-	min-height: 90px;
 }
 
 .titles-wrap {
@@ -1033,10 +1032,14 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	text-align: right;
 }
 
+.header-inline .branding-item-wrap {
+	min-height: 80px;
+}
+
 .logo-image {
 	display: inline-block;
 	vertical-align: middle;
-	max-height: 90px;
+	max-height: 80px;
 	width: auto;
 }
 
@@ -1046,7 +1049,8 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	padding-bottom: 10px;
 }
 
-.header-inline-menu-title .logo-wrap {
+.header-inline-menu-title .logo-wrap,
+.header-stack-right .logo-wrap {
 	margin-left: 15px;
 	margin-right: 0;
 }
