@@ -11,7 +11,7 @@
 				'menu_class'      => 'menu-items',
 				'fallback_cb'     => '',
 				'items_wrap'      => '<div class="wrap social-navigation"><ul id="%s" class="%s">%s</ul></div>',
-				'link_before'     => '<span class="screen-reader-text">',
+				'link_before'     => '<span class="sr-text">',
 				'link_after'      => '</span>',
 			)
 		); ?>

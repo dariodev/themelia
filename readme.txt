@@ -86,7 +86,7 @@ This panel is used for managing Navigation Menus for content you have already pu
 **Locations:**
 
 -	**Primary** Placed in the top header. For the Main site navigation.
--	**Footer - (social menu)** Placed in the right footer. You can use it as a regular menu or as a Social Links menu. If you add custom links to your social networks, the menu items will be presented with coresponding icon (isons are provided by Ionicons icon font). Textual part of the link will be visually hidden, but still available for screen readers.
+-	**Footer - (optionally social menu)** Placed in the right footer. You can use it as a regular menu or as a Social Links menu. Inputting a custom link to your social profile the menu item will automatically display an icon for that social network (icons are provided by Ionicons icon font). To hide textual part of the link and display only the icon, add "icon-only" class to each menu item. If you add "icon-only" class, text will be visually hidden, but still available for screen readers.
 
 ### Widgets
 
@@ -153,13 +153,13 @@ Licenses: MIT/GPL2
 [**Ionicons**](http://ionicons.com/) icon font v3.0.0-alpha.3, Copyright (c) 2016, Drifty
 License: MIT
 
-**Unsemantic CSS Framework**, Created by Nathan Smith
+[**Unsemantic CSS Framework**](http://unsemantic.com/), Created by Nathan Smith
 Licenses: MIT/GPL
 
-**SmartMenus jQuery Plugin** v1.0.1, Copyright 2016 Vasil Dinkov, Vadikom Web Ltd.
+[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.0.1, Copyright 2016 Vasil Dinkov, Vadikom Web Ltd.
 Licenses: MIT
 
-**FitVids** v1.1, Copyright 2013, Chris Coyier
+[**FitVids**](http://fitvidsjs.com/) v1.1, Copyright 2013, Chris Coyier
 License: [WTFPL](http://sam.zoy.org/wtfpl/)
 
 **HTML5 Shiv** v3.7.0, Copyright 2014 Alexander Farkas

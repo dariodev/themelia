@@ -1762,15 +1762,14 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 .social-navigation li a {
 	border-radius: 50%;
 	color: #22222a;
-	display: block;
+	display: flex;
+	align-items: center;
 	height: 36px;
 	position: relative;
-	width: 36px;
 	text-decoration: none;
 }
 
 .social-navigation a:before {
-	content: "\f415";
 	font-size: 1.45em;
 	height: 36px;
 	line-height: 36px;
@@ -5403,7 +5402,8 @@ li.ping .comment-meta .comment-permalink {
  */
 
 .visuallyhidden,
-.screen-reader-text {
+.screen-reader-text,
+.icon-only a span {
 	border: 0;
 	clip: rect(0 0 0 0);
 	height: 1px;

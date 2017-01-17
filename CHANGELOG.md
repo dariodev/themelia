@@ -13,6 +13,10 @@ v1.0.12 - 2017-01-16
 -	Fixed stacked layout for the main menu.
 -	Fixed broken footer layout when social menu is not present.
 
+### Changed
+
+-	The footer menu now by default displays textual part of the link so it can be used as a classic menu as well. Inputting a custom link to your social profile the menu item will automatically display an icon for that social network. To hide textual part of the link and display only the icon, add "icon-only" class to each menu item. Find more in the readme file.
+
 v1.0.11 - 2017-01-04
 --------------------
 
