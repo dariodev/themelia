@@ -941,6 +941,16 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	.menu-primary {
 		width: auto;
 	}
+
+	.header-inline-title-menu li:last-child,
+	.header-stack-right li:last-child  {
+		padding-right: 0;
+	}
+
+	.header-inline-menu-title li:first-child,
+	.header-stack-left li:first-child {
+		padding-left: 0;
+	}
 }
 
 .access-inner:after {
@@ -1284,6 +1294,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	}
 
 	.sm-simple li li a {
+		padding-left: 10px;
 		padding-top: 15px;
 		padding-bottom: 15px;
 	}
@@ -1370,7 +1381,6 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		flex-direction: column;
 		justify-content: center;
 		margin-left: auto;
-		min-height:  90px
 	}
 
 	.site-header .menu-items {
