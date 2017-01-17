@@ -12,6 +12,8 @@ v1.0.12 - 2017-01-16
 -	Style and Customizer settings for current and hover menu links.
 -	Fixed stacked layout for the main menu.
 -	Fixed broken footer layout when social menu is not present.
+-	Entered correct relationship value for aria-controls attribute in menu/primary.php
+-	Other smaller style tweaks
 
 ### Changed
 
