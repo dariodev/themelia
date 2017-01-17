@@ -3,7 +3,7 @@
 	<nav <?php hybrid_attr( 'menu', 'primary' ); ?>>
 
 		<!-- Mobile menu toggle button (hamburger/x icon) -->
-		<button id="menu-toggle" class="menu-toggle hamburger hamburger--spin main-menu-btn is-not-active" type="button" aria-controls="primary-menu" aria-expanded="false">
+		<button id="menu-toggle" class="menu-toggle hamburger hamburger--spin main-menu-btn is-not-active" type="button" aria-controls="menu-primary-items" aria-expanded="false">
 		  <span class="hamburger-box">
 		    <span class="hamburger-inner"></span>
 		  </span>
@@ -20,7 +20,7 @@
                 'items_wrap'      => '<ul id="%s" class="%s">%s</ul>'
             )
         ); ?>
-		
+
 	</nav><!-- #menu-primary -->
 
 <?php endif; // End check for menu. ?>
