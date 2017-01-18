@@ -2,7 +2,7 @@
 /* This file has a mobile-to-tablet, and tablet-to-desktop breakpoint */
 /* ================================================================== */
 @-ms-viewport {
-	width: auto;
+	width: device-width;
 }
 .clear {
   clear: both;

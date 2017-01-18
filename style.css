@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.0.12
+ * Version:     1.0.13
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
@@ -47,61 +47,7 @@
 
 /*! sanitize.css v4.1.0 | CC0 License | github.com/jonathantneal/sanitize.css */
 
-/* Display definitions
-   ========================================================================== */
-
-/**
- * Add the correct display in IE 9-.
- * 1. Add the correct display in Edge, IE, and Firefox.
- * 2. Add the correct display in IE.
- */
-
-article,
-aside,
-details, /* 1 */
-figcaption,
-figure,
-footer,
-header,
-main, /* 2 */
-menu,
-nav,
-section,
-summary { /* 1 */
-	display: block;
-}
-
-/**
- * Add the correct display in IE 9-.
- */
-
-audio,
-canvas,
-progress,
-video {
-	display: inline-block;
-}
-
-/**
- * Add the correct display in iOS 4-7.
- */
-
-audio:not([controls]) {
-	display: none;
-	height: 0;
-}
-
-/**
- * Add the correct display in IE 10-.
- * 1. Add the correct display in IE.
- */
-
-template, /* 1 */
-[hidden] {
-	display: none;
-}
-
-/* Elements of HTML (https://www.w3.org/TR/html5/semantics.html)
+/* Elements of HTML (https://html.spec.whatwg.org/multipage/semantics.html#semantics)
    ========================================================================== */
 
 /**
@@ -143,8 +89,21 @@ html {
 	-webkit-text-size-adjust: 100%; /* 4 */
 }
 
-/* Sections (https://www.w3.org/TR/html5/sections.html)
+/* Sections (https://html.spec.whatwg.org/multipage/semantics.html#sections)
    ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+	display: block;
+}
 
 /**
  * Remove the margin in all browsers (opinionated).
@@ -4627,12 +4586,12 @@ figcaption span,
 
 	.inside-footer-widgets {
 		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
+	    flex-wrap: wrap;
+	    flex-direction: row;
 	}
 
-	.inside-footer-widgets .grid-50 {
-		flex: 0 0 50%;
+	.inside-footer-widgets .mobile-grid-50 {
+		flex: 0 0 50%
 	}
 
 	.site-footer-inner {
@@ -4970,10 +4929,6 @@ figcaption span,
 	width: 100%;
 	margin-bottom: 2.5rem;
 	vertical-align: top;
-}
-
-.sidebar-footer-widgets .widget {
-	/*display: inline-block;*/
 }
 
 .widget_rss a.rsswidget {
