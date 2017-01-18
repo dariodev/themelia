@@ -7,8 +7,8 @@
 		// Set up the widget width
 		$widget_width = '';
 		if ( $widgets == 1 ) { $widget_width = '100'; $widget_width_tablet = '100'; $widget_width_mobile = '100'; };
-		if ( $widgets == 2 ) { $widget_width = '50';  $widget_width_tablet = '50';  $widget_width_mobile = '100'; };
-		if ( $widgets == 3 ) { $widget_width = '33';  $widget_width_tablet = '33';  $widget_width_mobile = '100'; };
+		if ( $widgets == 2 ) { $widget_width = '50';  $widget_width_tablet = '50';  $widget_width_mobile = '50'; };
+		if ( $widgets == 3 ) { $widget_width = '33';  $widget_width_tablet = '33';  $widget_width_mobile = '33'; };
 		if ( $widgets == 4 ) { $widget_width = '25';  $widget_width_tablet = '25';  $widget_width_mobile = '50';  };
 		?>
 		<aside <?php hybrid_attr( 'sidebarcustom', 'footer-widgets' ); ?>>
