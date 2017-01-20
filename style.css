@@ -5484,12 +5484,11 @@ li.ping .comment-meta .comment-permalink {
 	transition: all .15s ease-out;
 }
 
-.transition-color,
-a {
+.transition-color {
 	-webkit-transition: color .1s ease;
 	-moz-transition: color .1s ease;
 	-o-transition: color .1s ease;
-	transition: color .1s ease;
+	transition: color .81s ease;
 }
 
 .transition-bg {
