@@ -391,8 +391,8 @@ if ( class_exists( 'Kirki' ) ) {
 			),
 			'default'     => array(
 				'link'    => '#121212',
-				'hover'   => '#121212',
-				'active'  => '#121212',
+				'hover'   => '#b10e1e',
+				'active'  => '#b10e1e',
 			),
 			'transport' => 'auto',
 			'output' => array(
