@@ -13,7 +13,7 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer small">
-			<?php edit_post_link(); ?>
+			<?php themelia_edit_link(); ?>
 		</footer><!-- .entry-footer -->
 
 	<?php elseif ( is_search() ) : // If viewing a search results page. ?>

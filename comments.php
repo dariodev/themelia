@@ -10,7 +10,11 @@ if ( post_password_required() || ( !have_comments() && !comments_open() && !ping
 
 		<div id="comments">
 
-			<h3 id="comments-number"><?php comments_number(); ?></h3>
+			<h4 id="comments-number" class="comments-number"><?php comments_number(); ?><?php echo sprintf(
+				/* translators: %s: Name of current post */
+				__( '<span class="screen-reader-text"> on "%s"</span>', 'themelia' ),
+				get_the_title()
+			) ?></h4>
 
 			<ol class="comment-list">
 				<?php wp_list_comments(

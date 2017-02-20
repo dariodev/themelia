@@ -17,7 +17,7 @@
                 'menu_id'         => 'menu-primary-items',
                 'menu_class'      => 'menu-primary-items menu-items sm sm-simple',
                 'fallback_cb'     => '',
-                'items_wrap'      => '<ul id="%s" class="%s">%s</ul>'
+                'items_wrap'      => '<ul id="%s" class="%s" aria-expanded="false">%s</ul>'
             )
         ); ?>
 

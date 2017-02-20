@@ -15,7 +15,7 @@
 
 		<footer class="entry-footer small">
 			<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-			<?php edit_post_link(); ?>
+			<?php themelia_edit_link(); ?>
 		</footer><!-- .entry-footer -->
 
 	</article><!-- .entry -->

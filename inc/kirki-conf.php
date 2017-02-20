@@ -1091,7 +1091,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport'   => 'auto',
 			'output'      => array(
 				array(
-				  'element'  => '#comments-number',
+				  'element'  => 'h4.comments-number',
 				  'property' => 'border-top-color',
 				),
 				array(
@@ -1113,7 +1113,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport'   => 'auto',
 			'output'      => array(
 				array(
-				  'element'  => '#main .sidebar li',
+				  'element'  => '.main .sidebar li',
 				  'property' => 'border-bottom-color',
 				),
 			),
@@ -1131,7 +1131,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport'   => 'auto',
 			'output'      => array(
 				array(
-				  'element'  => '#sidebar-subsidiary',
+				  'element'  => '.sidebar-subsidiary',
 				  'property' => 'border-top-color',
 				),
 			),
@@ -1149,7 +1149,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport'   => 'auto',
 			'output'      => array(
 				array(
-				  'element'  => '#sidebar-footer-widgets',
+				  'element'  => '.sidebar-footer',
 				  'property' => 'border-top-color',
 				),
 			),
@@ -1167,7 +1167,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport'   => 'auto',
 			'output'      => array(
 				array(
-				  'element'  => '#footer',
+				  'element'  => '.site-footer',
 				  'property' => 'border-top-color',
 				),
 			),

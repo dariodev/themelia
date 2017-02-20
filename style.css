@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.0.13
+ * Version:     1.0.14
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
@@ -941,7 +941,6 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 .site-header {
 	position:relative;
-	min-height: 90px;
 }
 
 .site-title-wrap {
@@ -1137,7 +1136,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	position:relative
 }
 
-.sm-simple a span.sub-arrow {
+.sm-simple a .sub-arrow {
 	padding-left: 0;
 	padding-right: 0;
 	top: 0;
@@ -1148,9 +1147,17 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	position: absolute;
 	text-align: center;
 	display: block;
+	color: inherit;
+
+	box-shadow: none;
+	border-radius: 0;
 }
 
-.sm-simple a span.sub-arrow:after {
+.sm-simple a .sub-arrow:focus {
+	outline: 1px dotted rgba(30, 30, 30, 0.5);
+}
+
+.sm-simple a .sub-arrow:after {
 	content: "\f3d0";
 	font-family: "ionicons";
 	font-size: 18px;
@@ -1167,7 +1174,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	line-height: 8px;
 }
 
-.sm-simple a.highlighted span.sub-arrow:after {
+.sm-simple a.highlighted .sub-arrow:after {
 	content: "\f3d8";
 }
 
@@ -1226,16 +1233,16 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 @media only screen and (max-width: 1199px) {
 
-	.sm-simple a span.sub-arrow {
+	.sm-simple a .sub-arrow {
 		background-color: rgba(39, 55, 64, 0.05);
 	}
 
-	.sm-simple a.highlighted span.sub-arrow {
+	.sm-simple a.highlighted .sub-arrow {
 		background-color: rgba(39, 55, 64, 0.07);
 	}
 
-	.sm-simple ul a span.sub-arrow,
-	.sm-simple ul a.highlighted span.sub-arrow {
+	.sm-simple ul a .sub-arrow,
+	.sm-simple ul a.highlighted .sub-arrow {
 		background-color: transparent;
 	}
 
@@ -1325,7 +1332,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		top: 0 !important;
 	}
 
-	.sm-simple a.highlighted span.sub-arrow:after {
+	.sm-simple a.highlighted .sub-arrow:after {
 		content: "\f3d0";
 	}
 
@@ -1406,12 +1413,12 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		padding-right: 10px;
 	}
 
-	.sm-simple a span.sub-arrow {
+	.sm-simple a .sub-arrow {
 		width: 8px;
 		background: transparent;
 	}
 
-	.sm-simple a span.sub-arrow:after {
+	.sm-simple a .sub-arrow:after {
 		font-size: 12px;
 	}
 
@@ -1431,12 +1438,12 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		padding-right: 30px;
 	}
 
-	.sm-simple ul a span.sub-arrow {
+	.sm-simple ul a .sub-arrow {
 		position: absolute;
 		right: 12px;
 	}
 
-	.sm-simple ul a span.sub-arrow:after {
+	.sm-simple ul a .sub-arrow:after {
 		position: absolute;
 		right: 12px;
 		top: 50%;
@@ -1493,7 +1500,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		padding-left: 32px;
 	}
 
-	.sm-simple.sm-rtl a span.sub-arrow {
+	.sm-simple.sm-rtl a .sub-arrow {
 		right: auto;
 		left: 20px;
 	}
@@ -1502,7 +1509,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		padding: 11px 20px;
 	}
 
-	.sm-simple.sm-rtl.sm-vertical a span.sub-arrow {
+	.sm-simple.sm-rtl.sm-vertical a .sub-arrow {
 		right: 20px;
 		margin-right: -12px;
 	}
@@ -1519,12 +1526,12 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		padding: 11px 20px;
 	}
 
-	.sm-simple.sm-rtl ul a span.sub-arrow {
+	.sm-simple.sm-rtl ul a .sub-arrow {
 		right: 20px;
 		margin-right: -12px;
 	}
 
-	.sm-simple.sm-vertical a span.sub-arrow {
+	.sm-simple.sm-vertical a .sub-arrow {
 		right: auto;
 		margin-left: -12px;
 	}
@@ -1669,6 +1676,14 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	top: -99999px;
 }
 
+.menu-primary-items[aria-expanded="false"] {
+	display: none;
+}
+
+.menu-primary-items[aria-expanded="true"] {
+	display: block;
+}
+
 .menu-primary-items.menu-is-active,
 .no-js .menu-primary-items {
 	position: relative;
@@ -1689,6 +1704,10 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	.menu-primary-items {
 		position: relative;
 		top: 0;
+	}
+
+	.menu-primary-items[aria-expanded="false"] {
+		display: block;
 	}
 }
 
@@ -2889,9 +2908,7 @@ input[type="submit"],
 }
 
 #content .btn,
-#content button,
 #content .submit,
-#content input[type="submit"],
 #content input[type="submit"],
 #content .gform_button,
 #content .sidebar-primary .edd_checkout a,
@@ -4167,6 +4184,13 @@ figcaption span,
 .entry-more-link {
 	letter-spacing: 0.025em;
 	font-size: 0.889em;
+	text-decoration: none;
+}
+
+.entry-more-link:hover {
+	letter-spacing: 0.025em;
+	font-size: 0.889em;
+	text-decoration: underline;
 }
 
 .gallery-count {
@@ -4498,14 +4522,14 @@ figcaption span,
 }
 
 .sidebar-subsidiary li,
-.sidebar-footer-widgets li {
+.sidebar-footer li {
 	line-height: normal;
 	margin-bottom: 0.5em;
 	padding-bottom: 0.5em;
 }
 
 .sidebar-subsidiary li a,
-.sidebar-footer-widgets li a {
+.sidebar-footer li a {
 	line-height: 1.3;
 }
 
@@ -4575,7 +4599,7 @@ figcaption span,
    Footer
    ========================================================================== */
 
-.sidebar-footer-widgets {
+.sidebar-footer {
 	border-top: solid 1px rgba(39, 55, 64, 0.09);
 	font-size: 0.889em;
 	padding-top: 2.5rem;
@@ -4664,9 +4688,9 @@ figcaption span,
 	font-size: 95%;
 }
 
-.sidebar-footer-widgets .enews-widget,
-.sidebar-footer-widgets .widget_mc4wp_form_widget,
-.sidebar-footer-widgets .widget_wysija.widget {
+.sidebar-footer .enews-widget,
+.sidebar-footer .widget_mc4wp_form_widget,
+.sidebar-footer .widget_wysija.widget {
 	background-color: #e5e8ef;
 }
 
@@ -4726,9 +4750,7 @@ figcaption span,
     padding: 0;
 }
 
-.infinite-scroll #infinite-handle span button,
-.infinite-scroll #infinite-handle span button:hover,
-.infinite-scroll #infinite-handle span button:focus {
+.infinite-scroll #infinite-handle span button {
 	color: #000;
 	font-size: 14px;
 	font-weight: 500;
@@ -4925,7 +4947,7 @@ figcaption span,
 }
 
 .sidebar .widget,
-.sidebar-footer-widgets .widget {
+.sidebar-footer .widget {
 	width: 100%;
 	margin-bottom: 2.5rem;
 	vertical-align: top;
@@ -5021,6 +5043,10 @@ figcaption span,
 	text-decoration: none;
 }
 
+.sidebar a:hover {
+	text-decoration: underline;
+}
+
 .sidebar-primary li,
 .sidebar-special li {
 	border-bottom: solid 1px rgba(39, 55, 64, 0.09);
@@ -5033,7 +5059,7 @@ figcaption span,
 .sidebar-primary ul ul li,
 .sidebar-special ul ul li,
 .sidebar-subsidiary ul ul li,
-.sidebar-footer-widgets ul ul li {
+.sidebar-footer ul ul li {
 	border-bottom: none !important;
 	margin-bottom: 0;
 	padding-bottom: 0;
@@ -5047,7 +5073,7 @@ figcaption span,
 	padding-top: 0.36em;
 }
 
-.sidebar-footer-widgets ul ul li a,
+.sidebar-footer ul ul li a,
 .sidebar-subsidiary ul ul li a {
 	border-bottom: none !important;
 	display: inline-block;

@@ -11,7 +11,7 @@
 		if ( $widgets == 3 ) { $widget_width = '33';  $widget_width_tablet = '33';  $widget_width_mobile = '33'; };
 		if ( $widgets == 4 ) { $widget_width = '25';  $widget_width_tablet = '25';  $widget_width_mobile = '50';  };
 		?>
-		<aside <?php hybrid_attr( 'sidebarcustom', 'footer-widgets' ); ?>>
+		<aside <?php hybrid_attr( 'sidebarcustom', 'footer' ); ?> aria-label="Sidebar Footer">
 			<div class="inside-footer-widgets grid-container">
 				<?php if ( $widgets >= 1 && is_active_sidebar( 'footer-1' ) ) : ?>
 				<div class="footer-widget footer-widget-1 grid-<?php echo apply_filters( 'themelia_footer_widget_1_width', $widget_width ); ?> tablet-grid-<?php echo apply_filters( 'themelia_footer_widget_1_tablet_width', $widget_width_tablet ); ?> mobile-grid-<?php echo apply_filters( 'themelia_footer_widget_1_mobile_width', $widget_width_mobile ); ?>">

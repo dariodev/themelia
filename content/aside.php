@@ -20,9 +20,9 @@
 				<?php hybrid_post_format_link(); ?>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-				<?php if ( comments_open() && 0 < $number ) : '<span class="sep">' . _ex( ' | ', 'By Line separator', 'themelia' ) . '</span>'; endif ?>
-				<?php comments_popup_link( ( '' ), '<span>' . number_format_i18n( 1 ) . '</span>' . __( ' Comment', 'themelia' ), '<span>%</span>' .  __( ' Comments', 'themelia' ), 'comments-link' . $css_class, '' ); ?>
-				<?php edit_post_link(); ?>
+				<?php if ( comments_open() && 0 < $number ) : echo '<span class="sep">' . _x( ' | ', 'By Line separator', 'themelia' ) .  '</span>'; endif ?>
+				<?php comments_popup_link( '', '<span>1</span> comment', '<span>%</span> comments', 'comments-link', '' ); ?>
+				<?php themelia_edit_link(); ?>
 			</div><!-- .entry-byline -->
 
 		</header><!-- .entry-header -->
@@ -45,7 +45,8 @@
 
 			<div class="entry-byline small">
 				<?php hybrid_post_format_link(); ?>
-				<?php edit_post_link(); ?>
+				<?php comments_popup_link( '', '<span>1</span> comment', '<span>%</span> comments', 'comments-link', '' ); ?>
+				<?php themelia_edit_link(); ?>
 			</div><!-- .entry-byline -->
 
 		</header><!-- .entry-header -->

@@ -836,7 +836,7 @@ function themelia_excerpt_more($more) {
 function themelia_excerpt_read_more_link( $output ) {
 
 	global $post;
-	return $output . ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="entry-more-link"><span>' . esc_attr_x( 'Read More', 'excerpt', 'themelia' ) . '</span></a>';
+	return $output . ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" title="' . get_the_title() . '" class="entry-more-link"><span>' . esc_attr_x( 'Read More', 'excerpt', 'themelia' ) . '</span> <span class="screen-reader-text">' . get_the_title() . '</span></a>';
 }
 
 
@@ -887,3 +887,29 @@ function themelia_widget_exists( $widget ) {
 
 	return isset( $wp_widget_factory->widgets[ $widget ] );
 }
+
+
+if ( ! function_exists( 'themelia_edit_link' ) ) :
+/**
+ * Returns an accessibility-friendly link to edit a post or page.
+ *
+ * This also gives us a little context about what exactly we're editing
+ * (post or page?) so that users understand a bit more where they are in terms
+ * of the template hierarchy and their content. Helpful when/if the single-page
+ * layout with multiple posts/pages shown gets confusing.
+ */
+function themelia_edit_link() {
+
+	$link = edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'themelia' ),
+			get_the_title()
+		),
+		'<span class="edit-link">',
+		'</span>'
+	);
+
+	return $link;
+}
+endif;

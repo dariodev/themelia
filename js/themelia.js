@@ -147,6 +147,9 @@ jQuery( document ).ready( function() {
 		jQuery(this).attr('aria-expanded', function (i, attr) {
 		    return attr == 'true' ? 'false' : 'true'
 		});
+        jQuery("#menu-primary-items").attr('aria-expanded', function (i, attr) {
+		    return attr == 'true' ? 'false' : 'true'
+		});
 	});
 
 } );

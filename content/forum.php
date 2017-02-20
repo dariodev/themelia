@@ -14,7 +14,7 @@
 
 	<footer class="entry-footer small">
 
-		<?php edit_post_link(); ?>
+		<?php themelia_edit_link(); ?>
 
 	</footer><!-- .entry-footer -->
 
