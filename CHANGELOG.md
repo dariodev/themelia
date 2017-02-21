@@ -3,6 +3,13 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+v1.0.15 - 2017-02-21
+--------------------
+
+### Fixed
+
+-	Fix Comment link - When there is no post comments do not display link.
+
 v1.0.14 - 2017-02-20
 --------------------
 
