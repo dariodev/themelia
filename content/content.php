@@ -1,13 +1,16 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
 	<?php
-		$css_class = ' zero-comments';
+		$css_class = 'comments-link zero-comments';
 		$number    = (int) get_comments_number( get_the_ID() );
+		$comm_sep  = '<span class="comments-sep no-comments"></span>';
 
 		if ( 1 === $number ) {
-			$css_class = ' one-comment';
+			$css_class = 'comments-link one-comment';
+			$comm_sep  = '<span class="comments-sep"></span>';
 		} elseif ( 1 < $number ) {
-			$css_class = ' multiple-comments';
+			$css_class = 'comments-link multiple-comments';
+			$comm_sep  = '<span class="comments-sep"></span>';
 		}
 	?>
 
@@ -20,10 +23,19 @@
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 				<?php
-				if ( comments_open() && 0 < $number ) :
-					echo '<span class="sep">' . _x( ' | ', 'By Line separator', 'themelia' ) .  '</span>';
-					comments_popup_link( '', '<span>1</span> comment', '<span>%</span> comments', 'comments-link', '' );
-				endif
+					echo $comm_sep;
+					comments_popup_link(
+						'',
+						sprintf( __( '<span class="comments-number">1</span><span class="comments-txt"> comment</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
+							get_the_title()
+						),
+					    sprintf( __( '<span class="comments-number">%1$s</span><span class="comments-txt"> comments</span><span class="screen-reader-text"> on "%2$s"</span>', 'themelia' ),
+							$number,
+							get_the_title()
+						),
+					    $css_class,
+					    ''
+					);
 				?>
 				<?php themelia_edit_link(); ?>
 			</div><!-- .entry-byline -->
@@ -63,10 +75,19 @@
 				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 				<?php
-				if ( comments_open() && 0 < $number ) :
-					echo '<span class="sep">' . _x( ' | ', 'By Line separator', 'themelia' ) .  '</span>';
-					comments_popup_link( '', '<span>1</span> comment', '<span>%</span> comments', 'comments-link', '' );
-				endif
+					echo $comm_sep;
+					comments_popup_link(
+						'',
+						sprintf( __( '<span class="comments-number">1</span><span class="comments-txt"> comment</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
+							get_the_title()
+						),
+					    sprintf( __( '<span class="comments-number">%1$s</span><span class="comments-txt"> comments</span><span class="screen-reader-text"> on "%2$s"</span>', 'themelia' ),
+							$number,
+							get_the_title()
+						),
+					    $css_class,
+					    ''
+					);
 				?>
 				<?php themelia_edit_link(); ?>
 			</div><!-- .entry-byline -->

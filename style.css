@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.0.15
+ * Version:     1.0.16
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
@@ -619,7 +619,7 @@ a:visited {
 
 a:hover,
 a:active {
-	color: #2b8cc4;
+	color: #2e3191;
 }
 
 
@@ -1722,8 +1722,8 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 #menu-subsidiary li {
 	display: inline-block;
 	list-style: none;
-	margin-left: 8px;
-	margin-right: 8px;
+	margin-left: 7px;
+	margin-right: 7px;
 }
 
 @media (min-width: 900px) {
@@ -1736,7 +1736,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 	#menu-subsidiary li {
 		float: left;
-		margin-left: 20px;
+		margin-left: 15px;
 		margin-right: 0;
 	}
 }
@@ -4013,7 +4013,7 @@ figcaption span,
 }
 
 .entry-byline {
-	line-height: 1;
+	line-height: 1.3;
 	margin-bottom: 0.875em;
 }
 
@@ -4033,13 +4033,22 @@ figcaption span,
 	text-decoration: underline;
 }
 
-.entry-byline .sep {
-	font-weight: 300;
-}
-
 .entry-byline .post-by {
 	font-style: italic;
 	font-weight: 300;
+}
+
+.comments-sep:before {
+	content: "\0007C";
+	font-weight: 300;
+	margin-left: 2px;
+	margin-right: 5px;
+	display: inline-block;
+	margin-top: -1px;
+}
+
+.comments-sep.no-comments:before {
+	display: none;
 }
 
 .post-format-link,
@@ -4107,6 +4116,7 @@ figcaption span,
 	font-weight: normal !important;
 	display: inline;
 	line-height: 1;
+	left: 5px;
 	top: -1px;
 	text-align: center;
 	text-transform: uppercase;
@@ -4636,10 +4646,25 @@ figcaption span,
 	padding-top: 1.5rem;
 }
 
+@media (min-width: 1300px) {
+
+	.site-footer-01,
+	.site-footer-02 {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
 @media (min-width: 900px) {
 
 	.site-footer-inner {
 		flex-direction: row;
+	}
+
+	.site-footer-01,
+	.site-footer-02 {
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 	.site-footer-01 {
@@ -4652,7 +4677,6 @@ figcaption span,
 		margin-right: auto;
 	}
 }
-
 
 /* Widgets sign-up
    ========================================================================== */
