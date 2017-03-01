@@ -804,12 +804,21 @@ function themelia_post_thumbnail() {
 
 	<?php else : ?>
 
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+	<a class="post-thumbnail" href="<?php the_permalink(); ?>">
 		<?php
 			$thumbnail_id = get_post_thumbnail_id();
 			$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+			$get_caption = get_post($thumbnail_id)->post_excerpt;
+			if( !empty($get_alt) ) {
+				$thumbnail_scr_reader_txt = $get_alt;
+			} elseif( !empty($get_caption) ) {
+				$thumbnail_scr_reader_txt = $get_caption;
+			} else {
+				$thumbnail_scr_reader_txt = __( 'Post thumbnail', 'themelia' );
+			}
 		 ?>
 		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
+		<span class="screen-reader-text"><?php echo $thumbnail_scr_reader_txt ?></span>
 	</a>
 
 	<?php endif; // End is_singular()

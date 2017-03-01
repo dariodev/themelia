@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.0.16
+ * Version:     1.0.17
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
@@ -3691,7 +3691,6 @@ figcaption span,
 	font-size: 90%;
 	line-height: 1.8;
 	letter-spacing: 0.05em;
-	opacity: .75;
 	text-transform: uppercase;
 }
 
@@ -4047,7 +4046,12 @@ figcaption span,
 	margin-top: -1px;
 }
 
+.comments-sep.no-comments,
 .comments-sep.no-comments:before {
+	display: none;
+}
+
+.comments-link.zero-comments {
 	display: none;
 }
 
