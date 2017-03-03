@@ -5121,7 +5121,6 @@ figcaption span,
    ========================================================================== */
 
 #comments {
-	margin-bottom: 3em;
 	overflow: hidden;
 }
 
@@ -5134,19 +5133,21 @@ figcaption span,
 }
 
 /* === Comments closed message === */
+
 .comments-closed {
-	margin-top: 1.5rem;
 	font-size: 0.889em;
+	font-weight: 500;
+	margin-top: 1em;
 }
 
 /* === Individual comments */
 
 li.comment {
-	margin-bottom: 4.5rem;
+	margin-top: 2.5rem;
 }
 
 li.ping {
-	margin-bottom: 1.5rem;
+	margin-top: 1.5rem;
 }
 
 /* === Comment list === */
@@ -5154,9 +5155,9 @@ li.ping {
 	border-top: 4px solid rgba(39, 55, 64, 0.55);
 	font-weight: normal;
 	text-align: center;
-	margin-top: 0;
-	margin-bottom: 1.5em;
+	margin: 0;
 	padding-top: 1.5em;
+	padding-bottom: 1em;
 }
 
 .comment-list {
@@ -5285,7 +5286,6 @@ li.ping .comment-meta .comment-permalink {
 
 /* === Reply link === */
 .comment-reply-link {
-	float: left;
 	font-size: 0.889em;
 	font-weight: 700;
 	padding-top: 5px;
@@ -5296,6 +5296,11 @@ li.ping .comment-meta .comment-permalink {
 
 
 /* ====== RESPOND (COMMENT FORM) ====== */
+
+.comment-respond {
+	padding-bottom: 1em;
+	overflow: hidden;
+}
 
 .comment-form-author,
 .comment-form-email,
@@ -5539,10 +5544,10 @@ li.ping .comment-meta .comment-permalink {
 }
 
 .transition-color {
-	-webkit-transition: color .1s ease;
-	-moz-transition: color .1s ease;
-	-o-transition: color .1s ease;
-	transition: color .81s ease;
+	-webkit-transition: color .15s ease;
+	-moz-transition: color .15s ease;
+	-o-transition: color .15s ease;
+	transition: color .15s ease;
 }
 
 .transition-bg {
