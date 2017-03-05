@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.0.17
+ * Version:     1.0.18
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
@@ -4219,14 +4219,19 @@ figcaption span,
 	border-top: 4px solid rgba(39, 55, 64, 0.45);
 	margin-top: 1rem;
 	overflow: hidden;
-	padding-top: 1.5em;
+	padding-top: 1.1rem;
 }
 
 .author-avatar {
 	float: left;
-	margin-bottom: .5em;
+	margin-top: .5rem;
+	margin-bottom: 1rem;
 	width: 75px;
 	padding-right: 15px;
+}
+
+.author-description p {
+	margin-bottom: 1.2rem;
 }
 
 .author-avatar img {
@@ -4237,7 +4242,7 @@ figcaption span,
 }
 
 .author-info .author-heading {
-	margin-top: .5rem;
+	margin-top: .55rem;
 	margin-bottom: .5rem;
 }
 
@@ -4255,8 +4260,12 @@ figcaption span,
 @media (min-width: 600px) {
 
 	.author-avatar {
-		margin-bottom: 1.5em;
+		margin-bottom: 1.6rem;
 		width: 140px;
+	}
+
+	.author-description p {
+		margin-bottom: 1.6rem;
 	}
 
 	.author-avatar img {
@@ -4278,9 +4287,6 @@ figcaption span,
 	font-size: 0.889em;
 }
 
-.author-description p {
-	margin-bottom: 0.75em;
-}
 
 /* === Post Footer === */
 
@@ -4697,28 +4703,33 @@ figcaption span,
 .enews-widget,
 .widget_mc4wp_form_widget,
 .widget_wysija.widget,
+.widget_mailpoet_form,
 .jetpack_subscription_widget {
 	background-color: rgba(34, 34, 42, .055);
 	padding: 1.5rem;
 }
 
 .enews-widget {
-	padding-bottom: 0;
-}
-
-.enews-widget form + p {
-	font-size: 0.889em;
-	opacity: .7;
+	padding-bottom: .5rem;
 }
 
 .jetpack_subscription_widget #subscribe-text p,
-.jetpack_subscription_widget #subscribe-email input  {
+.jetpack_subscription_widget #subscribe-email input,
+.enews-widget p,
+.enews-widget form input  {
 	font-size: 95%;
+}
+
+.enews-widget form + p {
+	font-size: 0.855em;
+	line-height: 1.3;
+	opacity: .85;
 }
 
 .sidebar-footer .enews-widget,
 .sidebar-footer .widget_mc4wp_form_widget,
-.sidebar-footer .widget_wysija.widget {
+.sidebar-footer .widget_wysija.widget,
+.sidebar-footer .widget_mailpoet_form {
 	background-color: #e5e8ef;
 }
 
@@ -4729,6 +4740,7 @@ figcaption span,
 .enews-widget form,
 .widget_mc4wp_form_widget form,
 .widget_wysija form,
+.widget_mailpoet_form form,
 .jetpack_subscription_widget form {
 	margin-bottom: 0;
 }
@@ -4746,6 +4758,7 @@ figcaption span,
 .enews-widget input,
 .widget_mc4wp_form_widget input,
 .widget_wysija input,
+.widget_mailpoet_form input,
 .jetpack_subscription_widget input,
 #sidebar-primary #subscribe-email input,
 #sidebar-special #subscribe-email input {
@@ -4753,7 +4766,8 @@ figcaption span,
 }
 
 .widget_mc4wp_form_widget label,
-.widget_wysija label {
+.widget_wysija label,
+.widget_mailpoet_form label {
 	display: block;
 	opacity: .85
 }
@@ -4998,6 +5012,10 @@ figcaption span,
 	margin-top: 0;
 	margin-bottom: 0.4em;
 	padding-bottom: 0.4em;
+}
+
+h2.widget-title {
+	font-size: 1.777em;
 }
 
 .widget_recent_comments .recentcomments {
