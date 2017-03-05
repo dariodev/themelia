@@ -850,28 +850,6 @@ function themelia_excerpt_read_more_link( $output ) {
 
 
 /**
- * Checks to see if the specified email address has a Gravatar image.
- *
- * @param  $email_address	The email of the address of the user to check
- *         Whether or not the user has a gravatar
- * @return bool
- * @since  Themelia 1.0.0
- */
-function themelia_has_gravatar( $email_address ) {
-
-	// Build the Gravatar URL by hasing the email address
-	$url = 'http://www.gravatar.com/avatar/' . md5( strtolower( trim ( $email_address ) ) ) . '?d=404';
-
-	// Now check the headers...
-	$headers = @get_headers( $url );
-
-	// If 200 is found, the user has a Gravatar; otherwise, they don't.
-	return preg_match( '|200|', $headers[0] ) ? true : false;
-
-}
-
-
-/**
  * Disable default Breadcrumbs for bbPress plugin.
  *
  * @since  Themelia 1.0.0
