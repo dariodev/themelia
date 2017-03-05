@@ -11,7 +11,7 @@ $author_avatar      = get_avatar( $author_email, apply_filters( 'themelia_author
 if ( $author_description = get_the_author_meta( 'description' ) ) : ?>
 
 	<aside id="author-box" class="author-info clr">
-		<?php if( themelia_has_gravatar( $author_email )) { ?>
+		<?php if( get_avatar( $author_email )) { ?>
 			<a href="<?php echo $author_posts_link; ?>" title="<?php esc_html_e( 'All posts by', 'themelia' ); ?> <?php echo $author; ?>" class="author-avatar clr" rel="author">
 				<?php echo $author_avatar; ?>
 			</a><!-- .author-avatar -->
