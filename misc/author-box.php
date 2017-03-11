@@ -4,7 +4,6 @@ $author             = get_the_author();
 $author_id          = get_the_author_meta( 'ID' );
 $author_email       = get_the_author_meta( 'user_email' );
 $author_posts_link  = esc_url( get_author_posts_url( $author_id ) );
-$author_url         = esc_url( get_the_author_meta('url') );
 $author_avatar      = get_avatar( $author_email, apply_filters( 'themelia_author_bio_avatar_size', 120 ) );
 
 // Only display if author has a description
