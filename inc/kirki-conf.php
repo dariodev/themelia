@@ -360,7 +360,7 @@ if ( class_exists( 'Kirki' ) ) {
 			),
 			'default'     => array(
 				'hover'   => '#B10E1E',
-				'current' => '#BA321D',
+				'current' => '#ba321d',
 			),
 			'transport' => 'auto',
 			'output'   => array(
@@ -371,7 +371,7 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 				array(
 				  'choice'   => 'current',
-				  'element'  => '.sm-simple > li.current-menu-item > a:before,.sm-simple > li.current_page_item > a:before,.sm-simple > li.current_page_parent > a:before,.sm-simple > li.current-page-ancestor > a:before',
+				  'element'  => '.sm-simple > li.current-menu-item > a:before,.sm-simple > li.current_page_item > a:before,.sm-simple > li.current_page_parent > a:before',
 				  'property' => 'background',
 				),
 			),

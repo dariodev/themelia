@@ -166,14 +166,14 @@ function themelia_customizer_styles() {
 	if ( $modular_scale_desktop_big == 'major-third'    ) $scale_desktop_big = ' @media (min-width: 1800px) { ' . $major_third .    ' } ';
 	if ( $modular_scale_desktop_big == 'perfect-fourth' ) $scale_desktop_big = ' @media (min-width: 1800px) { ' . $perfect_fourth . ' } ';
 
-	$base_typography_mobile      = esc_attr( get_theme_mod( 'base_typography_small',  '1em'     ) );
-	$base_typography_tablet      = esc_attr( get_theme_mod( 'base_typography_medium', '1.063em' ) );
-	$base_typography_desktop     = esc_attr( get_theme_mod( 'base_typography_large',  '1.125em' ) );
-	$base_typography_desktop_big = esc_attr( get_theme_mod( 'base_typography_xl',     '1.188em' ) );
+	$base_typography_mobile      = get_theme_mod( 'base_typography_small',  '1em'     );
+	$base_typography_tablet      = get_theme_mod( 'base_typography_medium', '1.063em' );
+	$base_typography_desktop     = get_theme_mod( 'base_typography_large',  '1.125em' );
+	$base_typography_desktop_big = get_theme_mod( 'base_typography_xl',     '1.188em' );
 
 	// Site Width
 	$default_site_width = '1340px';
-	$site_width = esc_attr( get_theme_mod( 'site_width', $default_site_width ) );
+	$site_width = get_theme_mod( 'site_width', $default_site_width );
 
 	/* Custom Style Output */
 
@@ -213,6 +213,7 @@ function themelia_customizer_styles_cache() {
 		if ( $data == false ) {
 			// We'll be adding our actual CSS using a filter
 			$data = apply_filters( 'themelia_customizer_styles_filter', null );
+			//$data .= 'Timestamp: ' . current_time( 'timestamp', true );
 			// Set the theme_mod.
 			set_theme_mod( 'themelia_customizer_styles', $data );
 		}

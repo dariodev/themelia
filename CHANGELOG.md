@@ -3,22 +3,8 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.0.19 - 2017-03-10
+v1.0.18 - 2017-03-05
 --------------------
-
-### Fixed
-
--	Style buttons and anchors using class `.btn`
-
-v1.0.18 - 2017-03-10
---------------------
-
-### Fixed
-
--	Escape `get_theme_mod()` in customize.php
--   Prefix `loop_columns()` function
--   Removed previously dropped `themelia_has_gravatar()` function from author-header.php
--   Removed accidentally added `storefront_make_me_cute()`
 
 ### Updated
 
