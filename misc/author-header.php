@@ -1,7 +1,6 @@
 <?php
 // Get Author Data
 $author_email        = get_the_author_meta( 'user_email' );
-$author_description  = get_the_author_meta( 'description' );
 $author_avatar       = get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'themelia_author_bio_avatar_size', 128 ) );
 $author_url          = esc_url( get_the_author_meta('url') );
 $author_url_stripped = preg_replace('#^https?://#', '', rtrim($author_url,'/'));
@@ -12,7 +11,7 @@ $author_url_stripped = preg_replace('#^https?://#', '', rtrim($author_url,'/'));
 
 	<?php if ( $desc = get_the_archive_description() ) : // Check for description. ?>
 
-		<?php if( themelia_has_gravatar( $author_email )) : ?>
+		<?php if( get_avatar( $author_email )) : ?>
 			<div class="author-avatar clr" rel="author">
 				<?php echo $author_avatar; ?>
 			</div><!-- .author-avatar -->
