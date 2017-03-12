@@ -11,6 +11,7 @@
 					<?php hybrid_get_menu( 'subsidiary' ); // Loads the menu/subsidiary.php template. ?>
 			 	</div><!-- .grid-50 -->
 				<div class="site-footer-02">
+					<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
 					<p class="credit">
 						<?php printf(
 						// Translators: 1 is current year, 2 is site name/link, 3 is WordPress name/link, and 4 is theme name/link.

@@ -8,9 +8,9 @@
 				'container'       => '',
 				'depth'           => 1,
 				'menu_id'         => 'menu-secondary-items',
-				'menu_class'      => 'menu-items sf-menu js-superfish',
+				'menu_class'      => 'menu-secondary-items',
 				'fallback_cb'     => '',
-				'items_wrap'      => '<div class="wrap-mobile grid-container"><div class="grid-100"><ul id="%s" class="%s">%s</ul></div></div>'
+				'items_wrap'      => '<ul id="%s" class="%s">%s</ul>'
 			)
 		); ?>
 

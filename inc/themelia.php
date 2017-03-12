@@ -90,7 +90,8 @@ function themelia_register_image_sizes() {
 function themelia_register_menus() {
 
 	register_nav_menu( 'primary',    esc_html_x( 'Primary', 'nav menu location', 'themelia' ) );
-	register_nav_menu( 'subsidiary', esc_html_x( 'Footer', 'nav menu location', 'themelia' ) );
+	register_nav_menu( 'secondary',  esc_html_x( 'Footer - Left', 'nav menu location', 'themelia' ) );
+	register_nav_menu( 'subsidiary', esc_html_x( 'Footer - Right (Social Icons)', 'nav menu location', 'themelia' ) );
 }
 
 
