@@ -2385,7 +2385,6 @@ dd + dt {
 }
 
 
-
 /*
    ## Tables
    ========================================================================== */
@@ -2519,10 +2518,11 @@ select {
 	border: 1px solid rgba(39, 55, 64, 0.08);
 	border-radius: 2px;
 	font-family: inherit;
+	font-size: 1rem;
 	line-height: normal;
 	margin-bottom: 0;
 	outline: none;
-	padding: 0.65em 0.8em 0.65em;
+	padding: 0.686em 0.8em 0.686em;
 }
 input[type="number"] { padding-left: 5px; padding-right: 5px;}
 
@@ -2732,28 +2732,28 @@ button,
 .submit,
 input[type="submit"],
 #content input[type="submit"],
-.infinite-scroll #infinite-handle button,
 .gform_button,
 .sidebar-primary .edd_checkout a,
 .sidebar-special .edd_checkout a,
 #main .edd_go_to_checkout.button,
-#main .edd-add-to-cart.button {
+#main .edd-add-to-cart.button,
+.infinite-scroll #infinite-handle span button  {
 	-webkit-appearance: none;
 	background: #00823B;
-	border: none;
+	border: 1px solid #00823B;
 	border-radius: 3px;
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 	color: #fff;
 	cursor: pointer;
 	display: inline-block;
 	font-family: inherit;
-	font-size: 14px;
+	font-size: 1rem;
 	font-weight: 500;
 	letter-spacing: .075em;
 	line-height: normal;
 	margin: 0;
 	outline: none;
-	padding: .964em 1.25em .964em;
+	padding: .686em 1.25em .686em;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -2762,6 +2762,10 @@ input[type="submit"],
 	transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
 	vertical-align: middle;
 	white-space: nowrap;
+}
+
+.btn:visited {
+	color: #fff;
 }
 
 #content .btn,
@@ -2776,58 +2780,66 @@ input[type="submit"],
 }
 
 .btn-primary,
-a.btn-primary,
 button.btn-primary,
 button[primary],
 input.primary[type="submit"] {
-	background: #00823B;
-
+	background-color: #00823B;
+	border-color: #E8E8E8;
 }
 
 .btn-secondary,
-a.btn-secondary,
 button.btn-secondary,
 button[secondary],
 input.secondary[type="submit"],
+.infinite-scroll #infinite-handle span,
 .infinite-scroll #infinite-handle span button {
 	color: #000;
 	background-color: #E8E8E8;
+	border-color: #E8E8E8;
+}
+
+.btn-secondary:visited {
+	color: #000;
 }
 
 .btn-dark,
-a.btn-dark,
 button.btn-dark,
 button[dark],
 input.dark[type="submit"] {
 	background-color: #252E33;
+	border-color: #252E33;
 }
 
 .btn-success,
 button.btn-success,
 button[success],
 input.success[type="submit"] {
-	background: #88B04B;
+	background-color: #88B04B;
+	border-color: #88B04B;
 }
 
 .btn-warning,
 button.btn-warning,
 button[warning],
 input.success[type="warning"] {
-	background: #f47738;
+	background-color: #f47738;
+	border-color: #f47738;
 }
 
 .btn-danger,
 button.btn-danger,
 button[danger],
 input.success[type="danger"] {
-	background: #B10E1E;
+	background-color: #B10E1E;
+	border-color: #B10E1E;
 }
 
 .btn-info,
 button.btn-info,
 button[info],
 input.success[type="info"] {
-	background: #2B8CC4;
+	background-color: #2B8CC4;
+	border-color: #2B8CC4;
 }
 
 .btn-link,
@@ -2835,7 +2847,12 @@ button.btn-link,
 button[link],
 input.success[type="link"] {
 	background: transparent;
+	border-color: transparent;
 	box-shadow: none;
+	color: #535A64;
+}
+
+.btn-link:visited {
 	color: #535A64;
 }
 
@@ -2844,7 +2861,7 @@ button:hover,
 .submit:hover,
 input[type="submit"]:hover,
 #content input[type="submit"]:hover,
-.infinite-scroll #infinite-handle span button:hover,
+.infinite-scroll #infinite-handle span button:hover ,
 .gform_button:hover,
 .sidebar-primary .edd_checkout a:hover,
 .sidebar-special .edd_checkout a:hover,
@@ -2897,6 +2914,7 @@ input.secondary[type="submit"]:hover {
 
 .btn-secondary:focus,
 button.btn-secondary:focus,
+.infinite-scroll #infinite-handle span button:focus,
 button[secondary]:focus,
 input.secondary[type="submit"]:focus {
 	color: #121212;
@@ -2904,6 +2922,7 @@ input.secondary[type="submit"]:focus {
 
 .btn-secondary:active,
 button.btn-secondary:active,
+.infinite-scroll #infinite-handle span button:active,
 button[secondary]:active,
 input.secondary[type="submit"]:active {
 	color: #121212;
@@ -2938,7 +2957,6 @@ input.success[type="link"]:focus {
 	color: #000;
 	outline: 1px dotted #535A64;
 }
-
 
 .btn::-moz-focus-inner,
 button::-moz-focus-inner {
@@ -3276,10 +3294,6 @@ h6 .label {
 	letter-spacing: 0.025em;
 }
 
-#content .wpcf7-form input {
-	font-size: 1em;
-}
-
 #content .wpcf7-form-control {
 	margin-top: 0.4rem;
 }
@@ -3377,7 +3391,7 @@ h6 .label {
 #content .gform_wrapper textarea,
 #content .gform_wrapper select {
 	padding: 0.55rem 0.8rem;
-	font-size: 1em;
+	font-size: 1rem;
 	text-indent: 0;
 }
 
@@ -4572,6 +4586,7 @@ figcaption span,
 
 .jetpack_subscription_widget #subscribe-text p,
 .jetpack_subscription_widget #subscribe-email input,
+.jetpack_subscription_widget #subscribe-submit input[type="submit"],
 .enews-widget p,
 .enews-widget form input  {
 	font-size: 95%;
@@ -4647,14 +4662,6 @@ figcaption span,
 .infinite-scroll #infinite-handle span {
     background: transparent;
     padding: 0;
-}
-
-.infinite-scroll #infinite-handle span button {
-	color: #000;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 45px;
-	padding: 1px 1.25em 0;
 }
 
 #content #jp-relatedposts .jp-relatedposts-items-visual h4.jp-relatedposts-post-title {
