@@ -3,12 +3,13 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.0.19 - 2017-03-10
+v1.0.19 - 2017-03-12
 --------------------
 
 ### Fixed
 
--	Style buttons and anchors using class `.btn`
+-	Fixed style glitches in form elements, buttons and anchors using class `.btn`
+-   Removed unused variable `$author_url` from author-box.php
 
 v1.0.18 - 2017-03-10
 --------------------
