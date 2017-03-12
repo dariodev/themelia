@@ -79,12 +79,13 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
 
 This panel is used for managing Navigation Menus for content you have already published on your site. You can create menus and add items for existing content such as pages, posts, categories, tags, formats, or custom links. Menus can be displayed in locations defined by your theme or in widget areas by adding a "Custom Menu" widget.
 
-*This theme uses Navigation Menus `wp_nav_menu()` in two locations. Primary and Footer.*
+*This theme uses Navigation Menus `wp_nav_menu()` in three locations. Primary, Footer - Left and Footer - Right.*
 
 **Locations:**
 
 -	**Primary** Placed in the top header. For the Main site navigation.
--	**Footer - (optionally social menu)** Placed in the right footer. You can use it as a regular menu or as a Social Links menu. Inputting a custom link to your social profile the menu item will automatically display an icon for that social network (icons are provided by Ionicons icon font). To hide textual part of the link and display only the icon, add "icon-only" class to each menu item. If you add "icon-only" class, text will be visually hidden, but still available for screen readers.
+-	**Footer - Left** Placed in the left footer. This is a one level menu (no dropdowns).
+-	**Footer - Right - (optionally social menu)** Placed in the right footer. You can use it as a regular menu or as a Social Links menu. Inputting a custom link to your social profile the menu item will automatically display an icon for that social network (icons are provided by Ionicons icon font). To hide textual part of the link and display only the icon, add "icon-only" class to each menu item. If you add "icon-only" class, text will be visually hidden, but still available for screen readers. This is a one level menu (no dropdowns).
 
 ### Widgets
 

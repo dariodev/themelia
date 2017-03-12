@@ -6,6 +6,10 @@ All notable changes to Themelia will be documented in this file. This changelog 
 v1.0.19 - 2017-03-12
 --------------------
 
+### New
+
+-   Added "Footer Left" nav menu location.
+
 ### Fixed
 
 -	Fixed style glitches in form elements, buttons and anchors using class `.btn`
