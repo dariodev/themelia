@@ -1712,6 +1712,20 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	}
 }
 
+/* ====== Secondary Menu ====== */
+
+#menu-secondary ul {
+	display: block;
+	margin: 5px 0 25px;
+	padding: 0;
+}
+
+#menu-secondary li {
+	display: inline-block;
+	list-style: none;
+	margin-right: 14px;
+}
+
 /* ====== Subsidiary Menu ====== */
 
 #menu-subsidiary ul {
