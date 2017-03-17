@@ -12,6 +12,15 @@
 			 	</div><!-- .grid-50 -->
 				<div class="site-footer-02">
 					<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
+
+					<?php if ( is_active_sidebar( 'colophon' ) ) : // If the sidebar has widgets. ?>
+
+					<div <?php hybrid_attr( 'sidebarcustom', 'colophon' ); ?>>
+						<?php dynamic_sidebar( 'colophon' ); // Displays the colophon sidebar. ?>
+					</div>
+
+					<?php else : // End widgets check. ?>
+
 					<p class="credit">
 						<?php printf(
 						// Translators: 1 is current year, 2 is site name/link, 3 is WordPress name/link, and 4 is theme name/link.
@@ -19,6 +28,8 @@
 						date_i18n( 'Y' ), hybrid_get_site_link(), hybrid_get_wp_link(), hybrid_get_theme_link()
 						);?>
 					</p><!-- .credit -->
+					<?php endif; // End widgets check. ?>
+
 			 	</div><!-- .grid-50 -->
 			</div><!-- .grid-container -->
 

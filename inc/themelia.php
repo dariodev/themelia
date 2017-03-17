@@ -137,6 +137,14 @@ function themelia_register_sidebars() {
 
 	hybrid_register_sidebar(
 		array(
+			'id'          => 'colophon',
+			'name'        => esc_html_x( 'Colophon', 'sidebar', 'themelia' ),
+			'description' => esc_html__( 'Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget. Best use: Text Widget with auto paragraph and without title.', 'themelia' )
+		)
+	);
+
+	hybrid_register_sidebar(
+		array(
 			'id'          => 'footer-1',
 			'name'        => _x( 'Footer 1', 'sidebar', 'themelia' ),
 			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
