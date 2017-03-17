@@ -94,6 +94,7 @@ Three widget areas:
 -	**Primary sidebar** - The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.
 -	**Subsidiary sidebar** - A sidebar located in the upper footer of the site. Optimized for one wide widget (and multiples thereof).
 -	**Footer Widgets** - An area optimized for one, two, three or four widgets (and multiples thereof). Each column can have any number of widgets.
+-	**Colophon sidebar** - Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget. Best use: Text Widget (or similar) with auto paragraph and without title.
 
 ### Static Front Page
 

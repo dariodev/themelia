@@ -4,7 +4,7 @@ Themelia
 Author: dariodev
 Requires at least: WordPress 4.5
 Tested up to: WordPress 4.7
-Version: 1.0.19
+Version: 1.0.20
 License: [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) or later
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
 
@@ -96,6 +96,7 @@ Three widget areas:
 -	**Primary sidebar** - The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.
 -	**Subsidiary sidebar** - A sidebar located in the upper footer of the site. Optimized for one wide widget (and multiples thereof).
 -	**Footer Widgets** - An area optimized for one, two, three or four widgets (and multiples thereof). Each column can have any number of widgets.
+-	**Colophon sidebar** - Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget. Best use: Text Widget (or similar) with auto paragraph and without title.
 
 ### Static Front Page
 

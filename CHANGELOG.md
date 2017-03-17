@@ -3,6 +3,13 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+v1.0.20 - 2017-03-17
+--------------------
+
+### New
+
+-   Now it's easier to replace the copyright line. Added new sidebar named Colophon. Widget added in this sidebar will replace copyright line in the site footer.
+
 v1.0.19 - 2017-03-12
 --------------------
 
