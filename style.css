@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, user friendly and efficiently coded WordPress theme. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.0.19
+ * Version:     1.0.20
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
@@ -1730,7 +1730,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 #menu-subsidiary ul {
 	display: block;
-	margin: 5px 0 25px;
+	margin: 5px 0 5px;
 	padding: 0;
 }
 
@@ -1739,6 +1739,17 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	list-style: none;
 	margin-left: 7px;
 	margin-right: 7px;
+}
+
+.sidebar-colophon .widget {
+    width: 100%;
+	margin: 15px 0 30px;
+}
+
+.sidebar-colophon .widget-title {
+	margin-bottom: 0.2em;
+	padding-bottom: 0.2em;
+	font-size: 1.25em;
 }
 
 @media (min-width: 900px) {
@@ -1753,6 +1764,16 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		float: left;
 		margin-left: 15px;
 		margin-right: 0;
+	}
+
+	.sidebar-colophon .widget {
+		margin: -5px 0 15px;
+	}
+
+	.sidebar-colophon .widget-title {
+		margin: 0;
+		padding: 0;
+		font-size: 1.3em;
 	}
 }
 
@@ -4526,6 +4547,14 @@ figcaption span,
 	.site-footer-inner {
 		text-align: center;
 	}
+	.site-footer-01,
+	.site-footer-02 {
+		display: flex;
+	    flex-wrap: wrap;
+	    flex-direction: column;
+		align-items: center;
+		flex-wrap: wrap;
+	}
 }
 
 .site-footer {
@@ -4534,10 +4563,6 @@ figcaption span,
 }
 
 .site-footer-inner {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	flex-direction: column;
 	padding-top: 1.5rem;
 }
 
@@ -4553,6 +4578,9 @@ figcaption span,
 @media (min-width: 900px) {
 
 	.site-footer-inner {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
 		flex-direction: row;
 	}
 
@@ -4866,7 +4894,9 @@ figcaption span,
 	margin-bottom: 1rem;
 }
 
-.sidebar .widget,
+.sidebar-primary .widget,
+.sidebar-special .widget,
+.sidebar-subsidiary .widget,
 .sidebar-footer .widget {
 	width: 100%;
 	margin-bottom: 2.5rem;
