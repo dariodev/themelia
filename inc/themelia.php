@@ -139,39 +139,47 @@ function themelia_register_sidebars() {
 		array(
 			'id'          => 'colophon',
 			'name'        => esc_html_x( 'Colophon', 'sidebar', 'themelia' ),
-			'description' => esc_html__( 'Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget. Best use: Text Widget with auto paragraph and without title.', 'themelia' )
+			'description' => esc_html__( 'Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget (and multiples thereof). Best use: Text Widget with auto paragraph and without title.', 'themelia' )
+		)
+	);
+
+	hybrid_register_sidebar(
+		array(
+			'id'          => 'colophon-right',
+			'name'        => esc_html_x( 'Colophon Right', 'sidebar', 'themelia' ),
+			'description' => esc_html__( 'A widget area located in the bottom-right footer of the site.', 'themelia' )
 		)
 	);
 
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-1',
-			'name'        => _x( 'Footer 1', 'sidebar', 'themelia' ),
-			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
+			'name'        => esc_html_x( 'Footer 1', 'sidebar', 'themelia' ),
+			'description' => esc_html__( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
 
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-2',
-			'name'        => _x( 'Footer 2', 'sidebar', 'themelia' ),
-			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
+			'name'        => esc_html_x( 'Footer 2', 'sidebar', 'themelia' ),
+			'description' => esc_html__( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
 
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-3',
-			'name'        => _x( 'Footer 3', 'sidebar', 'themelia' ),
-			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
+			'name'        => esc_html_x( 'Footer 3', 'sidebar', 'themelia' ),
+			'description' => esc_html__( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
 
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'footer-4',
-			'name'        => _x( 'Footer 4', 'sidebar', 'themelia' ),
-			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
+			'name'        => esc_html_x( 'Footer 4', 'sidebar', 'themelia' ),
+			'description' => esc_html__( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'themelia' )
 		)
 	);
 }
