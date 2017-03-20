@@ -9,6 +9,10 @@
 			<div class="grid-container site-footer-inner">
 				<div class="site-footer-01">
 					<?php hybrid_get_menu( 'subsidiary' ); // Loads the menu/subsidiary.php template. ?>
+					<div <?php hybrid_attr( 'sidebarcustom', 'colophon-right' ); ?>>
+						<?php dynamic_sidebar( 'colophon-right' ); // Displays the colophon-right sidebar. ?>
+					</div>
+
 			 	</div><!-- .grid-50 -->
 				<div class="site-footer-02">
 					<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
