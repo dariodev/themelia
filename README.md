@@ -4,14 +4,14 @@ Themelia
 Author: dariodev  
 Requires at least: WordPress 4.5  
 Tested up to: WordPress 4.7  
-Version: 1.0.19  
+Version: 1.1.1  
 License: [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) or later  
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
 
 Description
 -----------
 
-Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Designed for authors, freelancers, agencies and everyone else. Theme is built with search-engine optimization (SEO) in mind. It has consistent syntax structure, it's a HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. The theme is built on the rock-solid Hybrid Core theme framework.
+Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Designed for authors, freelancers, agencies and everyone else. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and other popular plugins. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and much more. Typographic hierarchy and balance is established with the use of the modular scale. You can select different scales for different screen sizes. Themelia is built with search-engine optimization (SEO) in mind. It has consistent syntax structure, it's HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. The theme is built on the rock-solid Hybrid Core theme framework.
 
 ### Features
 
@@ -63,7 +63,6 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
 ### Layout
 
 -	**Global Layout** - (2 columns - sidebar / content, 2 columns - content / sidebar, 1 column content). You can override this per page/post basis.
-
 -	**Footer Widgets** - Choose the number of widget columns in the footer widget area. Each column can have any number of widgets.
 
 ### Background
@@ -77,7 +76,7 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
 
 ### Menus
 
-This panel is used for managing Navigation Menus for content you have already published on your site. You can create menus and add items for existing content such as pages, posts, categories, tags, formats, or custom links. Menus can be displayed in locations defined by your theme or in widget areas by adding a "Custom Menu" widget.
+This panel is used for managing Navigation Menus for content you have already published on your site. You can create menus and add items for existing content such as pages, posts, categories, tags, formats, or custom links. Menus can be displayed in locations defined by the theme or in widget areas by adding a "Custom Menu" widget.
 
 *This theme uses Navigation Menus `wp_nav_menu()` in three locations. Primary, Footer - Left and Footer - Right.*
 
@@ -89,12 +88,13 @@ This panel is used for managing Navigation Menus for content you have already pu
 
 ### Widgets
 
-Three widget areas:
+Theme has five widget areas:
 
 -	**Primary sidebar** - The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.
 -	**Subsidiary sidebar** - A sidebar located in the upper footer of the site. Optimized for one wide widget (and multiples thereof).
 -	**Footer Widgets** - An area optimized for one, two, three or four widgets (and multiples thereof). Each column can have any number of widgets.
 -	**Colophon sidebar** - Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget. Best use: Text Widget (or similar) with auto paragraph and without title.
+-	**Colophon Right sidebar** - A widget area located in the bottom-right footer of the site. Optimized for one widget.
 
 ### Static Front Page
 

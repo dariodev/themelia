@@ -3,12 +3,27 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.0.20 - 2017-03-17
+v1.1.1 - 2017-03-20
+--------------------
+
+### Fixed
+
+-   Style for `btn-primary` and `btn-outline` buttons
+
+
+v1.1.0 - 2017-03-19
 --------------------
 
 ### New
 
--   Now it's easier to replace the copyright line. Added new sidebar named Colophon. Widget added in this sidebar will replace copyright line in the site footer.
+-   Added new sidebar named Colophon. Widget added in this sidebar will replace the Copyright line in the site footer.
+-   Added new sidebar named Colophon Right, placed in the bottom-right footer of the site.
+-   Added `do_action()` functions `themelia_before_content` and `themelia_after_content` for developers to hook into.
+
+### Changed
+
+-	Updated README
+-	The description text in README and style.css
 
 v1.0.19 - 2017-03-12
 --------------------
