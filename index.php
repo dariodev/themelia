@@ -5,6 +5,8 @@
         <div class="grid-100 grid-parent main-inner">
             <?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
 
+            <?php do_action('themelia_before_content'); ?>
+
             <main <?php hybrid_attr( 'content' ); ?>>
 
                 <?php if ( ! is_front_page() && hybrid_is_plural() ) : // If viewing a multi-post page ?>
@@ -38,6 +40,8 @@
                 <?php endif; // End check for posts. ?>
 
             </main><!-- #content -->
+
+            <?php do_action('themelia_after_content'); ?>
 
 			<?php hybrid_get_sidebar( themelia_primary_sidebar('primary') ); // Calls themelia_primary_sidebar() function and loads the sidebar/*.php template. ?>
         </div><!-- .inner .main-inner -->
