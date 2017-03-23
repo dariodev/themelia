@@ -6,6 +6,19 @@
 	font-weight: 400;
 	font-size: 1em;
 }
+
+.wp-customizer .customize-control-kirki-radio label {
+	color: rgba(0, 0, 0, 0.9);
+	font-weight: 600;
+}
+
+.wp-customizer .customize-control-kirki-radio label .option-description {
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 1em;
+	font-weight: 400;
+    padding-left: 0;
+}
+
 .wp-customizer #customize-control-background_image_size.customize-control-kirki-radio-buttonset .buttonset .switch-label {
 	border-right: none;
 	float: left;
@@ -45,7 +58,6 @@
 .wp-customizer .customize-control-kirki-color .wp-picker-container a.wp-color-result span {
 	width: 50%;
 }
-
 
 .wp-customizer .customize-control-kirki-color .wp-picker-container {
   width: 120px; }

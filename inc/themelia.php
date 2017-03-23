@@ -47,6 +47,12 @@ add_filter('excerpt_more', 'themelia_excerpt_more');
 # Read More Button For Excerpt
 add_filter( 'the_excerpt', 'themelia_excerpt_read_more_link' );
 
+# Read More Button For More Tag
+add_filter('the_content_more_link', 'themelia_more_tag_link', 10, 2);
+
+# Wrap Read More Button For More Tag
+add_filter('the_content_more_link', 'themelia_wrap_more_tag_link', 10, 1);
+
 # Disable default Breadcrumbs for bbPress plugin.
 add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
 
@@ -865,6 +871,25 @@ function themelia_excerpt_read_more_link( $output ) {
 	return $output . ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" title="' . get_the_title() . '" class="entry-more-link"><span>' . esc_attr_x( 'Read More', 'excerpt', 'themelia' ) . '</span> <span class="screen-reader-text">' . get_the_title() . '</span></a>';
 }
 
+/**
+ * Read More Button For More Tag
+ *
+ * @since Themelia 1.1.0
+ */
+function themelia_more_tag_link( $more_link, $more_link_text ) {
+
+	return str_replace($more_link_text, '<span>' . esc_attr_x( 'Continue Reading', 'excerpt', 'themelia' ) . '</span> <span class="screen-reader-text">' . get_the_title() . '</span>', $more_link);
+}
+
+/**
+ * Wrap Read More Button For More Tag
+ *
+ * @since Themelia 1.1.0
+ */
+function themelia_wrap_more_tag_link($more_link) {
+
+    return '<div class="more-link-wrap">' . $more_link . '</div>';
+}
 
 /**
  * Disable default Breadcrumbs for bbPress plugin.

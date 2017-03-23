@@ -99,7 +99,13 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
-			<?php the_excerpt(); ?>
+
+			<?php if ( 'full' == get_theme_mod( 'excerpt_or_content', true ) ) : ?>
+				<?php the_content(); ?>
+			<?php else : ?>
+				<?php the_excerpt(); ?>
+			<?php endif; ?>
+
 		</div><!-- .entry-summary -->
 
 	<?php endif; // End single post check. ?>

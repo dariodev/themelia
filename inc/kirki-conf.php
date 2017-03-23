@@ -1003,17 +1003,17 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 				array(
 				  'choice'   => 'link',
-				  'element'  => '.breadcrumb-trail a, .breadcrumb-trail a:visited, .entry-more-link, .entry-more-link:visited, .social-navigation a, .social-navigation a:visited',
+				  'element'  => '.breadcrumb-trail a, .breadcrumb-trail a:visited, .entry-more-link, .entry-more-link:visited, .more-link, .more-link:visited, .social-navigation a, .social-navigation a:visited',
 				  'property' => 'color',
 				),
 				array(
 				  'choice'   => 'hover',
-				  'element'  => '.breadcrumb-trail a:hover, .entry-more-link:hover, .social-navigation a:hover',
+				  'element'  => '.breadcrumb-trail a:hover, .entry-more-link:hover, .more-link:hover, .social-navigation a:hover',
 				  'property' => 'color',
 				),
 				array(
 				  'choice'   => 'active',
-				  'element'  => '.breadcrumb-trail a:active, .entry-more-link:active, .social-navigation a:active',
+				  'element'  => '.breadcrumb-trail a:active, .entry-more-link:active, .more-link:active, .social-navigation a:active',
 				  'property' => 'color',
 				),
 			),
@@ -1177,6 +1177,39 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 			),
 		) );
+
+	/*
+ 	* -> SECTION Blog Settings
+ 	*
+ 	*/
+ 	Kirki::add_section( 'themelia_blog_settings', array(
+ 		'title'          => __( 'Blog Settings', 'themelia' ),
+ 		'priority'       => 25,
+ 		'capability'     => 'edit_theme_options',
+ 	) );
+
+ 	   /*
+ 		* -> START Blog Settings
+ 		*/
+
+	 		Kirki::add_field( 'themelia_config', array(
+	 			'type'        => 'radio',
+	 			'settings'    => 'excerpt_or_content',
+	 			'label'       => __( 'Excerpts or Full Post Content on archives', 'themelia' ),
+	 			'description' => __( 'Switch between displaying Excerpts or Full Content. Applies to the normal post format on the blog page, archives and search results.', 'themelia' ),
+	 			'section'     => 'themelia_blog_settings',
+	 			'default'     => 'excerpt',
+				'choices'     => array(
+					'excerpt' => array(
+						esc_attr__( 'Excerpt (Default)', 'themelia' ),
+						esc_attr__( 'Use auto excerpt or manual excerpt. To manually add an excerpt to a post, simply write one in the Excerpt field under the post edit box. An excerpt can be as short or as long as you wish. When a post has no manual excerpt WordPress generates an excerpt automatically by selecting the first 55 words of the post.', 'themelia' ),
+					),
+					'full'   => array(
+						esc_attr__( 'Full Content', 'themelia' ),
+						esc_attr__( 'The full post content will be displayed, optionally you may use the More tag to create a teaser from the content that precedes the More tag. ', 'themelia' ),
+					),
+				),
+	 		) );
 
 		/* - END General
 		 **/
