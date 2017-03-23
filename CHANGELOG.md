@@ -3,12 +3,29 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.1.1 - 2017-03-20
+v1.1.2 - 2017-03-23
+--------------------
+
+### New
+
+-   Hamburger icon on mobile menu will inherit menu links color
+
+v1.1.1 - 2017-03-22
 --------------------
 
 ### Fixed
 
 -   Style for `btn-primary` and `btn-outline` buttons
+-   Reduced top and bottom paddings for better mobile experience
+-   An overlap of Hamburger icon and site title and description in Mobile menu
+
+### New
+
+-   Added a few helper classes in style.css
+
+### Updated
+
+-	Format style.css for better readability
 
 
 v1.1.0 - 2017-03-19
