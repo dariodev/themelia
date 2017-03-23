@@ -8,7 +8,8 @@ v1.1.2 - 2017-03-23
 
 ### New
 
--   Hamburger icon on mobile menu will inherit menu links color
+-   Hamburger icon on the mobile menu, now inherits the menu links color
+-   Added 'Blog Settings' section in the Customizer. You can switch between displaying Excerpts or Full Content. Applies to the normal post format on the blog page, archives and search results.
 
 v1.1.1 - 2017-03-22
 --------------------

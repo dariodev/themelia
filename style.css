@@ -5,7 +5,7 @@
  * Version:     1.1.2
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
- * Tags:        one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, accessibility-ready, featured-images, theme-options, e-commerce, blog
+ * Tags:        accessibility-ready, blog, custom-colors, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, two-columns
  * Text Domain: themelia
  * License:     GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -4191,12 +4191,14 @@ figcaption span,
 	border-radius: 100%;
 }
 
+.more-link,
 .entry-more-link {
 	letter-spacing: 0.025em;
 	font-size: 0.889em;
 	text-decoration: none;
 }
 
+.more-link:hover,
 .entry-more-link:hover {
 	letter-spacing: 0.025em;
 	font-size: 0.889em;

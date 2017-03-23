@@ -60,6 +60,12 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
 -	**Secondary Text** - Text size for breadcrumbs.
 -	**Secondary Text** - Size and color for entry meta, date, time, Read More link.
 
+### Blog Settings
+
+-	**Excerpt or Full Post Content** - Switch between displaying Excerpts or Full Content. Applies to the normal post format on the blog page, archives and search results.
+    - **Excerpts (Default):** Use auto excerpt or manual excerpt. To manually add an excerpt to a post, simply write one in the Excerpt field under the post edit box. An excerpt can be as short or as long as you wish. When a post has no manual excerpt WordPress generates an excerpt automatically by selecting the first 55 words of the post.
+    - **Content:** The full post content will be displayed, optionally you may use the More tag to create a teaser from the content that precedes the More tag.
+
 ### Layout
 
 -	**Global Layout** - (2 columns - sidebar / content, 2 columns - content / sidebar, 1 column content). You can override this per page/post basis.
