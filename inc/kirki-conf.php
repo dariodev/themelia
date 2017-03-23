@@ -345,6 +345,11 @@ if ( class_exists( 'Kirki' ) ) {
 				  'element'  => '.sm-simple a:active, .sm-simple > li > a.highlighted:active',
 				  'property' => 'color',
 				),
+				array(
+				  'choice'   => 'link',
+				  'element'  => '.hamburger-inner, .hamburger-inner:before, .hamburger-inner:after',
+				  'property' => 'background-color',
+				),
 			),
 		) );
 
