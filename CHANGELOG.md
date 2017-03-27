@@ -3,6 +3,13 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+v1.1.3 - 2017-03-23
+--------------------
+
+### Fix
+
+-   Fixed 'Blog Settings' issue that wrongly displayed Full Content by default.
+
 v1.1.2 - 2017-03-23
 --------------------
 

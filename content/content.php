@@ -100,7 +100,7 @@
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
 
-			<?php if ( 'full' == get_theme_mod( 'excerpt_or_content', true ) ) : ?>
+			<?php if ( 'full' == get_theme_mod( 'excerpt_or_content' ) ) : ?>
 				<?php the_content(); ?>
 			<?php else : ?>
 				<?php the_excerpt(); ?>
