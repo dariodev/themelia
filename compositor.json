@@ -48,8 +48,8 @@
     },
     {
       "component": "header",
-      "heading": "themelia",
-      "subhead": " [WordPress] Development version of Themelia theme. For the latest stable version go to wp.org Theme Directory https://wordpress.org/themes/themelia or visit RelishPress ->",
+      "heading": "Themelia",
+      "subhead": " Coded to perfection & built to last",
       "children": [
         {
           "component": "ui/TweetButton",
@@ -61,7 +61,9 @@
           "user": "dariodev",
           "repo": "themelia"
         }
-      ]
+      ],
+      "slug": "A WordPress Theme",
+      "text": "Development version of Themelia theme. For the latest stable version go to Theme Directory https://wordpress.org/themes/themelia or visit RelishPress.com"
     },
     {
       "component": "article",
