@@ -942,3 +942,35 @@ function themelia_edit_link() {
 	return $link;
 }
 endif;
+
+if ( ! function_exists( 'themelia_comments_link' ) ) :
+/**
+ * Returns an accessibility-friendly link to comments section.
+ */
+function themelia_comments_link() {
+
+	$css_class = 'comments-link zero-comments';
+	$number    = (int) get_comments_number( get_the_ID() );
+
+	if ( 1 === $number ) {
+		$css_class = 'comments-link one-comment';
+	} elseif ( 1 < $number ) {
+		$css_class = 'comments-link multiple-comments';
+	}
+
+	comments_popup_link(
+		sprintf( __( '<i class="icon ion-ios-chatboxes-outline"></i><span class="comments-txt">0</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
+			get_the_title()
+		),
+		sprintf( __( '<i class="icon ion-ios-chatboxes"></i><span class="comments-number">1</span><span class="screen-reader-text"> comment on "%1$s"</span>', 'themelia' ),
+			get_the_title()
+		),
+		sprintf( __( '<i class="icon ion-ios-chatboxes"></i><span class="comments-number">%1$s</span><span class="screen-reader-text"> comments on "%2$s"</span>', 'themelia' ),
+			$number,
+			get_the_title()
+		),
+		$css_class,
+		''
+	);
+}
+endif;

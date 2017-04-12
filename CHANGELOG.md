@@ -8,7 +8,7 @@ v1.1.4 - 2017-03-28
 
 ### Change
 
--   
+-   Comments link removed from content.php and other post parts and wrapped up in `themelia_comments_link()` function.
 
 v1.1.3 - 2017-03-23
 --------------------

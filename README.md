@@ -31,7 +31,7 @@ The Customizer allows you to preview changes to your site before publishing them
 ### Site Title and Header
 
 -	**Header Layout** - Select layout for header elements (branding and main navigation). Stacked: left aligned, right aligned, centered. Inline: logo->menu, menu->logo.
--	Site Header Background (Background color for header area) and Site Header Separator (Thin border between Site Header and Content Area).
+-	**Site Header Background** - Background color for header area and **Site Header Separator** (Thin border between Site Header and Content Area).
 
 -	**Site Title and Description** - Color and Size for Site Title and Tagline (Site Description). This is shown according to settings in the Site Identity. If you add site logo, Site Title and Tagline will hide, but always available for screen readers.
 
