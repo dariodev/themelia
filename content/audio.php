@@ -6,8 +6,15 @@
 
 			<div class="entry-byline small">
 				<?php hybrid_post_format_link(); ?>
-				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+				<?php
+				if ( true != get_theme_mod( 'postby_full', true ) )
+					{ ?>
+					<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
+					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+					<?php
+					}
+				?>
 				<?php themelia_comments_link(); ?>
 				<?php themelia_edit_link(); ?>
 			</div><!-- .entry-byline -->
@@ -37,8 +44,14 @@
 			<div class="entry-byline small">
 				<?php hybrid_post_format_link(); ?>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-				<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
-				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+				<?php
+				if ( true != get_theme_mod( 'postby_excerpt', true ) )
+					{ ?>
+					<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
+					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+					<?php
+					}
+				?>
 				<?php themelia_comments_link(); ?>
 				<?php themelia_edit_link(); ?>
 			</div><!-- .entry-byline -->
