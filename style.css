@@ -4017,13 +4017,16 @@ figcaption span,
 }
 
 .entry-byline a,
-.entry-byline a:visited {
+.entry-byline a:visited,
+.format-status .entry-footer a,
+.format-status .entry-footer a:visited {
 	color: inherit;
 	font-weight: 500;
 	text-decoration: none;
 }
 
-.entry-byline a:hover {
+.entry-byline a:hover,
+.format-status .entry-footer a:hover {
 	color: inherit;
 	text-decoration: underline;
 }
@@ -4033,21 +4036,56 @@ figcaption span,
 	font-weight: 300;
 }
 
-.comments-sep:before {
+.comments-sep:after {
 	content: "\0007C";
 	font-weight: 300;
-	margin-left: 2px;
+	font-family: inherit;
+	font-style: normal;
+	margin-left: 3px;
 	margin-right: 5px;
 	display: inline-block;
 	margin-top: -1px;
 }
 
-.comments-sep.no-comments,
-.comments-sep.no-comments:before {
+.comments-sep:before {
+	font-size: 1.2em;
+	margin-left: 4px;
+	margin-right: 5px;
+}
+
+.cl-text .comments-sep:before {
+	display: none
+}
+
+.cl-icon .comments-sep:after,
+.format-status .comments-sep:after {
+	display: none
+}
+
+.home .cl-hidden--excerpt,
+.archive .cl-hidden--excerpt,
+.singular-post .cl-hidden--full,
+.cl-icon .comments-text {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.cl-icon .comments-number {
+	font-weight: normal;
+}
+
+.comments-sep.no-comments.cl-zero-hide,
+.comments-sep.no-comments.cl-zero-hide:before {
 	display: none;
 }
 
-.comments-link.zero-comments {
+.comments-link.zero-comments.cl-zero-hide {
 	display: none;
 }
 

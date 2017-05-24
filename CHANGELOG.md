@@ -3,12 +3,22 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
-v1.1.4 - 2017-03-28
+v1.1.4 - 2017-05-24
 --------------------
 
-### Change
+### New
 
--   Comments link removed from content.php and other post parts and wrapped up in `themelia_comments_link()` function.
+-   Customizer - Headings & Entry Titles: Added color setting for Widget Titles in left and right sidebar.
+-   Customizer - Blog Settings: Hide author name from Post Excerpt and/or Single Post.
+-   Customizer - Blog Settings: The comments link now can be textual link or icon. Hide comments link on Post Excerpt and/or Single Post.
+
+### Changed
+
+-   Comments link removed from content.php (and other post parts) and wrapped in `themelia_comments_link()` function.
+
+### Fix
+
+-   Fixed an issue in Customizer which prevented correct color output for Page Title and Entry Title (Single Post).
 
 v1.1.3 - 2017-03-23
 --------------------

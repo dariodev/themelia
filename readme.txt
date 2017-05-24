@@ -52,9 +52,9 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
  This theme provides four scales, Major Second, Minor Third, Major Third and Perfect Fourth.
  Find more about the concept of [modular scale](http://alistapart.com/article/more-meaningful-typography), also check [Modular Scale calculator](http://www.modularscale.com/) and [Type Scale](http://type-scale.com/).
 
-### Headings & Entry Titles
+ ### Headings, Entry Titles & Widget Title
 
--	Color, weight, transform and letter spacing for **entry titles** and content **headings**.
+ -	Color, weight, transform and letter spacing for **entry titles**, content **headings** and **sidebar widget titles**.
 
 ### Breadcrumbs & Secondary Text
 
@@ -64,6 +64,8 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
 
 ### Blog Settings
 
+-   **Hide author name from Post Excerpt and/or Single Post**
+-   **Comments Link** - Change the look of the comments link (textual link or icons). Show/hide on Post Excerpt and/or Single Post.
 -	**Excerpt or Full Post Content** - Switch between displaying Excerpts or Full Content. Applies to the normal post format on the blog page, archives and search results.
     - **Excerpts (Default):** Use auto excerpt or manual excerpt. To manually add an excerpt to a post, simply write one in the Excerpt field under the post edit box. An excerpt can be as short or as long as you wish. When a post has no manual excerpt WordPress generates an excerpt automatically by selecting the first 55 words of the post.
     - **Content:** The full post content will be displayed, optionally you may use the More tag to create a teaser from the content that precedes the More tag.
