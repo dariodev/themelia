@@ -958,14 +958,19 @@ function themelia_comments_link() {
 		$css_class = 'comments-link multiple-comments';
 	}
 
+    if ( 'cl_icon' == get_theme_mod( 'comments_link_visual' ) ) { $css_class .= ' cl-icon'; } else { $css_class .= ' cl-text'; }
+	if ( true == get_theme_mod( 'comments_link_excerpt' ) ) { $css_class .= ' cl-hidden--excerpt'; }
+	if ( true == get_theme_mod( 'comments_link_full' ) ) { $css_class .= ' cl-hidden--full'; }
+	if ( true == get_theme_mod( 'comments_link_zero' ) ) { $css_class .= ' cl-zero-show'; } else { $css_class .= ' cl-zero-hide'; }
+
 	comments_popup_link(
-		sprintf( __( '<i class="icon ion-ios-chatboxes-outline"></i><span class="comments-txt">0</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
+		sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">0</span><span class="comments-text"> comments</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
 			get_the_title()
 		),
-		sprintf( __( '<i class="icon ion-ios-chatboxes"></i><span class="comments-number">1</span><span class="screen-reader-text"> comment on "%1$s"</span>', 'themelia' ),
+		sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">1</span><span class="comments-text"> comment</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
 			get_the_title()
 		),
-		sprintf( __( '<i class="icon ion-ios-chatboxes"></i><span class="comments-number">%1$s</span><span class="screen-reader-text"> comments on "%2$s"</span>', 'themelia' ),
+		sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">%1$s</span><span class="comments-text"> comments</span><span class="screen-reader-text"> on "%2$s"</span>', 'themelia' ),
 			$number,
 			get_the_title()
 		),
