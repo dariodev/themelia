@@ -834,6 +834,25 @@ if ( class_exists( 'Kirki' ) ) {
 		) );
 
 		Kirki::add_field( 'themelia_config', array(
+			'type'     => 'typography',
+			'settings' => 'sidebar_widget_title',
+			'label'    => esc_attr__( 'Widget Title (left or right sidebar)', 'themelia' ),
+			'section'  => 'themelia_headings_typography',
+			'default'  => array(
+				'color'          => '#121212',
+				'letter-spacing' => '0',
+				'text-transform' => 'none',
+			),
+			'priority'	=> 25,
+			'transport' => 'auto',
+			'output'	=> array(
+				array(
+					'element' => '.sidebar-primary .widget-title',
+				),
+			),
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'typography',
 			'settings'    => 'headings_h1',
 			'label'       => esc_attr__( 'Headings 1 (H1)', 'themelia' ),
@@ -847,7 +866,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output'   => array(
 				array(
-					'element' => '#content h1',
+					'element' => '.entry-content h1',
 				),
 			),
 		) );
@@ -866,7 +885,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output'   => array(
 				array(
-					'element' => '#content h2',
+					'element' => '.entry-content h2',
 				),
 			),
 		) );
@@ -885,7 +904,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output'   => array(
 				array(
-					'element' => '#content h3',
+					'element' => '.entry-content h3',
 				),
 			),
 		) );
@@ -904,7 +923,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output'      => array(
 				array(
-					'element' => '#content h4',
+					'element' => '.entry-content h4',
 				),
 			),
 		) );
@@ -923,7 +942,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output'   => array(
 				array(
-					'element' => '#content h5',
+					'element' => '.entry-content h5',
 				),
 			),
 		) );
@@ -942,7 +961,7 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output'   => array(
 				array(
-					'element' => '#content h6',
+					'element' => '.entry-content h6',
 				),
 			),
 		) );
@@ -1192,7 +1211,71 @@ if ( class_exists( 'Kirki' ) ) {
  		* -> START Blog Settings
  		*/
 
+			Kirki::add_field( 'themelia_config', array(
+				'type'        => 'checkbox',
+				'settings'    => 'postby_excerpt',
+				'label'       => __( 'Hide author - Post Excerpt', 'themelia' ),
+				'description' => __( 'If checked author name (post by) will not be shown along with post date on post excerpt.', 'themelia' ),
+				'section'     => 'themelia_blog_settings',
+				'default'     => '',
+			) );
+
+			Kirki::add_field( 'themelia_config', array(
+				'type'        => 'checkbox',
+				'settings'    => 'postby_full',
+				'label'       => __( 'Hide author - Single Post', 'themelia' ),
+				'description' => __( 'If checked author name (post by) will not be shown along with post date on single post.', 'themelia' ),
+				'section'     => 'themelia_blog_settings',
+				'default'     => '',
+			) );
+
 	 		Kirki::add_field( 'themelia_config', array(
+	 			'type'        => 'radio',
+	 			'settings'    => 'comments_link_visual',
+	 			'label'       => __( 'Comments Link', 'themelia' ),
+	 			'description' => __( 'Change the look of the comments link. Shown next to date and author name (if comments are not disallowed in Discussion Settings or per individual article).', 'themelia' ),
+	 			'section'     => 'themelia_blog_settings',
+	 			'default'     => 'cl_text',
+				'choices'     => array(
+					'cl_text' => array(
+						esc_attr__( 'Textual Link (eg. 5 comments)', 'themelia' ),
+						esc_attr__( 'Display textual link along with the number of comments.', 'themelia' ),
+					),
+					'cl_icon'   => array(
+						esc_attr__( 'Icon Link (eg. icon 5)', 'themelia' ),
+						esc_attr__( 'Display Icon along with the number of comments.', 'themelia' ),
+					),
+				),
+	 		) );
+
+			Kirki::add_field( 'themelia_config', array(
+				'type'        => 'checkbox',
+				'settings'    => 'comments_link_zero',
+				'label'       => __( 'Show "0 comments" or "icon 0"', 'themelia' ),
+				'description' => __( 'By default "0 comments" message is hidden. If checked the comments link will be shown even if no comments are left for particular post (on both excerpt and single post). (Default: unchecked)', 'themelia' ),
+				'section'     => 'themelia_blog_settings',
+				'default'     => '',
+			) );
+
+			Kirki::add_field( 'themelia_config', array(
+	 			'type'        => 'checkbox',
+	 			'settings'    => 'comments_link_excerpt',
+	 			'label'       => __( 'Hide on Post Excerpt', 'themelia' ),
+	 			'description' => __( 'If checked the comments link will not be shown on post excerpt. (Default: unchecked)', 'themelia' ),
+	 			'section'     => 'themelia_blog_settings',
+	 			'default'     => '',
+	 		) );
+
+			Kirki::add_field( 'themelia_config', array(
+	 			'type'        => 'checkbox',
+	 			'settings'    => 'comments_link_full',
+	 			'label'       => __( 'Hide on Single Post', 'themelia' ),
+	 			'description' => __( 'If checked the comments link will not be shown on single post. (Default: unchecked)', 'themelia' ),
+	 			'section'     => 'themelia_blog_settings',
+	 			'default'     => '',
+	 		) );
+
+			Kirki::add_field( 'themelia_config', array(
 	 			'type'        => 'radio',
 	 			'settings'    => 'excerpt_or_content',
 	 			'label'       => __( 'Excerpts or Full Post Content on archives', 'themelia' ),
