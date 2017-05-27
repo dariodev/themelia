@@ -1,21 +1,21 @@
 # Themelia
 # Copyright (C) 2017 Dario Devcic
-# This file is distributed under the GNU General Public License v2.0 or later.
-# Dario Devcic <dario@relishpress.com>, 2017.
+# This file is distributed under the same license as the PACKAGE package.
+# Dario Devcic <dario@relishpress.com>, 2016
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Themelia 1.0.18\n"
-"Report-Msgid-Bugs-To: RelishPress <dario@relishpress.com>\n"
-"POT-Creation-Date: 2017-03-05 17:17+0100\n"
-"PO-Revision-Date: 2017-03-05 17:42+0100\n"
-"Last-Translator: RelishPress <dario@relishpress.com>\n"
+"Project-Id-Version: Themelia v1.1.4\n"
+"Report-Msgid-Bugs-To: dariodev <dario@relishpress.com>\n"
+"POT-Creation-Date: 2017-05-28 01:03+0200\n"
+"PO-Revision-Date: 2017-05-28 01:04+0100\n"
+"Last-Translator: dariodev <dario@relishpress.com>\n"
 "Language-Team: RelishPress <dario@relishpress.com>\n"
-"Language: \n"
+"Language: eng\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Eazy Po 0.9.5.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -24,7 +24,7 @@ msgstr ""
 msgid "<span class=\"screen-reader-text\"> on \"%s\"</span>"
 msgstr ""
 
-#: footer.php:17
+#: footer.php:31
 #, php-format
 msgid "Copyright &#169; %1$s %2$s. Powered by %3$s and %4$s."
 msgstr ""
@@ -58,48 +58,32 @@ msgstr ""
 msgid "%s ago"
 msgstr ""
 
-#: comment/ping.php:6 content/status.php:80
+#: comment/ping.php:6
 msgid "Permalink"
 msgstr ""
 
-#: content/aside.php:31 content/aside.php:68 content/audio.php:29
-#: content/audio.php:74 content/chat.php:31 content/chat.php:78
-#: content/content.php:29 content/content.php:81 content/gallery.php:30
-#: content/gallery.php:73 content/image.php:30 content/image.php:75
-#: content/link.php:32 content/link.php:75 content/quote.php:49
-#: content/status.php:41 content/status.php:85 content/video.php:29
-#: content/video.php:72
-#, php-format
-msgid ""
-"<span class=\"comments-number\">1</span><span class=\"comments-txt\"> "
-"comment</span><span class=\"screen-reader-text\"> on \"%1$s\"</span>"
+#: content/aside.php:14 content/audio.php:13 content/audio.php:50
+#: content/chat.php:15 content/chat.php:54 content/content.php:12
+#: content/content.php:56 content/gallery.php:13 content/gallery.php:48
+#: content/image.php:13 content/image.php:50 content/link.php:15
+#: content/link.php:50 content/quote.php:16 content/status.php:24
+#: content/video.php:13 content/video.php:48
+msgctxt "post author"
+msgid "by"
 msgstr ""
 
-#: content/aside.php:34 content/aside.php:71 content/audio.php:32
-#: content/audio.php:77 content/chat.php:34 content/chat.php:81
-#: content/content.php:32 content/content.php:84 content/gallery.php:33
-#: content/gallery.php:76 content/image.php:33 content/image.php:78
-#: content/link.php:35 content/link.php:78 content/quote.php:52
-#: content/status.php:44 content/status.php:88 content/video.php:32
-#: content/video.php:75
-#, php-format
-msgid ""
-"<span class=\"comments-number\">%1$s</span><span class=\"comments-txt\"> "
-"comments</span><span class=\"screen-reader-text\"> on \"%2$s\"</span>"
-msgstr ""
-
-#: content/aside.php:53 content/audio.php:55 content/chat.php:61
-#: content/content.php:55 content/gallery.php:54 content/image.php:56
-#: content/link.php:54 content/link.php:90 content/quote.php:30
-#: content/quote.php:64 content/status.php:56 content/video.php:55
+#: content/aside.php:31 content/audio.php:34 content/chat.php:40
+#: content/content.php:33 content/gallery.php:32 content/image.php:34
+#: content/link.php:32 content/link.php:60 content/quote.php:26
+#: content/status.php:34 content/video.php:34
 #, php-format
 msgid "Posted in: %s"
 msgstr ""
 
-#: content/aside.php:54 content/audio.php:56 content/chat.php:62
-#: content/content.php:56 content/gallery.php:55 content/image.php:57
-#: content/link.php:55 content/link.php:91 content/quote.php:31
-#: content/quote.php:65 content/status.php:57 content/video.php:56
+#: content/aside.php:32 content/audio.php:35 content/chat.php:41
+#: content/content.php:34 content/gallery.php:33 content/image.php:35
+#: content/link.php:33 content/link.php:61 content/quote.php:27
+#: content/status.php:35 content/video.php:35
 #, php-format
 msgid "Tagged: %s"
 msgstr ""
@@ -211,16 +195,7 @@ msgstr ""
 msgid "Video Info"
 msgstr ""
 
-#: content/audio.php:68 content/chat.php:72 content/content.php:23
-#: content/content.php:75 content/gallery.php:24 content/gallery.php:67
-#: content/image.php:24 content/image.php:69 content/link.php:26
-#: content/link.php:69 content/quote.php:43 content/status.php:35
-#: content/status.php:79 content/video.php:66
-msgctxt "post author"
-msgid "by"
-msgstr ""
-
-#: content/content.php:69
+#: content/content.php:47
 msgctxt "By Line"
 msgid "Featured Post"
 msgstr ""
@@ -233,17 +208,12 @@ msgstr ""
 msgid "Apologies, but no entries were found."
 msgstr ""
 
-#: content/gallery.php:95
+#: content/gallery.php:65
 #, php-format
 msgid "This gallery contains %s item."
 msgid_plural "This gallery contains %s items."
 msgstr[0] ""
 msgstr[1] ""
-
-#: content/quote.php:26
-msgctxt "post author"
-msgid "posted by"
-msgstr ""
 
 #: inc/customize.php:52
 msgid "Background"
@@ -351,20 +321,20 @@ msgstr ""
 msgid "Customize the look of the Site Title."
 msgstr ""
 
-#: inc/kirki-conf.php:174 inc/kirki-conf.php:322 inc/kirki-conf.php:388
-#: inc/kirki-conf.php:537 inc/kirki-conf.php:739
+#: inc/kirki-conf.php:174 inc/kirki-conf.php:322 inc/kirki-conf.php:393
+#: inc/kirki-conf.php:542 inc/kirki-conf.php:744
 #: inc/kirki/includes/class-kirki-l10n.php:163
 msgid "Color"
 msgstr ""
 
-#: inc/kirki-conf.php:175 inc/kirki-conf.php:323 inc/kirki-conf.php:358
-#: inc/kirki-conf.php:389 inc/kirki-conf.php:539 inc/kirki-conf.php:741
-#: inc/kirki-conf.php:983
+#: inc/kirki-conf.php:175 inc/kirki-conf.php:323 inc/kirki-conf.php:363
+#: inc/kirki-conf.php:394 inc/kirki-conf.php:544 inc/kirki-conf.php:746
+#: inc/kirki-conf.php:1007
 msgid "Hover"
 msgstr ""
 
-#: inc/kirki-conf.php:176 inc/kirki-conf.php:324 inc/kirki-conf.php:390
-#: inc/kirki-conf.php:540 inc/kirki-conf.php:742 inc/kirki-conf.php:984
+#: inc/kirki-conf.php:176 inc/kirki-conf.php:324 inc/kirki-conf.php:395
+#: inc/kirki-conf.php:545 inc/kirki-conf.php:747 inc/kirki-conf.php:1008
 msgid "Active"
 msgstr ""
 
@@ -397,436 +367,610 @@ msgstr ""
 msgid "Top level - Text"
 msgstr ""
 
-#: inc/kirki-conf.php:354
+#: inc/kirki-conf.php:359
 msgid "Top Links - Highlight Border"
 msgstr ""
 
-#: inc/kirki-conf.php:359
+#: inc/kirki-conf.php:364
 msgid "Current"
 msgstr ""
 
-#: inc/kirki-conf.php:383
+#: inc/kirki-conf.php:388
 msgid "Drop Down - Text"
 msgstr ""
 
-#: inc/kirki-conf.php:420
+#: inc/kirki-conf.php:425
 msgid "Drop Down - Background"
 msgstr ""
 
-#: inc/kirki-conf.php:425
+#: inc/kirki-conf.php:430
 msgid "BG Color"
 msgstr ""
 
-#: inc/kirki-conf.php:426
+#: inc/kirki-conf.php:431
 msgid "BG Hover"
 msgstr ""
 
-#: inc/kirki-conf.php:427
+#: inc/kirki-conf.php:432
 msgid "BG Active"
 msgstr ""
 
-#: inc/kirki-conf.php:457
+#: inc/kirki-conf.php:462
 msgid "Drop Down - Borders"
 msgstr ""
 
-#: inc/kirki-conf.php:462
+#: inc/kirki-conf.php:467
 msgid "Outline"
 msgstr ""
 
-#: inc/kirki-conf.php:463
+#: inc/kirki-conf.php:468
 msgid "Separators"
 msgstr ""
 
-#: inc/kirki-conf.php:497
+#: inc/kirki-conf.php:502
 msgid "Body Text and Links"
 msgstr ""
 
-#: inc/kirki-conf.php:509
+#: inc/kirki-conf.php:514
 msgid "Body Text"
 msgstr ""
 
-#: inc/kirki-conf.php:510
+#: inc/kirki-conf.php:515
 msgid "Base typography settings."
 msgstr ""
 
-#: inc/kirki-conf.php:532
+#: inc/kirki-conf.php:537
 msgid "Body Links"
 msgstr ""
 
-#: inc/kirki-conf.php:533
+#: inc/kirki-conf.php:538
 msgid "Colors for regular links."
 msgstr ""
 
-#: inc/kirki-conf.php:538 inc/kirki-conf.php:740
+#: inc/kirki-conf.php:543 inc/kirki-conf.php:745
 msgid "Visited"
 msgstr ""
 
-#: inc/kirki-conf.php:579
+#: inc/kirki-conf.php:584
 msgid "Typographic Scale"
 msgstr ""
 
-#: inc/kirki-conf.php:592
+#: inc/kirki-conf.php:597
 msgid "Extra Large screens"
 msgstr ""
 
-#: inc/kirki-conf.php:593
+#: inc/kirki-conf.php:598
 msgid "Base font size for big desktops (1800px <)."
 msgstr ""
 
-#: inc/kirki-conf.php:603
+#: inc/kirki-conf.php:608
 msgid "Modular Scale for extra large screens."
 msgstr ""
 
-#: inc/kirki-conf.php:609 inc/kirki-conf.php:636 inc/kirki-conf.php:663
-#: inc/kirki-conf.php:690
+#: inc/kirki-conf.php:614 inc/kirki-conf.php:641 inc/kirki-conf.php:668
+#: inc/kirki-conf.php:695
 msgid "[1.125] - Major Second "
 msgstr ""
 
-#: inc/kirki-conf.php:610 inc/kirki-conf.php:637 inc/kirki-conf.php:664
-#: inc/kirki-conf.php:691
+#: inc/kirki-conf.php:615 inc/kirki-conf.php:642 inc/kirki-conf.php:669
+#: inc/kirki-conf.php:696
 msgid "[1.200] - Minor Third "
 msgstr ""
 
-#: inc/kirki-conf.php:611 inc/kirki-conf.php:638 inc/kirki-conf.php:665
-#: inc/kirki-conf.php:692
+#: inc/kirki-conf.php:616 inc/kirki-conf.php:643 inc/kirki-conf.php:670
+#: inc/kirki-conf.php:697
 msgid "[1.250] - Major Third "
 msgstr ""
 
-#: inc/kirki-conf.php:612 inc/kirki-conf.php:639 inc/kirki-conf.php:666
-#: inc/kirki-conf.php:693
+#: inc/kirki-conf.php:617 inc/kirki-conf.php:644 inc/kirki-conf.php:671
+#: inc/kirki-conf.php:698
 msgid "[1.333] - Perfect Fourth "
 msgstr ""
 
-#: inc/kirki-conf.php:619
+#: inc/kirki-conf.php:624
 msgid "Large screens"
 msgstr ""
 
-#: inc/kirki-conf.php:620
+#: inc/kirki-conf.php:625
 msgid ""
 "Base font size for desktops, laptops and some tablets in horizontal mode "
 "(1200px <> 1800px)."
 msgstr ""
 
-#: inc/kirki-conf.php:630
+#: inc/kirki-conf.php:635
 msgid "Modular Scale for large screens."
 msgstr ""
 
-#: inc/kirki-conf.php:646
+#: inc/kirki-conf.php:651
 msgid "Mediums screens"
 msgstr ""
 
-#: inc/kirki-conf.php:647
+#: inc/kirki-conf.php:652
 msgid ""
 "Base font size for Tablets and other medium size devices (600px <> 1200px)."
 msgstr ""
 
-#: inc/kirki-conf.php:657
+#: inc/kirki-conf.php:662
 msgid "Modular Scale for medium screens."
 msgstr ""
 
-#: inc/kirki-conf.php:673
+#: inc/kirki-conf.php:678
 msgid "Small screens"
 msgstr ""
 
-#: inc/kirki-conf.php:674
+#: inc/kirki-conf.php:679
 msgid "Base font size in for Smartphones and other small devices (< 600px)."
 msgstr ""
 
-#: inc/kirki-conf.php:684
+#: inc/kirki-conf.php:689
 msgid "Modular Scale for small screens."
 msgstr ""
 
-#: inc/kirki-conf.php:703
+#: inc/kirki-conf.php:708
 msgid "Headings &amp; Entry Titles"
 msgstr ""
 
-#: inc/kirki-conf.php:715
+#: inc/kirki-conf.php:720
 msgid "Headings"
 msgstr ""
 
-#: inc/kirki-conf.php:735
+#: inc/kirki-conf.php:740
 msgid "Entry Title Link (Loop)"
 msgstr ""
 
-#: inc/kirki-conf.php:796
+#: inc/kirki-conf.php:801
 msgid "Entry Title (Single Post)"
 msgstr ""
 
-#: inc/kirki-conf.php:815
+#: inc/kirki-conf.php:820
 msgid "Page Title"
 msgstr ""
 
-#: inc/kirki-conf.php:834
+#: inc/kirki-conf.php:839
+msgid "Widget Title (left or right sidebar)"
+msgstr ""
+
+#: inc/kirki-conf.php:858
 msgid "Headings 1 (H1)"
 msgstr ""
 
-#: inc/kirki-conf.php:853
+#: inc/kirki-conf.php:877
 msgid "Headings 2 (H2)"
 msgstr ""
 
-#: inc/kirki-conf.php:872
+#: inc/kirki-conf.php:896
 msgid "Headings 3 (H3)"
 msgstr ""
 
-#: inc/kirki-conf.php:891
+#: inc/kirki-conf.php:915
 msgid "Headings 4 (H4)"
 msgstr ""
 
-#: inc/kirki-conf.php:910
+#: inc/kirki-conf.php:934
 msgid "Headings 5 (H5)"
 msgstr ""
 
-#: inc/kirki-conf.php:929
+#: inc/kirki-conf.php:953
 msgid "Headings 6 (H6)"
 msgstr ""
 
-#: inc/kirki-conf.php:953
+#: inc/kirki-conf.php:977
 msgid "Breadcrumbs & Secondary Text"
 msgstr ""
 
-#: inc/kirki-conf.php:966
+#: inc/kirki-conf.php:990
 msgid "Display Breadcrumbs"
 msgstr ""
 
-#: inc/kirki-conf.php:967
+#: inc/kirki-conf.php:991
 msgid "Check to display Breadcrumb navigation (below main menu)."
 msgstr ""
 
-#: inc/kirki-conf.php:976
+#: inc/kirki-conf.php:1000
 msgid "Secondary Text Colors"
 msgstr ""
 
-#: inc/kirki-conf.php:977
+#: inc/kirki-conf.php:1001
 msgid "Colors for Secondary Text."
 msgstr ""
 
-#: inc/kirki-conf.php:981
+#: inc/kirki-conf.php:1005
 msgid "Text"
 msgstr ""
 
-#: inc/kirki-conf.php:982
+#: inc/kirki-conf.php:1006
 msgid "Link"
 msgstr ""
 
-#: inc/kirki-conf.php:1031
+#: inc/kirki-conf.php:1055
 msgid "Separators - Content"
 msgstr ""
 
-#: inc/kirki-conf.php:1032
+#: inc/kirki-conf.php:1056
 msgid "Horizontal lines between posts."
 msgstr ""
 
-#: inc/kirki-conf.php:1050
+#: inc/kirki-conf.php:1074
 msgid "Horizontal lines - hr tag."
 msgstr ""
 
-#: inc/kirki-conf.php:1068
+#: inc/kirki-conf.php:1092
 msgid "Author box top border."
 msgstr ""
 
-#: inc/kirki-conf.php:1086
+#: inc/kirki-conf.php:1110
 msgid "Posts navigation and Reply title top color."
 msgstr ""
 
-#: inc/kirki-conf.php:1107
+#: inc/kirki-conf.php:1131
 msgid "Separators - Sidebar"
 msgstr ""
 
-#: inc/kirki-conf.php:1108
+#: inc/kirki-conf.php:1132
 msgid "Sidebar list elements - thin border."
 msgstr ""
 
-#: inc/kirki-conf.php:1125
+#: inc/kirki-conf.php:1149
 msgid "Separators - Sections"
 msgstr ""
 
-#: inc/kirki-conf.php:1126
+#: inc/kirki-conf.php:1150
 msgid "Horizontal top border between subsidiary widget area and content."
 msgstr ""
 
-#: inc/kirki-conf.php:1144
+#: inc/kirki-conf.php:1168
 msgid "Horizontal top border for footer widgets area."
 msgstr ""
 
-#: inc/kirki-conf.php:1162
+#: inc/kirki-conf.php:1186
 msgid "Horizontal top border for footer (copyright area)."
 msgstr ""
 
-#: inc/themelia.php:92
+#: inc/kirki-conf.php:1205
+msgid "Blog Settings"
+msgstr ""
+
+#: inc/kirki-conf.php:1217
+msgid "Hide author - Post Excerpt"
+msgstr ""
+
+#: inc/kirki-conf.php:1218
+msgid ""
+"If checked author name (post by) will not be shown along with post date on "
+"post excerpt."
+msgstr ""
+
+#: inc/kirki-conf.php:1226
+msgid "Hide author - Single Post"
+msgstr ""
+
+#: inc/kirki-conf.php:1227
+msgid ""
+"If checked author name (post by) will not be shown along with post date on "
+"single post."
+msgstr ""
+
+#: inc/kirki-conf.php:1235
+msgid "Comments Link"
+msgstr ""
+
+#: inc/kirki-conf.php:1236
+msgid ""
+"Change the look of the comments link. Shown next to date and author name (if "
+"comments are not disallowed in Discussion Settings or per individual "
+"article)."
+msgstr ""
+
+#: inc/kirki-conf.php:1241
+msgid "Textual Link (eg. 5 comments)"
+msgstr ""
+
+#: inc/kirki-conf.php:1242
+msgid "Display textual link along with the number of comments."
+msgstr ""
+
+#: inc/kirki-conf.php:1245
+msgid "Icon Link (eg. icon 5)"
+msgstr ""
+
+#: inc/kirki-conf.php:1246
+msgid "Display Icon along with the number of comments."
+msgstr ""
+
+#: inc/kirki-conf.php:1254
+msgid "Show \"0 comments\" or \"icon 0\""
+msgstr ""
+
+#: inc/kirki-conf.php:1255
+msgid ""
+"By default \"0 comments\" message is hidden. If checked the comments link "
+"will be shown even if no comments are left for particular post (on both "
+"excerpt and single post). (Default: unchecked)"
+msgstr ""
+
+#: inc/kirki-conf.php:1263
+msgid "Hide on Post Excerpt"
+msgstr ""
+
+#: inc/kirki-conf.php:1264
+msgid ""
+"If checked the comments link will not be shown on post excerpt. (Default: "
+"unchecked)"
+msgstr ""
+
+#: inc/kirki-conf.php:1272
+msgid "Hide on Single Post"
+msgstr ""
+
+#: inc/kirki-conf.php:1273
+msgid ""
+"If checked the comments link will not be shown on single post. (Default: "
+"unchecked)"
+msgstr ""
+
+#: inc/kirki-conf.php:1281
+msgid "Excerpts or Full Post Content on archives"
+msgstr ""
+
+#: inc/kirki-conf.php:1282
+msgid ""
+"Switch between displaying Excerpts or Full Content. Applies to the normal "
+"post format on the blog page, archives and search results."
+msgstr ""
+
+#: inc/kirki-conf.php:1287
+msgid "Excerpt (Default)"
+msgstr ""
+
+#: inc/kirki-conf.php:1288
+msgid ""
+"Use auto excerpt or manual excerpt. To manually add an excerpt to a post, "
+"simply write one in the Excerpt field under the post edit box. An excerpt "
+"can be as short or as long as you wish. When a post has no manual excerpt "
+"WordPress generates an excerpt automatically by selecting the first 55 words "
+"of the post."
+msgstr ""
+
+#: inc/kirki-conf.php:1291
+msgid "Full Content"
+msgstr ""
+
+#: inc/kirki-conf.php:1292
+msgid ""
+"The full post content will be displayed, optionally you may use the More tag "
+"to create a teaser from the content that precedes the More tag. "
+msgstr ""
+
+#: inc/themelia.php:98
 msgctxt "nav menu location"
 msgid "Primary"
 msgstr ""
 
-#: inc/themelia.php:93
+#: inc/themelia.php:99
 msgctxt "nav menu location"
-msgid "Footer"
+msgid "Footer - Left"
 msgstr ""
 
-#: inc/themelia.php:106
+#: inc/themelia.php:100
+msgctxt "nav menu location"
+msgid "Footer - Right (Social Icons)"
+msgstr ""
+
+#: inc/themelia.php:113
 msgid "1 Column"
 msgstr ""
 
-#: inc/themelia.php:107
+#: inc/themelia.php:114
 msgid "2 Columns: Content / Sidebar"
 msgstr ""
 
-#: inc/themelia.php:108
+#: inc/themelia.php:115
 msgid "2 Columns: Sidebar / Content"
 msgstr ""
 
-#: inc/themelia.php:124
+#: inc/themelia.php:131
 msgctxt "sidebar"
 msgid "Primary"
 msgstr ""
 
-#: inc/themelia.php:125
+#: inc/themelia.php:132
 msgid ""
 "The main sidebar. It is displayed on either the left or right side of the "
 "page based on the chosen layout."
 msgstr ""
 
-#: inc/themelia.php:132
+#: inc/themelia.php:139
 msgctxt "sidebar"
 msgid "Subsidiary"
 msgstr ""
 
-#: inc/themelia.php:133
+#: inc/themelia.php:140
 msgid ""
 "A sidebar located in the upper footer of the site. Optimized for one wide "
 "widget (and multiples thereof)."
 msgstr ""
 
-#: inc/themelia.php:140
+#: inc/themelia.php:147
+msgctxt "sidebar"
+msgid "Colophon"
+msgstr ""
+
+#: inc/themelia.php:148
+msgid ""
+"Widget added in this sidebar will replace default theme copyright line in "
+"the site footer. Optimized for one widget (and multiples thereof). Best use: "
+"Text Widget with auto paragraph and without title."
+msgstr ""
+
+#: inc/themelia.php:155
+msgctxt "sidebar"
+msgid "Colophon Right"
+msgstr ""
+
+#: inc/themelia.php:156
+msgid "A widget area located in the bottom-right footer of the site."
+msgstr ""
+
+#: inc/themelia.php:163
 msgctxt "sidebar"
 msgid "Footer 1"
 msgstr ""
 
-#: inc/themelia.php:141 inc/themelia.php:149 inc/themelia.php:157
-#: inc/themelia.php:165
+#: inc/themelia.php:164 inc/themelia.php:172 inc/themelia.php:180
+#: inc/themelia.php:188
 msgid ""
 "A sidebar located in the footer of the site. Optimized for one, two, three "
 "or four widgets (and multiples thereof)."
 msgstr ""
 
-#: inc/themelia.php:148
+#: inc/themelia.php:171
 msgctxt "sidebar"
 msgid "Footer 2"
 msgstr ""
 
-#: inc/themelia.php:156
+#: inc/themelia.php:179
 msgctxt "sidebar"
 msgid "Footer 3"
 msgstr ""
 
-#: inc/themelia.php:164
+#: inc/themelia.php:187
 msgctxt "sidebar"
 msgid "Footer 4"
 msgstr ""
 
-#: inc/themelia.php:197
+#: inc/themelia.php:220
 msgctxt "sidebar"
 msgid "Shop"
 msgstr ""
 
-#: inc/themelia.php:198
+#: inc/themelia.php:221
 msgid ""
 "This is the replacement of the main sidebar. It is displayed on shop pages "
 "(WooCommerce or EDD)."
 msgstr ""
 
-#: inc/themelia.php:229
+#: inc/themelia.php:252
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr ""
 
-#: inc/themelia.php:231
+#: inc/themelia.php:254
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr ""
 
-#: inc/themelia.php:233
+#: inc/themelia.php:256
 msgctxt "post format archive title"
 msgid "Images"
 msgstr ""
 
-#: inc/themelia.php:235
+#: inc/themelia.php:258
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr ""
 
-#: inc/themelia.php:237
+#: inc/themelia.php:260
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr ""
 
-#: inc/themelia.php:239
+#: inc/themelia.php:262
 msgctxt "post format archive title"
 msgid "Links"
 msgstr ""
 
-#: inc/themelia.php:241
+#: inc/themelia.php:264
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr ""
 
-#: inc/themelia.php:243
+#: inc/themelia.php:266
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr ""
 
-#: inc/themelia.php:245
+#: inc/themelia.php:268
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr ""
 
-#: inc/themelia.php:342
+#: inc/themelia.php:365
 msgid "Expand Search Form"
 msgstr ""
 
-#: inc/themelia.php:518 library/inc/functions-attr.php:202
+#: inc/themelia.php:541 library/inc/functions-attr.php:202
 #, php-format
 msgctxt "sidebar aria label"
 msgid "%s Sidebar"
 msgstr ""
 
-#: inc/themelia.php:685
+#: inc/themelia.php:708
 msgctxt "posts navigation"
 msgid "&larr; Previous"
 msgstr ""
 
-#: inc/themelia.php:686
+#: inc/themelia.php:709
 msgctxt "posts navigation"
 msgid "Next &rarr;"
 msgstr ""
 
-#: inc/themelia.php:701
+#: inc/themelia.php:724
 msgid "Next"
 msgstr ""
 
-#: inc/themelia.php:702
+#: inc/themelia.php:725
 msgid "Next post:"
 msgstr ""
 
-#: inc/themelia.php:704
+#: inc/themelia.php:727
 msgid "Previous"
 msgstr ""
 
-#: inc/themelia.php:705
+#: inc/themelia.php:728
 msgid "Previous post:"
 msgstr ""
 
-#: inc/themelia.php:817
+#: inc/themelia.php:840
 msgid "Post thumbnail"
 msgstr ""
 
-#: inc/themelia.php:848
+#: inc/themelia.php:871
 msgctxt "excerpt"
 msgid "Read More"
 msgstr ""
 
-#: inc/themelia.php:915
+#: inc/themelia.php:881
+msgctxt "excerpt"
+msgid "Continue Reading"
+msgstr ""
+
+#: inc/themelia.php:935
 #, php-format
 msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: inc/themelia.php:967
+#, php-format
+msgid ""
+"<i class=\"icon ion-ios-chatboxes-outline comments-sep\"></i><span class="
+"\"comments-number\">0</span><span class=\"comments-text\"> comments</"
+"span><span class=\"screen-reader-text\"> on \"%1$s\"</span>"
+msgstr ""
+
+#: inc/themelia.php:970
+#, php-format
+msgid ""
+"<i class=\"icon ion-ios-chatboxes-outline comments-sep\"></i><span class="
+"\"comments-number\">1</span><span class=\"comments-text\"> comment</"
+"span><span class=\"screen-reader-text\"> on \"%1$s\"</span>"
+msgstr ""
+
+#: inc/themelia.php:973
+#, php-format
+msgid ""
+"<i class=\"icon ion-ios-chatboxes-outline comments-sep\"></i><span class="
+"\"comments-number\">%1$s</span><span class=\"comments-text\"> comments</"
+"span><span class=\"screen-reader-text\"> on \"%2$s\"</span>"
 msgstr ""
 
 #: inc/woocommerce.php:58
@@ -1448,19 +1592,19 @@ msgctxt "Screen reader text"
 msgid "Menu"
 msgstr ""
 
-#: misc/author-box.php:15 misc/author-box.php:20
+#: misc/author-box.php:14 misc/author-box.php:19
 msgid "All posts by"
 msgstr ""
 
-#: misc/author-box.php:20
+#: misc/author-box.php:19
 msgid "Written by"
 msgstr ""
 
-#: misc/author-header.php:11
+#: misc/author-header.php:10
 msgid "Author: "
 msgstr ""
 
-#: misc/author-header.php:23
+#: misc/author-header.php:22
 msgid "Web: "
 msgstr ""
 
