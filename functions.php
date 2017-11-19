@@ -3,8 +3,6 @@
  * "There is no must in art because art is free."
  * ~ Wassily Kandinsky (Concerning the Spiritual in Art, 1977)
  *
- * Based on Hybrid Base theme Copyright (c) 2013 - 2016, Justin Tadlock
- *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
  * General Public License as published by the Free Software Foundation; either version 2 of the License,
  * or (at your option) any later version.
@@ -27,9 +25,8 @@
 // Get the template directory and make sure it has a trailing slash.
 $themelia_base_dir = trailingslashit( get_template_directory() );
 
-// Load the Hybrid Core framework and launch it.
+// Load the Hybrid Core framework.
 require_once( $themelia_base_dir . 'library/hybrid.php' );
-new Hybrid();
 
 // Load theme-specific files.
 require_once( $themelia_base_dir . 'inc/custom-background.php' );
@@ -93,6 +90,7 @@ function themelia_theme_setup() {
 	add_theme_support( 'custom-logo', array(
 		'height'      => 160,
 		'width'       => 160,
+		'flex-height' => true,
 		'flex-width'  => true,
 	));
 

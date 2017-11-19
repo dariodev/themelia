@@ -78,7 +78,7 @@ function themelia_enqueue_customizer_scripts() {
 		'themelia-customize',
 		trailingslashit( get_template_directory_uri() ) . "inc/js/customizer{$suffix}.js",
 		array( 'jquery','customize-preview' ),
-		HYBRID_VERSION,
+		'',
 		true
 	);
 }

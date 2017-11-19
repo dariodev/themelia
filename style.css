@@ -1,8 +1,8 @@
 /**
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
- * Description: Themelia is a meticulously crafted and balanced, highly responsive and retina-ready, simple and powerful, efficiently coded and user friendly WordPress theme. Coded to perfection & built to last. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and others. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and much more. Typographic hierarchy and balance is established with the use of the modular scale. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata. Built on the rock-solid Hybrid Core theme framework.
- * Version:     1.1.4
+ * Description: Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Themelia is highly responsive and retina-ready, simple and powerful, efficiently coded and user friendly WordPress theme. Coded to perfection & built to last. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and others. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and more. Typographic hierarchy and balance is established with the use of the modular scale. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata.
+ * Version:     1.2.0
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        accessibility-ready, blog, custom-colors, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, two-columns
@@ -12,8 +12,6 @@
 
  * Themelia, Copyright (c) 2016 - 2017 Dario Devcic
  * Themelia is distributed under the terms of the GNU GPL
-
- * Themelia is based on Hybrid Core http://themehybrid.com/hybrid-core, Hybrid Core Copyright (c) 2008 - 2015, Justin Tadlock
  */
 
 /*---------------------------------------------------------------------------------------------
@@ -813,15 +811,12 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	position:relative;
 	float: left;
 	width: 100%;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: column;
-	flex-direction: column;
+	display: -webkit-box; display: -ms-flexbox; display: flex;
+	-webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
 }
 
 .header-stacked .access-inner {
-	-webkit-flex-direction: column;
-	flex-direction: column;
+	-webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
 }
 
 .header-stack-left .site-title-wrap {
@@ -851,8 +846,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .header-stack-right .site-title-wrap {
-	-webkit-flex-direction: row-reverse;
-	flex-direction: row-reverse;
+	-webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse;
 }
 
 .header-stack-center .access-inner {
@@ -886,15 +880,12 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 @media (min-width: 1200px) {
 
 	.access-inner {
-		-webkit-flex-direction: row;
-		flex-direction: row;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
+		-webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row;
+		-webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between;
 	}
 
 	.header-inline-menu-title .access-inner {
-		-webkit-flex-direction: row-reverse;
-		flex-direction: row-reverse;
+		-webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse;
 	}
 
 	.menu-primary {
@@ -944,10 +935,8 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .site-title-wrap {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	flex-direction: row;
+	display: -webkit-box; display: -ms-flexbox; display: flex;
+	-webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row;
 	margin-right: auto;
 }
 
@@ -963,12 +952,9 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .flex-center {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-flex-direction: column;
-	flex-direction: column;
+	display: -webkit-box; display: -ms-flexbox; display: flex;
+	-webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
+	-webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
 }
 
 .titles-wrap {
@@ -996,8 +982,8 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	padding-left: 55px;
 	padding-right: 0;
 	right: 0;
-	display: flex;
-	flex-direction: row-reverse;
+	display: -webkit-box; display: -ms-flexbox; display: flex;
+	-webkit-box-orient: horizontal; -webkit-box-direction: reverse; -ms-flex-direction: row-reverse; flex-direction: row-reverse;
 }
 
 .header-inline-menu-title .branding-item-wrap {
@@ -1106,16 +1092,20 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 .sm-simple {
 	background: transparent;
+	font-size: 16px;
+}
+
+.sm-simple {
+	font-family: Roboto;
+	font-size: 1em;
+	font-weight: 500;
+	line-height: 1.4;
 }
 
 .sm-simple a,
 .sm-simple a:visited {
 	color: #22222A;
 	color: rgba(34, 34, 42, 1);
-	font-family: Roboto;
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 1.4;
 	text-decoration: none;
 	width: 100%;
 }
@@ -1124,6 +1114,16 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 .sm-simple a:active,
 .sm-simple a.highlighted {
 	color: #000;
+}
+
+.sm-simple a {
+	-webkit-transition: color .1s ease-out;
+	transition: color .1s ease-out;
+}
+
+.sm-simple a:hover {
+	-webkit-transition: color .2s ease-out;
+	transition: color .2s ease-out;
 }
 
 .sm-simple .sub-menu a:hover,
@@ -1136,14 +1136,13 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .sm-simple ul a {
-	font-size: 16px;
 	font-weight: normal;
 	letter-spacing: normal;
 	text-transform: none;
 }
 
 .no-js .sm .menu-item-has-children:hover > ul {
-	  display: block;
+	display: block;
 }
 
 .sm-simple > li {
@@ -1162,7 +1161,6 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	text-align: center;
 	display: block;
 	color: inherit;
-
 	box-shadow: none;
 	border-radius: 0;
 }
@@ -1274,11 +1272,12 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	}
 
 	.sm-simple li li {
-		margin-left: 10px;
+		margin-left: 0;
 	}
 
 	.sm-simple li li a {
-		padding-left: 10px;
+		padding-left: 15px;
+		padding-right: 5px;
 		padding-top: 15px;
 		padding-bottom: 15px;
 	}
@@ -1362,9 +1361,9 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 	.menu-primary   {
 		align-items: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		display: -webkit-box; display: -ms-flexbox; display: flex;
+		-webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
+		-webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
 		margin-left: auto;
 	}
 
@@ -1840,14 +1839,24 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 }
 
-.social-navigation li a {
+.social-navigation a {
 	border-radius: 50%;
 	color: #22222a;
-	display: flex;
-	align-items: center;
+	display: -webkit-box; display: -ms-flexbox; display: flex;
+	-webkit-box-align: center; -ms-flex-align: center; align-items: center;
 	line-height: 1.2;
 	position: relative;
 	text-decoration: none;
+}
+
+.social-navigation a {
+	-webkit-transition: color .1s ease-out;
+	transition: color .1s ease-out;
+}
+
+.social-navigation a:hover {
+	-webkit-transition: color .2s ease-out;
+	transition: color .2s ease-out;
 }
 
 .social-navigation a:before {
@@ -2510,7 +2519,6 @@ thead td {
 }
 
 table caption {
-	color: #000;
 	font-size: 11px;
 	font-weight: bold;
 	padding: 0;
@@ -4664,9 +4672,9 @@ figcaption span,
 @media (max-width: 899px) {
 
 	.inside-footer-widgets {
-		display: flex;
-	    flex-wrap: wrap;
-	    flex-direction: row;
+		display: -webkit-box; display: -ms-flexbox; display: flex;
+	    -ms-flex-wrap: wrap; flex-wrap: wrap;
+	    -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row;
 	}
 
 	.inside-footer-widgets .mobile-grid-50 {
@@ -4679,10 +4687,10 @@ figcaption span,
 
 	.site-footer-01,
 	.site-footer-02 {
-		display: flex;
-	    flex-direction: column;
-		align-items: center;
-		flex-wrap: wrap;
+		display: -webkit-box; display: -ms-flexbox; display: flex;
+	    -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column;
+		-ms-flex-wrap: wrap; flex-wrap: wrap;
+		-webkit-box-align: center; -ms-flex-align: center; align-items: center;
 	}
 
 	.site-footer-02 {
@@ -4714,9 +4722,9 @@ figcaption span,
 
 	.site-footer-inner {
 		display: flex;
-		align-items: start;
-		flex-wrap: wrap;
-		flex-direction: row;
+		-ms-flex-wrap: wrap; flex-wrap: wrap;
+		-webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row;
+		-webkit-box-align: start; -ms-flex-align: start; align-items: flex-start;
 	}
 
 	.site-footer-01,
@@ -5084,7 +5092,6 @@ h2.widget-title {
 .calendar_wrap table caption {
 	text-transform: uppercase;
 	padding: 0 0 10px;
-	color: #151515;
 	font-size: 0.889em;
 	font-weight: bold;
 }
@@ -5450,9 +5457,9 @@ li.ping .comment-meta .comment-permalink {
 	}
 
 	#respond  .comment-subscription-form {
-		display: flex;
-	    align-items: center;
-	    justify-content: center;
+		display: -webkit-box; display: -ms-flexbox; display: flex;
+	    -webkit-box-align: center; -ms-flex-align: center; align-items: center;
+	    -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
 		margin-bottom: 1em;
 	}
 

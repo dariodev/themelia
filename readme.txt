@@ -2,22 +2,20 @@ Themelia
 ========
 
 Author: dariodev
-Requires at least: WordPress 4.5
-Tested up to: WordPress 4.8
-Version: 1.1.4
+Requires at least: WordPress 4.7
+Tested up to: WordPress 4.9
+Version: 1.2.0
 License: [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) or later
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
-
 
 Description
 -----------
 
-Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Designed for authors, freelancers, agencies and everyone else. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and other popular plugins. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and much more. Typographic hierarchy and balance is established with the use of the modular scale. You can select different scales for different screen sizes. Themelia is built with search-engine optimization (SEO) in mind. It has consistent syntax structure, it's HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. The theme is built on the rock-solid Hybrid Core theme framework.
+Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Designed for authors, freelancers, agencies and everyone else. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and other popular plugins. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and much more. Typographic hierarchy and balance is established with the use of the modular scale. You can select different scales for different screen sizes. Themelia is built with search-engine optimization (SEO) in mind. It has consistent syntax structure, it's HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. The theme is built on the rock-solid HybridCore theme framework.
 
 ### Features
 
 Responsive Layout, Classic Menu, Mobile Menu, Social Menu, Breadcrumb Navigation, Featured Images, Custom Colors, Theme Options, Modular Scale Typography, Google Fonts, Post Formats
-
 
 Theme Options - Customizer
 --------------------------
@@ -33,8 +31,7 @@ The Customizer allows you to preview changes to your site before publishing them
 ### Site Title and Header
 
 -	**Header Layout** - Select layout for header elements (branding and main navigation). Stacked: left aligned, right aligned, centered. Inline: logo->menu, menu->logo.
--	Site Header Background (Background color for header area) and Site Header Separator (Thin border between Site Header and Content Area).
-
+-	**Site Header Background** - Background color for header area and **Site Header Separator** (Thin border between Site Header and Content Area).
 -	**Site Title and Description** - Color and Size for Site Title and Tagline (Site Description). This is shown according to settings in the Site Identity. If you add site logo, Site Title and Tagline will hide, but always available for screen readers.
 
 ### Main navigation
@@ -52,9 +49,9 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
  This theme provides four scales, Major Second, Minor Third, Major Third and Perfect Fourth.
  Find more about the concept of [modular scale](http://alistapart.com/article/more-meaningful-typography), also check [Modular Scale calculator](http://www.modularscale.com/) and [Type Scale](http://type-scale.com/).
 
- ### Headings, Entry Titles & Widget Title
+### Headings, Entry Titles & Widget Title
 
- -	Color, weight, transform and letter spacing for **entry titles**, content **headings** and **sidebar widget titles**.
+-	Color, weight, transform and letter spacing for **entry titles**, content **headings** and **sidebar widget titles**.
 
 ### Breadcrumbs & Secondary Text
 
@@ -70,11 +67,9 @@ A modular scale is a sequence of numbers that relate to one another in a meaning
     - **Excerpts (Default):** Use auto excerpt or manual excerpt. To manually add an excerpt to a post, simply write one in the Excerpt field under the post edit box. An excerpt can be as short or as long as you wish. When a post has no manual excerpt WordPress generates an excerpt automatically by selecting the first 55 words of the post.
     - **Content:** The full post content will be displayed, optionally you may use the More tag to create a teaser from the content that precedes the More tag.
 
-
 ### Layout
 
 -	**Global Layout** - (2 columns - sidebar / content, 2 columns - content / sidebar, 1 column content). You can override this per page/post basis.
-
 -	**Footer Widgets** - Choose the number of widget columns in the footer widget area. Each column can have any number of widgets.
 
 ### Background
@@ -100,17 +95,17 @@ This panel is used for managing Navigation Menus for content you have already pu
 
 ### Widgets
 
-Three widget areas:
+Theme has five widget areas:
 
 -	**Primary sidebar** - The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.
 -	**Subsidiary sidebar** - A sidebar located in the upper footer of the site. Optimized for one wide widget (and multiples thereof).
 -	**Footer Widgets** - An area optimized for one, two, three or four widgets (and multiples thereof). Each column can have any number of widgets.
 -	**Colophon sidebar** - Widget added in this sidebar will replace default theme copyright line in the site footer. Optimized for one widget. Best use: Text Widget (or similar) with auto paragraph and without title.
+-	**Colophon Right sidebar** - A widget area located in the bottom-right footer of the site. Optimized for one widget.
 
 ### Static Front Page
 
 This theme supports a static front page.
-
 
 Installation
 ------------
@@ -125,12 +120,15 @@ For more information about Themelia please go to [RelishPress website](https://r
 Notes for developers
 --------------------
 
+*HybridCore**
+
+-	Added attributes for all layout elements (`hybrid_attr()`).  Schema.org is defined as a default.  The change is in the `functions-attr.php` file.
+
 **Kirki Toolkit modification (original version is 2.3.7)**
 
 -	Removed CodeMirror to reduce the size
 -	Changed text-domain, from 'kirki' into 'themelia'
 -	Removed enqueuing empty kirki-styles-. Changed $handle parameter in `wp_add_inline_style()`, added inline 'themelia-style'. The change is in the file "class-kirki-styles-frontend.php".
--	If you need CodeMirror it is safe to install and activate the official version of Kirki plugin. If you activate Kirki plugin, bundled library will not load.
 
 **Unsemantic CSS Framework**
 
@@ -140,7 +138,7 @@ Notes for developers
 Copyright and License
 ---------------------
 
-Themelia WordPress Theme, Copyright 2016 Dario Devcic
+Themelia WordPress Theme, Copyright 2016 - 2017 Dario Devcic
 Themelia is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify
@@ -155,10 +153,10 @@ GNU General Public License for more details.
 
 ### Third Party Resources
 
-[**HybridCore**](http://themehybrid.com/hybrid-core) v3.1.0, Copyright (c) 2008 - 2016, Justin Tadlock
+[**HybridCore**](http://themehybrid.com/hybrid-core) v4.0.0, Copyright (c) 2008 - 2017, Justin Tadlock
 License: GNU GPL, Version 2 (or later)
 
-[**Kirki Toolkit**](http://kirki.org/) v2.3.7, Copyright (c) 2016, Aristeides Stathopoulos
+[**Kirki Toolkit**](http://kirki.org/) v3.0.10, Copyright (c) 2017, Aristeides Stathopoulos
 Licenses: MIT/GPL2
 
 [**Ionicons**](http://ionicons.com/) icon font v3.0.0-alpha.3, Copyright (c) 2016, Drifty

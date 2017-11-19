@@ -2,16 +2,16 @@ Themelia
 ========
 
 Author: dariodev  
-Requires at least: WordPress 4.5  
-Tested up to: WordPress 4.8  
-Version: 1.1.4  
+Requires at least: WordPress 4.7  
+Tested up to: WordPress 4.9  
+Version: 1.2.0  
 License: [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) or later  
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
 
 Description
 -----------
 
-Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Designed for authors, freelancers, agencies and everyone else. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and other popular plugins. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and much more. Typographic hierarchy and balance is established with the use of the modular scale. You can select different scales for different screen sizes. Themelia is built with search-engine optimization (SEO) in mind. It has consistent syntax structure, it's HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. The theme is built on the rock-solid Hybrid Core theme framework.
+Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Designed for authors, freelancers, agencies and everyone else. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and other popular plugins. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and much more. Typographic hierarchy and balance is established with the use of the modular scale. You can select different scales for different screen sizes. Themelia is built with search-engine optimization (SEO) in mind. It has consistent syntax structure, it's HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and [Schema.org](http://schema.org) microdata. The theme is built on the rock-solid HybridCore theme framework.
 
 ### Features
 
@@ -120,12 +120,15 @@ For more information about Themelia please go to [RelishPress website](https://r
 Notes for developers
 --------------------
 
+*HybridCore**
+
+-	Added attributes for all layout elements (`hybrid_attr()`).  Schema.org is defined as a default.  The change is in the `functions-attr.php` file.
+
 **Kirki Toolkit modification (original version is 2.3.7)**
 
 -	Removed CodeMirror to reduce the size
 -	Changed text-domain, from 'kirki' into 'themelia'
 -	Removed enqueuing empty kirki-styles-. Changed $handle parameter in `wp_add_inline_style()`, added inline 'themelia-style'. The change is in the file "class-kirki-styles-frontend.php".
--	If you need CodeMirror it is safe to install and activate the official version of Kirki plugin. If you activate Kirki plugin, bundled library will not load.
 
 **Unsemantic CSS Framework**
 
@@ -135,7 +138,7 @@ Notes for developers
 Copyright and License
 ---------------------
 
-Themelia WordPress Theme, Copyright 2016 Dario Devcic  
+Themelia WordPress Theme, Copyright 2016 - 2017 Dario Devcic  
 Themelia is distributed under the terms of the GNU GPL
 
 This program is free software: you can redistribute it and/or modify  
@@ -150,10 +153,10 @@ GNU General Public License for more details.
 
 ### Third Party Resources
 
-[**HybridCore**](http://themehybrid.com/hybrid-core) v3.1.0, Copyright (c) 2008 - 2016, Justin Tadlock  
+[**HybridCore**](http://themehybrid.com/hybrid-core) v4.0.0, Copyright (c) 2008 - 2017, Justin Tadlock  
 License: GNU GPL, Version 2 (or later)
 
-[**Kirki Toolkit**](http://kirki.org/) v2.3.7, Copyright (c) 2016, Aristeides Stathopoulos  
+[**Kirki Toolkit**](http://kirki.org/) v3.0.10, Copyright (c) 2017, Aristeides Stathopoulos  
 Licenses: MIT/GPL2
 
 [**Ionicons**](http://ionicons.com/) icon font v3.0.0-alpha.3, Copyright (c) 2016, Drifty  

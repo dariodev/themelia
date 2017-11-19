@@ -5,7 +5,7 @@
  * Description:   The ultimate WordPress Customizer Toolkit
  * Author:        Aristeides Stathopoulos
  * Author URI:    http://aristeides.com
- * Version:       2.3.7
+ * Version:       3.0.16
  * Text Domain:   kirki
  *
  * GitHub Plugin URI: aristath/kirki
@@ -14,7 +14,7 @@
  * @package     Kirki
  * @category    Core
  * @author      Aristeides Stathopoulos
- * @copyright   Copyright (c) 2016, Aristeides Stathopoulos
+ * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
  * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
  * @since       1.0
  */
@@ -30,37 +30,67 @@ if ( class_exists( 'Kirki' ) ) {
 }
 
 // Include the autoloader.
-include_once( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'autoloader.php' );
+include_once dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'class-kirki-autoload.php';
+new Kirki_Autoload();
+
+if ( ! defined( 'KIRKI_PLUGIN_FILE' ) ) {
+	define( 'KIRKI_PLUGIN_FILE', __FILE__ );
+}
+
+// Define the KIRKI_VERSION constant.
+if ( ! defined( 'KIRKI_VERSION' ) ) {
+	if ( ! function_exists( 'get_plugin_data' ) ) {
+		include_once ABSPATH . 'wp-admin/includes/plugin.php';
+	}
+	$data = get_plugin_data( KIRKI_PLUGIN_FILE );
+	$version = ( isset( $data['Version'] ) ) ? $data['Version'] : false;
+	define( 'KIRKI_VERSION', $version );
+}
+
+// Make sure the path is properly set.
+Kirki::$path = wp_normalize_path( dirname( __FILE__ ) );
+Kirki_Init::set_url();
 
 if ( ! function_exists( 'Kirki' ) ) {
 	/**
 	 * Returns an instance of the Kirki object.
 	 */
-	function Kirki() {
+	function kirki() {
 		$kirki = Kirki_Toolkit::get_instance();
 		return $kirki;
 	}
 }
+
 // Start Kirki.
 global $kirki;
-$kirki = Kirki();
+$kirki = kirki();
 
-// Make sure the path is properly set.
-Kirki::$path = wp_normalize_path( dirname( __FILE__ ) );
+// Instantiate the modules.
+$kirki->modules = new Kirki_Modules();
 
-// Instantiate 2ndary classes.
-new Kirki_l10n();
-new Kirki_Scripts_Registry();
-new Kirki_Styles_Customizer();
-new Kirki_Styles_Frontend();
-new Kirki_Selective_Refresh();
+Kirki::$url = plugins_url( '', __FILE__ );
+
+// Instantiate classes.
 new Kirki();
+new Kirki_L10n();
 
 // Include deprecated functions & methods.
-include_once wp_normalize_path( dirname( __FILE__ ) . '/includes/deprecated.php' );
+include_once wp_normalize_path( dirname( __FILE__ ) . '/core/deprecated.php' );
 
 // Include the ariColor library.
-include_once wp_normalize_path( dirname( __FILE__ ) . '/includes/lib/class-aricolor.php' );
+include_once wp_normalize_path( dirname( __FILE__ ) . '/lib/class-aricolor.php' );
 
 // Add an empty config for global fields.
 Kirki::add_config( '' );
+
+$custom_config_path = dirname( __FILE__ ) . '/custom-config.php';
+$custom_config_path = wp_normalize_path( $custom_config_path );
+if ( file_exists( $custom_config_path ) ) {
+	include_once $custom_config_path;
+}
+
+// Add upgrade notifications.
+include_once wp_normalize_path( dirname( __FILE__ ) . '/upgrade-notifications.php' );
+
+// Uncomment this line to see the demo controls in the customizer.
+/* include_once dirname( __FILE__ ) . '/example.php'; */

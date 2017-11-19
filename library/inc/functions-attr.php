@@ -1,5 +1,7 @@
 <?php
 /**
+ * - A note for developers! This file is updated to support schema.org. Taken from HybridCore v3.
+ *
  * HTML attribute functions and filters.  The purposes of this is to provide a way for theme/plugin devs
  * to hook into the attributes for specific HTML elements and create new or modify existing attributes.
  * This is sort of like `body_class()`, `post_class()`, and `comment_class()` on steroids.  Plus, it
@@ -10,7 +12,7 @@
  * @package    HybridCore
  * @subpackage Includes
  * @author     Justin Tadlock <justin@justintadlock.com>
- * @copyright  Copyright (c) 2008 - 2015, Justin Tadlock
+ * @copyright  Copyright (c) 2008 - 2017, Justin Tadlock
  * @link       http://themehybrid.com/hybrid-core
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */

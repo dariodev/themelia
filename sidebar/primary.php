@@ -14,6 +14,10 @@
 
 			<?php else : // If the sidebar has no widgets. ?>
 
+				<section id="search" class="widget widget_search">
+					<?php get_search_form(); ?>
+				</section>
+
                 <?php if ( themelia_widget_exists( 'WP_Widget_Recent_Posts' ) ) : ?>
 
                     <?php the_widget(
@@ -26,6 +30,13 @@
                             'after_title'   => '</h3>'
                         )
                     ); ?>
+
+				<section id="archives" class="widget">
+					<h3 class="widget-title"><?php _e( 'Archives', 'themelia' ); ?></h3>
+					<ul>
+						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+					</ul>
+				</section>
 
                 <?php endif; ?>
 
