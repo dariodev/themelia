@@ -124,10 +124,8 @@ Notes for developers
 
 -	Added attributes for all layout elements (`hybrid_attr()`).  Schema.org is defined as a default.  The change is in the `functions-attr.php` file.
 
-**Kirki Toolkit modification (original version is 2.3.7)**
+**Kirki Toolkit modification**
 
--	Removed CodeMirror to reduce the size
--	Changed text-domain, from 'kirki' into 'themelia'
 -	Removed enqueuing empty kirki-styles-. Changed $handle parameter in `wp_add_inline_style()`, added inline 'themelia-style'. The change is in the file "class-kirki-styles-frontend.php".
 
 **Unsemantic CSS Framework**
@@ -156,7 +154,7 @@ GNU General Public License for more details.
 [**HybridCore**](http://themehybrid.com/hybrid-core) v4.0.0, Copyright (c) 2008 - 2017, Justin Tadlock
 License: GNU GPL, Version 2 (or later)
 
-[**Kirki Toolkit**](http://kirki.org/) v3.0.10, Copyright (c) 2017, Aristeides Stathopoulos
+[**Kirki Toolkit**](http://kirki.org/) v3.0.16, Copyright (c) 2017, Aristeides Stathopoulos
 Licenses: MIT/GPL2
 
 [**Ionicons**](http://ionicons.com/) icon font v3.0.0-alpha.3, Copyright (c) 2016, Drifty
@@ -165,7 +163,7 @@ License: MIT
 [**Unsemantic CSS Framework**](http://unsemantic.com/), Created by Nathan Smith
 Licenses: MIT/GPL
 
-[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.0.1, Copyright 2016 Vasil Dinkov, Vadikom Web Ltd.
+[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.1.0, Copyright 2016 Vasil Dinkov, Vadikom Web Ltd.
 Licenses: MIT
 
 [**FitVids**](http://fitvidsjs.com/) v1.1, Copyright 2013, Chris Coyier
