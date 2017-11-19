@@ -350,10 +350,10 @@ function themelia_enqueue_scripts() {
 	$suffix = hybrid_get_min_suffix();
 
 	wp_enqueue_script( 'imagesloaded' );
-	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ),'1.0.1', true );
-	wp_enqueue_script( 'smartmenus', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus{$suffix}.js", array( 'jquery' ), '1.0.1', true );
-	wp_enqueue_script( 'smartmenus-keyboard', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus.keyboard{$suffix}.js", array( 'jquery' ), '1.0.1', true );
-	wp_enqueue_script( 'themelia', trailingslashit( get_template_directory_uri() ) . "js/themelia{$suffix}.js", array( 'jquery' ), '1.0.1', true );
+	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ),'1.1.0', true );
+	wp_enqueue_script( 'smartmenus', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus{$suffix}.js", array( 'jquery' ), '1.1.0', true );
+	wp_enqueue_script( 'smartmenus-keyboard', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus.keyboard{$suffix}.js", array( 'jquery' ), '0.4.0', true );
+	wp_enqueue_script( 'themelia', trailingslashit( get_template_directory_uri() ) . "js/themelia{$suffix}.js", array( 'jquery' ), '1.2.0', true );
 	// Load the html5 shiv.
 	wp_enqueue_script( 'themelia-html5', get_template_directory_uri() . '/js/html5{$suffix}.js', array(), '3.7.3' );
 	wp_script_add_data( 'themelia-html5', 'conditional', 'lt IE 9' );
