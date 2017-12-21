@@ -203,7 +203,7 @@ function hybrid_untitled_post( $title ) {
 
 	// Translators: Used as a placeholder for untitled posts on non-singular views.
 	if ( ! $title && ! is_singular() && in_the_loop() && ! is_admin() )
-		$title = esc_html__( '(Untitled)', 'hybrid-core' );
+		$title = esc_html__( '(Untitled)', 'themelia' );
 
 	return $title;
 }

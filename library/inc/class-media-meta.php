@@ -242,7 +242,7 @@ class Hybrid_Media_Meta {
 
 			$dimensions = sprintf(
 				// Translators: Media dimensions - 1 is width and 2 is height.
-				esc_html__( '%1$s &#215; %2$s', 'hybrid-core' ),
+				esc_html__( '%1$s &#215; %2$s', 'themelia' ),
 				number_format_i18n( absint( $this->meta['width'] ) ),
 				number_format_i18n( absint( $this->meta['height'] ) )
 			);

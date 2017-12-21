@@ -80,7 +80,7 @@ final class Hybrid_Admin_Post_Layout {
 		if ( post_type_supports( $post_type, 'theme-layouts' ) && current_user_can( 'edit_theme_options' ) ) {
 
 			// Add meta box.
-			add_meta_box( 'hybrid-post-layout', esc_html__( 'Layout', 'hybrid-core' ), array( $this, 'meta_box' ), $post_type, 'side', 'default' );
+			add_meta_box( 'hybrid-post-layout', esc_html__( 'Layout', 'themelia' ), array( $this, 'meta_box' ), $post_type, 'side', 'default' );
 
 			// Enqueue scripts/styles.
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );

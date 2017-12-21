@@ -201,7 +201,7 @@ function hybrid_attr_sidebar( $attr, $context ) {
 
 		if ( $sidebar_name ) {
 			// Translators: The %s is the sidebar name. This is used for the 'aria-label' attribute.
-			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Sidebar', 'sidebar aria label', 'hybrid-core' ), $sidebar_name ) );
+			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Sidebar', 'sidebar aria label', 'themelia' ), $sidebar_name ) );
 		}
 	}
 
@@ -234,7 +234,7 @@ function hybrid_attr_menu( $attr, $context ) {
 
 		if ( $menu_name ) {
 			// Translators: The %s is the menu name. This is used for the 'aria-label' attribute.
-			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Menu', 'nav menu aria label', 'hybrid-core' ), $menu_name ) );
+			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Menu', 'nav menu aria label', 'themelia' ), $menu_name ) );
 		}
 	}
 
@@ -475,7 +475,7 @@ function hybrid_attr_entry_published( $attr ) {
 	$attr['itemprop'] = 'datePublished';
 
 	// Translators: Post date/time "title" attribute.
-	$attr['title']    = get_the_time( _x( 'l, F j, Y, g:i a', 'post time format', 'hybrid-core' ) );
+	$attr['title']    = get_the_time( _x( 'l, F j, Y, g:i a', 'post time format', 'themelia' ) );
 
 	return $attr;
 }
@@ -600,7 +600,7 @@ function hybrid_attr_comment_published( $attr ) {
 	$attr['datetime'] = get_comment_time( 'Y-m-d\TH:i:sP' );
 
 	// Translators: Comment date/time "title" attribute.
-	$attr['title']    = get_comment_time( _x( 'l, F j, Y, g:i a', 'comment time format', 'hybrid-core' ) );
+	$attr['title']    = get_comment_time( _x( 'l, F j, Y, g:i a', 'comment time format', 'themelia' ) );
 	$attr['itemprop'] = 'datePublished';
 
 	return $attr;

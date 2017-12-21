@@ -114,7 +114,7 @@ final class Hybrid_Admin_Term_Layout {
 
 		<div class="form-field hybrid-term-layout-wrap">
 
-			<p class="hybrid-term-layout-header"><?php esc_html_e( 'Layout', 'hybrid-core' ); ?></p>
+			<p class="hybrid-term-layout-header"><?php esc_html_e( 'Layout', 'themelia' ); ?></p>
 
 			<?php $this->display_field(); ?>
 
@@ -132,7 +132,7 @@ final class Hybrid_Admin_Term_Layout {
 
 		<tr class="form-field hybrid-term-layout-wrap">
 
-			<th scope="row"><?php esc_html_e( 'Layout', 'hybrid-core' ); ?></th>
+			<th scope="row"><?php esc_html_e( 'Layout', 'themelia' ); ?></th>
 
 			<td><?php $this->display_field( $term ); ?></td>
 		</tr>

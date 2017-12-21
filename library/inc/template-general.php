@@ -56,7 +56,7 @@ function hybrid_wp_link() {
  */
 function hybrid_get_wp_link() {
 
-	return sprintf( '<a class="wp-link" href="%s">%s</a>', esc_url( __( 'https://wordpress.org', 'hybrid-core' ) ), esc_html__( 'WordPress', 'hybrid-core' ) );
+	return sprintf( '<a class="wp-link" href="%s">%s</a>', esc_url( __( 'https://wordpress.org', 'themelia' ) ), esc_html__( 'WordPress', 'themelia' ) );
 }
 
 /**
@@ -226,7 +226,7 @@ function hybrid_single_archive_title() {
  */
 function hybrid_get_single_archive_title() {
 
-	return esc_html__( 'Archives', 'hybrid-core' );
+	return esc_html__( 'Archives', 'themelia' );
 }
 
 /**
@@ -274,7 +274,7 @@ function hybrid_single_year_title() {
  */
 function hybrid_get_single_year_title() {
 
-	return get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'hybrid-core' ) );
+	return get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'themelia' ) );
 }
 
 /**
@@ -299,7 +299,7 @@ function hybrid_single_week_title() {
 function hybrid_get_single_week_title() {
 
 	// Translators: 1 is the week number and 2 is the year.
-	return sprintf( esc_html__( 'Week %1$s of %2$s', 'hybrid-core' ), get_the_time( esc_html_x( 'W', 'weekly archives date format', 'hybrid-core' ) ), get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'hybrid-core' ) ) );
+	return sprintf( esc_html__( 'Week %1$s of %2$s', 'themelia' ), get_the_time( esc_html_x( 'W', 'weekly archives date format', 'themelia' ) ), get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'themelia' ) ) );
 }
 
 /**
@@ -323,7 +323,7 @@ function hybrid_single_day_title() {
  */
 function hybrid_get_single_day_title() {
 
-	return get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'hybrid-core' ) );
+	return get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'themelia' ) );
 }
 
 /**
@@ -347,7 +347,7 @@ function hybrid_single_hour_title() {
  */
 function hybrid_get_single_hour_title() {
 
-	return get_the_time( esc_html_x( 'g a', 'hour archives time format', 'hybrid-core' ) );
+	return get_the_time( esc_html_x( 'g a', 'hour archives time format', 'themelia' ) );
 }
 
 /**
@@ -372,7 +372,7 @@ function hybrid_single_minute_title() {
 function hybrid_get_single_minute_title() {
 
 	// Translators: Minute archive title. %s is the minute time format.
-	return sprintf( esc_html__( 'Minute %s', 'hybrid-core' ), get_the_time( esc_html_x( 'i', 'minute archives time format', 'hybrid-core' ) ) );
+	return sprintf( esc_html__( 'Minute %s', 'themelia' ), get_the_time( esc_html_x( 'i', 'minute archives time format', 'themelia' ) ) );
 }
 
 /**
@@ -396,7 +396,7 @@ function hybrid_single_minute_hour_title() {
  */
 function hybrid_get_single_minute_hour_title() {
 
-	return get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'hybrid-core' ) );
+	return get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'themelia' ) );
 }
 
 /**
@@ -421,7 +421,7 @@ function hybrid_search_title() {
 function hybrid_get_search_title() {
 
 	// Translators: %s is the search query.
-	return sprintf( esc_html__( 'Search results for: %s', 'hybrid-core' ), get_search_query() );
+	return sprintf( esc_html__( 'Search results for: %s', 'themelia' ), get_search_query() );
 }
 
 /**
@@ -445,5 +445,5 @@ function hybrid_404_title() {
  */
 function hybrid_get_404_title() {
 
-	return esc_html__( '404 Not Found', 'hybrid-core' );
+	return esc_html__( '404 Not Found', 'themelia' );
 }
