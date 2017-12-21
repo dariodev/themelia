@@ -3,6 +3,17 @@ Change Log
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+v1.2.1 - 2017-12-22
+--------------------
+
+### Fix
+
+-	Title output on archive page - fixed missing whitespace between month and year. Tnx `@getnaked`.
+
+### Updated
+
+-	Changed Text Domain in Hybrid Core library to 'themelia'.
+
 v1.2.0 - 2017-11-19
 --------------------
 
@@ -11,6 +22,7 @@ v1.2.0 - 2017-11-19
 -	Compatibility with WP version 4.9 is 100%.
 -   HybridCore library is updated to version 4.0. One of the changes in 4.0 is that the framework no longer defines Schema.org as a default. It leaves this up to theme authors. Additionally, it only sets defaults for the body, post, and comment attributes. Themelia has Schema.org defined and attributes for all elements are re-added. The change is in the `functions-attr.php` file. Developers, see what's new in HybridCore branch 4 `library\changelog.md`.
 -   Kirki library is updated to version 3.0.16.
+-   Google fonts list
 -   Added `'flex-height' => true` to `custom-logo` so that cropping is not forced any more.
 
 ### New

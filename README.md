@@ -3,8 +3,8 @@ Themelia
 
 Author: dariodev  
 Requires at least: WordPress 4.7  
-Tested up to: WordPress 4.9  
-Version: 1.2.0  
+Tested up to: WordPress 4.9.1  
+Version: 1.2.1  
 License: [GPLv2](http://www.gnu.org/licenses/gpl-2.0.html) or later  
 Tags: one-column, two-columns, right-sidebar, left-sidebar, full-width-template, custom-menu, custom-colors, footer-widgets, editor-style, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, e-commerce, blog
 
@@ -163,13 +163,13 @@ License: MIT
 [**Unsemantic CSS Framework**](http://unsemantic.com/), Created by Nathan Smith  
 Licenses: MIT/GPL
 
-[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.1.0, Copyright 2016 Vasil Dinkov, Vadikom Web Ltd.  
+[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.1.0, Copyright 2017, Vasil Dinkov, Vadikom Web Ltd.  
 Licenses: MIT
 
 [**FitVids**](http://fitvidsjs.com/) v1.1, Copyright 2013, Chris Coyier  
 License: [WTFPL](http://sam.zoy.org/wtfpl/)
 
-**HTML5 Shiv** v3.7.0, Copyright 2014 Alexander Farkas  
+**HTML5 Shiv** v3.7.3, Copyright 2015, Alexander Farkas  
 Licenses: MIT/GPL2
 
 All jQuery plugins are minified. Full source versions are also bundled in theme package. Full source versions will be loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file. Otherwise, the `*.min.css` file is loaded.
