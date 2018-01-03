@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Themelia is highly responsive and retina-ready, simple and powerful, efficiently coded and user friendly WordPress theme. Coded to perfection & built to last. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and others. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and more. Typographic hierarchy and balance is established with the use of the modular scale. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata.
- * Version:     1.2.1
+ * Version:     1.2.2
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        accessibility-ready, blog, custom-colors, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, two-columns
@@ -10,7 +10,7 @@
  * License:     GNU General Public License v2.0 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
- * Themelia, Copyright (c) 2016 - 2017 Dario Devcic
+ * Themelia, Copyright (c) 2016 - 2018 Dario Devcic
  * Themelia is distributed under the terms of the GNU GPL
  */
 
@@ -4162,8 +4162,6 @@ figcaption span,
 	font-weight: normal !important;
 	display: inline;
 	line-height: 1;
-	left: 5px;
-	top: -1px;
 	text-align: center;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -4174,6 +4172,11 @@ figcaption span,
 	background: #f4f4f4;
 	padding: 2px 8px;
 	letter-spacing: .05em;
+}
+
+.entry-byline .post-edit-link {
+	left: 5px;
+	top: -1px;
 }
 
 .post-thumbnail {
@@ -4335,6 +4338,7 @@ figcaption span,
 /* === Post Footer === */
 
 .entry-footer {
+	clear: both;
 	padding-bottom: 1.5rem;
 	width: 100%;
 }
