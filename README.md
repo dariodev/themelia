@@ -163,13 +163,16 @@ License: MIT
 [**Unsemantic CSS Framework**](http://unsemantic.com/), Created by Nathan Smith  
 Licenses: MIT/GPL
 
+[**sanitize.css**](https://jonathantneal.github.io/sanitize.css/) v5.0.0, Created by Jonathan Neal  
+License: CC0
+
 [**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.1.0, Copyright 2017, Vasil Dinkov, Vadikom Web Ltd.  
 Licenses: MIT
 
 [**FitVids**](http://fitvidsjs.com/) v1.1, Copyright 2013, Chris Coyier  
 License: [WTFPL](http://sam.zoy.org/wtfpl/)
 
-**HTML5 Shiv** v3.7.3, Copyright 2015, Alexander Farkas  
+[**HTML5 Shiv**](https://github.com/aFarkas/html5shiv) v3.7.3, Copyright 2015, Alexander Farkas  
 Licenses: MIT/GPL2
 
 All jQuery plugins are minified. Full source versions are also bundled in theme package. Full source versions will be loaded if `SCRIPT_DEBUG` is set to `TRUE` in your `wp-config.php` file. Otherwise, the `*.min.css` file is loaded.

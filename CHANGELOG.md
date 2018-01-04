@@ -10,6 +10,10 @@ v1.2.2 - 2018-01-03
 
 -	Minor CSS improvements, clearing floats.
 
+### Updated
+
+-	Update sanitize.css to version 5.0.0.
+
 v1.2.1 - 2017-12-22
 --------------------
 

@@ -163,7 +163,10 @@ License: MIT
 [**Unsemantic CSS Framework**](http://unsemantic.com/), Created by Nathan Smith
 Licenses: MIT/GPL
 
-[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.1.0, Copyright 2016 Vasil Dinkov, Vadikom Web Ltd.
+[**sanitize.css**](https://jonathantneal.github.io/sanitize.css/) v5.0.0, Created by Jonathan Neal
+License: CC0
+
+[**SmartMenus jQuery Plugin**](https://www.smartmenus.org/) v1.1.0, Copyright 2017 Vasil Dinkov, Vadikom Web Ltd.
 Licenses: MIT
 
 [**FitVids**](http://fitvidsjs.com/) v1.1, Copyright 2013, Chris Coyier
