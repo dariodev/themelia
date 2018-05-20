@@ -15,9 +15,9 @@
  *
  * @package    Themelia
  * @subpackage Functions
- * @version    1.0.0
+ * @version    1.2.0
  * @author     Dario Devcic <dario@relishpress.com>
- * @copyright  Copyright (c) 2016, Dario Devcic
+ * @copyright  Copyright (c) 2018, Dario Devcic
  * @link       http://relishpress.com/themes/themelia
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -73,6 +73,9 @@ function themelia_theme_setup() {
 
 	// The best thumbnail/image script ever.
 	add_theme_support( 'get-the-image' );
+
+	// Nicer [gallery] shortcode implementation.
+	add_theme_support( 'cleaner-gallery' );
 
 	// Breadcrumbs. Yay!
 	add_theme_support( 'breadcrumb-trail' );
