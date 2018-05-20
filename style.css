@@ -2,7 +2,7 @@
  * Theme Name:  Themelia
  * Theme URI:   http://relishpress.com/themes/themelia
  * Description: Welcome to Themelia, a meticulously crafted and balanced WordPress theme for personal and professional blogging. Themelia is highly responsive and retina-ready, simple and powerful, efficiently coded and user friendly WordPress theme. Coded to perfection & built to last. Supports WooCommerce, Easy Digital Downloads, Jetpack modules including Contact form and Infinite Scroll, Contact Form 7 and others. Themelia has custom theme settings based on WordPress Customizer to change theme layout, colors, Google Fonts and more. Typographic hierarchy and balance is established with the use of the modular scale. Themelia is built with search-engine optimization in mind. It has consistent syntax structure, it’s HTML5 valid, optimized for speed and SEO, utilizing most current HTML5 conventions and Schema.org microdata.
- * Version:     1.2.2
+ * Version:     1.2.3
  * Author:      Dario Devcic
  * Author URI:  http://relishpress.com
  * Tags:        accessibility-ready, blog, custom-colors, custom-menu, e-commerce, editor-style, featured-images, footer-widgets, full-width-template, left-sidebar, one-column, right-sidebar, sticky-post, theme-options, threaded-comments, translation-ready, two-columns
@@ -697,7 +697,7 @@ a:active {
    ========================================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Work Sans", Roboto, Oxygen-Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, "Helvetica Neue", sans-serif;;
+	font-family: Roboto, Oxygen-Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-weight: 700;
 }
 
@@ -963,13 +963,13 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 		width: auto;
 	}
 
-	.header-inline-title-menu li:last-child,
-	.header-stack-right li:last-child  {
+	.header-inline-title-menu .site-access li:last-child,
+	.header-stack-right .site-access li:last-child  {
 		padding-right: 0;
 	}
 
-	.header-inline-menu-title li:first-child,
-	.header-stack-left li:first-child {
+	.header-inline-menu-title .site-access li:first-child,
+	.header-stack-left .site-access li:first-child {
 		padding-left: 0;
 	}
 }
@@ -979,7 +979,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	display: block;
 	height: 7px;
 	width: 100%;
-	position:absolute;
+	position: absolute;
 	bottom: -7px;
 	left: 0;
 	background-color: transparent;
@@ -990,7 +990,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 	content: "";
 	height: 1px;
 	width: 100%;
-	position:relative;
+	position: relative;
 	display: block;
 	bottom: 0;
 	background-color: rgba(39,55,64,0.14);
@@ -1002,7 +1002,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .site-header {
-	position:relative;
+	position: relative;
 }
 
 .site-title-wrap {
@@ -1167,7 +1167,6 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .sm-simple {
-	font-family: Roboto;
 	font-size: 1em;
 	font-weight: 500;
 	line-height: 1.4;
@@ -1242,7 +1241,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 
 .sm-simple a .sub-arrow:after {
 	content: "\f3d0";
-	font-family: "ionicons";
+	font-family: "Ionicons";
 	font-size: 18px;
 	font-weight: normal;
 	margin: auto;
@@ -2051,7 +2050,7 @@ blockquote cite, .wp-caption .wp-caption-text { font-size: 0.889em; }
 }
 
 .breadcrumb-trail li:after {
-	font-family: ionicons;
+	font-family: "Ionicons";
 	content: '\f3d1';
 	margin: 0px 7px 0;
 	font-weight: normal;
@@ -2258,7 +2257,11 @@ sub {
 }
 
 .text-left {
-	text-align: left !important;
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
 }
 
 .start {
@@ -2346,7 +2349,7 @@ blockquote p {
 blockquote::before {
 	color: rgba(0, 0, 0, 1);
 	content: "\f1f5";
-	font-family: ionicons;
+	font-family: "Ionicons";
 	font-size: 1.25em;
 	left: 0;
 	line-height: 1;
@@ -3740,7 +3743,7 @@ img.emoji {
 /* === Captions === */
 
 .wp-caption {
-	max-width: 100% !important;
+	max-width: 100%;
 	position: relative;
 }
 
@@ -3817,8 +3820,8 @@ figcaption span,
 	text-align: center;
 }
 
-/* When the screen width is at least 480px. */
-@media only screen and ( min-width: 480px ) {
+/* When the screen width is at least 360px. */
+@media only screen and ( min-width: 360px ) {
 
 	.gallery-item {
 		margin: 0 5% 5% 0;
@@ -3851,8 +3854,8 @@ figcaption span,
 	.gallery-columns-10 .gallery-item { width: 45%; }
 }
 
-/* When the screen width is between 480px and 539px. */
-@media only screen and ( min-width: 480px ) and ( max-width: 539px ) {
+/* When the screen width is between 360px and 539px. */
+@media only screen and ( min-width: 360px ) and ( max-width: 539px ) {
 
 	.gallery-item:nth-of-type( 2n + 1 ) { clear: both; }
 
@@ -4187,8 +4190,9 @@ figcaption span,
 
 .post-format-link::before {
 	content: "";
-	font-family: "ionicons";
-	font-size: 2.2rem;
+	font-family: "Ionicons";
+	font-size: 1.35rem;
+	margin-right: 5px;
 }
 
 .format-gallery .post-format-link::before {
@@ -4489,7 +4493,7 @@ figcaption span,
 
 .post-navigation .nav-previous .meta-nav:before,
 .post-navigation .nav-next .meta-nav:after {
-	font-family: "ionicons";
+	font-family: "Ionicons";
 	font-size: 1.75em;
 	line-height: .5;
 	margin-top: -10px;
@@ -4515,7 +4519,8 @@ figcaption span,
 
 .image-info ul {
 	list-style: none;
-	margin-bottom:0;
+	margin: 0;
+	padding: 0;
 }
 
 .image-info ul li {
@@ -4524,11 +4529,13 @@ figcaption span,
 }
 
 .image-info ul li:nth-child(even) {
-	background: #fff;
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.35);
 }
 
 .image-info ul li:nth-child(odd) {
 	background-color: #F2F4F9;
+	background-color: rgba(242, 244, 249, 0.35);
 }
 
 .image-info .prep {
@@ -4712,7 +4719,7 @@ figcaption span,
 
 .widget_search .search-submit:after {
 	content: "\f20a";
-	font-family: ionicons;
+	font-family: "Ionicons";
 	font-size: 22px;
 	float: right;
 	width: 45px;
@@ -5695,13 +5702,6 @@ li.ping .comment-meta .comment-permalink {
 .mh5 { margin-left: 4rem; margin-right: 4rem; }
 .mh6 { margin-left: 8rem; margin-right: 8rem; }
 .mh7 { margin-left: 16rem; margin-right: 16rem; }
-
-/*
-   Text  Align
-*/
-.tl { text-align: left; }
-.tr { text-align: right; }
-.tc { text-align: center; }
 
 /*
    Text Transform:
