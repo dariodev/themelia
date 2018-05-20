@@ -197,21 +197,6 @@ if ( class_exists( 'WooCommerce' ) || class_exists( 'Easy_Digital_Downloads' ) )
 }
 
 
-
-add_theme_support('starter-content',array(
-	'widgets' => array(
-		'primary' => array(
-			'primary' => array(
-				'text', array(
-					'title' => '', // Blank title
-					'text'  => '<a class="btn btn-primary" href="/contact/">Contact Us</a>'
-				)
-			)
-		)
-	)
-));
-
-
 function themelia_register_special_sidebar() {
 
 	hybrid_register_sidebar(
@@ -222,6 +207,7 @@ function themelia_register_special_sidebar() {
 		)
 	);
 }
+
 
 function themelia_primary_sidebar() {
 
@@ -319,8 +305,7 @@ function themelia_get_locale_fonts() {
 function themelia_get_font_families() {
 
 	return array(
-		'roboto'	=> 'Roboto:300,400,400i,500,600,700,700i',
-		'work-sans'	=> 'Work+Sans:200,300,400,500,600,700'
+		'roboto' => 'Roboto:300,400,400i,500,600,700,700i'
 	);
 }
 
