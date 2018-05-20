@@ -5,6 +5,14 @@
 add_theme_support( 'woocommerce' );
 
 /**
+ * Enabling product gallery features (zoom, swipe, lightbox)
+ * @since 1.2.3
+ */
+add_theme_support( 'wc-product-gallery-zoom' );
+add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-slider' );
+
+/**
  * Remove default WooCommerce wrappers
  * @since 1.0.0
  */
@@ -102,7 +110,8 @@ function themelia_woocommerce_classes( $classes ) {
 
                 <?php do_action( 'themelia_before_content'); ?>
 
-            <?php }
+            <?php
+			}
 
             /**
              * Add WooCommerce ending wrappers
