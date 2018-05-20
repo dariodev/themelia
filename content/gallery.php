@@ -8,7 +8,7 @@
 				<?php hybrid_post_format_link(); ?>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php
-				if ( true != get_theme_mod( 'postby_full', true ) )
+				if ( true != get_theme_mod( 'postby_full' ) )
 					{ ?>
 					<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
@@ -43,7 +43,7 @@
 				<?php hybrid_post_format_link(); ?>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php
-				if ( true != get_theme_mod( 'postby_excerpt', true ) )
+				if ( true != get_theme_mod( 'postby_excerpt' ) )
 					{ ?>
 					<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>

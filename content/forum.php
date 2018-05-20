@@ -12,7 +12,7 @@
 
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer small">
+	<footer class="entry-footer">
 
 		<?php themelia_edit_link(); ?>
 

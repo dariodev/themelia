@@ -13,7 +13,7 @@
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer small">
+		<footer class="entry-footer">
 			<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 			<?php themelia_edit_link(); ?>
 		</footer><!-- .entry-footer -->

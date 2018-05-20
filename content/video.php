@@ -8,7 +8,7 @@
 				<?php hybrid_post_format_link(); ?>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php
-				if ( true != get_theme_mod( 'postby_excerpt', true ) )
+				if ( true != get_theme_mod( 'postby_excerpt' ) )
 					{ ?>
 					<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
@@ -30,9 +30,9 @@
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer small">
-			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => '<span>,</span> ',  'text' => esc_html__( 'Posted in: %s', 'themelia' ) ) ); ?>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => '<span>,</span> ', 'text' => esc_html__( 'Tagged: %s', 'themelia' ), 'before' => '<br />' ) ); ?>
+		<footer class="entry-footer">
+			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => '<span>,</span> ',  'text' => __( '<span class="title">Posted in: </span>%s', 'themelia' ) ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => '<span>,</span> ', 'text' => __( '<span class="title">Tagged: </span>%s', 'themelia' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->
 
 	<?php else : // If not viewing a single post. ?>
@@ -43,7 +43,7 @@
 				<?php hybrid_post_format_link(); ?>
 				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
 				<?php
-				if ( true != get_theme_mod( 'postby_excerpt', true ) )
+				if ( true != get_theme_mod( 'postby_excerpt' ) )
 					{ ?>
 					<span class="post-by"><?php echo esc_html_x( 'by', 'post author', 'themelia' ) ?></span>
 					<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>

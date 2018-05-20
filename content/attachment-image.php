@@ -29,8 +29,47 @@
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer small">
-			<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+		<footer class="entry-footer">
+
+			<?php if ( is_attachment() ) : // If viewing a single attachment. ?>
+
+				<div class="attachment-meta">
+
+					<div class="media-info image-info">
+
+						<h3 class="attachment-meta-title"><?php esc_html_e( 'Image Info', 'themelia' ); ?></h3>
+
+						<ul class="media-meta">
+							<?php $pre = '<li><span class="prep">%s</span>'; ?>
+							<?php hybrid_media_meta( 'dimensions',        array( 'before' => sprintf( $pre, esc_html__( 'Dimensions',    'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'created_timestamp', array( 'before' => sprintf( $pre, esc_html__( 'Date',          'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'camera',            array( 'before' => sprintf( $pre, esc_html__( 'Camera',        'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'aperture',          array( 'before' => sprintf( $pre, esc_html__( 'Aperture',      'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'focal_length',      array( 'before' => sprintf( $pre, esc_html__( 'Focal Length',  'themelia' ) ), 'after' => '</li>', 'text' => esc_html__( '%s mm', 'themelia' ) ) ); ?>
+							<?php hybrid_media_meta( 'iso',               array( 'before' => sprintf( $pre, esc_html__( 'ISO',           'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'shutter_speed',     array( 'before' => sprintf( $pre, esc_html__( 'Shutter Speed', 'themelia' ) ), 'after' => '</li>', 'text' => esc_html__( '%s sec', 'themelia' ) ) ); ?>
+							<?php hybrid_media_meta( 'file_type',         array( 'before' => sprintf( $pre, esc_html__( 'Type',          'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'file_name',         array( 'before' => sprintf( $pre, esc_html__( 'Name',          'themelia' ) ), 'after' => '</li>' ) ); ?>
+							<?php hybrid_media_meta( 'mime_type',         array( 'before' => sprintf( $pre, esc_html__( 'Mime Type',     'themelia' ) ), 'after' => '</li>' ) ); ?>
+						</ul>
+
+					</div><!-- .media-info -->
+
+					<?php $gallery = gallery_shortcode( array( 'columns' => 4, 'numberposts' => 8, 'size' => 'medium', 'orderby' => 'rand', 'id' => get_queried_object()->post_parent, 'exclude' => get_the_ID() ) ); ?>
+
+					<?php if ( $gallery ) : // Check if the gallery is not empty. ?>
+
+						<div class="image-gallery">
+							<h3 class="attachment-meta-title"><?php esc_html_e( 'Gallery', 'themelia' ); ?></h3>
+							<?php echo $gallery; ?>
+						</div>
+
+					<?php endif; // End gallery check. ?>
+
+				</div><!-- .attachment-meta -->
+
+			<?php endif; // End single attachment check. ?>
+
 			<?php themelia_edit_link(); ?>
 		</footer><!-- .entry-footer -->
 
@@ -49,42 +88,3 @@
 	<?php endif; // End single attachment check. ?>
 
 </article><!-- .entry -->
-
-<?php if ( is_attachment() ) : // If viewing a single attachment. ?>
-
-	<div class="attachment-meta">
-
-		<div class="media-info image-info">
-
-			<h3 class="attachment-meta-title"><?php esc_html_e( 'Image Info', 'themelia' ); ?></h3>
-
-			<ul class="media-meta">
-				<?php $pre = '<li><span class="prep">%s</span>'; ?>
-				<?php hybrid_media_meta( 'dimensions',        array( 'before' => sprintf( $pre, esc_html__( 'Dimensions',    'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'created_timestamp', array( 'before' => sprintf( $pre, esc_html__( 'Date',          'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'camera',            array( 'before' => sprintf( $pre, esc_html__( 'Camera',        'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'aperture',          array( 'before' => sprintf( $pre, esc_html__( 'Aperture',      'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'focal_length',      array( 'before' => sprintf( $pre, esc_html__( 'Focal Length',  'themelia' ) ), 'after' => '</li>', 'text' => esc_html__( '%s mm', 'themelia' ) ) ); ?>
-				<?php hybrid_media_meta( 'iso',               array( 'before' => sprintf( $pre, esc_html__( 'ISO',           'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'shutter_speed',     array( 'before' => sprintf( $pre, esc_html__( 'Shutter Speed', 'themelia' ) ), 'after' => '</li>', 'text' => esc_html__( '%s sec', 'themelia' ) ) ); ?>
-				<?php hybrid_media_meta( 'file_type',         array( 'before' => sprintf( $pre, esc_html__( 'Type',          'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'file_name',         array( 'before' => sprintf( $pre, esc_html__( 'Name',          'themelia' ) ), 'after' => '</li>' ) ); ?>
-				<?php hybrid_media_meta( 'mime_type',         array( 'before' => sprintf( $pre, esc_html__( 'Mime Type',     'themelia' ) ), 'after' => '</li>' ) ); ?>
-			</ul>
-
-		</div><!-- .media-info -->
-
-		<?php $gallery = gallery_shortcode( array( 'columns' => 4, 'numberposts' => 8, 'orderby' => 'rand', 'id' => get_queried_object()->post_parent, 'exclude' => get_the_ID() ) ); ?>
-
-		<?php if ( $gallery ) : // Check if the gallery is not empty. ?>
-
-			<div class="image-gallery">
-				<h3 class="attachment-meta-title"><?php esc_html_e( 'Gallery', 'themelia' ); ?></h3>
-				<?php echo $gallery; ?>
-			</div>
-
-		<?php endif; // End gallery check. ?>
-
-	</div><!-- .attachment-meta -->
-
-<?php endif; // End single attachment check. ?>

@@ -6,6 +6,6 @@
             <?php dynamic_sidebar( 'special' ); // Displays the primary sidebar. ?>
 
         <?php endif; // End widgets check. ?>
-
     </div>
+
 </aside><!-- #sidebar-primary -->
