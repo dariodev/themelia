@@ -5770,7 +5770,7 @@ li.ping .comment-meta .comment-permalink {
 	top: 7px;
 	background: #f7f7f7;
 	color: #151515;
-	outline: : 3px solid #ffbf47;
+	outline: 3px solid #ffbf47;
 	font-size: 16px;
 	font-weight: 600;
 	padding: 15px 30px;
@@ -5806,13 +5806,9 @@ li.ping .comment-meta .comment-permalink {
 	word-break: break-all;
 	/* Non standard for webkit */
 	word-wrap: break-word;
-	word-break: break-word;
-
 	-webkit-hyphens: auto;
-	   -moz-hyphens: auto;
-			hyphens: auto;
-
-			clear:both;
+	-moz-hyphens: auto;
+	clear:both;
 }
 
 /*
