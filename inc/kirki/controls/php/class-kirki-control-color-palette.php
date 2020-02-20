@@ -4,8 +4,8 @@
  *
  * @package     Kirki
  * @subpackage  Controls
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.6
  */
 
@@ -60,7 +60,7 @@ class Kirki_Control_Color_Palette extends Kirki_Control_Base {
 		?>
 		<# if ( ! data.choices ) { return; } #>
 		<span class="customize-control-title">
-			{{ data.label }}
+			{{{ data.label }}}
 		</span>
 		<# if ( data.description ) { #>
 			<span class="description customize-control-description">{{{ data.description }}}</span>

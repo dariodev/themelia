@@ -1,63 +1,64 @@
 <?php
-# Detect javascript.
+// Detect javascript.
 add_action( 'wp_head', 'themelia_javascript_detection', 0 );
 
-# Register Theme styles.
+// Register Theme styles.
 add_action( 'wp_enqueue_scripts', 'themelia_register_styles', 0 );
 
-# Register custom image sizes.
+// Register custom image sizes.
 add_action( 'init', 'themelia_register_image_sizes', 5 );
 
-# Register custom menus.
+// Register custom menus.
 add_action( 'init', 'themelia_register_menus', 5 );
 
-# Register sidebars.
+// Register sidebars.
 add_action( 'widgets_init', 'themelia_register_sidebars', 5 );
 
-# Register custom layouts.
+// Register custom layouts.
 add_action( 'hybrid_register_layouts', 'themelia_register_layouts' );
 
-# Add custom scripts and styles
+// Add custom scripts and styles.
 add_action( 'wp_enqueue_scripts', 'themelia_enqueue_scripts', 5 );
 add_action( 'wp_enqueue_scripts', 'themelia_enqueue_styles',  5 );
 
-# Adds custom settings for the visual editor.
+// Adds custom settings for the visual editor.
 add_filter( 'tiny_mce_before_init', 'themelia_tiny_mce_before_init' );
 
-# Add custom attributes
+// Add custom attributes.
 add_filter( 'hybrid_attr_content', 'themelia_attr_content' );
 add_filter( 'hybrid_attr_sidebar', 'themelia_attr_sidebar' );
 add_filter( 'hybrid_attr_sidebarcustom', 'themelia_attr_sidebarcustom', 5, 2 );
 add_filter( 'hybrid_attr_container', 'themelia_attr_container', 5 );
+add_filter( 'hybrid_attr_header', 'themelia_attr_header', 5 );
 add_filter( 'hybrid_attr_branding', 'themelia_attr_branding', 5 );
 add_filter( 'hybrid_attr_access', 'themelia_attr_access', 5 );
 add_filter( 'hybrid_attr_access-inner', 'themelia_attr_access_inner', 5 );
 add_filter( 'hybrid_attr_main', 'themelia_attr_main', 5 );
 
-# Custom filtering for Site Title & Description
-add_filter( 'hybrid_site_title', 'themelia_get_site_title');
-add_filter( 'hybrid_site_description', 'themelia_get_site_description');
+// Custom filtering for Site Title & Description.
+add_filter( 'hybrid_site_title', 'themelia_get_site_title' );
+add_filter( 'hybrid_site_description', 'themelia_get_site_description' );
 
-# Add custom image sizes attribute to enhance responsive image functionality for post thumbnails
-add_filter( 'wp_get_attachment_image_attributes', 'themelia_post_thumbnail_sizes_attr', 10 , 3 );
+// Add custom image sizes attribute to enhance responsive image functionality for post thumbnails.
+add_filter( 'wp_get_attachment_image_attributes', 'themelia_post_thumbnail_sizes_attr', 10, 3 );
 
-# Changing excerpt more
-add_filter('excerpt_more', 'themelia_excerpt_more');
+// Changing excerpt more.
+add_filter( 'excerpt_more', 'themelia_excerpt_more' );
 
-# Read More Button For Excerpt
+// Read More Button For Excerpt.
 add_filter( 'the_excerpt', 'themelia_excerpt_read_more_link' );
 
-# Read More Button For More Tag
-add_filter('the_content_more_link', 'themelia_more_tag_link', 10, 2);
+// Read More Button For More Tag.
+add_filter( 'the_content_more_link', 'themelia_more_tag_link', 10, 2 );
 
-# Wrap Read More Button For More Tag
-add_filter('the_content_more_link', 'themelia_wrap_more_tag_link', 10, 1);
+// Wrap Read More Button For More Tag.
+add_filter( 'the_content_more_link', 'themelia_wrap_more_tag_link', 10, 1 );
 
-# Disable default Breadcrumbs for bbPress plugin.
-add_filter ('bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb');
+// Disable default Breadcrumbs for bbPress plugin.
+add_filter( 'bbp_no_breadcrumb', 'themelia_bbp_no_breadcrumb' );
 
-# Filters the archive title.
-add_filter( 'get_the_archive_title', 'themelia_archive_title_filter', 5  );
+// Filters the archive title.
+add_filter( 'get_the_archive_title', 'themelia_archive_title_filter', 5 );
 
 
 /**
@@ -95,8 +96,8 @@ function themelia_register_image_sizes() {
  */
 function themelia_register_menus() {
 
-	register_nav_menu( 'primary',    esc_html_x( 'Primary', 'nav menu location', 'themelia' ) );
-	register_nav_menu( 'secondary',  esc_html_x( 'Footer - Left', 'nav menu location', 'themelia' ) );
+	register_nav_menu( 'primary', esc_html_x( 'Primary', 'nav menu location', 'themelia' ) );
+	register_nav_menu( 'secondary', esc_html_x( 'Footer - Left', 'nav menu location', 'themelia' ) );
 	register_nav_menu( 'subsidiary', esc_html_x( 'Footer - Right (Social Icons)', 'nav menu location', 'themelia' ) );
 }
 
@@ -110,7 +111,7 @@ function themelia_register_menus() {
  */
 function themelia_register_layouts() {
 
-	hybrid_register_layout( '1c',   array( 'label' => esc_html__( '1 Column',                     'themelia' ), 'image' => '%s/images/layouts/1c.png'   ) );
+	hybrid_register_layout( '1c', array( 'label' => esc_html__( '1 Column', 'themelia' ), 'image' => '%s/images/layouts/1c.png' ) );
 	hybrid_register_layout( '2c-l', array( 'label' => esc_html__( '2 Columns: Content / Sidebar', 'themelia' ), 'image' => '%s/images/layouts/2c-l.png' ) );
 	hybrid_register_layout( '2c-r', array( 'label' => esc_html__( '2 Columns: Sidebar / Content', 'themelia' ), 'image' => '%s/images/layouts/2c-r.png' ) );
 }
@@ -233,7 +234,7 @@ function themelia_primary_sidebar() {
  */
 function themelia_archive_title_filter( $title ) {
 
-	if ( is_tax( 'post_format' ) )
+	if ( is_tax( 'post_format' ) ) :
 		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
 			$title = _x( 'Asides', 'post format archive title', 'themelia' );
 		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
@@ -253,6 +254,7 @@ function themelia_archive_title_filter( $title ) {
 		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
 			$title = _x( 'Chats', 'post format archive title', 'themelia' );
 		}
+	endif;
 
 		return apply_filters( 'hybrid_archive_title', $title );
 }
@@ -335,10 +337,17 @@ function themelia_enqueue_scripts() {
 	$suffix = hybrid_get_min_suffix();
 
 	wp_enqueue_script( 'imagesloaded' );
-	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ),'1.1.0', true );
+	wp_enqueue_script( 'fitvids', trailingslashit( get_template_directory_uri() ) . "js/jquery.fitvids{$suffix}.js", array( 'jquery' ), '1.1.0', true );
 	wp_enqueue_script( 'smartmenus', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus{$suffix}.js", array( 'jquery' ), '1.1.0', true );
 	wp_enqueue_script( 'smartmenus-keyboard', trailingslashit( get_template_directory_uri() ) . "js/jquery.smartmenus.keyboard{$suffix}.js", array( 'jquery' ), '0.4.0', true );
+
+	$sticky_header = get_theme_mod( 'sticky_header' );
+	if ( 'headroom' === $sticky_header ) {
+		wp_enqueue_script( 'headroom', trailingslashit( get_template_directory_uri() ) . "js/headroom{$suffix}.js", array( 'jquery' ), '0.11.0', true );
+	}
+
 	wp_enqueue_script( 'themelia', trailingslashit( get_template_directory_uri() ) . "js/themelia{$suffix}.js", array( 'jquery' ), '1.2.0', true );
+
 	// Load the html5 shiv.
 	wp_enqueue_script( 'themelia-html5', get_template_directory_uri() . '/js/html5{$suffix}.js', array(), '3.7.3' );
 	wp_script_add_data( 'themelia-html5', 'conditional', 'lt IE 9' );
@@ -365,20 +374,20 @@ function themelia_register_styles() {
 
 	global $wp_styles;
 
-	$suffix = hybrid_get_min_suffix();
+	$suffix    = hybrid_get_min_suffix();
 	$theme_css = trailingslashit( get_template_directory_uri() ) . 'css/';
 
 	// Register fonts.
 	hybrid_register_font( 'themelia', themelia_get_locale_font_args() );
 
 	// Register styles for use by themes.
-	wp_register_style( 'themelia-unsemantic', $theme_css . "unsemantic{$suffix}.css", array(), null, 'all' );
-	wp_register_style( 'themelia-ionicons', $theme_css . "ionicons{$suffix}.css", array(), null, 'all' );
-	wp_register_style( 'themelia-parent',   hybrid_get_parent_stylesheet_uri() );
-	wp_register_style( 'themelia-style',    get_stylesheet_uri() );
+	wp_register_style( 'themelia-unsemantic', $theme_css . "unsemantic{$suffix}.css", array(), '1.5.0', 'all' );
+	wp_register_style( 'themelia-ionicons', $theme_css . "ionicons{$suffix}.css", array(), '1.5.0', 'all' );
+	wp_register_style( 'themelia-parent', hybrid_get_parent_stylesheet_uri(), array(), '1.5.0', 'all' );
+	wp_register_style( 'themelia-style', get_stylesheet_uri(), array(), '1.5.0', 'all' );
 
-	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839
-	wp_register_style( 'themelia-locale', get_locale_stylesheet_uri() );
+	// Registering locale style for embeds. @see https://core.trac.wordpress.org/ticket/36839.
+	wp_register_style( 'themelia-locale', get_locale_stylesheet_uri(), array(), '1.5.0', 'all' );
 }
 
 
@@ -582,42 +591,59 @@ function themelia_attr_sidebar( $attr ) {
  */
 function themelia_attr_container( $attr ) {
 
-	$attr['id']       = 'container';
-	$attr['class']    = 'container';
+	$attr['id']    = 'container';
+	$attr['class'] = 'container';
+
+	return $attr;
+}
+
+function themelia_attr_header( $attr ) {
+
+	$attr['id']    = 'header';
+	$attr['class'] = 'site-header';
+	$sticky_header = get_theme_mod( 'sticky_header' );
+	if ( 'sticky' === $sticky_header ) {
+		$attr['class'] .= ' sticky-header';
+	}
+	if ( 'headroom' === $sticky_header ) {
+		$attr['data-headroom']  = '';
+		$attr['data-tolerance'] = '5';
+		$attr['data-offset']    = '205';
+	}
 
 	return $attr;
 }
 
 function themelia_attr_branding( $attr ) {
 
-	$attr['id']       = 'branding';
-	$attr['class']   .= ' grid-container';
+	$attr['id']     = 'branding';
+	$attr['class'] .= '';
 
 	return $attr;
 }
 
 function themelia_attr_access( $attr ) {
 
-	$attr['id']       = 'access';
-	$attr['class']    = 'site-access';
-	$attr['class']   .= ' grid-100';
+	$attr['id']     = 'access';
+	$attr['class']  = 'site-access';
+	$attr['class'] .= ' grid-container';
 
 	return $attr;
 }
 
 function themelia_attr_access_inner( $attr ) {
 
-	$attr['id']       = 'access-inner';
-	$attr['class']    = 'access-inner';
-	$attr['class']   .= ' relative';
+	$attr['id']     = 'access-inner';
+	$attr['class']  = 'access-inner grid-100';
+	$attr['class'] .= ' relative';
 
 	return $attr;
 }
 
 function themelia_attr_main( $attr ) {
 
-	$attr['id']       = 'main';
-	$attr['class']    = 'main';
+	$attr['id']    = 'main';
+	$attr['class'] = 'main';
 
 	return $attr;
 }
@@ -631,17 +657,18 @@ if ( ! function_exists( 'themelia_build_logo' ) ) :
 	 */
 	function themelia_build_logo() {
 
-		// Get our logo URL if we're using the custom logo
+		// Get our logo URL if we're using the custom logo.
 		$logo_url = ( function_exists( 'the_custom_logo' ) && get_theme_mod( 'custom_logo' ) ) ? wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' ) : false;
 
-		// Get our logo from the custom logo
+		// Get our logo from the custom logo.
 		$logo = $logo_url[0];
 
-		// If we don't have a logo, return
-		if ( empty( $logo ) )
+		// If we don't have a logo, return.
+		if ( empty( $logo ) ) {
 			return;
+		}
 
-		// Print our HTML
+		// Print our HTML.
 		printf(
 			'<div class="logo-wrap flex-center"><img class="logo-image branding-item" src="%2$s" alt="%1$s" /></div>',
 			apply_filters( 'themelia_logo_title', esc_attr( get_bloginfo( 'name', 'display' ) ) ),
@@ -657,12 +684,12 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 	 * @since Themelia 1.0.0
 	 */
 	function themelia_construct_site_title() {
-		 ?>
+		?>
 			<!-- Site title and logo -->
 		<?php
 		printf(
 			'<a href="%1$s" class="site-title-wrap clearfix">',
-			apply_filters( 'themelia_logo_href' , esc_url( home_url( '/' ) ) )
+			apply_filters( 'themelia_logo_href', esc_url( home_url( '/' ) ) )
 		);
 
 		themelia_build_logo();
@@ -674,8 +701,8 @@ if ( ! function_exists( 'themelia_construct_site_title' ) ) :
 				<?php hybrid_site_description(); ?>
 			</div>
 		</div>
-	</a>
-	<?php // endif;
+		</a>
+		<?php
 	}
 endif;
 
@@ -728,12 +755,13 @@ if ( ! function_exists( 'themelia_post_nav' ) ) {
  */
 function themelia_get_site_title() {
 
-	if ( $title = get_bloginfo( 'name' ) )
+	if ( $title = get_bloginfo( 'name' ) ) {
 		if ( is_front_page() && is_home() ) :
 			$title = sprintf( '<h1 %s>%s</h1>', hybrid_get_attr( 'site-title' ), $title );
 		else :
 			$title = sprintf( '<p %s>%s</p>', hybrid_get_attr( 'site-title' ), $title );
 		endif;
+	}
 
 	return $title;
 }
@@ -748,8 +776,9 @@ function themelia_get_site_title() {
  */
 function themelia_get_site_description() {
 
-	if ( $desc = get_bloginfo( 'description' ) )
+	if ( $desc = get_bloginfo( 'description' ) ) {
 		$desc = sprintf( '<p %s>%s</p>', hybrid_get_attr( 'site-description' ), $desc );
+	}
 
 	echo $desc;
 }
@@ -769,68 +798,69 @@ function themelia_get_site_description() {
 function themelia_post_thumbnail_sizes_attr( $attr, $attachment, $size ) {
 
 	if ( 'post-thumbnail' === $size ) {
-		 ('2c-l' || '2c-r') == hybrid_get_theme_layout() && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
-		 '1c' == hybrid_get_theme_layout() && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, (max-width: 1620px) 90vw, 1200px';
+		( '2c-l' || '2c-r' ) === hybrid_get_theme_layout() && $attr['sizes'] = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px';
+		'1c' === hybrid_get_theme_layout() && $attr['sizes']                 = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 88vw, (max-width: 1620px) 90vw, 1200px';
 	}
 	return $attr;
 }
 
 
 if ( ! function_exists( 'themelia_post_thumbnail' ) ) :
-/**
- * Displays an optional post thumbnail.
- *
- * Wraps the post thumbnail in an anchor element on index views, or a div
- * element when on single views.
- *
- * Create your own themelia_post_thumbnail() function to override in a child theme.
- *
- * @since Themelia 1.0.0
- */
-function themelia_post_thumbnail() {
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 *
+	 * Create your own themelia_post_thumbnail() function to override in a child theme.
+	 *
+	 * @since Themelia 1.0.0
+	 */
+	function themelia_post_thumbnail() {
 
-	if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
-		return;
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		}
+
+		if ( is_singular() ) :
+			?>
+
+		<figure class="post-thumbnail wp-caption">
+			<?php
+				$thumbnail_id = get_post_thumbnail_id();
+				$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+			?>
+			<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
+			<?php
+				$get_caption = get_post($thumbnail_id)->post_excerpt;
+				if( !empty($get_caption) ) {
+					echo '<figcaption class="wp-caption-text">' . $get_caption . '</figcaption>';
+				}
+			?>
+		</figure><!-- .post-thumbnail -->
+
+		<?php else : ?>
+
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>">
+			<?php
+				$thumbnail_id = get_post_thumbnail_id();
+				$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+				$get_caption = get_post($thumbnail_id)->post_excerpt;
+				if( !empty($get_alt) ) {
+					$thumbnail_scr_reader_txt = $get_alt;
+				} elseif( !empty($get_caption) ) {
+					$thumbnail_scr_reader_txt = $get_caption;
+				} else {
+					$thumbnail_scr_reader_txt = __( 'Post thumbnail', 'themelia' );
+				}
+			?>
+			<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
+			<span class="screen-reader-text"><?php echo $thumbnail_scr_reader_txt ?></span>
+		</a>
+
+			<?php
+		endif; // End is_singular()
 	}
-
-	if ( is_singular() ) :
-	?>
-
-	<figure class="post-thumbnail wp-caption">
-		<?php
-			$thumbnail_id = get_post_thumbnail_id();
-			$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-		 ?>
-		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
-		<?php
-			$get_caption = get_post($thumbnail_id)->post_excerpt;
-			if( !empty($get_caption) ) {
-				echo '<figcaption class="wp-caption-text">' . $get_caption . '</figcaption>';
-			}
-		?>
-	</figure><!-- .post-thumbnail -->
-
-	<?php else : ?>
-
-	<a class="post-thumbnail" href="<?php the_permalink(); ?>">
-		<?php
-			$thumbnail_id = get_post_thumbnail_id();
-			$get_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-			$get_caption = get_post($thumbnail_id)->post_excerpt;
-			if( !empty($get_alt) ) {
-				$thumbnail_scr_reader_txt = $get_alt;
-			} elseif( !empty($get_caption) ) {
-				$thumbnail_scr_reader_txt = $get_caption;
-			} else {
-				$thumbnail_scr_reader_txt = __( 'Post thumbnail', 'themelia' );
-			}
-		 ?>
-		<?php the_post_thumbnail( 'post-thumbnail', array( 'alt' => $get_alt ) ); ?>
-		<span class="screen-reader-text"><?php echo $thumbnail_scr_reader_txt ?></span>
-	</a>
-
-	<?php endif; // End is_singular()
-}
 endif;
 
 
@@ -839,7 +869,7 @@ endif;
  *
  * @since Themelia 1.0.0
  */
-function themelia_excerpt_more($more) {
+function themelia_excerpt_more( $more ) {
 
 	return '&hellip;';
 }
@@ -863,7 +893,7 @@ function themelia_excerpt_read_more_link( $output ) {
  */
 function themelia_more_tag_link( $more_link, $more_link_text ) {
 
-	return str_replace($more_link_text, '<span>' . esc_attr_x( 'Continue Reading', 'excerpt', 'themelia' ) . '</span> <span class="screen-reader-text">' . get_the_title() . '</span>', $more_link);
+	return str_replace( $more_link_text, '<span>' . esc_attr_x( 'Continue Reading', 'excerpt', 'themelia' ) . '</span> <span class="screen-reader-text">' . get_the_title() . '</span>', $more_link );
 }
 
 /**
@@ -873,7 +903,7 @@ function themelia_more_tag_link( $more_link, $more_link_text ) {
  */
 function themelia_wrap_more_tag_link($more_link) {
 
-    return '<div class="more-link-wrap">' . $more_link . '</div>';
+	return '<div class="more-link-wrap">' . $more_link . '</div>';
 }
 
 /**
@@ -881,7 +911,7 @@ function themelia_wrap_more_tag_link($more_link) {
  *
  * @since  Themelia 1.0.0
  */
-function themelia_bbp_no_breadcrumb ($param) {
+function themelia_bbp_no_breadcrumb ( $param ) {
 
 	return true;
 }
@@ -929,38 +959,41 @@ function themelia_edit_link() {
 endif;
 
 if ( ! function_exists( 'themelia_comments_link' ) ) :
-/**
- * Returns an accessibility-friendly link to comments section.
- */
-function themelia_comments_link() {
+	/**
+	 * Returns an accessibility-friendly link to comments section.
+	 */
+	function themelia_comments_link() {
 
-	$css_class = 'comments-link zero-comments';
-	$number    = (int) get_comments_number( get_the_ID() );
+		$css_class = 'comments-link zero-comments';
+		$number    = (int) get_comments_number( get_the_ID() );
 
-	if ( 1 === $number ) {
-		$css_class = 'comments-link one-comment';
-	} elseif ( 1 < $number ) {
-		$css_class = 'comments-link multiple-comments';
+		if ( 1 === $number ) {
+			$css_class = 'comments-link one-comment';
+		} elseif ( 1 < $number ) {
+			$css_class = 'comments-link multiple-comments';
+		}
+
+		if ( 'cl_icon' === get_theme_mod( 'comments_link_visual' ) ) { $css_class .= ' cl-icon'; } else { $css_class .= ' cl-text'; }
+		if ( true === get_theme_mod( 'comments_link_excerpt' ) ) { $css_class .= ' cl-hidden--excerpt'; }
+		if ( true === get_theme_mod( 'comments_link_full' ) ) { $css_class .= ' cl-hidden--full'; }
+		if ( true === get_theme_mod( 'comments_link_zero' ) ) { $css_class .= ' cl-zero-show'; } else { $css_class .= ' cl-zero-hide'; }
+
+		comments_popup_link(
+			sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">0</span><span class="comments-text"> comments</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
+				get_the_title()
+			),
+			sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">1</span><span class="comments-text"> comment</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
+				get_the_title()
+			),
+			sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">%1$s</span><span class="comments-text"> comments</span><span class="screen-reader-text"> on "%2$s"</span>', 'themelia' ),
+				$number,
+				get_the_title()
+			),
+			$css_class,
+			''
+		);
 	}
-
-    if ( 'cl_icon' == get_theme_mod( 'comments_link_visual' ) ) { $css_class .= ' cl-icon'; } else { $css_class .= ' cl-text'; }
-	if ( true == get_theme_mod( 'comments_link_excerpt' ) ) { $css_class .= ' cl-hidden--excerpt'; }
-	if ( true == get_theme_mod( 'comments_link_full' ) ) { $css_class .= ' cl-hidden--full'; }
-	if ( true == get_theme_mod( 'comments_link_zero' ) ) { $css_class .= ' cl-zero-show'; } else { $css_class .= ' cl-zero-hide'; }
-
-	comments_popup_link(
-		sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">0</span><span class="comments-text"> comments</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
-			get_the_title()
-		),
-		sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">1</span><span class="comments-text"> comment</span><span class="screen-reader-text"> on "%1$s"</span>', 'themelia' ),
-			get_the_title()
-		),
-		sprintf( __( '<i class="icon ion-ios-chatboxes-outline comments-sep"></i><span class="comments-number">%1$s</span><span class="comments-text"> comments</span><span class="screen-reader-text"> on "%2$s"</span>', 'themelia' ),
-			$number,
-			get_the_title()
-		),
-		$css_class,
-		''
-	);
-}
 endif;
+
+// Disable Kirki Telemetry module.
+add_filter( 'kirki_telemetry', '__return_false' );

@@ -2,6 +2,43 @@
 
 All notable changes to Themelia will be documented in this file. This changelog adheres to [Semantic Versioning](http://semver.org/). Version format will look like `3.2.1` where `3` is the major release, `2` is the minor release, and `1` is the patch release.
 
+## v1.3.1 - 2020-01-24
+
+### Updated
+- Updated readme.txt and README.md
+- Disabled Kirki Telemetry module.
+
+### Fixed
+- Obsolete definitions removed from style.css.
+
+
+## v1.3.0 - 2020-01-22
+
+### New
+
+- Customizer - added "Mobile Menu" settings:
+  - Hamburger Menu Breakpoint - Move slider to the viewport width where you want the hamburger menu appear. 
+  - Header Stacked & Centered Breakpoint - If you do not want to use Hamburger Menu, you may set a breakpoint where the site title and the main menu will appear stacked and centered. This will work only if Hamburger Menu Breakpoint value is set to 0.
+
+- Customizer - added "Header Type" in "Site Title & Header" setting
+  - Choose Header Type: Sticky Header (Always stick your header to the top), Sticky Headroom (Hide your header until you need it)
+
+- Customizer - "Body Text and Links" updated to "Body Text, Links & Buttons"
+  - Added "Buttons Colors" setting (Primary: Forms submit buttons and all links with class `.btn .btn-primary`, Cart: WooCommerce and EDD, Secondary: WooCommerce secondary buttons and all links with class `.btn .btn-secondary`).
+
+### Updated
+
+- Kirki library is updated to version 3.0.45.
+- Minor updates in customizer.css.
+- Sanitize CSS.
+
+### Removed
+
+- Schema.org microdata removed from attributes (`hybrid_attr()`) system. Now it is possible to use any of numeruous plugins for creating Schema.
+
+### Fixed
+- Various style.css corrections and optimization.
+
 ## v1.2.3 - 2018-05-15
 
 ### New
@@ -9,7 +46,7 @@ All notable changes to Themelia will be documented in this file. This changelog 
 - Added Cleaner Gallery support.
 - Added theme support for WooCommerce product gallery features (zoom, swipe, lightbox).
 
-### Fix
+### Fixed
 
 - Fixed display of author's name on the by-line.
 - Minor CSS improvements (wp-caption).
@@ -23,7 +60,7 @@ All notable changes to Themelia will be documented in this file. This changelog 
 
 ## v1.2.2 - 2018-01-03
 
-### Fix
+### Fixed
 
 - Minor CSS improvements, clearing floats.
 
@@ -33,7 +70,7 @@ All notable changes to Themelia will be documented in this file. This changelog 
 
 ## v1.2.1 - 2017-12-22
 
-### Fix
+### Fixed
 
 - Title output on archive page - fixed missing whitespace between month and year. Tnx `@getnaked`.
 
@@ -55,7 +92,7 @@ All notable changes to Themelia will be documented in this file. This changelog 
 
 - Customizer - Headings & Entry Titles: Added color setting for Widget Titles in the footer sidebar.
 
-### Fix
+### Fixed
 
 - Fixed customizer color control incompatibility with WP version 4.9.
 - Various style.css corrections and optimization.
@@ -72,13 +109,13 @@ All notable changes to Themelia will be documented in this file. This changelog 
 
 - Comments link removed from content.php (and other post parts) and wrapped in `themelia_comments_link()` function.
 
-### Fix
+### Fixed
 
 - Fixed an issue in Customizer which prevented correct color output for Page Title and Entry Title (Single Post).
 
 ## v1.1.3 - 2017-03-23
 
-### Fix
+### Fixed
 
 - Fixed 'Blog Settings' issue that wrongly displayed Full Content by default.
 

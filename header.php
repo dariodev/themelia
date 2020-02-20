@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes( 'html' ); ?> class="no-js">
 
-<head <?php hybrid_attr( 'head' ); ?>>
+<head>
 <?php wp_head(); // Hook required for scripts, styles, and other <head> items. ?>
 </head>
 

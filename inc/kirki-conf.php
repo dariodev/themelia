@@ -7,7 +7,7 @@ if ( class_exists( 'Kirki' ) ) {
 		'disable_output' => false,
 	) );
 
-	Kirki_Fonts_Google::$force_load_all_variants = true;
+	//Kirki_Fonts_Google::$force_load_all_variants = true;
 
 	 /****
 	 * -> START Layout
@@ -92,6 +92,67 @@ if ( class_exists( 'Kirki' ) ) {
 		) );
 
 		Kirki::add_field( 'themelia_config', array(
+			'type'     => 'custom',
+			'settings' => 'custom_hr',
+			'label'    => '',
+			'section'  => 'themelia_header_settings',
+			'default'  => '<hr>',
+			'priority' => 10,
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'     => 'radio',
+			'settings' => 'sticky_header',
+			'label'    => __( 'Header Type', 'themelia' ),
+			'section'  => 'themelia_header_settings',
+			'default'  => 'no-sticky',
+			'priority' => 10,
+			'choices'  => [
+				'no-sticky' => [
+					esc_html__( 'No Sticky', 'themelia' ),
+					esc_html__( 'Normal Header', 'themelia' ),
+				],
+				'sticky'    => [
+					esc_html__( 'Sticky Header', 'themelia' ),
+					esc_html__( 'Always stick your header to the top', 'themelia' ),
+				],
+				'headroom'  => [
+					esc_html__( 'Sticky Headroom', 'themelia' ),
+					esc_html__( 'Hide your header until you need it', 'themelia' ),
+				],
+			],
+		) );
+
+		Kirki::add_field( 'themelia_config', [
+			'type'        => 'number',
+			'settings'    => 'main_padding',
+			'description' => esc_html__( 'If your Header Type is Sticky or Sticky Headroom, the main content will need top padding. Adjust if your header is bigger or smaller (default is 86px)', 'themelia' ),
+			'section'     => 'themelia_header_settings',
+			'default'     => 86,
+			'choices'     => array(
+				'min'  => 0,
+				'max'  => 180,
+				'step' => 1,
+			),
+			'output' => array(
+				array(
+					'element'  => '.headroom + .main, .sticky-header + .main',
+					'property' => 'padding-top',
+					'units'    => 'px',
+				),
+			),
+		] );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'     => 'custom',
+			'settings' => 'custom_hr_2',
+			'label'    => '',
+			'section'  => 'themelia_header_settings',
+			'default'  => '<hr>',
+			'priority' => 10,
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'color',
 			'settings'    => 'site_header_background',
 			'label'       => esc_attr__( 'Site Header Background', 'themelia' ),
@@ -134,6 +195,15 @@ if ( class_exists( 'Kirki' ) ) {
 		) );
 
 		Kirki::add_field( 'themelia_config', array(
+			'type'     => 'custom',
+			'settings' => 'custom_hr_3',
+			'label'    => '',
+			'section'  => 'themelia_header_settings',
+			'default'  => '<hr>',
+			'priority' => 10,
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
 			'type'        => 'toggle',
 			'settings'    => 'site_title',
 			'label'       => __( 'Display Site Title', 'themelia' ),
@@ -163,43 +233,42 @@ if ( class_exists( 'Kirki' ) ) {
 			'transport' => 'auto',
 			'output' => array(
 				array(
-				  'element'  => '.site-title',
+					'element' => '.site-title',
 				),
 			),
 		) );
 
 		Kirki::add_field( 'themelia_config', array(
-			'type'        => 'multicolor',
-			'settings'    => 'site_title_link_color',
-			//'label'       => esc_attr__( 'Site Title', 'themelia' ),
-			'section'     => 'themelia_header_settings',
-			'priority'    => 25,
-			'choices'     => array(
-				'link'    => esc_attr__( 'Color', 'themelia' ),
-				'hover'   => esc_attr__( 'Hover', 'themelia' ),
-				'active'  => esc_attr__( 'Active', 'themelia' ),
+			'type'      => 'multicolor',
+			'settings'  => 'site_title_link_color',
+			'section'   => 'themelia_header_settings',
+			'priority'  => 25,
+			'choices'   => array(
+				'link'   => esc_attr__( 'Color', 'themelia' ),
+				'hover'  => esc_attr__( 'Hover', 'themelia' ),
+				'active' => esc_attr__( 'Active', 'themelia' ),
 			),
 			'default' => array(
-				'link'    => '#22222A',
-				'hover'   => '#22222A',
-				'active'  => '#22222A',
+				'link'   => '#22222A',
+				'hover'  => '#22222A',
+				'active' => '#22222A',
 			),
 			'transport' => 'auto',
 			'output' => array(
 				array(
-				  'choice'   => 'link',
-				  'element'  => '.site-title-wrap .site-title, .site-title-wrap:visited .site-title',
-				  'property' => 'color',
+					'choice'   => 'link',
+					'element'  => '.site-title-wrap .site-title, .site-title-wrap:visited .site-title',
+					'property' => 'color',
 				),
 				array(
-				  'choice'   => 'hover',
-				  'element'  => '.site-title-wrap:hover .site-title',
-				  'property' => 'color',
+					'choice'   => 'hover',
+					'element'  => '.site-title-wrap:hover .site-title',
+					'property' => 'color',
 				),
 				array(
-				  'choice'   => 'active',
-				  'element'  => '.site-title-wrap:active .site-title',
-				  'property' => 'color',
+					'choice'   => 'active',
+					'element'  => '.site-title-wrap:active .site-title',
+					'property' => 'color',
 				),
 			),
 		) );
@@ -216,12 +285,10 @@ if ( class_exists( 'Kirki' ) ) {
 		) );
 
 		Kirki::add_field( 'themelia_config', array(
-			'type'        => 'typography',
-			'settings'    => 'site_description_font',
-			//'label'     => esc_attr__( 'Site Description', 'themelia' ),
-			//'description' => esc_attr__( '', 'themelia' ),
-			'section'     => 'themelia_header_settings',
-			'default'     => array(
+			'type'      => 'typography',
+			'settings'  => 'site_description_font',
+			'section'   => 'themelia_header_settings',
+			'default'   => array(
 				'font-family'    => 'Roboto',
 				'variant'        => '400',
 				'font-size'      => '0.789em',
@@ -229,13 +296,13 @@ if ( class_exists( 'Kirki' ) ) {
 				'line-height'    => '1.2',
 				'subsets'        => array( 'latin' ),
 				'text-transform' => 'none',
-				'color'     => '#6f767a',
+				'color'          => '#6f767a',
 			),
 			'priority'  => 25,
 			'transport' => 'auto',
 			'output' => array(
 				array(
-				  'element'  => '.site-description',
+					'element' => '.site-description',
 				),
 			),
 		) );
@@ -259,12 +326,12 @@ if ( class_exists( 'Kirki' ) ) {
 		* -> START Main Navigation
 		*/
 		Kirki::add_field( 'themelia_config', array(
-			'type'        => 'typography',
-			'settings'    => 'nav_typography',
-			'label'       => esc_attr__( 'Typography', 'themelia' ),
-			'section'     => 'themelia_menu_typography',
-			'priority'    => 25,
-			'default'     => array(
+			'type'      => 'typography',
+			'settings'  => 'nav_typography',
+			'label'     => esc_attr__( 'Typography', 'themelia' ),
+			'section'   => 'themelia_menu_typography',
+			'priority'  => 25,
+			'default'   => array(
 				'font-family'    => 'Roboto',
 				'font-size'      => '16px',
 				'line-height'    => '1.4',
@@ -280,18 +347,6 @@ if ( class_exists( 'Kirki' ) ) {
 				),
 			),
 		) );
-
-
-	/*
-	 * -> SECTION Main Navigation Colors (themelia_menu_colors)
-	 *
-	 */
-	Kirki::add_section( 'themelia_menu_colors', array(
-		'title'          => __( 'Main Navigation Colors', 'themelia' ),
-		'priority'       => 25,
-		'capability'     => 'edit_theme_options',
-		'theme_supports' => '', // Rarely needed.
-	) );
 
 	   /*
 		* -> START Main Navigation Colors
@@ -479,12 +534,55 @@ if ( class_exists( 'Kirki' ) ) {
 		 **/
 
 
-   /*
-	* -> SECTION Base Typography
-	*
-	*/
+	/*
+	 * -> SECTION Hamburger Menu (themelia_mobile_menu)
+	 *
+	 */
+	Kirki::add_section( 'themelia_mobile_menu', array(
+		'title'          => __( 'Mobile Menu', 'themelia' ),
+		'priority'       => 25,
+		'capability'     => 'edit_theme_options',
+		'theme_supports' => '', // Rarely needed.
+	) );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'        => 'slider',
+			'settings'    => 'hamburger_breakpoint',
+			'label'       => esc_html__( 'Hamburger Menu Breakpoint', 'themelia' ),
+			'description' => esc_html__( 'Move slider to the viewport width where you want the hamburger menu appear. Max size is 1920 (size in px). Also you can input your own value in the number field, click and type in a custom number. (Default 1200)', 'themelia' ),
+			'section'     => 'themelia_mobile_menu',
+			'default'     => 1200,
+			'choices'     => array(
+				'min'  => 0,
+				'max'  => 1920,
+				'step' => 1,
+			),
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'        => 'slider',
+			'settings'    => 'headerstack_breakpoint',
+			'label'       => esc_html__( 'Header Stacked & Centered Breakpoint', 'themelia' ),
+			'description' => esc_html__( 'If you do not want to use Hamburger Menu, you may set a breakpoint where the site title and the main menu will appear stacked and centered. This will work only if Hamburger Menu Breakpoint value is set to 0. Move slider to the desired viewport width (size in px). Also you can input your own value in the number field, click and type in a custom number. (Default 0)', 'themelia' ),
+			'section'     => 'themelia_mobile_menu',
+			'default'     => 0,
+			'choices'     => array(
+				'min'  => 0,
+				'max'  => 1920,
+				'step' => 1,
+			),
+		) );
+
+		/* - END Main Hamburger Menu
+		 **/
+
+
+	/*
+	 * -> SECTION Base Typography
+	 *
+	 */
 	Kirki::add_section( 'themelia_base_typography', array(
-		'title'          => __( 'Body Text and Links', 'themelia' ),
+		'title'          => __( 'Body Text, Links & Buttons', 'themelia' ),
 		'priority'       => 25,
 		'capability'     => 'edit_theme_options',
 		'theme_supports' => '', // Rarely needed.
@@ -535,30 +633,59 @@ if ( class_exists( 'Kirki' ) ) {
 				'hover'   => '#2e3191',
 				'active'  => '#2e3191',
 			),
-			'transport' => 'auto',
-			'output'   => array(
+			'transport'   => 'auto',
+			'output'      => array(
 				array(
-				  'choice'   => 'link',
-				  'element'  => 'a',
-				  'property' => 'color',
+					'choice'   => 'link',
+					'element'  => 'a',
+					'property' => 'color',
 				),
 				array(
-				  'choice'   => 'visited',
-				  'element'  => 'a:visited',
-				  'property' => 'color',
+					'choice'   => 'visited',
+					'element'  => 'a:visited',
+					'property' => 'color',
 				),
 				array(
-				  'choice'   => 'hover',
-				  'element'  => 'a:hover',
-				  'property' => 'color',
+					'choice'   => 'hover',
+					'element'  => 'a:hover',
+					'property' => 'color',
 				),
 				array(
-				  'choice'   => 'active',
-				  'element'  => 'a:active',
-				  'property' => 'color',
+					'choice'   => 'active',
+					'element'  => 'a:active',
+					'property' => 'color',
 				),
 			),
 		) );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'     => 'custom',
+			'settings' => 'custom_btn_header',
+			'label'    => '',
+			'section'  => 'themelia_base_typography',
+			'default'  => esc_attr__( 'Buttons Color', 'themelia' ),
+			'priority' => 10,
+		) );
+
+		Kirki::add_field( 'themelia_config', array(
+			'type'        => 'multicolor',
+			'settings'    => 'buttons_color',
+			'label'       => esc_attr__( 'Buttons Color', 'themelia' ),
+			'description' => esc_attr__( 'Colors for buttons.', 'themelia' ),
+			'section'     => 'themelia_base_typography',
+			'priority'    => 25,
+			'choices'     => array(
+				'btn-primary'    => esc_attr__( 'Primary (Form)', 'themelia' ),
+				'btn-cart'       => esc_attr__( 'Cart (Shop)', 'themelia' ),
+				'btn-secondary'  => esc_attr__( 'Secondary', 'themelia' ),
+			),
+			'default'     => array(
+				'btn-primary'    => '#00823B',
+				'btn-cart'       => '#00823B',
+				'btn-secondary'  => '#E8E8E8',
+			),
+		) );
+
 
 
    /*

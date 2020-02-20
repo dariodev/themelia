@@ -1,6 +1,6 @@
 <?php if ( get_option( 'page_comments' ) && 1 < get_comment_pages_count() ) : // Check for paged comments. ?>
 
-	<nav class="comments-nav" role="navigation" aria-labelledby="comments-nav-title">
+	<nav class="comments-nav" aria-labelledby="comments-nav-title">
 
 		<h3 id="comments-nav-title" class="screen-reader-text"><?php esc_html_e( 'Comments Navigation', 'themelia' ); ?></h3>
 

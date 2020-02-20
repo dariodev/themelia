@@ -58,7 +58,7 @@
 
 		</header><!-- .entry-header -->
 
-		<?php get_the_image( array( 'size' => 'large', 'image_class' => 'gallery-post-thumbnail', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ) ) ); ?>
+		<?php get_the_image( array( 'size' => 'large', 'image_class' => 'gallery-post-thumbnail', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'featured', 'scan_raw', 'scan', 'attachment' ) ) ); ?>
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
 			<?php $count = hybrid_get_gallery_item_count(); ?>

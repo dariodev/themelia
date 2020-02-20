@@ -4,8 +4,8 @@
  *
  * @package     Kirki
  * @subpackage  Controls
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
+ * @license     https://opensource.org/licenses/MIT
  * @since       2.2.0
  */
 
@@ -22,16 +22,22 @@ class Kirki_Output_Field_Dimensions extends Kirki_Output {
 	 * @param array $value  The field's value.
 	 */
 	protected function process_output( $output, $value ) {
+		$output = wp_parse_args(
+			$output,
+			array(
+				'element'     => '',
+				'property'    => '',
+				'media_query' => 'global',
+				'prefix'      => '',
+				'suffix'      => '',
+			)
+		);
 
-		$output = wp_parse_args( $output, array(
-			'element'     => '',
-			'property'    => '',
-			'media_query' => 'global',
-			'prefix'      => '',
-			'suffix'      => '',
-		) );
+		if ( ! is_array( $value ) ) {
+			return;
+		}
 
-		foreach ( $value as $key => $sub_value ) {
+		foreach ( array_keys( $value ) as $key ) {
 
 			$property = ( empty( $output['property'] ) ) ? $key : $output['property'] . '-' . $key;
 			if ( isset( $output['choice'] ) && $output['property'] ) {

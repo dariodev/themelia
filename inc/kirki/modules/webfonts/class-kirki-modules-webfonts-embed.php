@@ -1,12 +1,12 @@
 <?php
 /**
- * Embeds webfonts in styles.
+ * Adds the Webfont Loader to load fonts asyncronously.
  *
  * @package     Kirki
  * @category    Core
- * @author      Aristeides Stathopoulos
- * @copyright   Copyright (c) 2017, Aristeides Stathopoulos
- * @license     http://opensource.org/licenses/https://opensource.org/licenses/MIT
+ * @author      Ari Stathopoulos (@aristath)
+ * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
+ * @license     https://opensource.org/licenses/MIT
  * @since       3.0
  */
 
@@ -43,12 +43,13 @@ final class Kirki_Modules_Webfonts_Embed {
 	protected $googlefonts;
 
 	/**
-	 * The google link
+	 * Fonts to load.
 	 *
-	 * @access public
-	 * @var string
+	 * @access protected
+	 * @since 3.0.26
+	 * @var array
 	 */
-	public $link = '';
+	protected $fonts_to_load = array();
 
 	/**
 	 * Constructor.
@@ -61,115 +62,188 @@ final class Kirki_Modules_Webfonts_Embed {
 	 * @param array  $args        Extra args we want to pass.
 	 */
 	public function __construct( $config_id, $webfonts, $googlefonts, $args = array() ) {
-
 		$this->config_id   = $config_id;
 		$this->webfonts    = $webfonts;
 		$this->googlefonts = $googlefonts;
 
-		add_filter( "kirki/{$config_id}/dynamic_css", array( $this, 'embed_css' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'inline_css' ), 999 );
+		add_action( 'wp', array( $this, 'init' ), 9 );
+		add_filter( 'wp_resource_hints', array( $this, 'resource_hints' ), 10, 2 );
 	}
 
 	/**
-	 * Adds inline css.
+	 * Init.
+	 *
+	 * @access public
+	 * @since 3.0.36
+	 * @return void
+	 */
+	public function init() {
+		$this->populate_fonts();
+		add_action( 'kirki_dynamic_css', array( $this, 'the_css' ) );
+	}
+
+	/**
+	 * Add preconnect for Google Fonts.
+	 *
+	 * @access public
+	 * @param array  $urls           URLs to print for resource hints.
+	 * @param string $relation_type  The relation type the URLs are printed.
+	 * @return array $urls           URLs to print for resource hints.
+	 */
+	public function resource_hints( $urls, $relation_type ) {
+		$fonts_to_load = $this->googlefonts->fonts;
+
+		if ( ! empty( $fonts_to_load ) && 'preconnect' === $relation_type ) {
+			$urls[] = array(
+				'href' => 'https://fonts.gstatic.com',
+				'crossorigin',
+			);
+		}
+		return $urls;
+	}
+
+	/**
+	 * Webfont Loader for Google Fonts.
 	 *
 	 * @access public
 	 * @since 3.0.0
 	 */
-	public function inline_css() {
-		wp_add_inline_style( 'kirki-styles', $this->embed_css() );
-	}
-
-	/**
-	 * Embeds the CSS from googlefonts API inside the Kirki output CSS.
-	 *
-	 * @access public
-	 * @since 3.0.0
-	 * @param string $css The original CSS.
-	 * @return string     The modified CSS.
-	 */
-	public function embed_css( $css = '' ) {
+	public function populate_fonts() {
 
 		// Go through our fields and populate $this->fonts.
 		$this->webfonts->loop_fields( $this->config_id );
 
-		$this->googlefonts->fonts = apply_filters( 'kirki/enqueue_google_fonts', $this->googlefonts->fonts );
+		$this->googlefonts->fonts = apply_filters( 'kirki_enqueue_google_fonts', $this->googlefonts->fonts );
 
 		// Goes through $this->fonts and adds or removes things as needed.
 		$this->googlefonts->process_fonts();
 
-		// Go through $this->fonts and populate $this->link.
-		$link_obj = new Kirki_Modules_Webfonts_Link( $this->config_id, $this->webfonts, $this->googlefonts );
-		$link_obj->create_link();
-		$this->link = $link_obj->link;
-
-		// If $this->link is not empty then enqueue it.
-		if ( '' !== $this->link ) {
-			return $this->get_url_contents( $this->link ) . "\n" . $css;
+		foreach ( $this->googlefonts->fonts as $font => $weights ) {
+			foreach ( $weights as $key => $value ) {
+				if ( 'italic' === $value ) {
+					$weights[ $key ] = '400i';
+				} else {
+					$weights[ $key ] = str_replace( array( 'regular', 'bold', 'italic' ), array( '400', '', 'i' ), $value );
+				}
+			}
+			$this->fonts_to_load[] = array(
+				'family'  => $font,
+				'weights' => $weights,
+			);
 		}
-		return $css;
 	}
 
 	/**
-	 * Get the contents of a remote google-fonts link.
-	 * Responses get cached for 1 day.
+	 * Webfont Loader script for Google Fonts.
 	 *
-	 * @access protected
+	 * @access public
 	 * @since 3.0.0
-	 * @param string $url The link we want to get.
-	 * @return string|false Returns false if there's an error.
 	 */
-	protected function get_url_contents( $url = '' ) {
+	public function the_css() {
+		foreach ( $this->fonts_to_load as $font ) {
+			$family  = str_replace( ' ', '+', trim( $font['family'] ) );
+			$weights = join( ',', $font['weights'] );
+			$url     = "https://fonts.googleapis.com/css?family={$family}:{$weights}&subset=cyrillic,cyrillic-ext,devanagari,greek,greek-ext,khmer,latin,latin-ext,vietnamese,hebrew,arabic,bengali,gujarati,tamil,telugu,thai";
 
-		// If $url is not set, use $this->link.
-		$url = ( '' === $url ) ? $this->link : $url;
+			$transient_id = 'kirki_gfonts_' . md5( $url );
+			$contents     = get_transient( $transient_id );
 
-		// Sanitize the URL.
-		$url = esc_url_raw( $url );
-
-		// The transient name.
-		$transient_name = 'kirki_googlefonts_contents_' . md5( $url );
-
-		// Get the transient value.
-		$data = get_transient( $transient_name );
-
-		// Check for transient, if none, grab remote HTML file.
-		if ( false === $data ) {
-
-			// Get remote HTML file.
-			$response = wp_remote_get( $url );
-
-			// Check for error.
-			if ( is_wp_error( $response ) ) {
-				set_transient( 'kirki_googlefonts_fallback_to_link', 'yes', HOUR_IN_SECONDS );
-				return false;
+			/**
+			 * Reset the cache if we're using action=kirki-reset-cache in the URL.
+			 *
+			 * Note to code reviewers:
+			 * There's no need to check nonces or anything else, this is a simple true/false evaluation.
+			 */
+			if ( ! empty( $_GET['action'] ) && 'kirki-reset-cache' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
+				$contents = false;
 			}
+			if ( ! $contents ) {
 
-			if ( ! isset( $response['response'] ) || ! is_array( $response['response'] ) || ! isset( $response['response']['code'] ) || 200 !== $response['response']['code'] ) {
-				return false;
+				// Get the contents of the remote URL.
+				$contents = Kirki_Fonts_Helper::get_remote_url_contents(
+					$url,
+					array(
+						'headers' => array(
+							/**
+							 * Set user-agent to firefox so that we get woff files.
+							 * If we want woff2, use this instead: 'Mozilla/5.0 (X11; Linux i686; rv:64.0) Gecko/20100101 Firefox/64.0'
+							 */
+							'user-agent' => 'Mozilla/5.0 (X11; Linux i686; rv:21.0) Gecko/20100101 Firefox/21.0',
+						),
+					)
+				);
+
+				/**
+				 * Allow filtering the font-display property.
+				 */
+				$font_display = apply_filters( 'kirki_googlefonts_font_display', 'swap' );
+
+				if ( $contents ) {
+
+					// Add font-display:swap to improve rendering speed.
+					$contents = str_replace( '@font-face {', '@font-face{', $contents );
+					$contents = str_replace( '@font-face{', '@font-face{font-display:' . $font_display . ';', $contents );
+
+					// Remove blank lines and extra spaces.
+					$contents = str_replace(
+						array( ': ', ';  ', '; ', '  ' ),
+						array( ':', ';', ';', ' ' ),
+						preg_replace( "/\r|\n/", '', $contents )
+					);
+
+					// Use local fonts.
+					if ( apply_filters( 'kirki_use_local_fonts', true ) ) {
+						$contents = $this->use_local_files( $contents );
+					}
+
+					// Remove protocol to fix http/https issues.
+					$contents = str_replace(
+						array( 'http://', 'https://' ),
+						array( '//', '//' ),
+						$contents
+					);
+
+					// Set the transient for a day.
+					set_transient( $transient_id, $contents, DAY_IN_SECONDS );
+				}
 			}
-
-			// Parse remote HTML file.
-			$data = wp_remote_retrieve_body( $response );
-
-			// Check for error.
-			if ( is_wp_error( $data ) ) {
-				set_transient( 'kirki_googlefonts_fallback_to_link', 'yes', HOUR_IN_SECONDS );
-				return false;
+			if ( $contents ) {
+				/**
+				 * Note to code reviewers:
+				 *
+				 * Though all output should be run through an escaping function, this is pure CSS
+				 * and it is added on a call that has a PHP `header( 'Content-type: text/css' );`.
+				 * No code, script or anything else can be executed from inside a stylesheet.
+				 * For extra security we're using the wp_strip_all_tags() function here
+				 * just to make sure there's no <script> tags in there or anything else.
+				 */
+				echo wp_strip_all_tags( $contents ); // phpcs:ignore WordPress.Security.EscapeOutput
 			}
-
-			// Return false if the data is empty.
-			if ( ! $data ) {
-				set_transient( 'kirki_googlefonts_fallback_to_link', 'yes', HOUR_IN_SECONDS );
-				return false;
-			}
-
-			// Store remote HTML file in transient, expire after 24 hours.
-			set_transient( $transient_name, $data, DAY_IN_SECONDS );
-			set_transient( 'kirki_googlefonts_fallback_to_link', 'no', DAY_IN_SECONDS );
 		}
+	}
 
-		return $data;
+	/**
+	 * Downloads font-files locally and uses the local files instead of the ones from Google's servers.
+	 * This addresses any and all GDPR concerns, as well as firewalls that exist in some parts of the world.
+	 *
+	 * @access private
+	 * @since 3.0.36
+	 * @param string $css The CSS with original URLs.
+	 * @return string     The CSS with local URLs.
+	 */
+	private function use_local_files( $css ) {
+		preg_match_all( '/https\:.*?\.woff/', $css, $matches );
 
+		$matches = array_shift( $matches );
+
+		foreach ( $matches as $match ) {
+			if ( 0 === strpos( $match, 'https://fonts.gstatic.com' ) ) {
+				$new_url = Kirki_Fonts_Helper::download_font_file( $match );
+				if ( $new_url ) {
+					$css = str_replace( $match, $new_url, $css );
+				}
+			}
+		}
+		return $css;
 	}
 }

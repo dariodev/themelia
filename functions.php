@@ -15,9 +15,9 @@
  *
  * @package    Themelia
  * @subpackage Functions
- * @version    1.2.0
+ * @version    1.3.0
  * @author     Dario Devcic <dario@relishpress.com>
- * @copyright  Copyright (c) 2018, Dario Devcic
+ * @copyright  Copyright (c) 2020, Dario Devcic
  * @link       http://relishpress.com/themes/themelia
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -100,11 +100,11 @@ function themelia_theme_setup() {
 	add_theme_support(
 		'infinite-scroll',
 		array(
-			'container'	=> 'content',
-			'type'		=> 'click',
-			'wrapper'	=> false,
-			'footer'	=> false,
-			'render'	=> 'themelia_jetpack_infinite_scroll_render',
+			'container' => 'content',
+			'type'      => 'click',
+			'wrapper'   => false,
+			'footer'    => false,
+			'render'    => 'themelia_jetpack_infinite_scroll_render',
 	));
 
 	// Editor styles.
@@ -115,7 +115,7 @@ function themelia_theme_setup() {
 	hybrid_set_content_width( 1280 );
 }
 
-if( ! function_exists('themelia_jetpack_infinite_scroll_render') ) {
+if ( ! function_exists( 'themelia_jetpack_infinite_scroll_render' ) ) {
 	function themelia_jetpack_infinite_scroll_render() {
 
 		while ( have_posts() ) {

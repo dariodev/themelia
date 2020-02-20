@@ -1,18 +1,16 @@
 <?php
 /**
- * - A note for developers! This file is updated to support schema.org. Taken from HybridCore v3.
+ * Modified for Themelia by dariodev. Schema.org microdata removed.
  *
  * HTML attribute functions and filters.  The purposes of this is to provide a way for theme/plugin devs
  * to hook into the attributes for specific HTML elements and create new or modify existing attributes.
- * This is sort of like `body_class()`, `post_class()`, and `comment_class()` on steroids.  Plus, it
- * handles attributes for many more elements.  The biggest benefit of using this is to provide richer
- * microdata while being forward compatible with the ever-changing Web.  Currently, the default microdata
- * vocabulary supported is Schema.org.
+ * This is sort of like `body_class()`, `post_class()`, and `comment_class()` on steroids. Plus, it
+ * handles attributes for many more elements.
  *
  * @package    HybridCore
  * @subpackage Includes
  * @author     Justin Tadlock <justin@justintadlock.com>
- * @copyright  Copyright (c) 2008 - 2017, Justin Tadlock
+ * @copyright  Copyright (c) Justin Tadlock
  * @link       http://themehybrid.com/hybrid-core
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -82,8 +80,8 @@ function hybrid_attr( $slug, $context = '', $attr = array()  ) {
  */
 function hybrid_get_attr( $slug, $context = '', $attr = array() ) {
 
-	$out    = '';
-	$attr   = wp_parse_args( $attr, apply_filters( "hybrid_attr_{$slug}", array(), $context ) );
+	$out  = '';
+	$attr = wp_parse_args( $attr, apply_filters( "hybrid_attr_{$slug}", array(), $context ) );
 
 	if ( empty( $attr ) )
 		$attr['class'] = $slug;
@@ -106,16 +104,8 @@ function hybrid_get_attr( $slug, $context = '', $attr = array() ) {
  */
 function hybrid_attr_body( $attr ) {
 
-	$attr['class']     = join( ' ', get_body_class() );
-	$attr['dir']       = is_rtl() ? 'rtl' : 'ltr';
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/WebPage';
-
-	if ( is_singular( 'post' ) || is_home() || is_archive() )
-		$attr['itemtype'] = 'http://schema.org/Blog';
-
-	elseif ( is_search() )
-		$attr['itemtype'] = 'http://schema.org/SearchResultsPage';
+	$attr['class'] = join( ' ', get_body_class() );
+	$attr['dir']   = is_rtl() ? 'rtl' : 'ltr';
 
 	return $attr;
 }
@@ -130,11 +120,8 @@ function hybrid_attr_body( $attr ) {
  */
 function hybrid_attr_header( $attr ) {
 
-	$attr['id']        = 'header';
-	$attr['class']     = 'site-header';
-	$attr['role']      = 'banner';
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/WPHeader';
+	$attr['id']    = 'header';
+	$attr['class'] = 'site-header';
 
 	return $attr;
 }
@@ -149,11 +136,8 @@ function hybrid_attr_header( $attr ) {
  */
 function hybrid_attr_footer( $attr ) {
 
-	$attr['id']        = 'footer';
-	$attr['class']     = 'site-footer';
-	$attr['role']      = 'contentinfo';
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/WPFooter';
+	$attr['id']    = 'footer';
+	$attr['class'] = 'site-footer';
 
 	return $attr;
 }
@@ -168,12 +152,8 @@ function hybrid_attr_footer( $attr ) {
  */
 function hybrid_attr_content( $attr ) {
 
-	$attr['id']       = 'content';
-	$attr['class']    = 'content';
-	$attr['role']     = 'main';
-
-	if ( ! is_singular( 'post' ) && ! is_home() && ! is_archive() )
-		$attr['itemprop'] = 'mainContentOfPage';
+	$attr['id']    = 'content';
+	$attr['class'] = 'content';
 
 	return $attr;
 }
@@ -190,7 +170,6 @@ function hybrid_attr_content( $attr ) {
 function hybrid_attr_sidebar( $attr, $context ) {
 
 	$attr['class'] = 'sidebar';
-	$attr['role']  = 'complementary';
 
 	if ( $context ) {
 
@@ -204,9 +183,6 @@ function hybrid_attr_sidebar( $attr, $context ) {
 			$attr['aria-label'] = esc_attr( sprintf( _x( '%s Sidebar', 'sidebar aria label', 'themelia' ), $sidebar_name ) );
 		}
 	}
-
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/WPSideBar';
 
 	return $attr;
 }
@@ -223,7 +199,6 @@ function hybrid_attr_sidebar( $attr, $context ) {
 function hybrid_attr_menu( $attr, $context ) {
 
 	$attr['class'] = 'menu';
-	$attr['role']  = 'navigation';
 
 	if ( $context ) {
 
@@ -238,29 +213,10 @@ function hybrid_attr_menu( $attr, $context ) {
 		}
 	}
 
-	$attr['itemscope']  = 'itemscope';
-	$attr['itemtype']   = 'http://schema.org/SiteNavigationElement';
-
 	return $attr;
 }
 
 /* === header === */
-
-/**
- * <head> attributes.
- *
- * @since  3.0.0
- * @access public
- * @param  array   $attr
- * @return array
- */
-function hybrid_attr_head( $attr ) {
-
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/WebSite';
-
-	return $attr;
-}
 
 /**
  * Branding (usually a wrapper for title and tagline) attributes.
@@ -289,9 +245,8 @@ function hybrid_attr_branding( $attr ) {
  */
 function hybrid_attr_site_title( $attr ) {
 
-	$attr['id']       = 'site-title';
-	$attr['class']    = 'site-title';
-	$attr['itemprop'] = 'headline';
+	$attr['id']    = 'site-title';
+	$attr['class'] = 'site-title';
 
 	return $attr;
 }
@@ -309,7 +264,6 @@ function hybrid_attr_site_description( $attr ) {
 
 	$attr['id']       = 'site-description';
 	$attr['class']    = 'site-description';
-	$attr['itemprop'] = 'description';
 
 	return $attr;
 }
@@ -327,9 +281,7 @@ function hybrid_attr_site_description( $attr ) {
  */
 function hybrid_attr_archive_header( $attr ) {
 
-	$attr['class']     = 'archive-header';
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/WebPageElement';
+	$attr['class'] = 'archive-header';
 
 	return $attr;
 }
@@ -345,8 +297,7 @@ function hybrid_attr_archive_header( $attr ) {
  */
 function hybrid_attr_archive_title( $attr ) {
 
-	$attr['class']     = 'archive-title';
-	$attr['itemprop']  = 'headline';
+	$attr['class'] = 'archive-title';
 
 	return $attr;
 }
@@ -362,8 +313,7 @@ function hybrid_attr_archive_title( $attr ) {
  */
 function hybrid_attr_archive_description( $attr ) {
 
-	$attr['class']     = 'archive-description';
-	$attr['itemprop']  = 'text';
+	$attr['class'] = 'archive-description';
 
 	return $attr;
 }
@@ -385,37 +335,8 @@ function hybrid_attr_post( $attr ) {
 	// Make sure we have a real post first.
 	if ( ! empty( $post ) ) {
 
-		$attr['id']        = 'post-' . get_the_ID();
-		$attr['class']     = join( ' ', get_post_class() );
-		$attr['itemscope'] = 'itemscope';
-
-		if ( 'post' === get_post_type() ) {
-
-			$attr['itemtype']  = 'http://schema.org/BlogPosting';
-
-			/* Add itemprop if within the main query. */
-			if ( is_main_query() && ! is_search() )
-				$attr['itemprop'] = 'blogPost';
-		}
-
-		elseif ( 'attachment' === get_post_type() && wp_attachment_is_image() ) {
-
-			$attr['itemtype'] = 'http://schema.org/ImageObject';
-		}
-
-		elseif ( 'attachment' === get_post_type() && hybrid_attachment_is_audio() ) {
-
-			$attr['itemtype'] = 'http://schema.org/AudioObject';
-		}
-
-		elseif ( 'attachment' === get_post_type() && hybrid_attachment_is_video() ) {
-
-			$attr['itemtype'] = 'http://schema.org/VideoObject';
-		}
-
-		else {
-			$attr['itemtype']  = 'http://schema.org/CreativeWork';
-		}
+		$attr['id']    = 'post-' . get_the_ID();
+		$attr['class'] = join( ' ', get_post_class() );
 
 	} else {
 
@@ -452,10 +373,8 @@ function hybrid_attr_entry_title( $attr ) {
  */
 function hybrid_attr_entry_author( $attr ) {
 
-	$attr['class']     = 'entry-author';
-	$attr['itemprop']  = 'author';
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/Person';
+	$attr['class']    = 'entry-author';
+	$attr['itemprop'] = 'author';
 
 	return $attr;
 }
@@ -475,7 +394,7 @@ function hybrid_attr_entry_published( $attr ) {
 	$attr['itemprop'] = 'datePublished';
 
 	// Translators: Post date/time "title" attribute.
-	$attr['title']    = get_the_time( _x( 'l, F j, Y, g:i a', 'post time format', 'themelia' ) );
+	$attr['title'] = get_the_time( _x( 'l, F j, Y, g:i a', 'post time format', 'themelia' ) );
 
 	return $attr;
 }
@@ -561,8 +480,6 @@ function hybrid_attr_comment( $attr ) {
 	if ( in_array( get_comment_type(), array( '', 'comment' ) ) ) {
 
 		$attr['itemprop']  = 'comment';
-		$attr['itemscope'] = 'itemscope';
-		$attr['itemtype']  = 'http://schema.org/Comment';
 	}
 
 	return $attr;
@@ -580,8 +497,6 @@ function hybrid_attr_comment_author( $attr ) {
 
 	$attr['class']     = 'comment-author';
 	$attr['itemprop']  = 'author';
-	$attr['itemscope'] = 'itemscope';
-	$attr['itemtype']  = 'http://schema.org/Person';
 
 	return $attr;
 }

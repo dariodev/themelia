@@ -295,7 +295,7 @@ final class Get_The_Image {
 	public function find() {
 
 		// Get cache key based on $this->args.
-		$key = md5( serialize( compact( array_keys( $this->args ) ) ) );
+		$key = md5( serialize( $this->args ) );
 
 		// Check for a cached image.
 		$image_cache = wp_cache_get( $this->args['post_id'], 'get_the_image' );
@@ -304,7 +304,7 @@ final class Get_The_Image {
 			$image_cache = array();
 
 		// If there is no cached image, let's see if one exists.
-		if ( !isset( $image_cache[ $key ] ) || empty( $cache ) ) {
+		if ( !isset( $image_cache[ $key ] ) || empty( $this->args['cache'] ) ) {
 
 			foreach ( $this->args['order'] as $method ) {
 
@@ -344,9 +344,11 @@ final class Get_The_Image {
 				if ( !empty( $this->args['meta_key_save'] ) )
 					$this->meta_key_save();
 
-				// Set the image cache for the specific post.
-				$image_cache[ $key ] = $this->image;
-				wp_cache_set( $this->args['post_id'], $image_cache, 'get_the_image' );
+				if ( $this->args['cache'] ) {
+					// Set the image cache for the specific post.
+					$image_cache[ $key ] = $this->image;
+					wp_cache_set( $this->args['post_id'], $image_cache, 'get_the_image' );
+				}
 			}
 		}
 
@@ -627,6 +629,10 @@ final class Get_The_Image {
 
 		// Get the attachment image.
 		$image = wp_get_attachment_image_src( $attachment_id, $this->args['size'] );
+
+		// If no image was found, return.
+		if ( false === $image )
+			return;
 
 		// Get the attachment alt text.
 		$alt = trim( strip_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );

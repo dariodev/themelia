@@ -2,18 +2,21 @@
 
 	<nav <?php hybrid_attr( 'menu', 'secondary' ); ?>>
 
-		<?php wp_nav_menu(
+		<?php
+		wp_nav_menu(
 			array(
-				'theme_location'  => 'secondary',
-				'container'       => '',
-				'depth'           => 1,
-				'menu_id'         => 'menu-secondary-items',
-				'menu_class'      => 'menu-secondary-items',
-				'fallback_cb'     => '',
-				'items_wrap'      => '<ul id="%s" class="%s">%s</ul>'
+				'theme_location' => 'secondary',
+				'container'      => '',
+				'depth'          => 1,
+				'menu_id'        => 'menu-secondary-items',
+				'menu_class'     => 'menu-secondary-items',
+				'fallback_cb'    => '',
+				'items_wrap'     => '<ul id="%s" class="%s">%s</ul>'
 			)
-		); ?>
+		);
+		?>
 
 	</nav><!-- #menu-secondary -->
 
-<?php endif; // End check for menu. ?>
+	<?php
+endif; // End check for menu.
